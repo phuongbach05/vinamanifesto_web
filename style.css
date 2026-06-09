@@ -591,7 +591,7 @@ button { font: inherit; }
 
 /* Cards Slider Section */
 .cards-slider-wrap {
-  --related-card-width: clamp(220px, 26vw, 260px);
+  --related-card-width: clamp(260px, 30vw, 300px);
   --related-card-gap: clamp(10px, 1vw, 16px);
   display: flex;
   align-items: center;
@@ -644,7 +644,7 @@ button { font: inherit; }
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: clamp(90px, 11vh, 105px);
+  height: clamp(115px, 13.5vh, 135px);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border-radius: 0;
