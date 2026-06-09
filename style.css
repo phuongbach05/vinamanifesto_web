@@ -644,7 +644,7 @@ button { font: inherit; }
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: clamp(115px, 13.5vh, 135px);
+  height: clamp(90px, 11vh, 105px);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border-radius: 0;
