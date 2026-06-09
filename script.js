@@ -2,32 +2,32 @@ const branchData = {
   1: {
     title: 'Vina remixes',
     era: 'Past',
-    bodyEn: 'Traditional forms and modern expressions are remixed, combining post-sharing economy with karma capitalists.',
-    bodyVie: 'Các hình thức truyền thống và biểu hiện hiện đại được phối lại, kết hợp nền kinh tế chia sẻ và các nhà tư bản nghiệp chướng.'
+    bodyEn: "is art and design that copy and paste, mix and remix but do not plagiarize. 'Vina' remixes the extremities of things or things that are considered polarized in common sense. i.e. French Baguette with Pork Floss. Italian Pizza with Bún Đậu Mắm Tôm (rice vermicelli with fried tofu and fermented shrimp paste). Bolero with Eurodance.",
+    bodyVie: "là nghệ thuật và thiết kế sao chép và dán, pha trộn và làm mới nhưng không đạo văn. 'Vina' phối lại các điểm cực đoan của sự vật hoặc những thứ được coi là phân cực trong nhận thức thông thường. Ví dụ: Bánh mì kẹp chà bông. Pizza Ý với Bún Đậu Mắm Tôm. Nhạc Bolero với Eurodance."
   },
   2: {
     title: 'Vina is kitsch',
     era: 'Past → Present',
-    bodyEn: 'Embracing the colorful, low-brow, and popular aesthetics that define the eclectic local identity.',
-    bodyVie: 'Đón nhận những yếu tố thẩm mỹ sặc sỡ, bình dân và đại chúng tạo nên bản sắc địa phương phong phú.'
+    bodyEn: 'From Vinahouse to Vina design, it is an aesthetic that embraces the kitschness, the not-so-stylish, the “countryside style”, the stereotypes, the maximalism of Vietnamese contemporary life.',
+    bodyVie: 'Từ Vinahouse đến thiết kế Vina, đó là một thẩm mỹ ôm trọn sự sặc sỡ (kitsch), những thứ không-mấy-hợp-mốt, "phong cách nông thôn", các khuôn mẫu định kiến, và chủ nghĩa tối đa của đời sống đương đại Việt Nam.'
   },
   3: {
     title: 'Vina integrates',
     era: 'Past',
-    bodyEn: 'How local artistic practices and design languages integrate with national and global frameworks.',
-    bodyVie: 'Cách các thực hành nghệ thuật và ngôn ngữ thiết kế địa phương tích hợp với các hệ thống quốc gia và toàn cầu.'
+    bodyEn: '"Maintain national tradition while absorbing international cultural quintessence." -Nghị quyết Trung Ương 9 (9th Central Committee of the Communist Party’s Resolution)',
+    bodyVie: '"Giữ gìn bản sắc văn hóa dân tộc đồng thời tiếp thu tinh hoa văn hóa nhân loại." -Nghị quyết Trung ương 9'
   },
   4: {
     title: 'Vina is chaos',
     era: 'Present',
-    bodyEn: 'Navigating the chaotic energy of contemporary urban life, real estate boom, and everyday design hacks.',
-    bodyVie: 'Khám phá nguồn năng lượng hỗn loạn của đời sống đô thị đương đại, sự bùng nổ bất động sản và các mẹo thiết kế hàng ngày.'
+    bodyEn: '…in order. Freedom in restriction. Look at the examples of Vietnamese traffic. Chaotic but everyone seems to respect unspoken orders, set by unspoken negotiations. Look at the KTTs, the structure is restrictive, but got expanded through improvisation.',
+    bodyVie: '…trong trật tự. Tự do trong khuôn khổ. Hãy nhìn vào ví dụ về giao thông Việt Nam. Hỗn loạn nhưng mọi người dường như đều tôn trọng các luật lệ bất thành văn, được thiết lập bằng các thỏa thuận ngầm. Hãy nhìn vào các khu tập thể (KTT), cấu trúc thì gò bó, nhưng đã được mở rộng thông qua sự ngẫu hứng.'
   },
   5: {
     title: 'Vina is hotpot',
     era: 'Present → Future',
-    bodyEn: 'It is not a fixed style, but evolved like the open source or hotpot. Everyone can contribute to define what Vina is.',
-    bodyVie: 'Không phải một phong cách cố định, mà phát triển giống như nguồn mở hay lẩu. Ai cũng có thể đóng góp định nghĩa Vina là gì.'
+    bodyEn: 'It is not a fixed style, but evolved like the open source or hotpot. Everyone can contribute to define what Vina is',
+    bodyVie: 'Không phải một phong cách cố định, mà phát triển giống như mã nguồn mở hay lẩu. Ai cũng có thể đóng góp để định nghĩa Vina là gì.'
   }
 };
 
