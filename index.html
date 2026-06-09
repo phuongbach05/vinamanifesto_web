@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Vinamanifesto River Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Fraunces:opsz,wght@9..144,900&family=Herr+Von+Muellerhoff&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+    /* Prevent initial flash of content before style.css loads */
+    .river, .endpoints circle, .node, .branch-title, .topic, .timeline, .lake, .brand, .lake-mountain {
+      opacity: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+<body>
+  <main class="site">
+    <section class="map-wrap" aria-label="Vinamanifesto portfolio river map">
+      <svg id="riverMap" viewBox="0 0 1700 900" role="img" aria-labelledby="mapTitle mapDesc">
+        <title id="mapTitle">Vinamanifesto portfolio river map</title>
+        <desc id="mapDesc">A portfolio website map with one central lake, five numbered river branches, and topics arranged by past, present, and future.</desc>
+
+        <defs>
+          <clipPath id="map-clip">
+            <rect x="0" y="0" width="1700" height="900" />
+          </clipPath>
+          <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="lakeShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#e9bc00" flood-opacity="0.24" />
+          </filter>
+          <linearGradient id="lake" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#fff67a" />
+            <stop offset="100%" stop-color="#ffd83d" />
+          </linearGradient>
+          <filter id="riverNoise" filterUnits="userSpaceOnUse" x="-120" y="-120" width="1940" height="1140">
+            <feTurbulence type="fractalNoise" baseFrequency="0.0014 0.002" numOctaves="2" seed="42" result="warp" />
+            <feDisplacementMap in="SourceGraphic" in2="warp" scale="11" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+          <filter id="lakeNoise" filterUnits="userSpaceOnUse" x="460" y="160" width="680" height="580">
+            <feTurbulence type="fractalNoise" baseFrequency="0.0011 0.0017" numOctaves="2" seed="17" result="lakeWarp" />
+            <feDisplacementMap in="SourceGraphic" in2="lakeWarp" scale="10" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+
+          <!-- Mountain 1 Gradients -->
+          <linearGradient id="paint0_linear_1_3604" x1="0.12084" y1="9.35982" x2="20.4608" y2="9.35982" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_1_3604" x1="2.57083" y1="10.2998" x2="17.8008" y2="10.2998" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+          <linearGradient id="paint2_linear_1_3604" x1="4.97086" y1="11.3198" x2="15.2908" y2="11.3198" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+
+          <!-- Mountain 2 Gradients -->
+          <linearGradient id="paint0_linear_1_3596" x1="22.7387" y1="34.9236" x2="22.7387" y2="11.4036" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_1_3596" x1="26.2987" y1="34.1836" x2="26.2987" y2="16.0436" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+          <linearGradient id="paint2_linear_1_3596" x1="26.2387" y1="33.4036" x2="26.2387" y2="21.3536" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+
+          <!-- Mountain 3 Gradients -->
+          <linearGradient id="paint0_linear_1_3640" x1="12.6455" y1="29.555" x2="12.6455" y2="1.90501" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_1_3640" x1="2.06544" y1="15.275" x2="21.6755" y2="15.275" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+          <linearGradient id="paint2_linear_1_3640" x1="11.6054" y1="29.735" x2="11.6054" y2="14.935" gradientUnits="userSpaceOnUse">
+            <stop offset="0.17" stop-color="#EAF2E5"/><stop offset="0.24" stop-color="#EADDD2"/><stop offset="0.52" stop-color="#EA8B88"/><stop offset="0.74" stop-color="#EB4F52"/><stop offset="0.91" stop-color="#EB2A30"/><stop offset="1" stop-color="#EC1C24"/>
+          </linearGradient>
+
+          <!-- Mountain Graphics Definitions -->
+          <!-- Mountain 1 (21 x 19) -->
+          <g id="mtn1">
+            <path d="M0.12085 18.5998C0.44085 17.3898 2.19084 10.8998 4.17084 5.06984C4.50084 4.10984 5.15086 2.26981 6.88086 1.07981C7.34086 0.769814 8.44084 0.00981203 9.80084 0.139812C10.9808 0.249812 11.1008 0.909828 12.8908 1.49983C14.4208 1.99983 14.8609 1.68982 15.5609 2.20982C16.6709 3.03982 16.7209 4.70982 16.7509 5.29982C16.8709 7.34982 17.6708 11.0598 20.4508 18.3698C13.6708 18.4498 6.89084 18.5198 0.11084 18.5998H0.12085Z" fill="url(#paint0_linear_1_3604)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M2.57083 18.5998C3.31083 15.5998 4.59085 10.6398 5.96085 6.1398C6.20085 5.3398 6.71083 3.6598 7.98083 2.6998C8.32083 2.4398 8.89083 2.00983 9.51083 2.00983C9.55083 2.00983 9.60084 2.00983 9.64084 2.00983C9.78084 2.02983 9.80086 2.02982 10.1609 2.27982C10.5809 2.57982 11.2209 3.02981 12.3109 3.42981C13.1909 3.74981 13.8109 3.83981 14.2209 3.89981C14.2809 3.89981 14.3908 3.91982 14.4608 3.93982C14.5408 4.01982 14.6809 4.21982 14.7809 4.71982C14.8609 5.12982 14.8808 5.55983 14.9008 5.78983V5.87982C15.0408 8.62982 16.0008 12.7398 17.8208 18.4098L2.59085 18.5998H2.57083Z" fill="url(#paint1_linear_1_3604)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M4.97086 18.5998C5.68086 15.4298 6.70084 11.0998 7.77084 7.09982C7.96084 6.38982 8.36085 4.90982 9.15085 4.21982C9.21085 4.16982 9.28086 4.0998 9.35086 4.0498C9.85086 4.4298 10.5509 4.91981 11.6309 5.36981C12.0909 5.55981 12.5408 5.70982 12.9908 5.81982C13.0008 5.97982 13.0108 6.11982 13.0108 6.21982V6.31982C13.1408 9.18982 13.8908 13.1598 15.2908 18.4498L4.97086 18.5998Z" fill="url(#paint2_linear_1_3604)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+          </g>
+
+          <!-- Mountain 2 (46 x 33) -->
+          <g id="mtn2">
+            <path d="M45.3687 32.0936C41.7787 29.3736 39.9187 26.6436 38.8787 24.6036C38.2487 23.3536 37.6087 21.7436 36.1487 19.4936C35.4587 18.4236 34.5387 17.0136 33.0787 15.4736C30.8887 13.1736 30.3887 13.6336 29.1487 12.0036C27.4687 9.79357 27.0187 7.13357 26.7587 5.61357C26.2187 2.44357 26.8087 1.21357 25.9087 0.503574C24.7687 -0.406426 22.4287 0.443573 20.9587 1.78357C18.8087 3.73357 19.7987 5.58356 17.7187 8.35356C15.6887 11.0636 14.1387 10.1136 12.4287 12.7336C10.6587 15.4436 11.8287 17.1936 10.0387 19.1236C8.40867 20.8836 6.72867 20.2036 4.74867 21.3136C2.93867 22.3336 0.858672 24.8536 0.138672 31.7236C15.2187 31.8436 30.3087 31.9636 45.3887 32.0936H45.3687Z" fill="url(#paint0_linear_1_3596)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M41.0187 31.8236C40.2287 30.2536 39.4487 28.9736 38.7987 27.9836C37.5687 26.1236 36.5687 24.6036 34.8687 23.0536C33.9787 22.2436 33.7587 22.2036 33.3287 21.5936C32.1487 19.9136 32.6787 18.5736 31.6187 17.7536C30.7387 17.0836 29.8887 17.6136 29.3987 16.8436C28.9987 16.2036 29.4487 15.6236 29.0587 15.0136C28.5787 14.2536 27.6487 14.8036 26.6687 14.2836C25.0887 13.4436 25.7287 11.0636 23.5987 8.44357C23.1387 7.88357 22.5987 7.22356 22.0587 7.34356C21.3187 7.51356 21.4587 8.98355 20.5187 10.6336C19.5387 12.3636 18.5187 12.2436 17.0987 13.9236C16.5287 14.6036 16.2787 15.1136 15.0487 18.1236C12.1687 25.2036 11.9387 26.3536 11.8087 27.2536C11.6387 28.4236 11.4987 30.0336 11.6387 32.0036C21.4287 31.9436 31.2187 31.8836 41.0087 31.8236H41.0187Z" fill="url(#paint1_linear_1_3596)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M37.0887 31.9536C36.9987 31.4636 36.8187 30.7336 36.4087 29.9436C35.6287 28.4736 34.6887 28.1036 32.8187 26.6536C30.3787 24.7536 28.9287 23.6236 28.7187 21.9036C28.5787 20.7036 29.1587 20.0936 28.7187 19.5336C27.9987 18.6036 26.2787 20.0936 24.6187 19.1636C23.2887 18.4236 23.5787 16.9936 21.8887 16.0636C21.4887 15.8436 20.5887 15.3436 19.8387 15.6936C18.9587 16.1036 18.7887 17.4236 18.4687 19.3436C18.1287 21.4236 17.6587 23.4836 17.2687 25.5536C16.9787 27.1136 16.4387 29.3236 15.3887 31.9436C22.6187 31.9436 29.8487 31.9436 37.0787 31.9436L37.0887 31.9536Z" fill="url(#paint2_linear_1_3596)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+          </g>
+
+          <!-- Mountain 3 (26 x 30) -->
+          <g id="mtn3">
+            <path d="M25.1355 28.675C24.2555 27.775 23.0355 26.355 22.0555 24.365C21.7155 23.665 20.5855 21.235 20.0855 13.965C19.7455 9.00503 20.1454 8.28502 19.3454 6.00502C19.1254 5.36502 17.2454 0.115014 14.5954 0.125014C12.2854 0.125014 10.0354 4.13501 9.47545 7.51501C8.85545 11.275 10.5054 13.145 9.00545 15.405C8.02545 16.885 7.18546 16.285 4.95546 18.345C2.56546 20.565 1.55546 23.095 1.17546 24.065C0.455461 25.915 0.225452 27.555 0.135452 28.675H25.1155H25.1355Z" fill="url(#paint0_linear_1_3640)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M21.6755 28.775C21.2655 28.105 20.8855 27.405 20.5555 26.695C19.4955 24.385 18.7755 20.425 18.4155 14.935C18.2955 12.995 18.2655 11.675 18.2455 10.615C18.2055 8.89504 18.1955 8.18504 17.7755 6.88504C17.6455 6.48504 17.1654 5.09504 16.4454 3.80504C15.5554 2.21504 14.8755 1.78503 14.6055 1.78503C14.3555 1.78503 13.6455 2.15503 12.7955 3.56503C12.0055 4.87503 11.3755 6.61503 11.1355 8.20503C10.8955 9.72503 11.0454 10.895 11.1854 12.035C11.3754 13.615 11.5955 15.415 10.4155 17.315C9.66545 18.515 8.87544 18.925 8.18544 19.275C7.62544 19.565 7.03546 19.865 6.11546 20.775C3.95546 22.915 3.05545 25.405 2.75545 26.225C2.45545 27.045 2.22544 27.895 2.06544 28.765H21.6655L21.6755 28.775Z" fill="url(#paint1_linear_1_3640)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M17.0654 28.675C16.2654 25.715 15.7155 21.625 15.4255 16.475C15.2955 14.205 15.2655 12.675 15.2455 11.445C15.2155 9.54502 15.2054 9.15502 14.9054 8.12502C14.8554 7.94502 14.7455 7.56502 14.5755 7.08502C14.3755 7.75502 14.2154 8.45502 14.1254 9.12502C13.9454 10.415 14.0554 11.375 14.1854 12.605C14.3954 14.575 14.7155 17.545 13.0155 20.655C11.8355 22.805 10.4455 23.615 9.61546 24.095C9.14546 24.365 8.88546 24.515 8.29546 25.185C7.44546 26.135 6.73544 27.305 6.15544 28.675H17.0755H17.0654Z" fill="url(#paint2_linear_1_3640)" stroke="#87000A" stroke-width="0.25" stroke-miterlimit="10"/>
+          </g>
+
+          <!-- Timeline scroll and feather motif definitions -->
+          <g id="scroll-left" transform="scale(1.4) translate(-302.9, -22.03)">
+            <path d="M301.54,34.54h-.89v-2.36c0-.59-.48-1.06-1.06-1.06h-.41c-.59,0-1.06.48-1.06,1.06v1.3c0,.59-.48,1.06-1.06,1.06h-2.17c-.59,0-1.06-.48-1.06-1.06v-1.3c0-.59-.48-1.06-1.06-1.06h-1.69c-.59,0-1.06-.48-1.06-1.06v-2.44c0-.59.48-1.06,1.06-1.06h1.69c.59,0,1.06-.48,1.06-1.06v-.54c0-.59-.48-1.06-1.06-1.06h-2.75v-.89h3.64c.59,0,1.06.48,1.06,1.06v1.42c0,.59.48,1.06,1.06,1.06h.39c.59,0,1.06-.48,1.06-1.06v-1.42c0-.59.48-1.06,1.06-1.06h2.19c.59,0,1.06.48,1.06,1.06v2.31c0,.59-.48,1.06-1.06,1.06h-1.3c-.59,0-1.06.48-1.06,1.06v.66c0,.59.48,1.06,1.06,1.06h1.3c.59,0,1.06.48,1.06,1.06v3.25ZM295.77,33.65h.39c.59,0,1.06-.48,1.06-1.06v-.41c0-.59-.48-1.06-1.06-1.06h-.39c-.59,0-1.06.48-1.06,1.06v.41c0,.59.48,1.06,1.06,1.06ZM295.77,30.22h.39c.59,0,1.06-.48,1.06-1.06v-.66c0-.59-.48-1.06-1.06-1.06h-.39c-.59,0-1.06.48-1.06,1.06v.66c0,.59.48,1.06,1.06,1.06ZM291.95,30.22h.8c.59,0,1.06-.48,1.06-1.06v-.66c0-.59-.48-1.06-1.06-1.06h-.8c-.59,0-1.06.48-1.06,1.06v.66c0,.59.48,1.06,1.06,1.06ZM299.18,26.55h.41c.59,0,1.06-.48,1.06-1.06v-.54c0-.59-.48-1.06-1.06-1.06h-.41c-.59,0-1.06.48-1.06,1.06v.54c0,.59.48,1.06,1.06,1.06Z" />
+          </g>
+          <g id="scroll-right" transform="scale(1.4) translate(-302.9, -22.03)">
+            <path d="M304.33,31.29c0-.59.48-1.06,1.06-1.06h1.3c.59,0,1.06-.48,1.06-1.06v-.66c0-.59-.48-1.06-1.06-1.06h-1.3c-.59,0-1.06-.48-1.06-1.06v-2.31c0-.59.48-1.06,1.06-1.06h2.19c.59,0,1.06.48,1.06,1.06v1.42c0,.59.48,1.06,1.06,1.06h.39c.59,0,1.06-.48,1.06-1.06v-1.42c0-.59.48-1.06,1.06-1.06h3.64v.89h-2.75c-.59,0-1.06.48-1.06,1.06v.54c0,.59.48,1.06,1.06,1.06h1.69c.59,0,1.06.48,1.06,1.06v2.44c0,.59-.48,1.06-1.06,1.06h-1.69c-.59,0-1.06.48-1.06,1.06v1.3c0,.59-.48,1.06-1.06,1.06h-2.17c-.59,0-1.06-.48-1.06-1.06v-1.3c0-.59-.48-1.06-1.06-1.06h-.41c-.59,0-1.06.48-1.06,1.06v2.36h-.89v-3.25ZM311.17,32.59v-.41c0-.59-.48-1.06-1.06-1.06h-.39c-.59,0-1.06.48-1.06,1.06v.41c0,.59.48,1.06,1.06,1.06h.39c.59,0,1.06-.48,1.06-1.06ZM311.17,29.16v-.66c0-.59-.48-1.06-1.06-1.06h-.39c-.59,0-1.06.48-1.06,1.06v.66c0,.59.48,1.06,1.06,1.06h.39c.59,0,1.06-.48,1.06-1.06ZM314.98,29.16v-.66c0-.59-.48-1.06-1.06-1.06h-.8c-.59,0-1.06.48-1.06,1.06v.66c0,.59.48,1.06,1.06,1.06h.8c.59,0,1.06-.48,1.06-1.06ZM307.76,25.49v-.54c0-.59-.48-1.06-1.06-1.06h-.41c-.59,0-1.06.48-1.06,1.06v.54c0,.59.48,1.06,1.06,1.06h.41c.59,0,1.06-.48,1.06-1.06Z" />
+          </g>
+          <g id="feather-motif" transform="scale(1.45) translate(-185, -22)">
+            <path class="feather-path" d="M189.08,59.02c2.15-1.24,2.49-3.29,2.46-4.04-.17.28-.42.4-.73.56-.17.09-.36.18-.59.33-.47.3-.69.65-.79.85.63,0,1.18-.54,1.22-.57-.03.05-.48.85-1.23.85-.06,0-.12,0-.18-.01-.86.19-1.37.72-1.53.92.32.46.1,1,.1,1,0-.45-.37-.88-.39-.9-.52-.53-1.27-.17-1.45-.07v.02c.12.51.18.93.2,1.06.14.18.27.36.4.53.63.25,1.48.07,2.51-.53ZM184.53,57.43l.49-1.03c-.2-.33-.45-.62-.75-.81-.42-.27-.91-.32-1.46-.14-.86.29-1.31.71-1.29,1.23.03.77,1.09,1.67,2.39,2.04l.24-.49c-.04-.46-1.04-.91-1.04-.91,0,0-.02,0-.03,0-.5,0-.95-.71-.95-.71.21.17.85.57,1.14.38-.43-.59-.34-1.11-.34-1.14,0,0,.13.96,1.39,1.67,0-.64.08-1.22.08-1.26,0,0,.05.56.13,1.18ZM179.62,57.8c.63-.65.83-1.42.9-1.87-.47.42-.91.79-1.29,1.1l.39.77ZM184.8,50.26c1.5-3.09,2.01-5.62,1.42-6.93-.22-.47-.58-.78-1.08-.92-1.22-.33-1.86.12-2.14.42-.36.39-.46.91-.36,1.19l.04.1-.08.06s-2.04,1.64-1.67,5.3c.53-.5,1.23-1.06,1.23-1.06,0,0-.8.9-1.18,1.49h0s-.04.05-.04.05c-.02.02-1.53,2.01-1.33,4.17l.17.17c-.56.32-1.07.66-1.44.96l.78,1.53c1.09-.88,2.66-2.28,3.98-3.89.68-.83,1.28-1.72,1.72-2.62ZM191.77,54.69c.16.7-.14,3.18-2.56,4.57-.78.45-1.47.67-2.05.67-.12,0-.24-.01-.36-.03,3.1,4.77.22,8.3-.02,8.59-.14.29-1.73,3.51-5.2,3.51-.24,0-.48-.01-.74-.05-4-.5-5.23-5.51-5.32-5.89-1.28-2.23-.18-5.24.71-7.02,0,0,0,0-.01,0-1.64.86-3.72,1.49-5.47,1.79l-.05-.27c1.77-.3,3.92-.96,5.59-1.89.06-.03.12-.07.18-.1.31-.58.56-.95.6-1.01h0s-.61-1.21-.61-1.21c-.37.15-1.31.6-1.94,1.41.63.17.9.42.93.45-.04-.02-.57-.25-1.28-.31l.02-.19s.03,0,.04,0c.66-.94,1.64-1.44,2.1-1.6l-1.05-2.06c-.3-.6-.52-.96-.64-1.1-.19-.21-.43-.37-.72-.48-.28-.12-.67-.19-1.15-.22v-.37h6.45v.37c-.73.06-1.2.17-1.42.32s-.33.35-.33.59c0,.33.18.85.54,1.55l.16.31c.52-.43.93-.65,1.12-.73-.08-.69,0-1.37.16-1.97.34-1.27,1.02-2.24,1.19-2.47-.49-3.68,1.28-5.47,1.68-5.82-.09-.37.04-.93.45-1.38.32-.35,1.06-.87,2.42-.5.59.16,1.01.52,1.26,1.08.63,1.39.11,4-1.42,7.17-.96,1.98-2.71,3.87-4.23,5.27-.01.35-.13,1.5-1.07,2.42l2.31,4.54,1.73-3.63c-1.41-.42-2.52-1.4-2.55-2.29-.02-.46.23-1.09,1.49-1.5.63-.21,1.2-.15,1.7.16.29.19.53.45.74.75l.62-1.3c.37-.77.55-1.3.55-1.6,0-.19-.11-.38-.34-.55s-.61-.3-1.14-.37c-.04,0-.1-.02-.2-.03v-.37h4.87v.37c-.56.09-.98.24-1.27.46-.42.32-.78.82-1.1,1.49l-1.44,3.01c.06.16.11.31.15.46.38-.2,1.09-.39,1.63.04.21-.24.73-.76,1.61-.98.07-.2.31-.69.95-1.1.24-.15.44-.25.61-.34.38-.19.59-.3.71-.65.05-.15.15-.17.19-.16.14,0,.18.17.19.23ZM187.55,64.92c0,.05.07,1.08-.32,2.41.79-1.47,1.64-4.46-1.31-8.17l-.02-.03v-.04s-.09-.72-.35-1.52l-.88,1.83c.23.26.58.63,1.05,1.01l.05.04v.07s-.06,2.23.51,4.11c.08-1.19-.09-2.68-.09-2.7,0,0,.52,2.1.3,3.35-.01.13-.45,4.08-4.72,4.59.23.49.29.94.3.98-.02-.04-.29-.54-.67-1h0s-1.19-1.42-2.72-1.76l-.16-.04h0c-.58-.14-1.07-.07-1.08-.07,0,0,.49-.3,1.18-.2.13-.44.47-2.06-1.02-3.87-.32.51-.7.82-.73.84.02-.04.29-.6.58-1.15.05-.13.7-1.78,1.03-3.34l-1.24-2.44c-.45.72-2.65,4.45-1.81,7.28.02-.8.33-1.29.34-1.32,0,0-.11.4-.11,1.01,0,.34.03.74.13,1.18h0c.01.05,1.14,5.2,5.08,5.7,3.94.5,5.64-3.28,5.66-3.32h0s0,0,0,0c.84-1.78,1.01-3.44,1.01-3.44ZM186.2,65.28c-.74-1.86-.73-4.25-.72-4.7-.41-.34-.73-.66-.95-.91l-2.88,6h-.43l-2.55-5.01c-.32,1.34-.81,2.64-.94,2.98,1.65,1.92,1.31,3.69,1.15,4.21,1.38.37,2.44,1.49,2.67,1.76,4.1-.38,4.6-3.92,4.65-4.33Z" />
+          </g>
+        </defs>
+
+        <rect width="1700" height="900" fill="transparent" />
+
+
+
+        <!-- Timeline -->
+        <g class="timeline">
+          <!-- Horizontal Timeline Line (connecting birds) -->
+          <line class="timeline-main-line" x1="130" y1="70" x2="1570" y2="70" />
+
+          <!-- Left Bird Icon (facing left) -->
+          <image href="bird.svg" x="-15" y="34" width="63" height="38" />
+          <!-- Left Bird Label "2019" -->
+          <text x="16.5" y="92" class="timeline-label" text-anchor="middle">2019</text>
+
+          <!-- Right Bird Icon (facing right - flipped horizontally) -->
+          <g transform="translate(1715, 34) scale(-1, 1)">
+            <image href="bird.svg" x="0" y="0" width="63" height="38" />
+          </g>
+          <!-- Right Bird Label "ONWARD! TIẾN LÊN!" (stacked) -->
+          <text x="1683.5" y="92" class="timeline-label label-right" text-anchor="middle">
+            <tspan x="1683.5" dy="0">ONWARD!</tspan>
+            <tspan x="1683.5" dy="20">TIẾN LÊN!</tspan>
+          </text>
+
+          <!-- Repeated Feather Motifs along the timeline line (placed in the gaps) -->
+          <!-- Gap 1: between left bird and PAST -->
+          <use href="#feather-motif" x="140" y="70" />
+          <use href="#feather-motif" x="180" y="70" />
+          <use href="#feather-motif" x="220" y="70" />
+
+          <!-- Gap 2: between PAST and PRESENT -->
+          <use href="#feather-motif" x="410" y="70" />
+          <use href="#feather-motif" x="450" y="70" />
+          <use href="#feather-motif" x="490" y="70" />
+          <use href="#feather-motif" x="530" y="70" />
+          <!-- Divider 1 and its scroll motifs -->
+          <line class="timeline-divider" x1="580" y1="70" x2="580" y2="120" />
+          <use href="#scroll-left" x="580" y="70" />
+          <use href="#scroll-right" x="580" y="70" />
+          <use href="#feather-motif" x="630" y="70" />
+          <use href="#feather-motif" x="670" y="70" />
+          <use href="#feather-motif" x="710" y="70" />
+
+          <!-- Gap 3: between PRESENT and FUTURE -->
+          <use href="#feather-motif" x="1000" y="70" />
+          <use href="#feather-motif" x="1040" y="70" />
+          <use href="#feather-motif" x="1080" y="70" />
+          <!-- Divider 2 and its scroll motifs -->
+          <line class="timeline-divider" x1="1120" y1="70" x2="1120" y2="120" />
+          <use href="#scroll-left" x="1120" y="70" />
+          <use href="#scroll-right" x="1120" y="70" />
+          <use href="#feather-motif" x="1170" y="70" />
+          <use href="#feather-motif" x="1210" y="70" />
+          <use href="#feather-motif" x="1250" y="70" />
+          <use href="#feather-motif" x="1290" y="70" />
+
+          <!-- Gap 4: between FUTURE and right bird -->
+          <use href="#feather-motif" x="1490" y="70" />
+          <use href="#feather-motif" x="1530" y="70" />
+          <use href="#feather-motif" x="1570" y="70" />
+
+          <!-- Interactive Buttons: PAST, PRESENT, FUTURE -->
+          <g class="time is-active" data-era="past" role="button" tabindex="0">
+            <path class="ticket-bg" d="M 263,45 L 367,45 A 8,8 0 0,0 375,53 L 375,87 A 8,8 0 0,0 367,95 L 263,95 A 8,8 0 0,0 255,87 L 255,53 A 8,8 0 0,0 263,45 Z" />
+            <text x="315" y="70" text-anchor="middle" dominant-baseline="central">PAST</text>
+          </g>
+          <g class="time" data-era="present" role="button" tabindex="0">
+            <path class="ticket-bg" d="M 750,36 L 950,36 A 10,10 0 0,0 960,46 L 960,94 A 10,10 0 0,0 950,104 L 750,104 A 10,10 0 0,0 740,94 L 740,46 A 10,10 0 0,0 750,36 Z" />
+            <text x="850" y="70" text-anchor="middle" dominant-baseline="central">PRESENT</text>
+          </g>
+          <g class="time" data-era="future" role="button" tabindex="0">
+            <path class="ticket-bg" d="M 1318,45 L 1452,45 A 8,8 0 0,0 1460,53 L 1460,87 A 8,8 0 0,0 1452,95 L 1318,95 A 8,8 0 0,0 1310,87 L 1310,53 A 8,8 0 0,0 1318,45 Z" />
+            <text x="1385" y="70" text-anchor="middle" dominant-baseline="central">FUTURE</text>
+          </g>
+        </g>
+
+        <!-- ═══════════ Rivers ═══════════ -->
+        <g class="rivers">
+
+          <!-- Cross-branch connectors (thick) -->
+          <path class="river connector" data-from="karma" data-to="viscose" d="M145 365 C100 280 180 180 280 145 C340 125 400 120 455 125" />
+          <path class="river connector" data-from="post-sharing" data-to="first-collection" d="M165 155 C165 250 80 350 150 450 C150 550 150 580 170 630" />
+          <path class="river connector" data-from="first-collection" data-to="taiwan" d="M170 630 C120 700 170 780 265 815" />
+          <path class="river connector" data-from="teaching" data-to="2028" d="M1125 135 C1200 90 1280 200 1360 200 C1430 200 1480 120 1545 155" />
+          <path class="river connector" data-from="teaching" data-to="open-source" d="M1125 135 C1125 180 1280 200 1380 380 C1420 380 1440 540 1500 540 C1530 540 1560 520 1545 485" />
+          <path class="river connector" data-from="2028" data-to="open-source" d="M1545 155 C1620 220 1480 320 1480 380 C1480 440 1620 440 1545 485" />
+          <path class="river connector" data-from="cay-neo" data-to="vina-seat" d="M650 805 C650 860 740 860 820 785 C880 785 930 835 990 805" />
+          <path class="river connector" data-from="bds" data-to="cay-neo" d="M1295 710 C1000 740 700 720 650 805" />
+          <path class="river connector" data-from="bds" data-to="vina-seat" d="M1295 710 C1150 750 1030 730 990 805" />
+
+          <!-- Branch 1 — upper-left -->
+          <path class="river main" data-branch="1" d="M665 412 C580 430 580 290 520 280" />
+          <path class="river sub" data-branch="1" data-topic="post-sharing" d="M520 280 C440 200 320 280 240 210 C200 175 185 175 165 155" />
+          <path class="river sub" data-branch="1" data-topic="karma" d="M520 280 C420 370 360 270 260 330 C200 365 175 390 145 365" />
+
+          <!-- Branch 2 — lower-left -->
+          <path class="river main" data-branch="2" d="M666 498 C600 460 550 640 500 600" />
+          <path class="river sub" data-branch="2" data-topic="viscose" d="M500 600 C420 500 520 400 450 300 C390 200 470 170 455 125" />
+          <path class="river sub" data-branch="2" data-topic="first-collection" d="M500 600 C420 680 300 580 220 650 C190 670 185 650 170 630" />
+          <path class="river sub" data-branch="2" data-topic="taiwan" d="M500 600 C420 640 480 720 380 760 C320 750 270 770 265 815" />
+          <path class="river sub" data-branch="2" data-topic="cay-neo" d="M500 600 C580 640 680 660 680 720 C680 770 610 770 650 805" />
+          <path class="river sub" data-branch="2" data-topic="vina-seat" d="M500 600 C580 640 680 680 780 700 C860 720 940 780 990 805" />
+
+          <!-- Branch 3 — bottom center -->
+          <path class="river main" data-branch="3" d="M790 586 C750 610 850 640 800 675" />
+          <path class="river sub" data-branch="3" data-topic="taiwan" d="M800 675 C700 770 600 680 500 770 C400 860 275 880 265 815" />
+          <path class="river sub" data-branch="3" data-topic="first-collection" d="M800 675 C680 780 580 680 480 760 C380 840 280 680 170 630" />
+
+          <!-- Branch 4 — right -->
+          <path class="river main" data-branch="4" d="M930 526 C1000 480 1020 650 1080 610" />
+          <path class="river sub" data-branch="4" data-topic="cay-neo" d="M1080 610 C980 710 920 680 800 750 C720 750 680 740 650 805" />
+          <path class="river sub" data-branch="4" data-topic="vina-seat" d="M1080 610 C1020 650 960 700 940 740 C930 760 970 790 990 805" />
+          <path class="river sub" data-branch="4" data-topic="bds" d="M1080 610 C1130 630 1190 690 1210 700 C1230 710 1270 705 1295 710" />
+
+          <!-- Branch 5 — upper-right -->
+          <path class="river main" data-branch="5" d="M925 396 C1000 430 1020 250 1085 285" />
+          <path class="river sub" data-branch="5" data-topic="teaching" d="M1085 285 C1020 220 1120 180 1125 135" />
+          <path class="river sub" data-branch="5" data-topic="2028" d="M1085 285 C1180 390 1260 80 1360 170 C1430 220 1510 220 1545 155" />
+          <path class="river sub" data-branch="5" data-topic="open-source" d="M1085 285 C1120 180 1280 430 1360 380 C1440 330 1460 550 1545 485" />
+        </g>
+
+        <!-- Mountains are generated along river paths after load. -->
+        <g class="river-points" aria-hidden="true"></g>
+        <g class="mountains" aria-hidden="true"></g>
+
+        <!-- Endpoint dots -->
+        <g class="endpoints">
+          <circle cx="165"  cy="155" r="9" data-topic="post-sharing" />
+          <circle cx="455"  cy="125" r="9" data-topic="viscose" />
+          <circle cx="145"  cy="365" r="9" data-topic="karma" />
+          <circle cx="170"  cy="630" r="9" data-topic="first-collection" />
+          <circle cx="265"  cy="815" r="9" data-topic="taiwan" />
+          <circle cx="990"  cy="805" r="9" data-topic="vina-seat" />
+          <circle cx="650"  cy="805" r="9" data-topic="cay-neo" />
+          <circle cx="1295" cy="710" r="9" data-topic="bds" />
+          <circle cx="1125" cy="135" r="9" data-topic="teaching" />
+          <circle cx="1545" cy="155" r="9" data-topic="2028" />
+          <circle cx="1545" cy="485" r="9" data-topic="open-source" />
+        </g>
+
+        <!-- Central lake -->
+        <path class="lake" d="M 960,450 C 965,490 950,525 925,550 C 890,585 850,575 815,585 C 780,595 735,580 700,565 C 660,545 640,510 635,470 C 630,425 650,380 680,355 C 715,325 765,335 805,330 C 845,325 890,320 920,345 C 955,375 955,415 960,450 Z" />
+        <!-- Lake decoration mountains -->
+        <g clip-path="url(#map-clip)">
+          <image class="lake-mountain" href="mountainup.svg" x="620" y="230" width="360" height="152" />
+          <image class="lake-mountain" href="mountainbottom.svg" x="610" y="490" width="380" height="136" />
+          <!-- Custom placed mountain clusters -->
+          <image class="lake-mountain" href="mountaina.svg" x="480" y="170" width="200" height="68" />
+          <image class="lake-mountain" href="mountainb.svg" x="900" y="170" width="180" height="104" />
+          <image class="lake-mountain" href="mountainc.svg" x="1050" y="370" width="580" height="294" />
+          <image class="lake-mountain" href="mountaine.svg" x="-5" y="230" width="146" height="607" />
+          <image class="lake-mountain" href="mountaincd.svg" x="170" y="385" width="260" height="197" />
+          <image class="lake-mountain" href="mountaink.svg" x="490" y="350" width="112" height="177" />
+          <image class="lake-mountain" href="mountainh.svg" x="170" y="210" width="220" height="66" />
+          <image class="lake-mountain" href="mountaini.svg" x="280" y="115" width="120" height="80" />
+          <image class="lake-mountain" href="mountaing.svg" x="410" y="660" width="174" height="84" />
+          <image class="lake-mountain" href="mountainf.svg" x="260" y="620" width="137" height="118" />
+          <image class="lake-mountain" href="mountainl.svg" x="1230" y="680" width="450" height="186" />
+          <image class="lake-mountain" href="mountainm.svg" x="1010" y="660" width="140" height="52" />
+          <image class="lake-mountain" href="mountainn.svg" x="1540" y="240" width="168" height="132" />
+          <image class="lake-mountain" href="mountaino.svg" x="1310" y="220" width="220" height="131" />
+          <image class="lake-mountain" href="mountainp.svg" x="1240" y="240" width="117" height="94" />
+        </g>
+        <image class="brand" href="logo.svg" x="665" y="335" width="270" height="240" />
+
+        <!-- Branch nodes (numbered circles) -->
+        <g class="node" data-branch="1" role="button" tabindex="0" aria-label="Open Vina remixes">
+          <circle cx="520" cy="280" r="38"/><text x="520" y="280" text-anchor="middle" dominant-baseline="central" dy="-6px">1</text>
+        </g>
+        <g class="node" data-branch="2" role="button" tabindex="0" aria-label="Open Vina is kitsch">
+          <circle cx="500" cy="600" r="38"/><text x="500" y="600" text-anchor="middle" dominant-baseline="central" dy="-6px">2</text>
+        </g>
+        <g class="node" data-branch="3" role="button" tabindex="0" aria-label="Open Vina integrates">
+          <circle cx="800" cy="675" r="38"/><text x="800" y="675" text-anchor="middle" dominant-baseline="central" dy="-6px">3</text>
+        </g>
+        <g class="node" data-branch="4" role="button" tabindex="0" aria-label="Open Vina is chaos">
+          <circle cx="1080" cy="610" r="38"/><text x="1080" y="610" text-anchor="middle" dominant-baseline="central" dy="-6px">4</text>
+        </g>
+        <g class="node" data-branch="5" role="button" tabindex="0" aria-label="Open Vina is hotpot">
+          <circle cx="1085" cy="285" r="38"/><text x="1085" y="285" text-anchor="middle" dominant-baseline="central" dy="-6px">5</text>
+        </g>
+
+        <!-- ═══════════ Topics ═══════════ -->
+        <!-- Branch 1 — Past -->
+        <g class="topic past" data-topic="post-sharing" role="button" tabindex="0">
+          <text x="20" y="150" text-anchor="start">
+            <tspan x="20" dy="0">Post-sharing</tspan>
+            <tspan x="20" dy="27">economy</tspan>
+          </text>
+          <text x="20" y="150" text-anchor="start" class="topic-script">
+            <tspan x="20" dy="0">Post-sharing</tspan>
+            <tspan x="20" dy="27">economy</tspan>
+          </text>
+        </g>
+        <g class="topic past" data-topic="karma" role="button" tabindex="0">
+          <text x="165" y="392" text-anchor="start">Karma Kapitalists</text>
+          <text x="165" y="392" text-anchor="start" class="topic-script">Karma Kapitalists</text>
+        </g>
+
+        <!-- Branch 2 — Past -->
+        <g class="topic past" data-topic="viscose" role="button" tabindex="0">
+          <text x="480" y="145" text-anchor="start">Viscose #3</text>
+          <text x="480" y="145" text-anchor="start" class="topic-script">Viscose #3</text>
+        </g>
+        <g class="topic past" data-topic="first-collection" role="button" tabindex="0">
+          <text x="190" y="610" text-anchor="start">
+            <tspan x="190" dy="0">Vinabiennale</tspan>
+            <tspan x="190" dy="27">First collection</tspan>
+          </text>
+          <text x="190" y="610" text-anchor="start" class="topic-script">
+            <tspan x="190" dy="0">Vinabiennale</tspan>
+            <tspan x="190" dy="27">First collection</tspan>
+          </text>
+        </g>
+        <g class="topic past" data-topic="taiwan" role="button" tabindex="0">
+          <text x="290" y="795" text-anchor="start">
+            <tspan x="290" dy="0">Vinabiennale@Taiwan</tspan>
+            <tspan x="290" dy="27">National Theatre</tspan>
+          </text>
+          <text x="290" y="795" text-anchor="start" class="topic-script">
+            <tspan x="290" dy="0">Vinabiennale@Taiwan</tspan>
+            <tspan x="290" dy="27">National Theatre</tspan>
+          </text>
+        </g>
+
+        <!-- Branch 3 / Branch 4 — Present confluences -->
+        <g class="topic present" data-topic="vina-seat" role="button" tabindex="0">
+          <text x="1010" y="810" text-anchor="start">Vina Seat</text>
+          <text x="1010" y="810" text-anchor="start" class="topic-script">Vina Seat</text>
+        </g>
+        <g class="topic present" data-topic="cay-neo" role="button" tabindex="0">
+          <text x="670" y="810" text-anchor="start">Cây Neo</text>
+          <text x="670" y="810" text-anchor="start" class="topic-script">Cây Neo</text>
+        </g>
+        <g class="topic present" data-topic="bds" role="button" tabindex="0">
+          <text x="1320" y="718" text-anchor="start">Bất động sản AV</text>
+          <text x="1320" y="718" text-anchor="start" class="topic-script">Bất động sản AV</text>
+        </g>
+
+        <!-- Branch 5 — Present / Future -->
+        <g class="topic present" data-topic="teaching" role="button" tabindex="0">
+          <text x="1145" y="147" text-anchor="start">Vina teaching</text>
+          <text x="1145" y="147" text-anchor="start" class="topic-script">Vina teaching</text>
+        </g>
+        <g class="topic future" data-topic="2028" role="button" tabindex="0">
+          <text x="1455" y="185" text-anchor="start">vinabiennale 2028</text>
+          <text x="1455" y="185" text-anchor="start" class="topic-script">vinabiennale 2028</text>
+        </g>
+        <g class="topic future" data-topic="open-source" role="button" tabindex="0">
+          <text x="1455" y="486" text-anchor="start">
+            <tspan x="1455" dy="0">Open source Vina</tspan>
+            <tspan x="1455" dy="27">design of Vietnam</tspan>
+          </text>
+          <text x="1455" y="486" text-anchor="start" class="topic-script">
+            <tspan x="1455" dy="0">Open source Vina</tspan>
+            <tspan x="1455" dy="27">design of Vietnam</tspan>
+          </text>
+        </g>
+      </svg>
+    </section>
+
+    <div class="map-overlay" id="mapOverlay"></div>
+    <aside class="info-panel" id="infoPanel" aria-live="polite">
+      <div class="modal-main-box">
+        <!-- Popup Header -->
+        <div class="modal-header">
+          <div class="modal-header-left">
+            <div class="modal-num-circle" id="modalNumCircle">1</div>
+            <div class="modal-home-wrap" id="modalHomeBtn" role="button" tabindex="0" title="Go back to full map">
+              <span class="modal-home-title">Vinamanifesto</span>
+              <span class="modal-home-title-script">Vinamanifesto</span>
+            </div>
+            <span class="modal-title-separator">&gt;</span>
+            <div class="modal-branch-wrap" id="modalBranchLink" role="button" tabindex="0" title="Go back to branch info" style="display: none;">
+              <span class="modal-branch-title" id="modalBranchTitle">Vina remixes</span>
+              <span class="modal-branch-title-script" id="modalBranchTitleScript">Vina remixes</span>
+            </div>
+            <span class="modal-title-separator" id="modalSecondSeparator" style="display: none;">&gt;</span>
+            <div class="modal-title-wrap">
+              <div class="modal-title" id="modalTitle">Vina is a hotpot.</div>
+              <div class="modal-title-script" id="modalTitleScript">Vina is a hotpot.</div>
+            </div>
+          </div>
+          <div class="modal-header-right">
+            <button class="btn-close" id="modalCloseBtn" aria-label="Close panel">X</button>
+          </div>
+        </div>
+
+        <!-- Main Content Box -->
+        <!-- Branch Content Box (shown in Branch view) -->
+        <div class="modal-content-box" id="modalBranchContent">
+          <span class="lang-label" id="modalLangLabelEn">(EN)</span>
+          <div id="modalBodyEn">It is not a fixed style, but evolved like the open source or hotpot. Everyone can contribute to define what Vina is.</div>
+          <span class="lang-label" id="modalLangLabelVie">(VIE)</span>
+          <div id="modalBodyVie">Không phải một phong cách cố định, mà phát triển giống như nguồn mở hay lẩu. Ai cũng có thể đóng góp định nghĩa Vina là gì.</div>
+        </div>
+
+        <!-- Topic Content Box (shown in Topic view) -->
+        <div class="topic-content-box" id="modalTopicContent" style="display: none;">
+          <div class="topic-left-col">
+            <div class="topic-detail-title-wrap">
+              <h2 class="topic-detail-title" id="topicDetailTitle">Topic Title</h2>
+              <h2 class="topic-detail-title-script" id="topicDetailTitleScript">Topic Title</h2>
+            </div>
+            <div class="topic-desc-wrap">
+              <span class="lang-label" id="topicLangLabelEn">(EN)</span>
+              <div id="topicBodyEn">Topic english description</div>
+              <span class="lang-label" id="topicLangLabelVie">(VIE)</span>
+              <div id="topicBodyVie">Topic vietnamese description</div>
+            </div>
+          </div>
+          <div class="topic-right-col">
+            <div class="slideshow-container">
+              <button class="slideshow-nav-btn prev" id="slideshowPrevBtn" aria-label="Previous image">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="slideshow-image-wrap" id="slideshowImageWrap">
+                <!-- Dynamic inline SVG Vector Placeholder -->
+              </div>
+              <button class="slideshow-nav-btn next" id="slideshowNextBtn" aria-label="Next image">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+              <button class="slideshow-enlarge-btn" id="slideshowEnlargeBtn" title="Enlarge image">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="slideshow-caption" id="slideshowCaption">
+              <!-- Interactive bilingual caption -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider / Topics connected -->
+      <div class="cards-slider-wrap" id="modalSliderWrap">
+        <button class="slider-btn" id="sliderPrevBtn" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="4.5" fill="none" stroke-linecap="square" stroke-linejoin="miter" style="display: block; transform: translateX(-1px);">
+            <polyline points="16 4 8 12 16 20"></polyline>
+          </svg>
+        </button>
+        <div class="cards-container" id="modalCardsContainer">
+          <!-- cards generated dynamically -->
+        </div>
+        <button class="slider-btn" id="sliderNextBtn" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="4.5" fill="none" stroke-linecap="square" stroke-linejoin="miter" style="display: block; transform: translateX(1px);">
+            <polyline points="8 4 16 12 8 20"></polyline>
+          </svg>
+        </button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Lightbox Fullscreen Viewer -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close fullscreen view">X</button>
+      <div class="lightbox-image-wrap" id="lightboxImageWrap"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

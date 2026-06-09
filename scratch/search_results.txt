@@ -1,0 +1,632 @@
+5: bodyEn: 'Traditional forms and modern expressions are remixed, combining post-sharing economy with karma capitalists.',
+6: bodyVie: 'Các hình thức truyền thống và biểu hiện hiện đại được phối lại, kết hợp nền kinh tế chia sẻ và các nhà tư bản nghiệp chướng.'
+11: bodyEn: 'Embracing the colorful, low-brow, and popular aesthetics that define the eclectic local identity.',
+12: bodyVie: 'Đón nhận những yếu tố thẩm mỹ sặc sỡ, bình dân và đại chúng tạo nên bản sắc địa phương phong phú.'
+17: bodyEn: 'How local artistic practices and design languages integrate with national and global frameworks.',
+18: bodyVie: 'Cách các thực hành nghệ thuật và ngôn ngữ thiết kế địa phương tích hợp với các hệ thống quốc gia và toàn cầu.'
+23: bodyEn: 'Navigating the chaotic energy of contemporary urban life, real estate boom, and everyday design hacks.',
+24: bodyVie: 'Khám phá nguồn năng lượng hỗn loạn của đời sống đô thị đương đại, sự bùng nổ bất động sản và các mẹo thiết kế hàng ngày.'
+29: bodyEn: 'It is not a fixed style, but evolved like the open source or hotpot. Everyone can contribute to define what Vina is.',
+30: bodyVie: 'Không phải một phong cách cố định, mà phát triển giống như nguồn mở hay lẩu. Ai cũng có thể đóng góp định nghĩa Vina là gì.'
+38: bodyEn: 'Analyzing how digital sharing platforms intersect with traditional community practices in Vietnam.',
+39: bodyVie: 'Phân tích cách các nền tảng chia sẻ kỹ thuật số giao thoa với thực hành cộng đồng truyền thống ở Việt Nam.'
+44: bodyEn: 'Exploring local synthetic textile histories and industrial materials in Vietnamese history.',
+45: bodyVie: 'Khám phá lịch sử dệt may tổng hợp địa phương và vật liệu công nghiệp trong lịch sử Việt Nam.'
+50: bodyEn: 'The debut collection showcasing experimental designs inspired by everyday street objects.',
+51: bodyVie: 'Bộ sưu tập đầu tiên trình diễn các thiết kế thử nghiệm lấy cảm hứng từ các vật dụng đường phố hàng ngày.'
+56: bodyEn: 'Cross-cultural art showcase in Taiwan integrating Vietnamese traditional performance art.',
+57: bodyVie: 'Triển lãm nghệ thuật đa văn hóa tại Đài Loan tích hợp nghệ thuật biểu diễn truyền thống Việt Nam.'
+62: bodyEn: 'A critical design exploration of local commerce, street vending, and capital accumulation.',
+63: bodyVie: 'Khám phá thiết kế phản biện về thương mại địa phương, bán hàng rong và tích lũy vốn.'
+68: bodyEn: 'Alternative design education programs integrating vernacular architecture with contemporary digital design.',
+69: bodyVie: 'Các chương trình giáo dục thiết kế thay thế tích hợp kiến trúc bản địa với thiết kế kỹ thuật số đương đại.'
+74: bodyEn: 'Design research project focusing on traditional anchoring motifs in local river navigation.',
+75: bodyVie: 'Dự án nghiên cứu thiết kế tập trung vào các mô-típ neo giữ truyền thống trong điều hướng sông nước địa phương.'
+80: bodyEn: 'Redesigning public seating inspired by local plastic stools and informal community hubs.',
+81: bodyVie: 'Thiết kế lại ghế ngồi công cộng lấy cảm hứng từ những chiếc ghế nhựa địa phương và các cụm cộng đồng thân mật.'
+83: 'bds': {
+86: bodyEn: 'Audio-visual installation reflecting on real estate hype, urban development, and construction sites.',
+87: bodyVie: 'Sắp đặt âm thanh-hình ảnh phản ánh về cơn sốt bất động sản, phát triển đô thị và các công trường xây dựng.'
+92: bodyEn: 'Future roadmap outlining speculative design trends and collaborative design labs for 2028.',
+93: bodyVie: 'Lộ trình tương lai vạch ra các xu hướng thiết kế suy tưởng và phòng thí nghiệm thiết kế hợp tác cho năm 2028.'
+96: title: 'Open source Vina design of Vietnam',
+98: bodyEn: 'A shared database of open-source design patterns, icons, and cultural motifs of Vietnam.',
+99: bodyVie: 'Cơ sở dữ liệu chung về các hoa văn thiết kế nguồn mở, biểu tượng và mô-típ văn hóa của Việt Nam.'
+104: // Nodes
+105: 'node-1': { cx: 520, cy: 280 },
+106: 'node-2': { cx: 500, cy: 600 },
+107: 'node-3': { cx: 800, cy: 675 },
+108: 'node-4': { cx: 1080, cy: 610 },
+109: 'node-5': { cx: 1085, cy: 285 },
+119: 'bds': { cx: 1295, cy: 710 },
+134: 'bds': ['cay-neo', 'vina-seat'],
+139: const panel              = document.getElementById('infoPanel');
+140: const overlay            = document.getElementById('mapOverlay');
+141: const modalNumCircle     = document.getElementById('modalNumCircle');
+142: const modalTitle         = document.getElementById('modalTitle');
+143: const modalTitleScript   = document.getElementById('modalTitleScript');
+144: const modalBodyEn        = document.getElementById('modalBodyEn');
+145: const modalBodyVie       = document.getElementById('modalBodyVie');
+146: const modalCardsContainer = document.getElementById('modalCardsContainer');
+147: const modalSliderWrap    = document.getElementById('modalSliderWrap');
+148: const modalCloseBtn      = document.getElementById('modalCloseBtn');
+149: const modalBackBtn       = document.getElementById('modalBackBtn');
+150: const prevBtn            = document.getElementById('sliderPrevBtn');
+151: const nextBtn            = document.getElementById('sliderNextBtn');
+153: const nodes       = [...document.querySelectorAll('.node')];
+154: const topics      = [...document.querySelectorAll('.topic')];
+155: const timeButtons = [...document.querySelectorAll('.time')];
+167: const svgElement = document.getElementById('riverMap');
+170: /* ───── Procedural Hand-Drawn Mountain Generator ───── */
+171: function drawMountain(x, y, scale, rotation) {
+172: const g = document.createElementNS(SVG_NS, 'g');
+174: `translate(${x.toFixed(1)}, ${y.toFixed(1)}) rotate(${(rotation || 0).toFixed(1)}) scale(${scale.toFixed(3)})`);
+175: g.classList.add('mountain');
+178: { id: 'mtn1', width: 21, height: 19 },
+179: { id: 'mtn2', width: 46, height: 33 },
+180: { id: 'mtn3', width: 26, height: 30 }
+182: const index = Math.abs(Math.floor(Math.sin(x * 0.031 + y * 0.047) * 10000)) % variants.length;
+183: const variant = variants[index];
+184: const normalizer = 48 / variant.width;
+185: const use = document.createElementNS(SVG_NS, 'use');
+187: use.setAttribute('href', `#${variant.id}`);
+188: use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', `#${variant.id}`);
+191: `scale(${normalizer.toFixed(3)}) translate(${(-variant.width / 2).toFixed(1)}, ${(-variant.height / 2).toFixed(1)})`
+193: g.appendChild(use);
+199: const MOUNTAIN_SIZE = { width: 48, height: 38 };
+201: { cx: 170, cy: 230, rx: 170, ry: 165, groups: 24, spreadX: 82, spreadY: 58, scaleMin: 0.86, scaleMax: 1.9, priority: 0.1 },
+202: { cx: 320, cy: 610, rx: 250, ry: 150, groups: 20, spreadX: 78, spreadY: 48, scaleMin: 0.78, scaleMax: 1.72, priority: 0.18 },
+203: { cx: 585, cy: 250, rx: 190, ry: 120, groups: 14, spreadX: 70, spreadY: 42, scaleMin: 0.72, scaleMax: 1.54, priority: 0.32 },
+204: { cx: 610, cy: 720, rx: 290, ry: 115, groups: 18, spreadX: 94, spreadY: 42, scaleMin: 0.82, scaleMax: 1.82, priority: 0.16 },
+205: { cx: 1055, cy: 210, rx: 250, ry: 150, groups: 25, spreadX: 86, spreadY: 54, scaleMin: 0.82, scaleMax: 1.84, priority: 0.08 },
+206: { cx: 1220, cy: 555, rx: 275, ry: 160, groups: 24, spreadX: 88, spreadY: 56, scaleMin: 0.86, scaleMax: 1.96, priority: 0.12 },
+207: { cx: 1435, cy: 340, rx: 165, ry: 250, groups: 18, spreadX: 76, spreadY: 68, scaleMin: 0.76, scaleMax: 1.8, priority: 0.2 },
+208: { cx: 965, cy: 760, rx: 265, ry: 105, groups: 14, spreadX: 92, spreadY: 38, scaleMin: 0.78, scaleMax: 1.72, priority: 0.26 }
+211: function seededRandom(seed) {
+212: let state = seed >>> 0;
+227: hash ^= value.charCodeAt(i);
+234: function parseSimpleCubicPath(d) {
+235: const numbers = (d.match(/-?\d*\.?\d+/g) || []).map(Number);
+242: end: { x: numbers[6], y: numbers[7] }
+256: t2 * t * cubic.end.x,
+261: t2 * t * cubic.end.y
+272: 3 * t * t * (cubic.end.x - cubic.c2.x),
+276: 3 * t * t * (cubic.end.y - cubic.c2.y)
+280: function splinePath(points, tension = 0.9) {
+281: if (points.length < 2) return '';
+283: const commands = [`M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`];
+285: for (let i = 0; i < points.length - 1; i++) {
+286: const prev = points[Math.max(0, i - 1)];
+287: const current = points[i];
+288: const next = points[i + 1];
+289: const nextNext = points[Math.min(points.length - 1, i + 2)];
+299: commands.push(
+300: `C ${cp1.x.toFixed(1)} ${cp1.y.toFixed(1)}, ${cp2.x.toFixed(1)} ${cp2.y.toFixed(1)}, ${next.x.toFixed(1)} ${next.y.toFixed(1)}`
+304: return commands.join(' ');
+307: function riverType(path) {
+308: if (path.classList.contains('main')) return 'main';
+309: if (path.classList.contains('sub')) return 'sub';
+314: document.querySelectorAll('.river').forEach((path, index) => {
+315: const originalD = path.dataset.baseD || path.getAttribute('d');
+316: path.dataset.baseD = originalD;
+317: path.setAttribute('d', originalD);
+319: const type = riverType(path);
+320: const length = path.getTotalLength();
+323: const rng = seededRandom(hashString(`${originalD}|${type}|${index}`));
+325: const direction = rng() < 0.5 ? -1 : 1;
+334: const points = anchors.map(t => {
+335: const distance = t * length;
+336: const point = path.getPointAtLength(distance);
+337: if (t === 0 || t === 1) return point;
+339: const before = path.getPointAtLength(Math.max(0, distance - 5));
+340: const after = path.getPointAtLength(Math.min(length, distance + 5));
+354: direction * Math.sin(t * Math.PI) * arcAmp +
+357: const drift = anchorFalloff * (rng() - 0.5) * waveAmp * 0.18;
+360: x: point.x + normal.x * wave + (tangent.x / tangentLength) * drift,
+361: y: point.y + normal.y * wave + (tangent.y / tangentLength) * drift
+365: path.setAttribute('d', splinePath(points, 0.94));
+369: function splinePathSegment(points, move = true, tension = 0.72) {
+370: if (points.length < 2) return '';
+372: const commands = [move
+373: ? `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`
+374: : `L ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`
+377: for (let i = 0; i < points.length - 1; i++) {
+378: const prev = points[Math.max(0, i - 1)];
+379: const current = points[i];
+380: const next = points[i + 1];
+381: const nextNext = points[Math.min(points.length - 1, i + 2)];
+391: commands.push(
+392: `C ${cp1.x.toFixed(1)} ${cp1.y.toFixed(1)}, ${cp2.x.toFixed(1)} ${cp2.y.toFixed(1)}, ${next.x.toFixed(1)} ${next.y.toFixed(1)}`
+396: return commands.join(' ');
+399: function getRibbonNormal(path, length, distance) {
+400: const before = path.getPointAtLength(Math.max(0, distance - 4));
+401: const after = path.getPointAtLength(Math.min(length, distance + 4));
+402: const dx = after.x - before.x;
+403: const dy = after.y - before.y;
+404: const tangentLength = Math.hypot(dx, dy) || 1;
+407: x: -dy / tangentLength,
+408: y: dx / tangentLength
+412: function getRibbonBaseWidth(type, sourceWidth) {
+413: return sourceWidth;
+416: function ribbonWidthAt(t, baseWidth, type, bulges, phase) {
+417: return baseWidth;
+420: function buildRibbonPath(path, type, index, baseWidth, startT = 0, endT = 1) {
+421: const length = path.getTotalLength();
+422: const span = Math.max(1, (endT - startT) * length);
+429: const t = startT + (endT - startT) * localT;
+430: const distance = length * t;
+431: const point = path.getPointAtLength(distance);
+432: const normal = getRibbonNormal(path, length, distance);
+433: const width = ribbonWidthAt(t, baseWidth, type, null, 0);
+434: const halfWidth = width / 2;
+437: x: point.x + normal.x * halfWidth,
+438: y: point.y + normal.y * halfWidth
+441: x: point.x - normal.x * halfWidth,
+442: y: point.y - normal.y * halfWidth
+449: function buildRiverDisplayLayers() {
+450: // No-op: we render the .river paths directly as SVG strokes
+454: // No-op since we style .river directly
+458: document.querySelectorAll(selector).forEach(river => {
+459: river.classList.add('flow-in');
+464: function expandBox(box, padding) {
+466: x: box.x - padding,
+467: y: box.y - padding,
+468: width: box.width + padding * 2,
+469: height: box.height + padding * 2
+474: return a.x < b.x + b.width &&
+475: a.x + a.width > b.x &&
+480: function distancePointToBox(point, box) {
+481: const dx = Math.max(box.x - point.x, 0, point.x - (box.x + box.width));
+482: const dy = Math.max(box.y - point.y, 0, point.y - (box.y + box.height));
+483: return Math.hypot(dx, dy);
+487: const width = box.width * factor;
+491: x: box.x + (box.width - width) / 2,
+493: width,
+498: function bottomBandBox(box, ratio = 0.24) {
+502: x: box.x + box.width * 0.08,
+504: width: box.width * 0.84,
+509: function terrainNoise(row, col, seed = 0) {
+510: const value = Math.sin(row * 12.9898 + col * 78.233 + seed * 37.719) * 43758.5453;
+514: function getSafeBox(element, padding) {
+516: return expandBox(element.getBBox(), padding);
+522: function getProtectedBoxes() {
+524: ...[...document.querySelectorAll('.topic')].map(el => getSafeBox(el, 38)),
+525: ...[...document.querySelectorAll('.time')].map(el => getSafeBox(el, 48)),
+526: ...[...document.querySelectorAll('.node')].map(el => getSafeBox(el, 46)),
+527: ...[...document.querySelectorAll('.endpoints circle')].map(el => getSafeBox(el, 18)),
+528: ...[...document.querySelectorAll('.lake-mountain')].map(el => getSafeBox(el, 24)),
+529: getSafeBox(document.querySelector('.lake'), 32),
+530: getSafeBox(document.querySelector('.brand'), 26)
+535: const rng = seededRandom(20280608);
+542: document.querySelectorAll('.river').forEach(river => {
+550: river.dataset.strokeWeight = weight.toFixed(2);
+551: river.style.strokeWidth = weight.toFixed(2);
+555: function getRiverStrokeGuards() {
+556: const guards = [];
+558: document.querySelectorAll('.river').forEach(path => {
+559: const length = path.getTotalLength();
+560: const strokeWidth = parseFloat(window.getComputedStyle(path).strokeWidth) || 10;
+561: const guardPadding = path.classList.contains('main')
+563: : path.classList.contains('sub')
+566: const radius = strokeWidth / 2 + guardPadding;
+567: const step = path.classList.contains('connector') ? 18 : 12;
+571: const point = path.getPointAtLength((i / samples) * length);
+572: guards.push({ x: point.x, y: point.y, radius });
+576: return guards;
+579: function boxTouchesRiverStroke(box, riverGuards) {
+580: return riverGuards.some(guard => distancePointToBox(guard, box) < guard.radius);
+583: function pushMountainCandidate(candidates, point, dx, dy, pathIndex, rng, lane, options = {}) {
+584: const x = point.x + dx;
+585: const y = point.y + dy;
+588: const spreadX = options.spreadX ?? 54;
+589: const spreadY = options.spreadY ?? 38;
+595: candidates.push({
+598: riverPoint: point,
+601: sort: priority + rng() * 0.18 + pathIndex * 0.005 + lane * 0.003
+605: const side = c % 2 === 0 ? -1 : 1;
+607: const step = 30 + spreadX * 0.26 + rng() * 18;
+610: candidates.push({
+611: x: x + side * rank * step + (rng() - 0.5) * spreadX * 0.28,
+613: riverPoint: point,
+616: sort: priority + rng() * 0.22 + c * 0.004 + pathIndex * 0.005 + lane * 0.003
+621: function pushSingleMountainCandidate(candidates, point, pathIndex, rng, lane, options = {}) {
+626: candidates.push({
+627: x: point.x,
+628: y: point.y,
+629: riverPoint: point,
+632: sort: priority + rng() * 0.08 + pathIndex * 0.002 + lane * 0.001
+636: function randomPointInEllipse(zone, rng) {
+638: const radius = Math.sqrt(rng());
+641: x: zone.cx + Math.cos(angle) * radius * zone.rx,
+642: y: zone.cy + Math.sin(angle) * radius * zone.ry
+646: function getRiverCandidates(rng) {
+647: const candidates = [];
+648: const paths = [...document.querySelectorAll('.river.main, .river.sub, .river.connector')];
+650: paths.forEach((path, pathIndex) => {
+651: const length = path.getTotalLength();
+655: const skipChance = path.classList.contains('connector') ? 0.48 : 0.36;
+658: const distance = ((i + 0.2 + rng() * 0.6) / samples) * length;
+659: const point = path.getPointAtLength(distance);
+660: const before = path.getPointAtLength(Math.max(0, distance - 4));
+661: const after = path.getPointAtLength(Math.min(length, distance + 4));
+662: const dx = after.x - before.x;
+663: const dy = after.y - before.y;
+664: const tangentLength = Math.hypot(dx, dy) || 1;
+665: const laneCount = path.classList.contains('connector')
+670: const side = ((i + lane + pathIndex) % 2 === 0) ? 1 : -1;
+672: const candidateDx = (-dy / tangentLength) * offset * side + (rng() - 0.5) * 26;
+673: const candidateDy = (dx / tangentLength) * offset * side + (rng() - 0.5) * 24;
+675: pushMountainCandidate(candidates, point, candidateDx, candidateDy, pathIndex, rng, lane, {
+678: spreadX: 48,
+679: spreadY: 30,
+688: return candidates.sort((a, b) => a.sort - b.sort);
+700: // Medium mountains
+714: // Return approximate bounding box for collision detection
+717: width: MOUNTAIN_SIZE.width * jitter,
+722: function getTerrainClusterCandidates(rng) {
+723: const candidates = [];
+724: const field = { x: 58, y: 138, width: 1584, height: 724 };
+726: const columnWidth = field.width / columns;
+733: const x = field.x +
+734: (col + 0.1 + rng() * 0.8) * columnWidth +
+735: (rng() - 0.5) * columnWidth * 0.7;
+736: const y = field.y +
+737: slot * field.height +
+738: (rng() - 0.5) * field.height * 0.13;
+739: const dense = rng() > 0.64;
+743: pushMountainCandidate(candidates, { x, y }, 0, 0, 70 + col, rng, group, {
+744: minCluster: tinyPocket ? 1 : dense ? 2 : 1,
+745: maxCluster: tinyPocket ? 2 : dense ? 5 : 3,
+746: spreadX: 34 + rng() * (dense ? 92 : 58),
+747: spreadY: 24 + rng() * (dense ? 68 : 42),
+755: const x = field.x + rng() * field.width;
+756: const y = field.y + rng() * field.height;
+759: pushMountainCandidate(candidates, { x, y }, 0, 0, 120 + accent, rng, accent, {
+762: spreadX: 52 + rng() * 96,
+763: spreadY: 32 + rng() * 72,
+770: return candidates;
+773: function getWhiteSpaceFillCandidates(rng) {
+774: const candidates = [];
+775: const field = { x: 44, y: 132, width: 1612, height: 730 };
+778: const cellWidth = field.width / columns;
+779: const cellHeight = field.height / rows;
+787: const ridge = terrainNoise(Math.floor(row / 2), Math.floor(col / 3), 38);
+788: const sparseHole = pocket < 0.11 && ridge < 0.54;
+789: const densePocket = pocket > 0.74 || ridge > 0.82;
+792: const attempts = densePocket
+795: const rowBaseY = field.y +
+801: const attemptOffset = (attempt - (attempts - 1) / 2) * cellWidth * (0.28 + terrainNoise(row, col, attempt) * 0.34);
+802: const x = field.x +
+803: (col + 0.5 + rowWave + (rng() - 0.5) * 1.72) * cellWidth +
+804: (row % 2 === 0 ? cellWidth * 0.28 : -cellWidth * 0.2) +
+806: const y = rowBaseY + (rng() - 0.5) * cellHeight * (densePocket ? 0.42 : 0.3);
+808: const sizeBias = (densePocket ? 0.86 : 0.74) * rowDensity;
+810: pushSingleMountainCandidate(candidates, { x, y }, 180 + row, rng, col * attempts + attempt, {
+819: return candidates;
+822: function distanceToRiverGuards(point, riverGuards) {
+823: return riverGuards.reduce((closest, guard) => {
+824: const distance = Math.hypot(point.x - guard.x, point.y - guard.y) - guard.radius;
+825: return Math.min(closest, distance);
+829: function getMountainBounds(x, y, scale) {
+830: const width = MOUNTAIN_SIZE.width * scale;
+834: x: x - width / 2,
+836: width,
+841: function getOpenSpaceScore(point, protectedBoxes, riverGuards) {
+842: if (point.x < 54 || point.x > MAP_WIDTH - 54 || point.y < 124 || point.y > MAP_HEIGHT - 36) {
+846: const protectedDistance = protectedBoxes.reduce((closest, box) => {
+847: return Math.min(closest, distancePointToBox(point, box));
+849: const riverDistance = distanceToRiverGuards(point, riverGuards);
+851: if (protectedDistance < 10 || riverDistance < 12) return 0;
+853: const row = Math.floor(point.y / 58);
+854: const col = Math.floor(point.x / 62);
+857: clamp(protectedDistance / 180, 0, 1) * 0.56 +
+863: function createMountainClusterCenters(rng, protectedBoxes, riverGuards) {
+864: const field = { x: 70, y: 132, width: 1560, height: 720 };
+868: const point = {
+869: x: field.x + rng() * field.width,
+870: y: field.y + rng() * field.height
+872: const score = getOpenSpaceScore(point, protectedBoxes, riverGuards);
+875: pool.push({ ...point, score });
+879: // Randomize sorting slightly so ranges don't just sit dead center of whitespace
+883: pool.forEach(point => {
+886: const minDistance = 58 + (1 - clamp(point.score, 0, 1)) * 24;
+887: const tooClose = centers.some(center => Math.hypot(center.x - point.x, center.y - point.y) < minDistance);
+888: if (!tooClose) centers.push(point);
+894: function randomMountainScale(rng, bias = 1) {
+899: function tryPlaceMountain(candidate, context) {
+900: const { protectedBoxes, riverGuards, placedBoxes } = context;
+903: const box = getMountainBounds(candidate.x, candidate.y, candidate.scale);
+904: const safeBox = expandBox(box, 6 + candidate.scale * 3);
+905: const spacingBox = expandBox(box, 2 + candidate.scale * 1); // tighter spacing
+907: // Only check if the bottom base (grounding line) of the mountain touches the river stroke
+911: width: box.width,
+914: const radius = Math.max(box.width, box.height) * 0.43;
+916: if (box.x < 30 || box.y < 100 || box.x + box.width > MAP_WIDTH - 30 || box.y + box.height > MAP_HEIGHT - 20) {
+920: if (protectedBoxes.some(protectedBox => boxesOverlap(safeBox, protectedBox))) return false;
+921: if (boxTouchesRiverStroke(baseBox, riverGuards)) return false;
+923: if (placedBoxes.some(placed => {
+924: const centerDistance = Math.hypot(candidate.x - placed.x, candidate.y - placed.y);
+925: return boxesOverlap(spacingBox, placed.box) || centerDistance < (radius + placed.radius) * 0.38;
+930: placedBoxes.push({ box: spacingBox, x: candidate.x, y: candidate.y, radius });
+931: context.placedList.push(candidate);
+937: function pickOpenPoint(rng, protectedBoxes, riverGuards) {
+941: const point = {
+945: const score = getOpenSpaceScore(point, protectedBoxes, riverGuards);
+948: best = { ...point, score };
+955: function pickRiverSideMountain(rng) {
+956: const paths = [...document.querySelectorAll('.river.main, .river.sub')];
+957: if (!paths.length) return null;
+959: const path = paths[Math.floor(rng() * paths.length)];
+960: const length = path.getTotalLength();
+961: const distance = length * (0.14 + rng() * 0.72);
+962: const point = path.getPointAtLength(distance);
+963: const before = path.getPointAtLength(Math.max(0, distance - 5));
+964: const after = path.getPointAtLength(Math.min(length, distance + 5));
+965: const dx = after.x - before.x;
+966: const dy = after.y - before.y;
+967: const tangentLength = Math.hypot(dx, dy) || 1;
+968: const side = rng() < 0.5 ? -1 : 1;
+972: x: point.x + (-dy / tangentLength) * offset * side + (rng() - 0.5) * 16,
+973: y: point.y + (dx / tangentLength) * offset * side + (rng() - 0.5) * 14,
+974: scale: randomMountainScale(rng, 1.35 + rng() * 0.45),
+980: const mountainLayer = document.querySelector('.mountains');
+981: const pointLayer = document.querySelector('.river-points');
+982: if (!mountainLayer || !pointLayer) return;
+985: pointLayer.innerHTML = '';
+987: const rng = seededRandom(8082028);
+988: const protectedBoxes = getProtectedBoxes();
+989: const riverGuards = getRiverStrokeGuards();
+990: const placedBoxes = [];
+991: const placedList = [];
+994: protectedBoxes,
+995: riverGuards,
+996: placedBoxes,
+997: placedList,
+1000: maxCount: 650 // Super high density
+1003: // Helper to generate mountains framing the river paths
+1004: function generateRiverSideMountains(rng, context) {
+1005: const paths = [...document.querySelectorAll('.river.main, .river.sub')];
+1007: paths.forEach((path, pathIndex) => {
+1008: const length = path.getTotalLength();
+1011: const stepSize = path.classList.contains('main') ? 48 : 56;
+1013: const sideStrategy = Math.floor(rng() * 4); // 0: left, 1: right, 2: both, 3: alternating
+1019: const distance = t * length;
+1020: const point = path.getPointAtLength(distance);
+1022: const before = path.getPointAtLength(Math.max(0, distance - 4));
+1023: const after = path.getPointAtLength(Math.min(length, distance + 4));
+1024: const dx = after.x - before.x;
+1025: const dy = after.y - before.y;
+1026: const tangentLength = Math.hypot(dx, dy) || 1;
+1027: const nx = -dy / tangentLength;
+1028: const ny = dx / tangentLength;
+1030: const sides = [];
+1031: if (sideStrategy === 0) sides.push(1);
+1032: else if (sideStrategy === 1) sides.push(-1);
+1033: else if (sideStrategy === 2) { sides.push(1); sides.push(-1); }
+1034: else if (sideStrategy === 3) sides.push((i % 2 === 0) ? 1 : -1);
+1036: sides.forEach(side => {
+1037: const baseOffset = path.classList.contains('main') ? 76 : 68;
+1040: const mtnX = point.x + nx * offset * side + (rng() - 0.5) * 12;
+1041: const mtnY = point.y + ny * offset * side + (rng() - 0.5) * 12;
+1046: const candidate = {
+1049: scale: randomMountainScale(rng, scaleBias),
+1053: tryPlaceMountain(candidate, context);
+1060: generateRiverSideMountains(rng, context);
+1069: const point = pickOpenPoint(rng, protectedBoxes, riverGuards);
+1070: if (!point || point.score < 0.4) continue;
+1072: const scaleBias = 0.85 + point.score * 0.3;
+1073: const placed = tryPlaceMountain({
+1074: x: point.x + (rng() - 0.5) * 25,
+1075: y: point.y + (rng() - 0.5) * 20,
+1076: scale: randomMountainScale(rng, scaleBias),
+1080: if (placed) singles += 1;
+1083: // 5. Sort successfully placed mountains by Y coordinate (painter's algorithm)
+1084: placedList.sort((a, b) => a.y - b.y);
+1086: // 6. Render them in sorted order
+1087: placedList.forEach((mtn, index) => {
+1088: const mountain = drawMountain(mtn.x, mtn.y, mtn.scale, mtn.rotation);
+1089: mountain.style.animationDelay = `${3.9 + (index % 25) * 0.05}s`;
+1090: mountainLayer.appendChild(mountain);
+1094: function updateViewBox() {
+1095: let dx = targetViewBox[0] - currentViewBox[0];
+1096: let dy = targetViewBox[1] - currentViewBox[1];
+1097: let dw = targetViewBox[2] - currentViewBox[2];
+1098: let dh = targetViewBox[3] - currentViewBox[3];
+1100: if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1 && Math.abs(dw) < 0.1 && Math.abs(dh) < 0.1) {
+1102: svgElement.setAttribute('viewBox', currentViewBox.map(v => Math.round(v)).join(' '));
+1107: currentViewBox[0] += dx * easeFactor;
+1108: currentViewBox[1] += dy * easeFactor;
+1109: currentViewBox[2] += dw * easeFactor;
+1110: currentViewBox[3] += dh * easeFactor;
+1113: requestAnimationFrame(updateViewBox);
+1120: requestAnimationFrame(updateViewBox);
+1130: // Clamp to SVG boundary
+1139: function formatCardTitle(title) {
+1143: if (title.includes('@')) {
+1147: } else if (title.includes('(')) {
+1151: } else if (title.includes(' #')) {
+1181: const firstSpace = title.indexOf(' ');
+1191: const subHtml = subText ? `<div class="card-title-sub">${subText}</div>` : '';
+1194: <div class="card-title-main-wrap">
+1195: <div class="card-title-main">${mainText}</div>
+1196: <div class="card-title-main-script">${mainText}</div>
+1197: </div>
+1202: let currentParentBranchId = null;
+1204: function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false, topicId = null) {
+1205: // Update circle and title
+1206: modalNumCircle.textContent = num;
+1207: modalTitle.textContent = title;
+1208: if (modalTitleScript) {
+1209: modalTitleScript.textContent = title;
+1212: // Update body text
+1213: modalBodyEn.textContent = bodyEn;
+1214: modalBodyVie.textContent = bodyVie;
+1217: modalCardsContainer.innerHTML = '';
+1218: modalCardsContainer.scrollLeft = 0;
+1220: if (connectedTopics && connectedTopics.length > 0) {
+1221: modalSliderWrap.style.display = 'flex';
+1223: // Hide buttons if <= 2 works, otherwise reset visibility
+1224: if (connectedTopics.length <= 2) {
+1225: prevBtn.style.display = 'none';
+1226: nextBtn.style.display = 'none';
+1228: prevBtn.style.display = 'none';
+1229: nextBtn.style.display = 'flex';
+1233: if (connectedTopics.length === 1) {
+1234: modalCardsContainer.style.justifyContent = 'center';
+1236: modalCardsContainer.style.justifyContent = 'flex-start';
+1239: connectedTopics.forEach(id => {
+1240: const data = topicData[id];
+1241: if (data) {
+1242: const card = document.createElement('div');
+1243: card.className = 'topic-card';
+1245: // Determine header background color based on era
+1246: let bgClass = 'red-bg';
+1247: if (data.era.includes('Present')) {
+1249: } else if (data.era.includes('Future')) {
+1253: const imageHtml = data.image
+1254: ? `<img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;" />`
+1256: <svg viewBox="0 0 100 50" width="60" height="30" style="opacity: 0.25;">
+1257: <polygon points="20,50 50,10 80,50" fill="#2132f6" />
+1258: <polygon points="45,50 65,25 85,50" fill="#2132f6" opacity="0.7" />
+1262: card.innerHTML = `
+1263: <div class="card-header ${bgClass}">${formatCardTitle(data.title)}</div>
+1264: <div class="card-image-placeholder">
+1266: </div>
+1269: card.addEventListener('click', () => {
+1270: selectTopic(id);
+1272: modalCardsContainer.appendChild(card);
+1276: modalSliderWrap.style.display = 'none';
+1279: // Handle back button display and target
+1281: const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
+1282: currentParentBranchId = subRiver ? subRiver.dataset.branch : null;
+1283: modalBackBtn.style.display = currentParentBranchId ? 'flex' : 'none';
+1285: currentParentBranchId = null;
+1286: modalBackBtn.style.display = 'none';
+1289: // Open overlay and panel
+1290: panel.classList.add('open');
+1291: overlay.classList.add('open');
+1295: document.getElementById('riverMap').classList.remove('has-focus');
+1297: nodes.forEach(n => {
+1298: n.classList.remove('is-active', 'is-connected');
+1302: t.classList.remove('is-active', 'is-connected', 'is-faded');
+1305: document.querySelectorAll('.endpoints circle').forEach(c => {
+1306: c.classList.remove('is-active', 'is-connected', 'is-faded');
+1309: document.querySelectorAll('.river').forEach(r => {
+1310: r.classList.remove('is-active', 'is-connected');
+1316: function selectTopic(topicId) {
+1319: const mapEl = document.getElementById('riverMap');
+1320: mapEl.classList.add('has-focus');
+1323: const topicEl = document.querySelector(`.topic[data-topic="${topicId}"]`);
+1324: if (topicEl) topicEl.classList.add('is-active');
+1326: // Highlight endpoint circle
+1327: const circleEl = document.querySelector(`circle[data-topic="${topicId}"]`);
+1328: if (circleEl) circleEl.classList.add('is-active');
+1330: // Highlight sub river path
+1331: let parentBranchId = null;
+1332: const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
+1334: subRiver.classList.add('is-connected');
+1335: parentBranchId = subRiver.dataset.branch;
+1337: // Highlight main branch river path
+1338: const mainRiver = document.querySelector(`path.main[data-branch="${parentBranchId}"]`);
+1339: if (mainRiver) mainRiver.classList.add('is-connected');
+1341: // Highlight branch node
+1342: const nodeEl = document.querySelector(`.node[data-branch="${parentBranchId}"]`);
+1343: if (nodeEl) nodeEl.classList.add('is-connected');
+1346: // Highlight connectors and connected topics
+1347: const connectors = document.querySelectorAll(`path.connector[data-from="${topicId}"], path.connector[data-to="${topicId}"]`);
+1349: c.classList.add('is-connected');
+1350: const otherTopicId = (c.dataset.from === topicId) ? c.dataset.to : c.dataset.from;
+1351: const otherTopicEl = document.querySelector(`.topic[data-topic="${otherTopicId}"]`);
+1352: if (otherTopicEl) otherTopicEl.classList.add('is-connected');
+1353: const otherCircleEl = document.querySelector(`circle[data-topic="${otherTopicId}"]`);
+1354: if (otherCircleEl) otherCircleEl.classList.add('is-connected');
+1357: const otherSub = document.querySelector(`path.sub[data-topic="${otherTopicId}"]`);
+1359: otherSub.classList.add('is-connected');
+1360: const otherBranchId = otherSub.dataset.branch;
+1361: const otherMain = document.querySelector(`path.main[data-branch="${otherBranchId}"]`);
+1362: if (otherMain) otherMain.classList.add('is-connected');
+1363: const otherNode = document.querySelector(`.node[data-branch="${otherBranchId}"]`);
+1364: if (otherNode) otherNode.classList.add('is-connected');
+1369: const data = topicData[topicId];
+1370: if (data) {
+1371: const connIds = topicConnections[topicId] || [];
+1372: openPanel(parentBranchId || 'T', data.title, data.bodyEn, data.bodyVie, connIds, true, topicId);
+1376: const center = centers[topicId];
+1385: function selectNode(branchId) {
+1388: const mapEl = document.getElementById('riverMap');
+1389: mapEl.classList.add('has-focus');
+1391: // Highlight branch node
+1392: const nodeEl = document.querySelector(`.node[data-branch="${branchId}"]`);
+1393: if (nodeEl) nodeEl.classList.add('is-active');
+1395: // Highlight main river path
+1396: const mainRiver = document.querySelector(`path.main[data-branch="${branchId}"]`);
+1397: if (mainRiver) mainRiver.classList.add('is-connected');
+1399: // Highlight all its sub rivers and their topics
+1400: const subRivers = document.querySelectorAll(`path.sub[data-branch="${branchId}"]`);
+1401: const topicIds = [];
+1403: sub.classList.add('is-connected');
+1404: const topicId = sub.dataset.topic;
+1405: if (topicId) {
+1406: topicIds.push(topicId);
+1407: const topicEl = document.querySelector(`.topic[data-topic="${topicId}"]`);
+1408: if (topicEl) topicEl.classList.add('is-connected');
+1409: const circleEl = document.querySelector(`circle[data-topic="${topicId}"]`);
+1410: if (circleEl) circleEl.classList.add('is-connected');
+1415: const data = branchData[branchId];
+1416: if (data) {
+1417: openPanel(branchId, data.title, data.bodyEn, data.bodyVie, topicIds, false);
+1420: // Zoom camera to node center
+1421: const center = centers[`node-${branchId}`];
+1430: function handleKeyboard(el, callback) {
+1431: el.addEventListener('keydown', event => {
+1439: // Node clicks
+1440: nodes.forEach(node => {
+1442: selectNode(node.dataset.branch);
+1444: node.addEventListener('click', action);
+1445: handleKeyboard(node, action);
+1451: selectTopic(topic.dataset.topic);
+1453: topic.addEventListener('click', action);
+1454: handleKeyboard(topic, action);
+1461: button.classList.add('is-active');
+1464: const era = button.dataset.era;
+1468: topic.classList.add('is-faded');
+1469: const topicId = topic.dataset.topic;
+1470: const circleEl = document.querySelector(`circle[data-topic="${topicId}"]`);
+1471: if (circleEl) circleEl.classList.add('is-faded');
+1478: `Filtering map by ${era} era. Click on any branch or topic to view details.`,
+1485: button.addEventListener('click', action);
+1486: handleKeyboard(button, action);
+1489: // Modal interactions
+1497: modalCloseBtn.addEventListener('click', closePanel);
+1498: overlay.addEventListener('click', closePanel);
+1500: modalBackBtn.addEventListener('click', () => {
+1501: if (currentParentBranchId) {
+1502: selectNode(currentParentBranchId);
+1506: prevBtn.addEventListener('click', () => {
+1507: modalCardsContainer.scrollBy({ left: -modalCardsContainer.clientWidth, behavior: 'smooth' });
+1510: nextBtn.addEventListener('click', () => {
+1511: modalCardsContainer.scrollBy({ left: modalCardsContainer.clientWidth, behavior: 'smooth' });
+1514: function updateSliderButtons() {
+1515: const scrollLeft = modalCardsContainer.scrollLeft;
+1516: const scrollWidth = modalCardsContainer.scrollWidth;
+1517: const clientWidth = modalCardsContainer.clientWidth;
+1519: // Only update buttons if there are more than 2 works
+1520: const cardsCount = modalCardsContainer.childElementCount;
+1521: if (cardsCount > 2) {
+1523: prevBtn.style.display = 'none';
+1525: prevBtn.style.display = 'flex';
+1528: if (scrollLeft + clientWidth >= scrollWidth - 12) {
+1529: nextBtn.style.display = 'none';
+1531: nextBtn.style.display = 'flex';
+1536: modalCardsContainer.addEventListener('scroll', updateSliderButtons);
+1538: // Trigger river flow animation on load
+1539: document.addEventListener('DOMContentLoaded', () => {
+1540: // organicizeRiverPaths(); // Disabled to keep river paths smooth, not hand-drawn
+1541: // applyRiverStrokeVariation(); // Disabled so CSS controls uniform stroke-widths
+1542: // buildRiverDisplayLayers(); // Disabled since we style .river directly
+1545: const animatedRiverParts = document.querySelectorAll('.river, .ribbon-clip-stroke');
+1546: animatedRiverParts.forEach(river => {
+1556: // 2. Trigger child branches after the five trunks are established.
+1566: // 4. Stagger mountain sprouting after the connection structure is readable.
+1567: document.querySelectorAll('.mountain').forEach((mtn, index) => {
+1568: const stagger = (index % 12) * 0.08;

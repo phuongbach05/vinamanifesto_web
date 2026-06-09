@@ -1,0 +1,70 @@
+Line 287: /* ───── Procedural Hand-Drawn Mountain Generator ───── */
+Line 288: function drawMountain(x, y, scale, rotation) {
+Line 292: g.classList.add('mountain');
+Line 295: { id: 'mtn1', width: 21, height: 19 },
+Line 296: { id: 'mtn2', width: 46, height: 33 },
+Line 297: { id: 'mtn3', width: 26, height: 30 }
+Line 315: // Mountain size profile helpers
+Line 316: const MOUNTAIN_SIZE = { width: 48, height: 38 };
+Line 645: ...[...document.querySelectorAll('.lake-mountain')].map(el => getSafeBox(el, 24)),
+Line 700: function pushMountainCandidate(candidates, point, dx, dy, pathIndex, rng, lane, options = {}) {
+Line 738: function pushSingleMountainCandidate(candidates, point, pathIndex, rng, lane, options = {}) {
+Line 792: pushMountainCandidate(candidates, point, candidateDx, candidateDy, pathIndex, rng, lane, {
+Line 808: function getMountainScaleProfile(rng) {
+Line 812: // Tiny filler mountains
+Line 817: // Medium mountains
+Line 822: // Large mountains
+Line 830: function getMountainSize(rng) {
+Line 834: width: MOUNTAIN_SIZE.width * jitter,
+Line 835: height: MOUNTAIN_SIZE.height * jitter
+Line 858: const scaleProfile = getMountainScaleProfile(rng);
+Line 860: pushMountainCandidate(candidates, { x, y }, 0, 0, 70 + col, rng, group, {
+Line 874: const scaleProfile = getMountainScaleProfile(rng);
+Line 876: pushMountainCandidate(candidates, { x, y }, 0, 0, 120 + accent, rng, accent, {
+Line 924: const scaleProfile = getMountainScaleProfile(rng);
+Line 927: pushSingleMountainCandidate(candidates, { x, y }, 180 + row, rng, col * attempts + attempt, {
+Line 946: function getMountainBounds(x, y, scale) {
+Line 947: const width = MOUNTAIN_SIZE.width * scale;
+Line 948: const height = MOUNTAIN_SIZE.height * scale;
+Line 980: function createMountainClusterCenters(rng, protectedBoxes, riverGuards) {
+Line 1011: function randomMountainScale(rng, bias = 1) {
+Line 1012: const profile = getMountainScaleProfile(rng);
+Line 1016: function tryPlaceMountain(candidate, context) {
+Line 1020: const box = getMountainBounds(candidate.x, candidate.y, candidate.scale);
+Line 1024: // Only check if the bottom base (grounding line) of the mountain touches the river stroke
+Line 1072: function pickRiverSideMountain(rng) {
+Line 1091: scale: randomMountainScale(rng, 1.35 + rng() * 0.45),
+Line 1096: function placeMountainsAlongRivers() {
+Line 1097: const mountainLayer = document.querySelector('.mountains');
+Line 1099: if (!mountainLayer || !pointLayer) return;
+Line 1101: mountainLayer.innerHTML = '';
+Line 1120: // Helper to generate mountains framing the river paths
+Line 1121: function generateRiverSideMountains(rng, context) {
+Line 1157: const mtnX = point.x + nx * offset * side + (rng() - 0.5) * 12;
+Line 1158: const mtnY = point.y + ny * offset * side + (rng() - 0.5) * 12;
+Line 1164: x: mtnX,
+Line 1165: y: mtnY,
+Line 1166: scale: randomMountainScale(rng, scaleBias),
+Line 1170: tryPlaceMountain(candidate, context);
+Line 1176: // 1. Generate river-framing mountain ranges
+Line 1177: generateRiverSideMountains(rng, context);
+Line 1179: // 3. Generate singles/filler mountains to fill whitespace
+Line 1190: const placed = tryPlaceMountain({
+Line 1193: scale: randomMountainScale(rng, scaleBias),
+Line 1200: // 5. Sort successfully placed mountains by Y coordinate (painter's algorithm)
+Line 1204: placedList.forEach((mtn, index) => {
+Line 1205: const mountain = drawMountain(mtn.x, mtn.y, mtn.scale, mtn.rotation);
+Line 1206: mountain.style.animationDelay = `${3.9 + (index % 25) * 0.05}s`;
+Line 1207: mountainLayer.appendChild(mountain);
+Line 1389: document.querySelectorAll('.mountain').forEach(mountain => {
+Line 1390: if (!mountain.dataset.baseTransform) {
+Line 1391: const baseTransform = mountain.getAttribute('transform') || '';
+Line 1393: mountain.dataset.baseTransform = baseTransform;
+Line 1394: mountain.dataset.baseX = match ? match[1] : `${MAP_CENTER_X}`;
+Line 1397: const baseX = parseFloat(mountain.dataset.baseX) || MAP_CENTER_X;
+Line 1400: mountain.setAttribute('transform', `${prefix}${mountain.dataset.baseTransform}`);
+Line 1599: <!-- Central mountain vector -->
+Line 2291: // placeMountainsAlongRivers();
+Line 2315: // 4. Stagger mountain sprouting after the connection structure is readable. (Disabled for custom mountains)
+Line 2316: // document.querySelectorAll('.mountain').forEach((mtn, index) => {
+Line 2318: //   mtn.style.animationDelay = `${5.5 + stagger}s`;
