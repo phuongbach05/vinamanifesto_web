@@ -23,9 +23,6 @@
         <desc id="mapDesc">A portfolio website map with one central lake, five numbered river branches, and topics arranged by past, present, and future.</desc>
 
         <defs>
-          <clipPath id="map-clip">
-            <rect x="0" y="0" width="1700" height="900" />
-          </clipPath>
           <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="4" result="blur" />
             <feMerge>
@@ -259,13 +256,14 @@
         <!-- Central lake -->
         <path class="lake" d="M 960,450 C 965,490 950,525 925,550 C 890,585 850,575 815,585 C 780,595 735,580 700,565 C 660,545 640,510 635,470 C 630,425 650,380 680,355 C 715,325 765,335 805,330 C 845,325 890,320 920,345 C 955,375 955,415 960,450 Z" />
         <!-- Lake decoration mountains -->
-        <g clip-path="url(#map-clip)">
+        <g class="lake-mountains">
           <image class="lake-mountain" href="mountainup.svg" x="620" y="230" width="360" height="152" />
           <image class="lake-mountain" href="mountainbottom.svg" x="610" y="490" width="380" height="136" />
           <!-- Custom placed mountain clusters -->
           <image class="lake-mountain" href="mountaina.svg" x="480" y="170" width="200" height="68" />
           <image class="lake-mountain" href="mountainb.svg" x="900" y="170" width="180" height="104" />
           <image class="lake-mountain" href="mountainc.svg" x="1050" y="370" width="580" height="294" />
+          <image class="lake-mountain" href="mountaine.svg" x="-5" y="230" width="146" height="607" />
           <image class="lake-mountain" href="mountaincd.svg" x="170" y="385" width="260" height="197" />
           <image class="lake-mountain" href="mountaink.svg" x="490" y="350" width="112" height="177" />
           <image class="lake-mountain" href="mountainh.svg" x="170" y="210" width="220" height="66" />
@@ -274,6 +272,8 @@
           <image class="lake-mountain" href="mountainf.svg" x="260" y="620" width="137" height="118" />
           <image class="lake-mountain" href="mountainl.svg" x="1230" y="680" width="450" height="186" />
           <image class="lake-mountain" href="mountainm.svg" x="1010" y="660" width="140" height="52" />
+          <image class="lake-mountain" href="mountainn.svg" x="1540" y="240" width="168" height="132" />
+          <image class="lake-mountain" href="mountaino.svg" x="1310" y="220" width="220" height="131" />
           <image class="lake-mountain" href="mountainp.svg" x="1240" y="240" width="117" height="94" />
         </g>
         <image class="brand" href="logo.svg" x="665" y="335" width="270" height="240" />
