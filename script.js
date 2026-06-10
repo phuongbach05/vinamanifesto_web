@@ -147,7 +147,7 @@ const topicData = {
   'vina-seat': {
     title: 'Vina Seat',
     era: 'Present',
-    image: 'Vinaseat/chair1.png',
+    image: 'Vinaseat/chair5.jpg',
     bodyEn: "Vinaseat is a structure born and raised in Vina Land. Its design is inspired by the folding accordion-style gates found throughout the country, from North to South. The structure can be expanded to function as a seat or as a table base, and collapsed for easy carrying and quick relocation while eating or drinking on the sidewalk. It reflects the adaptability of Vietnamese street life, where temporary dining and social gatherings often take place in spaces originally intended for pedestrians.\n\n<i>Special thanks to Gallery Medium</i>",
     bodyVie: "Vinaseat là một cấu trúc sinh ra và lớn lên ở Vina. Cấu trúc được lấy cảm hứng từ các loại cửa xếp kéo ra, kéo vào từ miền Bắc tới miền Nam Việt Nam. Cấu trúc này có thể kéo ra để làm ghế ngồi hoặc để làm chân bàn, hoặc kéo vào để tiện vác đi và chạy khi đang ăn cơm,uống nước trên vỉa hè, vốn dành riêng cho người đi bộ.\n\n<i>Special thanks to Gallery Medium</i>",
     images: [
