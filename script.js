@@ -147,8 +147,8 @@ const topicData = {
   'vina-seat': {
     title: 'Vina Seat',
     era: 'Present',
-    bodyEn: 'Redesigning public seating inspired by local plastic stools and informal community hubs.',
-    bodyVie: 'Thiết kế lại ghế ngồi công cộng lấy cảm hứng từ những chiếc ghế nhựa địa phương và các cụm cộng đồng thân mật.',
+    bodyEn: "Vinaseat is a structure born and raised in Vina Land. Its design is inspired by the folding accordion-style gates found throughout the country, from North to South. The structure can be expanded to function as a seat or as a table base, and collapsed for easy carrying and quick relocation while eating or drinking on the sidewalk. It reflects the adaptability of Vietnamese street life, where temporary dining and social gatherings often take place in spaces originally intended for pedestrians.\n\n<i>Special thanks to Gallery Medium</i>",
+    bodyVie: "Vinaseat là một cấu trúc sinh ra và lớn lên ở Vina. Cấu trúc được lấy cảm hứng từ các loại cửa xếp kéo ra, kéo vào từ miền Bắc tới miền Nam Việt Nam. Cấu trúc này có thể kéo ra để làm ghế ngồi hoặc để làm chân bàn, hoặc kéo vào để tiện vác đi và chạy khi đang ăn cơm,uống nước trên vỉa hè, vốn dành riêng cho người đi bộ.\n\n<i>Special thanks to Gallery Medium</i>",
     images: [
       {
         captionEn: 'Ergonomic mockups redesigning the iconic blue plastic street stool for public plazas.',
@@ -1827,8 +1827,8 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     
     if (detailTitle) detailTitle.innerHTML = title;
     if (detailTitleScript) detailTitleScript.innerHTML = title;
-    if (topicBodyEn) topicBodyEn.textContent = bodyEn;
-    if (topicBodyVie) topicBodyVie.textContent = bodyVie;
+    if (topicBodyEn) topicBodyEn.innerHTML = bodyEn;
+    if (topicBodyVie) topicBodyVie.innerHTML = bodyVie;
     
     // Initialize image slideshow
     const data = topicData[topicId];
@@ -1840,23 +1840,23 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     // Dynamically align script text on left column title
     alignTopicDetailTitle();
     
-  } else {
-    // Branch view
-    currentTopicId = null;
-    currentSlideshowImages = [];
-    currentParentBranchId = null;
-    
-    // Toggle containers
-    topicContent.style.display = 'none';
-    branchContent.style.display = 'block';
-    
-    // Toggle header breadcrumbs
-    branchLink.style.display = 'none';
-    secondSeparator.style.display = 'none';
-    
-    // Update branch description texts
-    modalBodyEn.textContent = bodyEn;
-    modalBodyVie.textContent = bodyVie;
+    } else {
+      // Branch view
+      currentTopicId = null;
+      currentSlideshowImages = [];
+      currentParentBranchId = null;
+      
+      // Toggle containers
+      topicContent.style.display = 'none';
+      branchContent.style.display = 'block';
+      
+      // Toggle header breadcrumbs
+      branchLink.style.display = 'none';
+      secondSeparator.style.display = 'none';
+      
+      // Update branch description texts
+      modalBodyEn.innerHTML = bodyEn;
+      modalBodyVie.innerHTML = bodyVie;
   }
 
   // Populate bottom slider cards (shared for both views!)
