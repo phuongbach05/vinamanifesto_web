@@ -593,16 +593,28 @@ button { font: inherit; }
   font-family: 'Arial', sans-serif;
   font-size: 13.5px;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: normal;
   text-align: left;
   flex: 1 1 auto;
   max-height: none;
   overflow-y: auto;
 }
-.lang-label,
+.lang-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(33, 50, 246, 0.46);
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+.lang-label:first-of-type {
+  margin-top: 0;
+}
 #modalBodyVie,
 #topicBodyVie {
-  display: none !important;
+  display: block;
 }
 #modalBodyEn,
 #modalBodyVie,
@@ -854,7 +866,7 @@ button { font: inherit; }
   font-family: 'Arial', sans-serif;
   font-size: 13.5px;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: normal;
   text-align: left;
   max-height: none;
   overflow: hidden;
@@ -929,9 +941,9 @@ button { font: inherit; }
 .slideshow-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 42vh;
-  max-height: 42dvh;
+  aspect-ratio: 16 / 9;
+  max-height: 35vh;
+  max-height: 35dvh;
   border: 3px solid var(--blue);
   background: #fbfaf5;
   overflow: hidden;
@@ -1138,5 +1150,14 @@ button { font: inherit; }
   .is-topic-view #modalBranchLink,
   .is-topic-view #modalSecondSeparator {
     display: none !important;
+  }
+}
+
+/* Shorter info panel on desktop specifically for topic view */
+@media (min-width: 1025px) {
+  .info-panel.is-topic-view {
+    aspect-ratio: 16 / 10;
+    min-height: 60vh;
+    min-height: 60dvh;
   }
 }
