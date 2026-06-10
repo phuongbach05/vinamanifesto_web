@@ -35,8 +35,8 @@ const topicData = {
   'post-sharing': {
     title: 'Post-sharing economy',
     era: 'Past',
-    bodyEn: 'Analyzing how digital sharing platforms intersect with traditional community practices in Vietnam.',
-    bodyVie: 'Phân tích cách các nền tảng chia sẻ kỹ thuật số giao thoa với thực hành cộng đồng truyền thống ở Việt Nam.',
+    bodyEn: '(caption missing)\nPhotographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le-Bac-Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang',
+    bodyVie: '(caption missing)\nPhotographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le-Bac-Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang',
     images: [
       {
         captionEn: 'Conceptual sketch mapping public-private shared spaces in Hanoi.',
@@ -51,8 +51,8 @@ const topicData = {
   'viscose': {
     title: 'Viscose #3',
     era: 'Past',
-    bodyEn: 'Exploring local synthetic textile histories and industrial materials in Vietnamese history.',
-    bodyVie: 'Khám phá lịch sử dệt may tổng hợp địa phương và vật liệu công nghiệp trong lịch sử Việt Nam.',
+    bodyEn: '"The Avant-garde is in Front of Us" A collaborative diagram co-ideated with Arlette\nQuỳnh Anh Trần This work explores the shifting locus of the avant-garde in contemporary Asia, challenging Eurocentric temporalities and proposing a regionally grounded, forward-facing vision of artistic experimentation.',
+    bodyVie: '"The Avant-garde is in Front of Us" A collaborative diagram co-ideated with Arlette\nQuỳnh Anh Trần This work explores the shifting locus of the avant-garde in contemporary Asia, challenging Eurocentric temporalities and proposing a regionally grounded, forward-facing vision of artistic experimentation.',
     images: [
       {
         captionEn: 'Archival photography of early synthetic textile factories in Nam Dinh.',
@@ -67,8 +67,8 @@ const topicData = {
   'first-collection': {
     title: 'Vinabiennale<br>SS2020/22',
     era: 'Past',
-    bodyEn: 'The debut collection showcasing experimental designs inspired by everyday street objects.',
-    bodyVie: 'Bộ sưu tập đầu tiên trình diễn các thiết kế thử nghiệm lấy cảm hứng từ các vật dụng đường phố hàng ngày.',
+    bodyEn: 'Missing caption',
+    bodyVie: 'Missing caption',
     images: [
       {
         captionEn: 'Prototype designs showcasing street objects transformed into wearable garments.',
@@ -99,8 +99,8 @@ const topicData = {
   'karma': {
     title: 'Karma Kapitalists',
     era: 'Past',
-    bodyEn: 'A critical design exploration of local commerce, street vending, and capital accumulation.',
-    bodyVie: 'Khám phá thiết kế phản biện về thương mại địa phương, bán hàng rong và tích lũy vốn.',
+    bodyEn: 'Caption missing',
+    bodyVie: 'Caption missing',
     images: [
       {
         captionEn: 'Field notes documenting informal street vendor logistics and capital cycles.',
@@ -131,8 +131,8 @@ const topicData = {
   'cay-neo': {
     title: 'Cây Neo',
     era: 'Present',
-    bodyEn: 'Design research project focusing on traditional anchoring motifs in local river navigation.',
-    bodyVie: 'Dự án nghiên cứu thiết kế tập trung vào các mô-típ neo giữ truyền thống trong điều hướng sông nước địa phương.',
+    bodyEn: 'Cây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.\n\n<i>Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le-Bac-Tan</i>',
+    bodyVie: 'Cây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.\n\n<i>Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le-Bac-Tan</i>',
     images: [
       {
         captionEn: 'Typology study of traditional river boat anchoring devices along the Mekong.',
@@ -179,10 +179,10 @@ const topicData = {
     ]
   },
   'bds': {
-    title: 'Bất động sản AV',
+    title: 'Bất Động Sản A/V',
     era: 'Present',
-    bodyEn: 'Audio-visual installation reflecting on real estate hype, urban development, and construction sites.',
-    bodyVie: 'Sắp đặt âm thanh-hình ảnh phản ánh về cơn sốt bất động sản, phát triển đô thị và các công trường xây dựng.',
+    bodyEn: 'Renick Bell (US) × Le-Bac-Tan (VN) – Bất Động Sản (Real Estate)\n\nA live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
+    bodyVie: 'Renick Bell (US) × Le-Bac-Tan (VN) – Bất Động Sản (Real Estate)\n\nA live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
     images: [
       {
         captionEn: 'Visual storyboard mapping real estate advertising patterns in construction zones.',
