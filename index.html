@@ -16,7 +16,7 @@
       opacity: 0;
     }
   </style>
-  <link rel="stylesheet" href="style.css?v=20260611-13" />
+  <link rel="stylesheet" href="style.css?v=20260611-14" />
 </head>
 <body>
   <main class="site">
@@ -510,12 +510,22 @@
 
   <!-- Lightbox Fullscreen Viewer -->
   <div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
     <div class="lightbox-content">
       <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close fullscreen view">X</button>
       <div class="lightbox-image-wrap" id="lightboxImageWrap"></div>
     </div>
+    <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Next image">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
   </div>
 
-  <script src="script.js?v=20260610-4"></script>
+  <script src="script.js?v=20260611-1"></script>
 </body>
 </html>
