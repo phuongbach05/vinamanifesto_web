@@ -1686,78 +1686,39 @@ let currentTopicId = null;
 let currentSlideshowImages = [];
 let currentSlideshowIndex = 0;
 
+function alignDoubleLayeredTitles() {
+  requestAnimationFrame(() => {
+    const wrappers = document.querySelectorAll('.title-line-wrapper');
+    wrappers.forEach(wrapper => {
+      const base = wrapper.querySelector('.title-line-base');
+      const script = wrapper.querySelector('.title-line-script');
+      if (!base || !script) return;
+      
+      // Reset transform first to measure natural sizes
+      script.style.transform = 'translateX(-50%) scale(1)';
+      script.style.transformOrigin = 'center bottom';
+      
+      const baseWidth = base.getBoundingClientRect().width;
+      const scriptWidth = script.getBoundingClientRect().width;
+      
+      if (baseWidth > 0 && scriptWidth > 0) {
+        if (scriptWidth > baseWidth) {
+          const ratio = baseWidth / scriptWidth;
+          script.style.transform = `translateX(-50%) scale(${ratio})`;
+        } else {
+          script.style.transform = 'translateX(-50%)';
+        }
+      }
+    });
+  });
+}
+
 function alignTextOverlay(baseEl, scriptEl) {
-  if (!baseEl || !scriptEl) return;
-  
-  const isTopicDetail = scriptEl.classList.contains('topic-detail-title-script');
-  
-  // Reset styles first
-  if (isTopicDetail) {
-    scriptEl.style.top = '1px';
-    scriptEl.style.transform = 'scaleX(1)';
-  } else {
-    scriptEl.style.top = '';
-    scriptEl.style.transform = 'translateY(-50%) translateY(1px) scaleX(1)';
-  }
-  scriptEl.style.transformOrigin = 'left center';
-  
-  // Detect multi-line wrapping
-  const isMultiLine = baseEl.getBoundingClientRect().height > 32;
-  if (isMultiLine) {
-    scriptEl.style.top = '1px';
-    scriptEl.style.transform = 'none';
-    return;
-  }
-  
-  const baseWidth = baseEl.getBoundingClientRect().width;
-  const scriptWidth = scriptEl.getBoundingClientRect().width;
-  
-  if (baseWidth > 0 && scriptWidth > 0) {
-    const ratio = baseWidth / scriptWidth;
-    if (isTopicDetail) {
-      scriptEl.style.transform = `scaleX(${ratio})`;
-    } else {
-      scriptEl.style.transform = `translateY(-50%) translateY(1px) scaleX(${ratio})`;
-    }
-  }
+  alignDoubleLayeredTitles();
 }
 
 function alignTopicDetailTitle() {
-  requestAnimationFrame(() => {
-    // 1. Align topic detail title in left column
-    const topicWrap = document.getElementById('modalTopicContent').querySelector('.topic-detail-title-wrap');
-    if (topicWrap) {
-      alignTextOverlay(
-        topicWrap.querySelector('.topic-detail-title'),
-        topicWrap.querySelector('.topic-detail-title-script')
-      );
-    }
-    
-    // 2. Align breadcrumb header elements
-    const homeWrap = document.getElementById('modalHomeBtn');
-    if (homeWrap) {
-      alignTextOverlay(
-        homeWrap.querySelector('.modal-home-title'),
-        homeWrap.querySelector('.modal-home-title-script')
-      );
-    }
-    
-    const branchWrap = document.getElementById('modalBranchLink');
-    if (branchWrap) {
-      alignTextOverlay(
-        branchWrap.querySelector('.modal-branch-title'),
-        branchWrap.querySelector('.modal-branch-title-script')
-      );
-    }
-    
-    const titleWrap = document.querySelector('.modal-header-left .modal-title-wrap');
-    if (titleWrap) {
-      alignTextOverlay(
-        titleWrap.querySelector('.modal-title'),
-        titleWrap.querySelector('.modal-title-script')
-      );
-    }
-  });
+  alignDoubleLayeredTitles();
 }
 
 function renderSlideshowPlaceholder(topicId, index) {
@@ -2006,27 +1967,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
 }
 
 function alignCardTitles() {
-  requestAnimationFrame(() => {
-    const wraps = modalCardsContainer.querySelectorAll('.card-title-main-wrap');
-    wraps.forEach(wrap => {
-      const base = wrap.querySelector('.card-title-main');
-      const script = wrap.querySelector('.card-title-main-script');
-      if (base && script) {
-        // Reset scale first to measure natural sizes
-        script.style.transform = 'translateY(-50%) translateY(1px) scaleX(1)';
-        script.style.transformOrigin = 'left center';
-        
-        const baseWidth = base.getBoundingClientRect().width;
-        const scriptWidth = script.getBoundingClientRect().width;
-        
-        if (baseWidth > 0 && scriptWidth > 0) {
-          const ratio = baseWidth / scriptWidth;
-          // Apply scaleX to match base width exactly
-          script.style.transform = `translateY(-50%) translateY(1px) scaleX(${ratio})`;
-        }
-      }
-    });
-  });
+  alignDoubleLayeredTitles();
 }
 
 function clearActive() {
@@ -2901,6 +2842,14 @@ function alignSVGTopicLabels() {
           
           const originalX = parseFloat(baseTspan.getAttribute('x')) || parseFloat(baseText.getAttribute('x')) || 0;
           scriptTspan.setAttribute('x', originalX + shift);
+          
+          if (scriptWidth > baseWidth) {
+            scriptTspan.setAttribute('textLength', baseWidth);
+            scriptTspan.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+          } else {
+            scriptTspan.removeAttribute('textLength');
+            scriptTspan.removeAttribute('lengthAdjust');
+          }
         }
       }
     } else {
@@ -2911,6 +2860,14 @@ function alignSVGTopicLabels() {
       
       const originalX = parseFloat(baseText.getAttribute('x')) || 0;
       scriptText.setAttribute('x', originalX + shift);
+      
+      if (scriptWidth > baseWidth) {
+        scriptText.setAttribute('textLength', baseWidth);
+        scriptText.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+      } else {
+        scriptText.removeAttribute('textLength');
+        scriptText.removeAttribute('lengthAdjust');
+      }
     }
   });
 }
