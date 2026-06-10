@@ -604,6 +604,12 @@ button { font: inherit; }
 #topicBodyVie {
   display: none !important;
 }
+#modalBodyEn,
+#modalBodyVie,
+#topicBodyEn,
+#topicBodyVie {
+  white-space: pre-wrap;
+}
 
 /* Cards Slider Section */
 .cards-slider-wrap {

@@ -2,32 +2,32 @@ const branchData = {
   1: {
     title: 'Vina remixes',
     era: 'Past',
-    bodyEn: "is art and design that copy and paste, mix and remix but do not plagiarize. 'Vina' remixes the extremities of things or things that are considered polarized in common sense. i.e. French Baguette with Pork Floss. Italian Pizza with Bún Đậu Mắm Tôm (rice vermicelli with fried tofu and fermented shrimp paste). Bolero with Eurodance.",
-    bodyVie: "is art and design that copy and paste, mix and remix but do not plagiarize. 'Vina' remixes the extremities of things or things that are considered polarized in common sense. i.e. French Baguette with Pork Floss. Italian Pizza with Bún Đậu Mắm Tôm (rice vermicelli with fried tofu and fermented shrimp paste). Bolero with Eurodance."
+    bodyEn: "One: remix, stir it bright\nCopy, paste, then make it right\nBaguette and floss in one design\nBún đậu (“rice vermicelli tofu”) with pizza — Vina sign",
+    bodyVie: "Một là remix chan hòa\nCopy, paste lại hóa ra chất nhà\nBánh mì chà bông rất là\nPizza bún đậu cũng là Vina"
   },
   2: {
     title: 'Vina is kitsch',
     era: 'Past → Present',
-    bodyEn: 'From Vinahouse to Vina design, it is an aesthetic that embraces the kitschness, the not-so-stylish, the “countryside style”, the stereotypes, the maximalism of Vietnamese contemporary life.',
-    bodyVie: 'From Vinahouse to Vina design, it is an aesthetic that embraces the kitschness, the not-so-stylish, the “countryside style”, the stereotypes, the maximalism of Vietnamese contemporary life.'
+    bodyEn: "Two is kitsch, and kitsch is us\nA little quê (“country style”) gives life its thrust\nVinahouse plays everywhere\nFlashy, shiny, still smiles deep there",
+    bodyVie: "Hai là sến cũng là ta\nQuê quê một chút mới ra chất đời\nVinahouse bật khắp nơi\nLòe loẹt, bóng bẩy, vẫn cười rất sâu"
   },
   3: {
     title: 'Vina integrates',
     era: 'Past',
-    bodyEn: '"Maintain national tradition while absorbing international cultural quintessence." -Nghị quyết Trung Ương 9 (9th Central Committee of the Communist Party’s Resolution)',
-    bodyVie: '"Maintain national tradition while absorbing international cultural quintessence." -Nghị quyết Trung Ương 9 (9th Central Committee of the Communist Party’s Resolution)'
+    bodyEn: "Three: open to the world outside\nTake the best, keep roots with pride\nLet new things come, let old things stand\nBlend with all, but hold your land",
+    bodyVie: "Ba là hòa nhập năm châu\nTinh hoa ta lấy, gốc sâu ta gìn\nNgoài vào thì cứ văn minh\nTrong ta còn đó, hòa mình không tan"
   },
   4: {
     title: 'Vina is chaos',
     era: 'Present',
-    bodyEn: '…in order. Freedom in restriction. Look at the examples of Vietnamese traffic. Chaotic but everyone seems to respect unspoken orders, set by unspoken negotiations. Look at the KTTs, the structure is restrictive, but got expanded through improvisation.',
-    bodyVie: '…in order. Freedom in restriction. Look at the examples of Vietnamese traffic. Chaotic but everyone seems to respect unspoken orders, set by unspoken negotiations. Look at the KTTs, the structure is restrictive, but got expanded through improvisation.'
+    bodyEn: "Four is chaos, full of grace\nTraffic flows at its own pace\nOld KTTs (“social housing blocks”) from yesterday\nFrames are tight, but life blooms away",
+    bodyVie: "Bốn là hỗn loạn rất tình\nXe đi như nước, người nhìn mà hay\nKTT cũ kỹ xưa nay\nKhung thì chật chội, đời bày nở ra"
   },
   5: {
     title: 'Vina is hotpot',
     era: 'Present → Future',
-    bodyEn: 'It is not a fixed style, but evolved like the open source or hotpot. Everyone can contribute to define what Vina is',
-    bodyVie: 'It is not a fixed style, but evolved like the open source or hotpot. Everyone can contribute to define what Vina is'
+    bodyEn: "Five: Vina is hotpot made\nEveryone brings what they trade\nNo fixed rule, no master key\nMany tastes make unity",
+    bodyVie: "Năm là Vina nồi lẩu\nAi qua cũng thả cho đầy một câu\nKhông khuôn, không mẫu, không thầy\nMỗi người một vị, thành câu Vina"
   }
 };
 
