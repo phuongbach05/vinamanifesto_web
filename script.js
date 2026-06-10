@@ -1701,7 +1701,7 @@ function renderSlideshowPlaceholder(topicId, index) {
   if (!container) return;
   
   container.innerHTML = `
-    <svg viewBox="0 0 400 250" width="100%" height="100%" style="display: block; background: linear-gradient(135deg, #fbfaf5 0%, #f1ebe1 100%);">
+    <svg viewBox="0 0 400 300" width="100%" height="100%" style="display: block; background: linear-gradient(135deg, #fbfaf5 0%, #f1ebe1 100%);">
       <defs>
         <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
           <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(33, 50, 246, 0.03)" stroke-width="1.5"/>
@@ -1710,19 +1710,19 @@ function renderSlideshowPlaceholder(topicId, index) {
       <rect width="100%" height="100%" fill="url(#grid)" />
       
       <!-- Central mountain vector -->
-      <g transform="translate(200, 110) scale(2.2)">
+      <g transform="translate(200, 135) scale(2.2)">
         <polygon points="-20,20 0,-15 20,20" fill="var(--blue)" opacity="0.12" />
         <polygon points="-5,20 15,-5 35,20" fill="var(--blue)" opacity="0.08" />
         <line x1="-30" y1="20" x2="45" y2="20" stroke="var(--blue)" stroke-width="1.5" opacity="0.18" />
       </g>
       
       <!-- Styled label -->
-      <rect x="100" y="155" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
-      <text x="200" y="174" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
+      <rect x="100" y="190" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
+      <text x="200" y="209" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
         WORK PREVIEW #${placeholderNum}
       </text>
       
-      <text x="200" y="212" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666" opacity="0.75">
+      <text x="200" y="247" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666" opacity="0.75">
         ${data.title}
       </text>
     </svg>
