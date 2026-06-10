@@ -925,7 +925,7 @@ button { font: inherit; }
   transition: filter 0.3s ease;
 }
 .card-image-placeholder img[src*="chair5.jpg"] {
-  object-position: bottom;
+  object-position: center bottom 60px;
 }
 .topic-card:hover .card-image-placeholder img {
   filter: grayscale(0%);
