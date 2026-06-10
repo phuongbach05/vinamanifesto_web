@@ -622,15 +622,7 @@ button { font: inherit; }
 #topicBodyVie {
   white-space: pre-wrap;
 }
-.modal-content-box,
-.topic-desc-wrap {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-.modal-content-box::-webkit-scrollbar,
-.topic-desc-wrap::-webkit-scrollbar {
-  display: none !important;
-}
+
 
 /* Cards Slider Section */
 .cards-slider-wrap {
@@ -936,12 +928,15 @@ button { font: inherit; }
   max-height: clamp(120px, 22vh, 175px);
   padding-right: 4px;
 }
+.modal-content-box::-webkit-scrollbar,
 .topic-desc-wrap::-webkit-scrollbar {
   width: 6px;
 }
+.modal-content-box::-webkit-scrollbar-track,
 .topic-desc-wrap::-webkit-scrollbar-track {
   background: rgba(33, 50, 246, 0.05);
 }
+.modal-content-box::-webkit-scrollbar-thumb,
 .topic-desc-wrap::-webkit-scrollbar-thumb {
   background: rgba(33, 50, 246, 0.2);
 }
