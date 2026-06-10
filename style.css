@@ -1035,7 +1035,7 @@ button { font: inherit; }
 .topic-desc-wrap {
   flex: 1;
   overflow-y: auto;
-  max-height: clamp(120px, 22vh, 175px);
+  max-height: clamp(150px, 35vh, 290px);
   padding-right: 4px;
 }
 .modal-content-box::-webkit-scrollbar,
