@@ -2443,6 +2443,39 @@ document.addEventListener('DOMContentLoaded', () => {
   //   const stagger = (index % 12) * 0.08;
   //   mtn.style.animationDelay = `${5.5 + stagger}s`;
   // });
+
+  // 5. Synchronize hover states between topics and their map endpoint circles
+  document.querySelectorAll('.topic').forEach(topic => {
+    const topicId = topic.dataset.topic;
+    if (!topicId) return;
+    const circleEl = document.querySelector(`.endpoints circle[data-topic="${topicId}"]`);
+    if (!circleEl) return;
+    
+    topic.addEventListener('mouseenter', () => {
+      circleEl.classList.add('is-hovered');
+      topic.classList.add('is-hovered');
+    });
+    topic.addEventListener('mouseleave', () => {
+      circleEl.classList.remove('is-hovered');
+      topic.classList.remove('is-hovered');
+    });
+  });
+
+  document.querySelectorAll('.endpoints circle').forEach(circle => {
+    const topicId = circle.dataset.topic;
+    if (!topicId) return;
+    const topicEl = document.querySelector(`.topic[data-topic="${topicId}"]`);
+    if (!topicEl) return;
+    
+    circle.addEventListener('mouseenter', () => {
+      topicEl.classList.add('is-hovered');
+      circle.classList.add('is-hovered');
+    });
+    circle.addEventListener('mouseleave', () => {
+      topicEl.classList.remove('is-hovered');
+      circle.classList.remove('is-hovered');
+    });
+  });
 });
 
 let resizeFrame = null;
