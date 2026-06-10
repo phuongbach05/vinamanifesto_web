@@ -65,7 +65,7 @@ const topicData = {
     ]
   },
   'first-collection': {
-    title: 'Vinabiennale<br>First collection',
+    title: 'Vinabiennale<br>SS2020/22',
     era: 'Past',
     bodyEn: 'The debut collection showcasing experimental designs inspired by everyday street objects.',
     bodyVie: 'Bộ sưu tập đầu tiên trình diễn các thiết kế thử nghiệm lấy cảm hứng từ các vật dụng đường phố hàng ngày.',
@@ -81,7 +81,7 @@ const topicData = {
     ]
   },
   'taiwan': {
-    title: 'Vinabiennale@Taiwan<br>National Theatre',
+    title: 'Vinabiennale<br>@ TW National Theatre',
     era: 'Past',
     bodyEn: 'Cross-cultural art showcase in Taiwan integrating Vietnamese traditional performance art.',
     bodyVie: 'Triển lãm nghệ thuật đa văn hóa tại Đài Loan tích hợp nghệ thuật biểu diễn truyền thống Việt Nam.',
@@ -151,12 +151,29 @@ const topicData = {
     bodyVie: "Vinaseat là một cấu trúc sinh ra và lớn lên ở Vina. Cấu trúc được lấy cảm hứng từ các loại cửa xếp kéo ra, kéo vào từ miền Bắc tới miền Nam Việt Nam. Cấu trúc này có thể kéo ra để làm ghế ngồi hoặc để làm chân bàn, hoặc kéo vào để tiện vác đi và chạy khi đang ăn cơm,uống nước trên vỉa hè, vốn dành riêng cho người đi bộ.\n\n<i>Special thanks to Gallery Medium</i>",
     images: [
       {
+        url: 'Vinaseat/chair1.png',
         captionEn: 'Ergonomic mockups redesigning the iconic blue plastic street stool for public plazas.',
         captionVie: 'Mô hình nhân trắc học thiết kế lại chiếc ghế nhựa xanh đường phố cho các quảng trường công cộng.'
       },
       {
+        url: 'Vinaseat/chair2.png',
         captionEn: 'Community mapping showing stool clustering habits in urban tea stalls.',
         captionVie: 'Bản đồ cộng đồng thể hiện thói quen tụ họp quanh ghế nhựa tại các quán trà đá đô thị.'
+      },
+      {
+        url: 'Vinaseat/chair3.png',
+        captionEn: 'Vina Seat structural details.',
+        captionVie: 'Chi tiết cấu trúc Vina Seat.'
+      },
+      {
+        url: 'Vinaseat/chair4.jpg',
+        captionEn: 'Vina Seat prototype variations.',
+        captionVie: 'Các biến thể nguyên mẫu Vina Seat.'
+      },
+      {
+        url: 'Vinaseat/chair5.jpg',
+        captionEn: 'Vina Seat public installation.',
+        captionVie: 'Sắp đặt Vina Seat nơi công cộng.'
       }
     ]
   },
@@ -193,7 +210,7 @@ const topicData = {
     ]
   },
   'open-source': {
-    title: 'Open source Vina<br>design of Vietnam',
+    title: 'Vina đẻ-sign',
     era: 'Future',
     bodyEn: 'A shared database of open-source design patterns, icons, and cultural motifs of Vietnam.',
     bodyVie: 'Cơ sở dữ liệu chung về các hoa văn thiết kế nguồn mở, biểu tượng và mô-típ văn hóa của Việt Nam.',
@@ -205,6 +222,30 @@ const topicData = {
       {
         captionEn: 'Vector pattern library demonstrating community-submitted vernacular icons.',
         captionVie: 'Thư viện họa tiết vector trình diễn các biểu tượng bản địa do cộng đồng đóng góp.'
+      }
+    ]
+  },
+  'il-provino': {
+    title: 'Il provino',
+    era: 'Past',
+    bodyEn: 'Experimental performance piece documenting the trials, archival scripts, and behind-the-scenes auditions.',
+    bodyVie: 'Tác phẩm trình diễn thực nghiệm ghi lại các thử nghiệm, kịch bản lưu trữ và các buổi thử vai hậu trường.',
+    images: [
+      {
+        captionEn: 'Archival video stills capturing audition recordings and screen tests.',
+        captionVie: 'Ảnh cắt từ video lưu trữ ghi lại các buổi thu âm thử giọng và kiểm tra màn hình.'
+      }
+    ]
+  },
+  'vinav': {
+    title: 'VinA/V',
+    era: 'Present/Future',
+    bodyEn: 'An experimental audio-visual archive exploring the intersection of digital media, soundscapes, and collective Vietnamese memories across all eras.',
+    bodyVie: 'Một kho lưu trữ âm thanh-hình ảnh thực nghiệm, khám phá giao điểm của phương tiện kỹ thuật số, không gian âm thanh và ký ức tập thể Việt Nam qua tất cả các thời kỳ.',
+    images: [
+      {
+        captionEn: 'Audio-visual synthesis combining historical acoustic archives with modern electronic rhythms.',
+        captionVie: 'Tổng hợp âm thanh-hình ảnh kết hợp tài liệu lưu trữ âm thanh lịch sử với nhịp điệu điện tử hiện đại.'
       }
     ]
   }
@@ -229,21 +270,25 @@ const centers = {
   'bds': { cx: 1295, cy: 710 },
   'teaching': { cx: 1125, cy: 135 },
   '2028': { cx: 1545, cy: 155 },
-  'open-source': { cx: 1545, cy: 485 }
+  'open-source': { cx: 1545, cy: 485 },
+  'il-provino': { cx: 340, cy: 520 },
+  'vinav': { cx: 1130, cy: 760 }
 };
 
 const topicConnections = {
   'post-sharing': ['first-collection'],
-  'viscose': ['karma'],
-  'first-collection': ['post-sharing', 'taiwan'],
-  'taiwan': ['first-collection'],
+  'viscose': ['karma', 'il-provino'],
+  'first-collection': ['post-sharing', 'taiwan', 'il-provino'],
+  'taiwan': ['first-collection', 'il-provino'],
   'karma': ['viscose'],
   'teaching': ['2028', 'open-source'],
   'cay-neo': ['vina-seat'],
   'vina-seat': ['cay-neo'],
   'bds': ['cay-neo', 'vina-seat'],
   '2028': ['open-source', 'teaching'],
-  'open-source': ['2028', 'teaching']
+  'open-source': ['2028', 'teaching'],
+  'il-provino': ['viscose', 'first-collection', 'taiwan'],
+  'vinav': []
 };
 
 const panel              = document.getElementById('infoPanel');
@@ -1583,21 +1628,44 @@ function refreshViewBoxForViewport() {
   isAnimating = false;
 }
 
+function formatDoubleLayeredText(textBase, textScript) {
+  const linesBase = textBase.split(/<br\s*\/?>/gi);
+  const linesScript = textScript.split(/<br\s*\/?>/gi);
+  
+  let html = '';
+  for (let i = 0; i < linesBase.length; i++) {
+    const lineB = linesBase[i];
+    const lineS = linesScript[i] || lineB;
+    html += `
+      <div class="title-row" style="display: block; position: relative; text-align: inherit;">
+        <span class="title-line-wrapper">
+          <span class="title-line-base">${lineB}</span>
+          <span class="title-line-script">${lineS}</span>
+        </span>
+      </div>
+    `;
+  }
+  return html;
+}
+
 function formatCardTitle(title) {
   let mainText = '';
   let subText = '';
   
   const titleLower = title.toLowerCase();
   
-  if (titleLower.includes('taiwan')) {
+  if (titleLower.includes('taiwan') || titleLower.includes('tw national')) {
     mainText = 'Vinabiennale';
-    subText = '@Taiwan National Theatre';
-  } else if (titleLower.includes('first collection')) {
+    subText = '@ TW National Theatre';
+  } else if (titleLower.includes('first collection') || titleLower.includes('ss2020/22')) {
     mainText = 'Vinabiennale';
-    subText = 'First collection';
-  } else if (titleLower.startsWith('open source')) {
-    mainText = 'Open source';
-    subText = 'Vina design of Vietnam';
+    subText = 'SS2020/22';
+  } else if (titleLower.includes('open source') || titleLower.includes('đẻ-sign') || titleLower.includes('de-sign')) {
+    return `
+      <div class="card-title-main-wrap">
+        ${formatDoubleLayeredText('Vina đẻ-sign', 'Vina de-sign')}
+      </div>
+    `;
   } else {
     mainText = title;
     subText = '';
@@ -1607,8 +1675,7 @@ function formatCardTitle(title) {
   
   return `
     <div class="card-title-main-wrap">
-      <div class="card-title-main">${mainText}</div>
-      <div class="card-title-main-script">${mainText}</div>
+      ${formatDoubleLayeredText(mainText, mainText)}
     </div>
     ${subHtml}
   `;
@@ -1700,8 +1767,17 @@ function renderSlideshowPlaceholder(topicId, index) {
   const container = document.getElementById('slideshowImageWrap');
   if (!container) return;
   
+  const currentImage = data.images[index];
+  
+  if (currentImage.url) {
+    container.innerHTML = `
+      <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3/4; display: block;" />
+    `;
+    return;
+  }
+  
   container.innerHTML = `
-    <svg viewBox="0 0 400 250" width="100%" height="100%" style="display: block; background: linear-gradient(135deg, #fbfaf5 0%, #f1ebe1 100%);">
+    <svg viewBox="0 0 300 400" width="100%" height="100%" style="display: block; background: linear-gradient(135deg, #fbfaf5 0%, #f1ebe1 100%); aspect-ratio: 3/4;">
       <defs>
         <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
           <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(33, 50, 246, 0.03)" stroke-width="1.5"/>
@@ -1710,19 +1786,19 @@ function renderSlideshowPlaceholder(topicId, index) {
       <rect width="100%" height="100%" fill="url(#grid)" />
       
       <!-- Central mountain vector -->
-      <g transform="translate(200, 110) scale(2.2)">
+      <g transform="translate(150, 170) scale(2.2)">
         <polygon points="-20,20 0,-15 20,20" fill="var(--blue)" opacity="0.12" />
         <polygon points="-5,20 15,-5 35,20" fill="var(--blue)" opacity="0.08" />
         <line x1="-30" y1="20" x2="45" y2="20" stroke="var(--blue)" stroke-width="1.5" opacity="0.18" />
       </g>
       
       <!-- Styled label -->
-      <rect x="100" y="155" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
-      <text x="200" y="174" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
+      <rect x="50" y="215" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
+      <text x="150" y="234" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
         WORK PREVIEW #${placeholderNum}
       </text>
       
-      <text x="200" y="212" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666" opacity="0.75">
+      <text x="150" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666" opacity="0.75">
         ${data.title}
       </text>
     </svg>
@@ -1759,9 +1835,13 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
   
   // Header titles should be single-line (strip <br>)
   const cleanTitle = title.replace(/<br\s*\/?>/gi, ' ');
-  modalTitle.innerHTML = cleanTitle;
-  if (modalTitleScript) {
-    modalTitleScript.innerHTML = cleanTitle;
+  const titleWrap = document.querySelector('.modal-header-left .modal-title-wrap');
+  if (titleWrap) {
+    if (cleanTitle.toLowerCase().includes('đẻ-sign') || cleanTitle.toLowerCase().includes('de-sign')) {
+      titleWrap.innerHTML = formatDoubleLayeredText('Vina đẻ-sign', 'Vina de-sign');
+    } else {
+      titleWrap.innerHTML = formatDoubleLayeredText(cleanTitle, cleanTitle);
+    }
   }
 
   // Clear container
@@ -1771,7 +1851,6 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
   // Header Link elements
   const branchLink = document.getElementById('modalBranchLink');
   const secondSeparator = document.getElementById('modalSecondSeparator');
-  const branchTitleEl = document.getElementById('modalBranchTitle');
   
   // Content containers
   const branchContent = document.getElementById('modalBranchContent');
@@ -1793,19 +1872,14 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
     currentParentBranchId = subRiver ? subRiver.dataset.branch : null;
     
-    const branchTitleScriptEl = document.getElementById('modalBranchTitleScript');
     if (currentParentBranchId) {
       const parentData = branchData[currentParentBranchId];
-      if (parentData) {
-        branchTitleEl.textContent = parentData.title;
-        if (branchTitleScriptEl) {
-          branchTitleScriptEl.textContent = parentData.title;
-        }
+      if (parentData && branchLink) {
+        branchLink.innerHTML = formatDoubleLayeredText(parentData.title, parentData.title);
       }
     } else {
-      branchTitleEl.textContent = 'Trunk';
-      if (branchTitleScriptEl) {
-        branchTitleScriptEl.textContent = 'Trunk';
+      if (branchLink) {
+        branchLink.innerHTML = formatDoubleLayeredText('Trunk', 'Trunk');
       }
     }
     
@@ -1820,13 +1894,17 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     };
     
     // Update left column content
-    const detailTitle = document.getElementById('topicDetailTitle');
-    const detailTitleScript = document.getElementById('topicDetailTitleScript');
+    const detailTitleWrap = document.querySelector('.topic-detail-title-wrap');
     const topicBodyEn = document.getElementById('topicBodyEn');
     const topicBodyVie = document.getElementById('topicBodyVie');
     
-    if (detailTitle) detailTitle.innerHTML = title;
-    if (detailTitleScript) detailTitleScript.innerHTML = title;
+    if (detailTitleWrap) {
+      if (title.toLowerCase().includes('đẻ-sign') || title.toLowerCase().includes('de-sign')) {
+        detailTitleWrap.innerHTML = formatDoubleLayeredText('Vina đẻ-sign', 'Vina de-sign');
+      } else {
+        detailTitleWrap.innerHTML = formatDoubleLayeredText(title, title);
+      }
+    }
     if (topicBodyEn) topicBodyEn.innerHTML = bodyEn;
     if (topicBodyVie) topicBodyVie.innerHTML = bodyVie;
     
@@ -1986,8 +2064,8 @@ function highlightTopicOnMap(topicId) {
   if (circleEl) circleEl.classList.add('is-active');
 
   // Highlight sub river path
-  const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
-  if (subRiver) {
+  const subRivers = document.querySelectorAll(`path.sub[data-topic="${topicId}"]`);
+  subRivers.forEach(subRiver => {
     subRiver.classList.add('is-connected');
     const parentBranchId = subRiver.dataset.branch;
 
@@ -1998,7 +2076,7 @@ function highlightTopicOnMap(topicId) {
     // Highlight branch node
     const nodeEl = document.querySelector(`.node[data-branch="${parentBranchId}"]`);
     if (nodeEl) nodeEl.classList.add('is-connected');
-  }
+  });
 
   // Highlight connectors and connected topics
   const connectors = document.querySelectorAll(`path.connector[data-from="${topicId}"], path.connector[data-to="${topicId}"]`);
@@ -2476,6 +2554,14 @@ document.addEventListener('DOMContentLoaded', () => {
       circle.classList.remove('is-hovered');
     });
   });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      alignSVGTopicLabels();
+    });
+  } else {
+    setTimeout(alignSVGTopicLabels, 500);
+  }
 });
 
 let resizeFrame = null;
@@ -2792,3 +2878,39 @@ window.addEventListener('orientationchange', () => {
     if (isMobileView()) e.preventDefault();
   });
 })();
+
+function alignSVGTopicLabels() {
+  const topics = document.querySelectorAll('.topic');
+  topics.forEach(topic => {
+    const baseText = topic.querySelector('text:not(.topic-script)');
+    const scriptText = topic.querySelector('text.topic-script');
+    if (!baseText || !scriptText) return;
+    
+    const baseTspans = baseText.querySelectorAll('tspan');
+    const scriptTspans = scriptText.querySelectorAll('tspan');
+    
+    if (baseTspans.length > 0 && scriptTspans.length > 0) {
+      // Nhiều dòng
+      for (let i = 0; i < baseTspans.length; i++) {
+        const baseTspan = baseTspans[i];
+        const scriptTspan = scriptTspans[i];
+        if (baseTspan && scriptTspan) {
+          const baseWidth = baseTspan.getComputedTextLength();
+          const scriptWidth = scriptTspan.getComputedTextLength();
+          const shift = (baseWidth - scriptWidth) / 2;
+          
+          const originalX = parseFloat(baseTspan.getAttribute('x')) || parseFloat(baseText.getAttribute('x')) || 0;
+          scriptTspan.setAttribute('x', originalX + shift);
+        }
+      }
+    } else {
+      // Đơn dòng
+      const baseWidth = baseText.getComputedTextLength();
+      const scriptWidth = scriptText.getComputedTextLength();
+      const shift = (baseWidth - scriptWidth) / 2;
+      
+      const originalX = parseFloat(baseText.getAttribute('x')) || 0;
+      scriptText.setAttribute('x', originalX + shift);
+    }
+  });
+}

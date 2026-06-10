@@ -36,10 +36,13 @@
           <filter id="lakeShadow" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#e9bc00" flood-opacity="0.24" />
           </filter>
-          <linearGradient id="lake" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stop-color="#fff67a" />
-            <stop offset="100%" stop-color="#ffd83d" />
-          </linearGradient>
+          <radialGradient id="lake" cx="800" cy="455" r="850" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fff200" />
+            <stop offset="25%" stop-color="#ffd000" />
+            <stop offset="75%" stop-color="#ffe260" />
+            <stop offset="95%" stop-color="#f7f3e9" />
+            <stop offset="100%" stop-color="#f7f3e9" />
+          </radialGradient>
           <filter id="riverNoise" filterUnits="userSpaceOnUse" x="-120" y="-120" width="1940" height="1140">
             <feTurbulence type="fractalNoise" baseFrequency="0.0014 0.002" numOctaves="2" seed="42" result="warp" />
             <feDisplacementMap in="SourceGraphic" in2="warp" scale="11" xChannelSelector="R" yChannelSelector="G" />
@@ -213,6 +216,7 @@
           <path class="river main" data-branch="1" d="M665 412 C580 430 580 290 520 280" />
           <path class="river sub" data-branch="1" data-topic="post-sharing" d="M520 280 C440 200 320 280 240 210 C200 175 185 175 165 155" />
           <path class="river sub" data-branch="1" data-topic="karma" d="M520 280 C420 370 360 270 260 330 C200 365 175 390 145 365" />
+          <path class="river sub" data-branch="1" data-topic="vinav" d="M520 280 C600 350 900 650 1130 760" />
 
           <!-- Branch 2 — lower-left -->
           <path class="river main" data-branch="2" d="M666 498 C600 460 550 640 500 600" />
@@ -221,23 +225,28 @@
           <path class="river sub" data-branch="2" data-topic="taiwan" d="M500 600 C420 640 480 720 380 760 C320 750 270 770 265 815" />
           <path class="river sub" data-branch="2" data-topic="cay-neo" d="M500 600 C580 640 680 660 680 720 C680 770 610 770 650 805" />
           <path class="river sub" data-branch="2" data-topic="vina-seat" d="M500 600 C580 640 680 680 780 700 C860 720 940 780 990 805" />
+          <path class="river sub" data-branch="2" data-topic="vinav" d="M500 600 C600 700 900 750 1130 760" />
 
           <!-- Branch 3 — bottom center -->
           <path class="river main" data-branch="3" d="M790 586 C750 610 850 640 800 675" />
           <path class="river sub" data-branch="3" data-topic="taiwan" d="M800 675 C700 770 600 680 500 770 C400 860 275 880 265 815" />
           <path class="river sub" data-branch="3" data-topic="first-collection" d="M800 675 C680 780 580 680 480 760 C380 840 280 680 170 630" />
+          <path class="river sub" data-branch="3" data-topic="il-provino" d="M800 675 C700 630 500 550 340 520" />
+          <path class="river sub" data-branch="3" data-topic="vinav" d="M800 675 C900 700 1000 740 1130 760" />
 
           <!-- Branch 4 — right -->
           <path class="river main" data-branch="4" d="M930 526 C1000 480 1020 650 1080 610" />
           <path class="river sub" data-branch="4" data-topic="cay-neo" d="M1080 610 C980 710 920 680 800 750 C720 750 680 740 650 805" />
           <path class="river sub" data-branch="4" data-topic="vina-seat" d="M1080 610 C1020 650 960 700 940 740 C930 760 970 790 990 805" />
           <path class="river sub" data-branch="4" data-topic="bds" d="M1080 610 C1130 630 1190 690 1210 700 C1230 710 1270 705 1295 710" />
+          <path class="river sub" data-branch="4" data-topic="vinav" d="M1080 610 C1080 680 1100 720 1130 760" />
 
           <!-- Branch 5 — upper-right -->
           <path class="river main" data-branch="5" d="M925 396 C1000 430 1020 250 1085 285" />
           <path class="river sub" data-branch="5" data-topic="teaching" d="M1085 285 C1020 220 1120 180 1125 135" />
           <path class="river sub" data-branch="5" data-topic="2028" d="M1085 285 C1180 390 1260 80 1360 170 C1430 220 1510 220 1545 155" />
           <path class="river sub" data-branch="5" data-topic="open-source" d="M1085 285 C1120 180 1280 430 1360 380 C1440 330 1460 550 1545 485" />
+          <path class="river sub" data-branch="5" data-topic="vinav" d="M1085 285 C1150 400 1120 600 1130 760" />
         </g>
 
         <!-- Mountains are generated along river paths after load. -->
@@ -257,6 +266,8 @@
           <circle cx="1125" cy="135" r="9" data-topic="teaching" />
           <circle cx="1545" cy="155" r="9" data-topic="2028" />
           <circle cx="1545" cy="485" r="9" data-topic="open-source" />
+          <circle cx="340"  cy="520" r="9" data-topic="il-provino" />
+          <circle cx="1130" cy="760" r="9" data-topic="vinav" />
         </g>
 
         <!-- Central lake -->
@@ -326,22 +337,26 @@
         <g class="topic past" data-topic="first-collection" role="button" tabindex="0">
           <text x="190" y="610" text-anchor="start">
             <tspan x="190" dy="0">Vinabiennale</tspan>
-            <tspan x="190" dy="27">First collection</tspan>
+            <tspan x="190" dy="27">SS2020/22</tspan>
           </text>
           <text x="190" y="610" text-anchor="start" class="topic-script">
             <tspan x="190" dy="0">Vinabiennale</tspan>
-            <tspan x="190" dy="27">First collection</tspan>
+            <tspan x="190" dy="27">SS2020/22</tspan>
           </text>
         </g>
         <g class="topic past" data-topic="taiwan" role="button" tabindex="0">
           <text x="290" y="795" text-anchor="start">
-            <tspan x="290" dy="0">Vinabiennale@Taiwan</tspan>
-            <tspan x="290" dy="27">National Theatre</tspan>
+            <tspan x="290" dy="0">Vinabiennale</tspan>
+            <tspan x="290" dy="27">@ TW National Theatre</tspan>
           </text>
           <text x="290" y="795" text-anchor="start" class="topic-script">
-            <tspan x="290" dy="0">Vinabiennale@Taiwan</tspan>
-            <tspan x="290" dy="27">National Theatre</tspan>
+            <tspan x="290" dy="0">Vinabiennale</tspan>
+            <tspan x="290" dy="27">@ TW National Theatre</tspan>
           </text>
+        </g>
+        <g class="topic past" data-topic="il-provino" role="button" tabindex="0">
+          <text x="365" y="520" text-anchor="start">Il provino</text>
+          <text x="365" y="520" text-anchor="start" class="topic-script">Il provino</text>
         </g>
 
         <!-- Branch 3 / Branch 4 — Present confluences -->
@@ -357,6 +372,10 @@
           <text x="1320" y="718" text-anchor="start">Bất động sản AV</text>
           <text x="1320" y="718" text-anchor="start" class="topic-script">Bất động sản AV</text>
         </g>
+        <g class="topic present future" data-topic="vinav" role="button" tabindex="0">
+          <text x="1155" y="760" text-anchor="start">VinA/V</text>
+          <text x="1155" y="760" text-anchor="start" class="topic-script">VinA/V</text>
+        </g>
 
         <!-- Branch 5 — Present / Future -->
         <g class="topic present" data-topic="teaching" role="button" tabindex="0">
@@ -368,14 +387,8 @@
           <text x="1455" y="185" text-anchor="start" class="topic-script">vinabiennale 2028</text>
         </g>
         <g class="topic future" data-topic="open-source" role="button" tabindex="0">
-          <text x="1455" y="486" text-anchor="start">
-            <tspan x="1455" dy="0">Open source Vina</tspan>
-            <tspan x="1455" dy="27">design of Vietnam</tspan>
-          </text>
-          <text x="1455" y="486" text-anchor="start" class="topic-script">
-            <tspan x="1455" dy="0">Open source Vina</tspan>
-            <tspan x="1455" dy="27">design of Vietnam</tspan>
-          </text>
+          <text x="1455" y="486" text-anchor="start">Vina đẻ-sign</text>
+          <text x="1455" y="486" text-anchor="start" class="topic-script">Vina de-sign</text>
         </g>
       </svg>
     </section>
@@ -388,8 +401,12 @@
           <div class="modal-header-left">
             <div class="modal-num-circle" id="modalNumCircle">1</div>
             <div class="modal-home-wrap" id="modalHomeBtn" role="button" tabindex="0" title="Go back to full map">
-              <span class="modal-home-title">Vinamanifesto</span>
-              <span class="modal-home-title-script">Vinamanifesto</span>
+              <div class="title-row" style="display: block; position: relative; text-align: inherit;">
+                <span class="title-line-wrapper">
+                  <span class="title-line-base">Vinamanifesto</span>
+                  <span class="title-line-script">Vinamanifesto</span>
+                </span>
+              </div>
             </div>
             <span class="modal-title-separator">&gt;</span>
             <div class="modal-branch-wrap" id="modalBranchLink" role="button" tabindex="0" title="Go back to branch info" style="display: none;">
