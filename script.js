@@ -83,8 +83,8 @@ const topicData = {
   'taiwan': {
     title: 'Vinabiennale<br>@ TW National Theatre',
     era: 'Past',
-    bodyEn: 'Cross-cultural art showcase in Taiwan integrating Vietnamese traditional performance art.',
-    bodyVie: 'Triển lãm nghệ thuật đa văn hóa tại Đài Loan tích hợp nghệ thuật biểu diễn truyền thống Việt Nam.',
+    bodyEn: 'Caption missing',
+    bodyVie: 'Caption missing',
     images: [
       {
         captionEn: 'Stage layout draft integrating traditional Vietnamese water puppetry structures in Taiwan.',
@@ -115,8 +115,8 @@ const topicData = {
   'teaching': {
     title: 'Vina teaching',
     era: 'Present',
-    bodyEn: 'Alternative design education programs integrating vernacular architecture with contemporary digital design.',
-    bodyVie: 'Các chương trình giáo dục thiết kế thay thế tích hợp kiến trúc bản địa với thiết kế kỹ thuật số đương đại.',
+    bodyEn: 'Caption missing',
+    bodyVie: 'Caption missing',
     images: [
       {
         captionEn: 'Student workshop models merging local bamboo structures with parametric design.',
@@ -213,8 +213,8 @@ const topicData = {
   'open-source': {
     title: 'Vina đẻ-sign',
     era: 'Future',
-    bodyEn: 'A shared database of open-source design patterns, icons, and cultural motifs of Vietnam.',
-    bodyVie: 'Cơ sở dữ liệu chung về các hoa văn thiết kế nguồn mở, biểu tượng và mô-típ văn hóa của Việt Nam.',
+    bodyEn: 'Caption missing',
+    bodyVie: 'Caption missing',
     images: [
       {
         captionEn: 'Database schematic showing open-source asset repository for cultural motifs.',
@@ -229,8 +229,8 @@ const topicData = {
   'il-provino': {
     title: 'Il provino',
     era: 'Past',
-    bodyEn: 'Experimental performance piece documenting the trials, archival scripts, and behind-the-scenes auditions.',
-    bodyVie: 'Tác phẩm trình diễn thực nghiệm ghi lại các thử nghiệm, kịch bản lưu trữ và các buổi thử vai hậu trường.',
+    bodyEn: 'Caption missing',
+    bodyVie: 'Caption missing',
     images: [
       {
         captionEn: 'Archival video stills capturing audition recordings and screen tests.',
