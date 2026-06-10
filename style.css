@@ -389,11 +389,11 @@ button { font: inherit; }
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
   pointer-events: none;
-  width: min(1120px, 72vw);
+  width: min(1040px, 70vw);
   min-width: min(720px, calc(100vw - 32px));
-  aspect-ratio: 4 / 3;
-  min-height: 70vh;
-  min-height: 70dvh;
+  aspect-ratio: 16 / 10;
+  min-height: 52vh;
+  min-height: 52dvh;
   background: transparent;
   border: none;
   z-index: 1000;
@@ -588,11 +588,11 @@ button { font: inherit; }
 /* Content Box */
 .modal-content-box {
   background: #fff;
-  padding: 16px;
+  padding: 24px;
   color: var(--blue);
   font-family: 'Arial', sans-serif;
-  font-size: 13.5px;
-  line-height: 1.5;
+  font-size: 16.5px;
+  line-height: 1.55;
   font-weight: normal;
   text-align: left;
   flex: 1 1 auto;
@@ -860,12 +860,12 @@ button { font: inherit; }
   display: flex;
   flex: 1 1 auto;
   gap: clamp(16px, 2vw, 24px);
-  padding: 16px;
+  padding: 24px;
   background: #fff;
   color: var(--blue);
   font-family: 'Arial', sans-serif;
-  font-size: 13.5px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.55;
   font-weight: normal;
   text-align: left;
   max-height: none;
@@ -1150,14 +1150,5 @@ button { font: inherit; }
   .is-topic-view #modalBranchLink,
   .is-topic-view #modalSecondSeparator {
     display: none !important;
-  }
-}
-
-/* Shorter info panel on desktop specifically for topic view */
-@media (min-width: 1025px) {
-  .info-panel.is-topic-view {
-    aspect-ratio: 16 / 10;
-    min-height: 60vh;
-    min-height: 60dvh;
   }
 }
