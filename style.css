@@ -622,6 +622,15 @@ button { font: inherit; }
 #topicBodyVie {
   white-space: pre-wrap;
 }
+.modal-content-box,
+.topic-desc-wrap {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.modal-content-box::-webkit-scrollbar,
+.topic-desc-wrap::-webkit-scrollbar {
+  display: none !important;
+}
 
 /* Cards Slider Section */
 .cards-slider-wrap {
@@ -1150,5 +1159,14 @@ button { font: inherit; }
   .is-topic-view #modalBranchLink,
   .is-topic-view #modalSecondSeparator {
     display: none !important;
+  }
+}
+
+/* Narrower, shrink-to-fit info panel on desktop specifically for branch view */
+@media (min-width: 1025px) {
+  .info-panel.is-branch-view {
+    width: min(780px, 50vw);
+    aspect-ratio: auto;
+    min-height: 0;
   }
 }
