@@ -1886,6 +1886,18 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     if (topicBodyEn) topicBodyEn.innerHTML = bodyEn;
     if (topicBodyVie) topicBodyVie.innerHTML = bodyVie;
     
+    const topicLangLabelEn = document.getElementById('topicLangLabelEn');
+    const topicLangLabelVie = document.getElementById('topicLangLabelVie');
+    if (bodyEn === bodyVie) {
+      if (topicLangLabelEn) topicLangLabelEn.style.display = 'none';
+      if (topicLangLabelVie) topicLangLabelVie.style.display = 'none';
+      if (topicBodyVie) topicBodyVie.style.display = 'none';
+    } else {
+      if (topicLangLabelEn) topicLangLabelEn.style.display = 'block';
+      if (topicLangLabelVie) topicLangLabelVie.style.display = 'block';
+      if (topicBodyVie) topicBodyVie.style.display = 'block';
+    }
+    
     // Initialize image slideshow
     const data = topicData[topicId];
     if (data && data.images && data.images.length > 0) {
@@ -1913,6 +1925,18 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
       // Update branch description texts
       modalBodyEn.innerHTML = bodyEn;
       modalBodyVie.innerHTML = bodyVie;
+      
+      const modalLangLabelEn = document.getElementById('modalLangLabelEn');
+      const modalLangLabelVie = document.getElementById('modalLangLabelVie');
+      if (bodyEn === bodyVie) {
+        if (modalLangLabelEn) modalLangLabelEn.style.display = 'none';
+        if (modalLangLabelVie) modalLangLabelVie.style.display = 'none';
+        if (modalBodyVie) modalBodyVie.style.display = 'none';
+      } else {
+        if (modalLangLabelEn) modalLangLabelEn.style.display = 'block';
+        if (modalLangLabelVie) modalLangLabelVie.style.display = 'block';
+        if (modalBodyVie) modalBodyVie.style.display = 'block';
+      }
   }
 
   // Populate bottom slider cards (shared for both views!)
