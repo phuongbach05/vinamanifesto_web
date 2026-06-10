@@ -163,6 +163,7 @@ button { font: inherit; }
 .river.main { stroke-width: 24px; }
 .river.sub { stroke-width: 14px; }
 .river.connector { stroke-width: 10px; }
+.river.sub[data-topic="vinav"] { stroke-width: 9px; }
 
 /* ─── Endpoints ─── */
 .endpoints circle {
