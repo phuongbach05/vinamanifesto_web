@@ -1687,7 +1687,7 @@ let currentSlideshowImages = [];
 let currentSlideshowIndex = 0;
 
 function alignDoubleLayeredTitles() {
-  requestAnimationFrame(() => {
+  const runAlign = () => {
     const wrappers = document.querySelectorAll('.title-line-wrapper');
     wrappers.forEach(wrapper => {
       const base = wrapper.querySelector('.title-line-base');
@@ -1695,8 +1695,8 @@ function alignDoubleLayeredTitles() {
       if (!base || !script) return;
       
       // Reset transform first to measure natural sizes
-      script.style.transform = 'translateX(-50%) scale(1)';
-      script.style.transformOrigin = 'center bottom';
+      script.style.transform = 'translate(-50%, -50%) scale(1)';
+      script.style.transformOrigin = 'center center';
       
       const baseWidth = base.getBoundingClientRect().width;
       const scriptWidth = script.getBoundingClientRect().width;
@@ -1704,13 +1704,17 @@ function alignDoubleLayeredTitles() {
       if (baseWidth > 0 && scriptWidth > 0) {
         if (scriptWidth > baseWidth) {
           const ratio = baseWidth / scriptWidth;
-          script.style.transform = `translateX(-50%) scale(${ratio})`;
+          script.style.transform = `translate(-50%, -50%) scale(${ratio})`;
         } else {
-          script.style.transform = 'translateX(-50%)';
+          script.style.transform = 'translate(-50%, -50%)';
         }
       }
     });
-  });
+  };
+
+  requestAnimationFrame(runAlign);
+  setTimeout(runAlign, 100);
+  setTimeout(runAlign, 300);
 }
 
 function alignTextOverlay(baseEl, scriptEl) {
@@ -1732,13 +1736,13 @@ function renderSlideshowPlaceholder(topicId, index) {
   
   if (currentImage.url) {
     container.innerHTML = `
-      <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3/4; display: block;" />
+      <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block;" />
     `;
     return;
   }
   
   container.innerHTML = `
-    <svg viewBox="0 0 300 400" width="100%" height="100%" style="display: block; background: linear-gradient(135deg, #fbfaf5 0%, #f1ebe1 100%); aspect-ratio: 3/4;">
+    <svg viewBox="0 0 400 300" width="100%" height="100%" style="display: block; background: linear-gradient(135deg, #fbfaf5 0%, #f1ebe1 100%); aspect-ratio: 4/3;">
       <defs>
         <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
           <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(33, 50, 246, 0.03)" stroke-width="1.5"/>
@@ -1747,19 +1751,19 @@ function renderSlideshowPlaceholder(topicId, index) {
       <rect width="100%" height="100%" fill="url(#grid)" />
       
       <!-- Central mountain vector -->
-      <g transform="translate(150, 170) scale(2.2)">
+      <g transform="translate(200, 110) scale(2.2)">
         <polygon points="-20,20 0,-15 20,20" fill="var(--blue)" opacity="0.12" />
         <polygon points="-5,20 15,-5 35,20" fill="var(--blue)" opacity="0.08" />
         <line x1="-30" y1="20" x2="45" y2="20" stroke="var(--blue)" stroke-width="1.5" opacity="0.18" />
       </g>
       
       <!-- Styled label -->
-      <rect x="50" y="215" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
-      <text x="150" y="234" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
+      <rect x="100" y="155" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
+      <text x="200" y="174" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
         WORK PREVIEW #${placeholderNum}
       </text>
       
-      <text x="150" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666" opacity="0.75">
+      <text x="200" y="212" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666" opacity="0.75">
         ${data.title}
       </text>
     </svg>
