@@ -1289,7 +1289,10 @@ function fitViewBoxToViewport(cx, cy, baseWidth, baseHeight, clampToMap = false)
   let y = cy - h / 2;
 
   if (clampToMap) {
-    x = w <= MAP_WIDTH ? clamp(x, 0, MAP_WIDTH - w) : (MAP_WIDTH - w) / 2;
+    const minX = getResponsiveMapX(0);
+    const maxX = getResponsiveMapX(MAP_WIDTH);
+    const mapW = maxX - minX;
+    x = w <= mapW ? clamp(x, minX, maxX - w) : minX + (mapW - w) / 2;
     y = h <= MAP_HEIGHT ? clamp(y, 0, MAP_HEIGHT - h) : (MAP_HEIGHT - h) / 2;
   }
 
@@ -1317,10 +1320,7 @@ function buildTicketPath(centerX, top, bottom, outerWidth, radius) {
 function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   const [viewX, , viewWidth] = viewBox;
   const wideAmount = clamp((viewWidth - MAP_WIDTH) / 520, 0, 1);
-  const inset = 65 - wideAmount * 28;
-  const lineStart = viewX + inset;
-  const lineEnd = viewX + viewWidth - inset;
-  const timelineLine = document.querySelector('.timeline-main-line');
+  const timelineLines = [...document.querySelectorAll('.timeline-main-line')];
   const timelineLabels = document.querySelectorAll('.timeline .timeline-label');
   const birdImages = [...document.querySelectorAll('.timeline image')];
   const leftBird = birdImages[0];
@@ -1328,24 +1328,19 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   const leftLabel = timelineLabels[0];
   const rightLabel = document.querySelector('.timeline .label-right');
 
-  if (timelineLine) {
-    timelineLine.setAttribute('x1', lineStart.toFixed(1));
-    timelineLine.setAttribute('x2', lineEnd.toFixed(1));
-  }
-
-  if (leftBird) leftBird.setAttribute('x', (lineStart - 31.5).toFixed(1));
+  if (leftBird) leftBird.setAttribute('x', '-25');
   if (rightBird && rightBird.parentElement) {
-    rightBird.parentElement.setAttribute('transform', `translate(${(lineEnd + 31.5).toFixed(1)}, 34) scale(-1, 1)`);
+    rightBird.parentElement.setAttribute('transform', 'translate(1725, 34) scale(-1, 1)');
   }
 
   if (leftLabel) {
-    leftLabel.setAttribute('x', lineStart.toFixed(1));
+    leftLabel.setAttribute('x', '16.5');
   }
 
   if (rightLabel) {
-    rightLabel.setAttribute('x', lineEnd.toFixed(1));
+    rightLabel.setAttribute('x', '1683.5');
     rightLabel.querySelectorAll('tspan').forEach(tspan => {
-      tspan.setAttribute('x', lineEnd.toFixed(1));
+      tspan.setAttribute('x', '1683.5');
     });
   }
 
@@ -1355,12 +1350,19 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
     { era: 'future', fraction: 1385 / MAP_WIDTH, top: 45, bottom: 95, radius: 8, baseWidth: 150, extraWidth: 85 }
   ];
 
+  const ticketBounds = {};
+
   ticketConfigs.forEach(config => {
     const group = document.querySelector(`.time[data-era="${config.era}"]`);
     if (!group) return;
 
     const centerX = viewX + viewWidth * config.fraction;
     const width = config.baseWidth + config.extraWidth * wideAmount;
+    ticketBounds[config.era] = {
+      left: centerX - width / 2,
+      right: centerX + width / 2
+    };
+
     const path = group.querySelector('.ticket-bg');
     const text = group.querySelector('text');
 
@@ -1371,6 +1373,34 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
     if (text) {
       text.setAttribute('x', centerX.toFixed(1));
     }
+  });
+
+  const lineOverlap = 5;
+  const lineSegments = ticketBounds.past && ticketBounds.present && ticketBounds.future
+    ? [
+      [33, ticketBounds.past.left + lineOverlap],
+      [ticketBounds.past.right - lineOverlap, ticketBounds.present.left + lineOverlap],
+      [ticketBounds.present.right - lineOverlap, ticketBounds.future.left + lineOverlap],
+      [ticketBounds.future.right - lineOverlap, 1667]
+    ]
+    : [
+      [33, 260],
+      [370, 745],
+      [955, 1315],
+      [1455, 1667]
+    ];
+
+  timelineLines.forEach((line, index) => {
+    const segment = lineSegments[index];
+
+    if (!segment || segment[1] <= segment[0]) {
+      line.style.display = 'none';
+      return;
+    }
+
+    line.style.display = '';
+    line.setAttribute('x1', segment[0].toFixed(1));
+    line.setAttribute('x2', segment[1].toFixed(1));
   });
 }
 
@@ -1716,6 +1746,14 @@ function updateSlideshow(topicId, index) {
 }
 
 function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false, topicId = null, shouldOpen = true) {
+  if (isTopic) {
+    panel.classList.add('is-topic-view');
+    panel.classList.remove('is-branch-view');
+  } else {
+    panel.classList.add('is-branch-view');
+    panel.classList.remove('is-topic-view');
+  }
+
   // Update circle and title
   modalNumCircle.textContent = num;
   
@@ -2206,6 +2244,8 @@ timeButtons.forEach(button => {
     
     panel.classList.remove('open');
     overlay.classList.remove('open');
+    panel.classList.remove('is-topic-view');
+    panel.classList.remove('is-branch-view');
     void (
       'F',
       `${era.toUpperCase()}`,
@@ -2224,6 +2264,8 @@ timeButtons.forEach(button => {
 function closePanel() {
   panel.classList.remove('open');
   overlay.classList.remove('open');
+  panel.classList.remove('is-topic-view');
+  panel.classList.remove('is-branch-view');
   clearActive();
   const hv = getHomeViewBox();
   panTo(hv[0], hv[1], hv[2], hv[3]);

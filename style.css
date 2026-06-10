@@ -378,7 +378,11 @@ button { font: inherit; }
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
   pointer-events: none;
-  width: min(840px, 95vw);
+  width: min(1120px, 72vw);
+  min-width: min(720px, calc(100vw - 32px));
+  aspect-ratio: 4 / 3;
+  min-height: 70vh;
+  min-height: 70dvh;
   background: transparent;
   border: none;
   z-index: 1000;
@@ -387,8 +391,8 @@ button { font: inherit; }
   display: flex;
   flex-direction: column;
   border-radius: 0;
-  max-height: 95vh;
-  max-height: 95dvh;
+  max-height: 94vh;
+  max-height: 94dvh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(33, 50, 246, 0.2) transparent;
@@ -415,6 +419,7 @@ button { font: inherit; }
   background: #fff;
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
   margin-bottom: clamp(10px, 1.4vh, 16px);
   min-height: 0;
   overflow: hidden;
@@ -480,7 +485,7 @@ button { font: inherit; }
 .modal-home-title {
   color: #000;
   font-family: 'UTM Cooper Black', 'Cooper Black', serif;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: bold;
   font-style: italic;
   letter-spacing: -0.5px;
@@ -494,7 +499,7 @@ button { font: inherit; }
   color: #ffffff;
   -webkit-text-stroke: 0.2px #000000;
   font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
-  font-size: 18px;
+  font-size: 36px;
   font-weight: normal;
   font-style: normal;
   pointer-events: none;
@@ -503,7 +508,7 @@ button { font: inherit; }
 .modal-title-separator {
   color: #000;
   font-family: 'UTM Cooper Black', 'Cooper Black', serif;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: bold;
   opacity: 0.6;
   pointer-events: none;
@@ -513,13 +518,13 @@ button { font: inherit; }
   display: flex;
   align-items: center;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
 }
 .modal-title {
   color: #000;
   font-family: 'UTM Cooper Black', 'Cooper Black', serif;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: bold;
   font-style: italic;
   letter-spacing: -0.5px;
@@ -533,7 +538,7 @@ button { font: inherit; }
   color: #ffffff;
   -webkit-text-stroke: 0.2px #000000;
   font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
-  font-size: 20px;
+  font-size: 36px;
   font-weight: normal;
   font-style: normal;
   pointer-events: none;
@@ -579,7 +584,8 @@ button { font: inherit; }
   line-height: 1.5;
   font-weight: 600;
   text-align: left;
-  max-height: clamp(120px, 22vh, 190px);
+  flex: 1 1 auto;
+  max-height: none;
   overflow-y: auto;
 }
 .lang-label,
@@ -590,7 +596,7 @@ button { font: inherit; }
 
 /* Cards Slider Section */
 .cards-slider-wrap {
-  --related-card-width: clamp(260px, 30vw, 300px);
+  --related-card-width: clamp(260px, 25vw, 340px);
   --related-card-gap: clamp(10px, 1vw, 16px);
   display: flex;
   align-items: center;
@@ -643,7 +649,8 @@ button { font: inherit; }
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: clamp(150px, 17vh, 170px);
+  aspect-ratio: 4 / 3;
+  height: auto;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border-radius: 0;
@@ -669,7 +676,7 @@ button { font: inherit; }
   background: #ff0000;
   color: #000;
   transition: background 0.2s ease;
-  height: clamp(45px, 5.5vh, 52px);
+  height: clamp(68px, 8vh, 82px);
   justify-content: center;
 }
 .card-title-main-wrap {
@@ -678,7 +685,7 @@ button { font: inherit; }
   align-items: center;
 }
 .card-title-main {
-  font-size: clamp(14px, 1.6vh, 16px);
+  font-size: clamp(18px, 2.2vh, 22px);
   font-weight: 900;
   text-transform: none;
   letter-spacing: -0.2px;
@@ -694,7 +701,7 @@ button { font: inherit; }
   color: #ffffff !important;
   -webkit-text-stroke: 0.2px #000000 !important;
   font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive;
-  font-size: clamp(17px, 2.1vh, 20px);
+  font-size: clamp(25px, 3.1vh, 31px);
   font-weight: normal;
   font-style: normal;
   pointer-events: none;
@@ -756,7 +763,8 @@ button { font: inherit; }
 
 @media (max-width: 1180px) and (min-width: 769px) {
   .info-panel {
-    width: min(820px, calc(100vw - 28px));
+    width: min(980px, calc(100vw - 28px));
+    min-width: 0;
   }
 
   .topic-content-box {
@@ -796,7 +804,7 @@ button { font: inherit; }
 .modal-branch-title {
   color: #000;
   font-family: 'UTM Cooper Black', 'Cooper Black', serif;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: bold;
   font-style: italic;
   letter-spacing: -0.5px;
@@ -810,7 +818,7 @@ button { font: inherit; }
   color: #ffffff;
   -webkit-text-stroke: 0.2px #000000;
   font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: normal;
   font-style: normal;
   pointer-events: none;
@@ -821,6 +829,7 @@ button { font: inherit; }
 /* ─── Redesigned Two-Column Topic Layout ─── */
 .topic-content-box {
   display: flex;
+  flex: 1 1 auto;
   gap: clamp(16px, 2vw, 24px);
   padding: 16px;
   background: #fff;
@@ -830,8 +839,7 @@ button { font: inherit; }
   line-height: 1.5;
   font-weight: 600;
   text-align: left;
-  max-height: calc(100vh - 270px);
-  max-height: calc(100dvh - 270px);
+  max-height: none;
   overflow: hidden;
 }
 .topic-left-col {
@@ -859,13 +867,13 @@ button { font: inherit; }
 .topic-detail-title {
   color: #000;
   font-family: 'UTM Cooper Black', 'Cooper Black', serif;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: bold;
   font-style: italic;
   letter-spacing: -0.5px;
   white-space: normal;
   margin: 0;
-  line-height: 24px;
+  line-height: 36px;
 }
 .info-panel h2.topic-detail-title-script {
   position: absolute;
@@ -874,7 +882,7 @@ button { font: inherit; }
   color: #ffffff !important;
   -webkit-text-stroke: 0.2px #000000 !important;
   font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
-  font-size: 26px;
+  font-size: 44px;
   font-weight: normal !important;
   font-style: normal !important;
   pointer-events: none;
@@ -882,7 +890,7 @@ button { font: inherit; }
   z-index: 2;
   margin: 0;
   width: 100%;
-  line-height: 24px !important;
+  line-height: 36px !important;
 }
 .topic-desc-wrap {
   flex: 1;
@@ -1060,6 +1068,12 @@ button { font: inherit; }
 
   .info-panel {
     width: min(680px, calc(100vw - 24px));
+    min-width: 0;
+    aspect-ratio: auto;
+  }
+
+  .cards-slider-wrap {
+    --related-card-width: min(230px, calc(100vw - 104px));
   }
 
   .topic-content-box {
@@ -1092,5 +1106,20 @@ button { font: inherit; }
 
   #riverMap.is-dragging {
     cursor: grabbing;
+  }
+}
+
+/* Hide modal header breadcrumb ancestors on screens <= 1024px to prevent overflow */
+@media (max-width: 1024px) {
+  .is-branch-view #modalHomeBtn,
+  .is-branch-view #modalHomeBtn + .modal-title-separator {
+    display: none !important;
+  }
+  
+  .is-topic-view #modalHomeBtn,
+  .is-topic-view #modalHomeBtn + .modal-title-separator,
+  .is-topic-view #modalBranchLink,
+  .is-topic-view #modalSecondSeparator {
+    display: none !important;
   }
 }
