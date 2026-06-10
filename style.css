@@ -1001,14 +1001,14 @@ button { font: inherit; }
   overflow: hidden;
 }
 .topic-left-col {
-  flex: 1.1;
+  flex: 1.25;
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 .topic-right-col {
-  flex: 0.9;
+  flex: 0.75;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -1066,8 +1066,8 @@ button { font: inherit; }
   background: rgba(33, 50, 246, 0.82);
   color: #fff;
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -1078,8 +1078,8 @@ button { font: inherit; }
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 .slideshow-nav-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
 }
 .slideshow-nav-btn:hover {
   background: var(--blue);
