@@ -2567,8 +2567,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // organicizeRiverPaths(); // Disabled to keep river paths smooth, not hand-drawn
   // applyRiverStrokeVariation(); // Disabled so CSS controls uniform stroke-widths
   // buildRiverDisplayLayers(); // Disabled since we style .river directly
-  // placeMountainsAlongRivers();
   updateResponsiveMapStretch(getFullViewBox());
+
+  // Stagger lake mountains appearing from the middle outwards
+  const lakeMountains = document.querySelectorAll('.lake-mountain');
+  lakeMountains.forEach(mtn => {
+    const x = parseFloat(mtn.getAttribute('x')) || 0;
+    const w = parseFloat(mtn.getAttribute('width')) || 0;
+    const centerX = x + w / 2;
+    const dx = Math.abs(centerX - 800); // 800 is the horizontal center of the map
+    const delay = (dx / 800) * 1.0; // Stagger delay up to 1.0s
+    mtn.style.animationDelay = `${delay.toFixed(2)}s`;
+  });
 
   const animatedRiverParts = document.querySelectorAll('.river, .ribbon-clip-stroke');
   animatedRiverParts.forEach(river => {
