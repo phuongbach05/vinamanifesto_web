@@ -788,6 +788,23 @@ button { font: inherit; }
   white-space: pre-wrap;
 }
 
+#topicBodyEn a,
+#topicBodyVie a,
+#modalBodyEn a,
+#modalBodyVie a {
+  color: var(--blue);
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.15s ease-in-out;
+}
+#topicBodyEn a:hover,
+#topicBodyVie a:hover,
+#modalBodyEn a:hover,
+#modalBodyVie a:hover {
+  color: #ff0000;
+}
+
+
 
 /* Cards Slider Section */
 .cards-slider-wrap {
