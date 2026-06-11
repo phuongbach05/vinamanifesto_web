@@ -1986,6 +1986,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
   // Populate bottom slider cards (shared for both views!)
   if (connectedTopics && connectedTopics.length > 0) {
     modalSliderWrap.style.display = 'flex';
+    panel.classList.remove('no-slider');
 
     const hasPagedWorks = connectedTopics.length > 2;
     setSliderButtonState(prevBtn, false, hasPagedWorks);
@@ -2036,6 +2037,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     requestAnimationFrame(updateSliderButtons);
   } else {
     modalSliderWrap.style.display = 'none';
+    panel.classList.add('no-slider');
     setSliderButtonState(prevBtn, false, false);
     setSliderButtonState(nextBtn, false, false);
   }
