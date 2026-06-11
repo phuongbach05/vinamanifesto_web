@@ -195,7 +195,7 @@ const topicData = {
     ]
   },
   '2028': {
-    title: 'vinabiennale 2028',
+    title: 'Vinabiennale 2028',
     era: 'Future',
     bodyEn: 'Future roadmap outlining speculative design trends and collaborative design labs for 2028.',
     bodyVie: 'Lộ trình tương lai vạch ra các xu hướng thiết kế suy tưởng và phòng thí nghiệm thiết kế hợp tác cho năm 2028.',
