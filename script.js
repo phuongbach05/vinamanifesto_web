@@ -2576,20 +2576,20 @@ document.addEventListener('DOMContentLoaded', () => {
     river.style.setProperty('--length', length + 'px');
   });
 
-  // 1. Trigger main river flow after lake starts appearing (1.2s)
+  // 1. Trigger main river flow after lake starts appearing (2.4s)
   setTimeout(() => {
     setRiverFlow('.river.main');
-  }, 1200);
+  }, 2400);
 
-  // 2. Trigger child branches after the five trunks are established.
+  // 2. Trigger child branches after the five trunks are established (4.0s)
   setTimeout(() => {
     setRiverFlow('.river.sub');
-  }, 3100);
+  }, 4000);
 
-  // 3. Topic-to-topic links appear last.
+  // 3. Topic-to-topic links appear last (5.2s)
   setTimeout(() => {
     setRiverFlow('.river.connector');
-  }, 4700);
+  }, 5200);
 
   // 4. Stagger mountain sprouting after the connection structure is readable. (Disabled for custom mountains)
   // document.querySelectorAll('.mountain').forEach((mtn, index) => {
