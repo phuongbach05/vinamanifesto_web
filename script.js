@@ -1374,19 +1374,31 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   const leftLabel = timelineLabels[0];
   const rightLabel = document.querySelector('.timeline .label-right');
 
-  if (leftBird) leftBird.setAttribute('x', '-25');
-  if (rightBird && rightBird.parentElement) {
-    rightBird.parentElement.setAttribute('transform', 'translate(1725, 34) scale(-1, 1)');
+  let leftBirdX = -25;
+  if (leftBird) {
+    leftBirdX = viewX + 20;
+    leftBird.setAttribute('x', leftBirdX.toFixed(1));
+  }
+
+  let rightBirdTranslateX = 1725;
+  if (rightBird) {
+    rightBirdTranslateX = viewX + viewWidth - 20;
+    if (rightBird.parentElement) {
+      rightBird.parentElement.setAttribute('transform', `translate(${rightBirdTranslateX.toFixed(1)}, 34) scale(-1, 1)`);
+    }
   }
 
   if (leftLabel) {
-    leftLabel.setAttribute('x', '16.5');
+    const leftLabelX = leftBirdX + 31.5 + 20;
+    leftLabel.setAttribute('x', leftLabelX.toFixed(1));
   }
 
   if (rightLabel) {
-    rightLabel.setAttribute('x', '1683.5');
+    const rightLabelX = rightBirdTranslateX - 31.5 + 20;
+    rightLabel.setAttribute('x', rightLabelX.toFixed(1));
+    rightLabel.setAttribute('y', '80');
     rightLabel.querySelectorAll('tspan').forEach(tspan => {
-      tspan.setAttribute('x', '1683.5');
+      tspan.setAttribute('x', rightLabelX.toFixed(1));
     });
   }
 
@@ -1422,18 +1434,21 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   });
 
   const lineOverlap = 5;
+  const lineStart = leftBirdX + 31.5;
+  const lineEnd = rightBirdTranslateX - 31.5;
+
   const lineSegments = ticketBounds.past && ticketBounds.present && ticketBounds.future
     ? [
-      [33, ticketBounds.past.left + lineOverlap],
+      [lineStart, ticketBounds.past.left + lineOverlap],
       [ticketBounds.past.right - lineOverlap, ticketBounds.present.left + lineOverlap],
       [ticketBounds.present.right - lineOverlap, ticketBounds.future.left + lineOverlap],
-      [ticketBounds.future.right - lineOverlap, 1667]
+      [ticketBounds.future.right - lineOverlap, lineEnd]
     ]
     : [
-      [33, 260],
+      [lineStart, 260],
       [370, 745],
       [955, 1315],
-      [1455, 1667]
+      [1455, lineEnd]
     ];
 
   timelineLines.forEach((line, index) => {
