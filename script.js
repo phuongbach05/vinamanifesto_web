@@ -99,8 +99,8 @@ const topicData = {
   'karma': {
     title: 'Karma Kapitalists',
     era: 'Past',
-    bodyEn: 'The project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity',
-    bodyVie: 'The project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity',
+    bodyEn: '(EN)\nThe project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity',
+    bodyVie: '(EN)\nThe project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity',
     images: [
       {
         captionEn: 'Field notes documenting informal street vendor logistics and capital cycles.',
