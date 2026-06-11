@@ -1435,8 +1435,8 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   });
 
   const lineOverlap = 5;
-  const lineStart = leftBirdX + 68;
-  const lineEnd = rightBirdTranslateX - 68;
+  const lineStart = leftBirdX + 65;
+  const lineEnd = rightBirdTranslateX - 65;
 
   const lineSegments = ticketBounds.past && ticketBounds.present && ticketBounds.future
     ? [
