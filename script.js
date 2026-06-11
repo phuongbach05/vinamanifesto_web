@@ -1721,6 +1721,70 @@ let currentTopicId = null;
 let currentSlideshowImages = [];
 let currentSlideshowIndex = 0;
 
+let activeLang = 'vie'; // Default to VIE
+let currentPanelData = { isTopic: false, bodyEn: '', bodyVie: '' };
+
+function updateLanguageDisplay() {
+  const btnEn = document.getElementById('btnLangEn');
+  const btnVie = document.getElementById('btnLangVie');
+  
+  if (btnEn && btnVie) {
+    if (activeLang === 'en') {
+      btnEn.classList.add('active');
+      btnVie.classList.remove('active');
+    } else {
+      btnVie.classList.add('active');
+      btnEn.classList.remove('active');
+    }
+  }
+
+  const { isTopic, bodyEn, bodyVie } = currentPanelData;
+  const isIdentical = (bodyEn === bodyVie);
+
+  // Hide labels completely since we have header switcher buttons
+  const modalLangLabelEn = document.getElementById('modalLangLabelEn');
+  const modalLangLabelVie = document.getElementById('modalLangLabelVie');
+  const topicLangLabelEn = document.getElementById('topicLangLabelEn');
+  const topicLangLabelVie = document.getElementById('topicLangLabelVie');
+  if (modalLangLabelEn) modalLangLabelEn.style.display = 'none';
+  if (modalLangLabelVie) modalLangLabelVie.style.display = 'none';
+  if (topicLangLabelEn) topicLangLabelEn.style.display = 'none';
+  if (topicLangLabelVie) topicLangLabelVie.style.display = 'none';
+
+  const modalBodyEn = document.getElementById('modalBodyEn');
+  const modalBodyVie = document.getElementById('modalBodyVie');
+  const topicBodyEn = document.getElementById('topicBodyEn');
+  const topicBodyVie = document.getElementById('topicBodyVie');
+
+  if (isTopic) {
+    if (isIdentical) {
+      if (topicBodyEn) topicBodyEn.style.display = 'block';
+      if (topicBodyVie) topicBodyVie.style.display = 'none';
+    } else {
+      if (activeLang === 'en') {
+        if (topicBodyEn) topicBodyEn.style.display = 'block';
+        if (topicBodyVie) topicBodyVie.style.display = 'none';
+      } else {
+        if (topicBodyEn) topicBodyEn.style.display = 'none';
+        if (topicBodyVie) topicBodyVie.style.display = 'block';
+      }
+    }
+  } else {
+    if (isIdentical) {
+      if (modalBodyEn) modalBodyEn.style.display = 'block';
+      if (modalBodyVie) modalBodyVie.style.display = 'none';
+    } else {
+      if (activeLang === 'en') {
+        if (modalBodyEn) modalBodyEn.style.display = 'block';
+        if (modalBodyVie) modalBodyVie.style.display = 'none';
+      } else {
+        if (modalBodyEn) modalBodyEn.style.display = 'none';
+        if (modalBodyVie) modalBodyVie.style.display = 'block';
+      }
+    }
+  }
+}
+
 function alignDoubleLayeredTitles() {
   const runAlign = () => {
     const wrappers = document.querySelectorAll('.title-line-wrapper');
@@ -1946,18 +2010,8 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     }
     if (topicBodyEn) topicBodyEn.innerHTML = bodyEn;
     if (topicBodyVie) topicBodyVie.innerHTML = bodyVie;
-    
-    const topicLangLabelEn = document.getElementById('topicLangLabelEn');
-    const topicLangLabelVie = document.getElementById('topicLangLabelVie');
-    if (bodyEn === bodyVie) {
-      if (topicLangLabelEn) topicLangLabelEn.style.display = 'none';
-      if (topicLangLabelVie) topicLangLabelVie.style.display = 'none';
-      if (topicBodyVie) topicBodyVie.style.display = 'none';
-    } else {
-      if (topicLangLabelEn) topicLangLabelEn.style.display = 'block';
-      if (topicLangLabelVie) topicLangLabelVie.style.display = 'block';
-      if (topicBodyVie) topicBodyVie.style.display = 'block';
-    }
+    currentPanelData = { isTopic: true, bodyEn, bodyVie };
+    updateLanguageDisplay();
     
     // Initialize image slideshow
     const data = topicData[topicId];
@@ -1986,18 +2040,8 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
       // Update branch description texts
       modalBodyEn.innerHTML = bodyEn;
       modalBodyVie.innerHTML = bodyVie;
-      
-      const modalLangLabelEn = document.getElementById('modalLangLabelEn');
-      const modalLangLabelVie = document.getElementById('modalLangLabelVie');
-      if (bodyEn === bodyVie) {
-        if (modalLangLabelEn) modalLangLabelEn.style.display = 'none';
-        if (modalLangLabelVie) modalLangLabelVie.style.display = 'none';
-        if (modalBodyVie) modalBodyVie.style.display = 'none';
-      } else {
-        if (modalLangLabelEn) modalLangLabelEn.style.display = 'block';
-        if (modalLangLabelVie) modalLangLabelVie.style.display = 'block';
-        if (modalBodyVie) modalBodyVie.style.display = 'block';
-      }
+      currentPanelData = { isTopic: false, bodyEn, bodyVie };
+      updateLanguageDisplay();
   }
 
   // Populate bottom slider cards (shared for both views!)
@@ -2568,6 +2612,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // applyRiverStrokeVariation(); // Disabled so CSS controls uniform stroke-widths
   // buildRiverDisplayLayers(); // Disabled since we style .river directly
   updateResponsiveMapStretch(getFullViewBox());
+
+  // Language buttons click events
+  const btnEn = document.getElementById('btnLangEn');
+  const btnVie = document.getElementById('btnLangVie');
+  if (btnEn && btnVie) {
+    btnEn.addEventListener('click', () => {
+      activeLang = 'en';
+      updateLanguageDisplay();
+    });
+    btnVie.addEventListener('click', () => {
+      activeLang = 'vie';
+      updateLanguageDisplay();
+    });
+  }
 
   // Stagger lake mountains appearing from the middle outwards
   const lakeMountains = document.querySelectorAll('.lake-mountain');
