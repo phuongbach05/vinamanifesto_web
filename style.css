@@ -47,6 +47,8 @@ button { font: inherit; }
   width: 100%;
   height: 100%;
   padding: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 #riverMap {
   width: 100%;
@@ -711,8 +713,7 @@ button { font: inherit; }
   gap: 10px;
   flex-shrink: 0;
 }
-.btn-back,
-.btn-close {
+.btn-back {
   background: transparent;
   color: #fff;
   border: 3px solid #fff;
@@ -728,11 +729,25 @@ button { font: inherit; }
   transition: background 0.15s ease;
 }
 .btn-close {
+  background: transparent;
+  color: var(--blue);
+  border: 3px solid var(--blue);
+  width: 24px;
+  height: 24px;
   font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  transition: background 0.15s ease;
 }
-.btn-back:hover,
-.btn-close:hover {
+.btn-back:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+.btn-close:hover {
+  background: rgba(33, 50, 246, 0.18);
 }
 
 /* Content Box */
