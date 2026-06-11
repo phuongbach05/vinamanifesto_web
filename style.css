@@ -1204,6 +1204,15 @@ button { font: inherit; }
   aspect-ratio: 4 / 3 !important;
   display: block !important;
 }
+.lightbox-image-wrap iframe {
+  max-width: 90vw !important;
+  max-height: 85vh !important;
+  width: min(800px, 90vw) !important;
+  height: min(600px, 67.5vw) !important;
+  aspect-ratio: 4 / 3 !important;
+  display: block !important;
+  border: none !important;
+}
 .lightbox-nav-btn {
   position: absolute;
   top: 50%;

@@ -245,6 +245,7 @@ const topicData = {
     bodyVie: 'Một kho lưu trữ âm thanh-hình ảnh thực nghiệm, khám phá giao điểm của phương tiện kỹ thuật số, không gian âm thanh và ký ức tập thể Việt Nam qua tất cả các thời kỳ.',
     images: [
       {
+        url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
         captionEn: 'Audio-visual synthesis combining historical acoustic archives with modern electronic rhythms.',
         captionVie: 'Tổng hợp âm thanh-hình ảnh kết hợp tài liệu lưu trữ âm thanh lịch sử với nhịp điệu điện tử hiện đại.'
       }
@@ -1752,6 +1753,25 @@ function renderSlideshowPlaceholder(topicId, index) {
   const currentImage = data.images[index];
   
   if (currentImage.url) {
+    if (currentImage.url.includes('youtube.com') || currentImage.url.includes('youtu.be')) {
+      let videoId = '';
+      try {
+        if (currentImage.url.includes('youtube.com')) {
+          const urlParams = new URLSearchParams(new URL(currentImage.url).search);
+          videoId = urlParams.get('v');
+        } else if (currentImage.url.includes('youtu.be')) {
+          videoId = currentImage.url.split('/').pop().split('?')[0];
+        }
+      } catch (e) {
+        console.error("Invalid YouTube URL:", currentImage.url);
+      }
+      if (videoId) {
+        container.innerHTML = `
+          <iframe src="https://www.youtube.com/embed/${videoId}" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: 0; width: 100%; height: 100%; aspect-ratio: 4/3; display: block;"></iframe>
+        `;
+        return;
+      }
+    }
     const isBottomAligned = currentImage.url.includes('chair4.jpg') || currentImage.url.includes('chair5.jpg');
     const objectPos = isBottomAligned ? 'object-position: bottom;' : '';
     container.innerHTML = `
@@ -2427,6 +2447,9 @@ if (lightboxNextBtn) {
 if (lightboxCloseBtn && lightboxOverlay) {
   lightboxCloseBtn.addEventListener('click', () => {
     lightboxOverlay.classList.remove('open');
+    if (lightboxImageWrap) {
+      lightboxImageWrap.innerHTML = '';
+    }
   });
 }
 
@@ -2434,6 +2457,9 @@ if (lightboxOverlay) {
   lightboxOverlay.addEventListener('click', (e) => {
     if (e.target === lightboxOverlay) {
       lightboxOverlay.classList.remove('open');
+      if (lightboxImageWrap) {
+        lightboxImageWrap.innerHTML = '';
+      }
     }
   });
 }
