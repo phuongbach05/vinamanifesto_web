@@ -1391,13 +1391,13 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   if (leftLabel) {
     const leftLabelX = leftBirdX + 31.5 + 20;
     leftLabel.setAttribute('x', leftLabelX.toFixed(1));
-    leftLabel.setAttribute('y', '85');
+    leftLabel.setAttribute('y', '90');
   }
 
   if (rightLabel) {
     const rightLabelX = rightBirdTranslateX - 31.5 - 20;
     rightLabel.setAttribute('x', rightLabelX.toFixed(1));
-    rightLabel.setAttribute('y', '85');
+    rightLabel.setAttribute('y', '90');
     rightLabel.querySelectorAll('tspan').forEach(tspan => {
       tspan.setAttribute('x', rightLabelX.toFixed(1));
     });
@@ -1435,8 +1435,8 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   });
 
   const lineOverlap = 5;
-  const lineStart = leftBirdX + 73;
-  const lineEnd = rightBirdTranslateX - 73;
+  const lineStart = leftBirdX + 68;
+  const lineEnd = rightBirdTranslateX - 68;
 
   const lineSegments = ticketBounds.past && ticketBounds.present && ticketBounds.future
     ? [
