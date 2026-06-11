@@ -7,7 +7,7 @@
       }
 
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34, .cls-35, .cls-36 {
-        stroke: #0a470f;
+        stroke: #39ff14;
         stroke-miterlimit: 10;
       }
 
@@ -168,12 +168,12 @@
       }
     </style>
     <linearGradient id="linear-gradient" x1="62.54" y1="363.78" x2="62.54" y2="282.99" gradientUnits="userSpaceOnUse">
-      <stop offset=".17" stop-color="#eaf2e5"/>
-      <stop offset=".24" stop-color="#eaddd2"/>
-      <stop offset=".52" stop-color="#a6ff00"/>
+      <stop offset=".17" stop-color="#ffffff"/>
+      <stop offset=".24" stop-color="#ffffff"/>
+      <stop offset=".52" stop-color="#39ff14"/>
       <stop offset=".74" stop-color="#39ff14"/>
-      <stop offset=".91" stop-color="#00e600"/>
-      <stop offset="1" stop-color="#00b300"/>
+      <stop offset=".91" stop-color="#39ff14"/>
+      <stop offset="1" stop-color="#39ff14"/>
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="31.62" y1="322.07" x2="88.91" y2="322.07" xlink:href="#linear-gradient"/>
     <linearGradient id="linear-gradient-3" x1="59.48" y1="364.31" x2="59.48" y2="321.06" xlink:href="#linear-gradient"/>
