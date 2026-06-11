@@ -185,6 +185,7 @@ const topicData = {
     bodyVie: 'Renick Bell (US) × Le-Bac-Tan (VN) – Bất Động Sản (Real Estate)\n\nA live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
     images: [
       {
+        url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
         captionEn: 'Visual storyboard mapping real estate advertising patterns in construction zones.',
         captionVie: 'Storyboard hình ảnh ánh xạ các mô-típ quảng cáo bất động sản tại các khu vực công trường.'
       },
@@ -245,7 +246,6 @@ const topicData = {
     bodyVie: 'Một kho lưu trữ âm thanh-hình ảnh thực nghiệm, khám phá giao điểm của phương tiện kỹ thuật số, không gian âm thanh và ký ức tập thể Việt Nam qua tất cả các thời kỳ.',
     images: [
       {
-        url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
         captionEn: 'Audio-visual synthesis combining historical acoustic archives with modern electronic rhythms.',
         captionVie: 'Tổng hợp âm thanh-hình ảnh kết hợp tài liệu lưu trữ âm thanh lịch sử với nhịp điệu điện tử hiện đại.'
       }
