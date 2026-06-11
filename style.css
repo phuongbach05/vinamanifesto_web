@@ -392,8 +392,8 @@ button { font: inherit; }
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
   pointer-events: none;
-  width: min(1040px, 70vw);
-  min-width: min(720px, calc(100vw - 32px));
+  width: min(920px, 60vw);
+  min-width: min(680px, calc(100vw - 32px));
   aspect-ratio: 16 / 10;
   min-height: 52vh;
   min-height: 52dvh;
@@ -587,8 +587,8 @@ button { font: inherit; }
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
   pointer-events: none;
-  width: min(1040px, 70vw);
-  min-width: min(720px, calc(100vw - 32px));
+  width: min(920px, 60vw);
+  min-width: min(680px, calc(100vw - 32px));
   aspect-ratio: 16 / 10;
   min-height: 52vh;
   min-height: 52dvh;
@@ -997,7 +997,7 @@ button { font: inherit; }
 
 @media (max-width: 1180px) and (min-width: 769px) {
   .info-panel {
-    width: min(980px, calc(100vw - 28px));
+    width: min(820px, calc(100vw - 28px));
     min-width: 0;
   }
 
