@@ -200,23 +200,15 @@ const topicData = {
     era: 'Future',
     bodyEn: 'Future roadmap outlining speculative design trends and collaborative design labs for 2028.',
     bodyVie: 'Lộ trình tương lai vạch ra các xu hướng thiết kế suy tưởng và phòng thí nghiệm thiết kế hợp tác cho năm 2028.',
-    links: [
-      { name: 'Tuấn Má mì', url: 'http://tuanmami.com/?fbclid=PAZXh0bgNhZW0CMTEAAacxrBxkuO1n2RJb3t0WzFpaPBOs1VRsjC5BUJeHTDbAUFuojVaIx49XqzMLDg_aem_JXsYQEiaTISJRriz363LNQ' },
-      { name: 'Nguyễn Duy anh', url: 'https://drive.google.com/file/d/1Mfq9YRidI3TWqyBdg5m1UWvO0PC3dX1J/view?fbclid=PAZXh0bgNhZW0CMTEAAad4u0HEnkyCTN32RxYc46WFqbWq5buFQc979n-H19_Xw9spTfiiNp2N5XZYvw_aem_iuEESmVFncdC3izX45gzqw' },
-      { name: 'Lâm duy phuong', url: 'https://www.instagram.com/akechi0112xt/' },
-      { name: 'Nguyen duy thanh', url: 'https://www.instagram.com/ngdthanh/' },
-      { name: 'Pham ngoc lan', url: 'https://phamngoclan.com/' },
-      { name: 'quang vinh nguyen', url: 'https://cangtin.ch/?fbclid=PAZXh0bgNhZW0CMTEAAadMr_ViSj61jVzncPom6iZRRdLHghjPAN2pc3ntoXBSuhZ5yC4vBtSMqfS5hQ_aem_xEJUb50D5vsXykGIZyctZg' },
-      { name: 'lebactan', url: 'https://www.instagram.com/lebactan/' },
-      { name: 'phụ lục', url: 'https://www.instagram.com/phulucappendix/followers/' },
-      { name: 'nhạc gãy', url: 'https://linktr.ee/nhacgay?fbclid=PAZXh0bgNhZW0CMTEAAafUU7a8_Y1ZvWFZU82eqMJ9rSZDXZInp9oeeB2IGs0C55GpyORfFMxgUC-2Eg_aem_kN4ixzW7RU_ZVInQa9-CFQ' },
-      { name: 'Nguyen the son', url: 'https://nguyentheson.com/' },
-      { name: 'Nguyen Manh Hung', url: 'https://hung6776.blogspot.com/' },
-      { name: 'Ha Ninh Pham', url: 'https://www.haninh.com/?fbclid=PAZXh0bgNhZW0CMTEAAae67faDsZkCJJM09xq4PBDcfnnQvvkc0rZPByGNtXsqYFL_9F0s9LfjjxWd7Q_aem_HaJvC1jAlNIh9p6vTxP27Q' },
-      { name: 'Tran ANh hung', url: 'https://15beautreillis.com/artists/121-tran-anh-hung/' },
-      { name: 'CFGNY', url: 'https://www.cfgny.us/?fbclid=PAZXh0bgNhZW0CMTEAAacZhd5qJ2Qk9pTcV57OXlxP7IM6Mr-Z-TOQMCP02jnByHclLVtFQsrE3skqEA_aem_qCp4YCKkVLWEnSa-gIZCCA' },
-      { name: 'Viet thanh  nguyen', url: 'https://linktr.ee/viet_t_nguyen?fbclid=PAZXh0bgNhZW0CMTEAAaeWBE-hhdQpeY1p_AC1fz1-tEtWaRq8Md-ywtvjCXZU07eOHEmkly85lmY5Rg_aem_-6XEK-xHPIas-lRL_4ezog' },
-      { name: 'Tra My Nguyen', url: 'https://tramy-nguyen.com/?fbclid=PAZXh0bgNhZW0CMTEAAaegV6Mo2Tu6z6sNnoSv0_yt614m95vllDya8xxlUa3A_h7TWu69xN2bkXaMTw_aem_I_x2tgREZn3nuZ1owbfIhQ' }
+    images: [
+      {
+        captionEn: 'Speculative architecture blueprints for the proposed 2028 mobile pavilion.',
+        captionVie: 'Bản thiết kế kiến trúc suy tưởng cho nhà triển lãm di động đề xuất năm 2028.'
+      },
+      {
+        captionEn: 'Strategic foresight diagram tracking collective design trends for the next decade.',
+        captionVie: 'Sơ đồ tầm nhìn chiến lược theo dõi xu hướng thiết kế tập thể cho thập kỷ tới.'
+      }
     ]
   },
   'open-source': {
@@ -1751,51 +1743,12 @@ function alignTopicDetailTitle() {
   alignDoubleLayeredTitles();
 }
 
-function setSlideshowNavigationVisible(visible) {
-  const prevBtn = document.getElementById('slideshowPrevBtn');
-  const nextBtn = document.getElementById('slideshowNextBtn');
-  const enlargeBtn = document.getElementById('slideshowEnlargeBtn');
-  const captionEl = document.getElementById('slideshowCaption');
-  
-  const displayVal = visible ? 'flex' : 'none';
-  if (prevBtn) prevBtn.style.display = displayVal;
-  if (nextBtn) nextBtn.style.display = displayVal;
-  if (enlargeBtn) enlargeBtn.style.display = displayVal;
-  if (captionEl) captionEl.style.display = visible ? 'block' : 'none';
-}
-
-function render2028LinksPreview() {
-  const container = document.getElementById('slideshowImageWrap');
-  if (!container) return;
-  
-  container.className = 'slideshow-image-wrap is-2028-preview';
-  
-  const links = topicData['2028'].links || [];
-  let html = `<div class="links-list-container">`;
-  
-  links.forEach(link => {
-    html += `
-      <a href="${link.url}" target="_blank" class="preview-artist-link" rel="noopener noreferrer">
-        <span class="artist-name">${link.name}</span>
-        <svg class="link-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-      </a>
-    `;
-  });
-  
-  html += `</div>`;
-  container.innerHTML = html;
-}
-
 function renderSlideshowPlaceholder(topicId, index) {
   const data = topicData[topicId];
   if (!data || !data.images || data.images.length === 0) return;
   const placeholderNum = index + 1;
   const container = document.getElementById('slideshowImageWrap');
   if (!container) return;
-  container.className = 'slideshow-image-wrap';
   
   const currentImage = data.images[index];
   
@@ -1991,22 +1944,9 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     
     // Initialize image slideshow
     const data = topicData[topicId];
-    if (topicId === '2028') {
-      currentSlideshowImages = [];
-      setSlideshowNavigationVisible(false);
-      render2028LinksPreview();
-    } else if (data && data.images && data.images.length > 0) {
+    if (data && data.images && data.images.length > 0) {
       currentSlideshowImages = data.images;
-      setSlideshowNavigationVisible(true);
       updateSlideshow(topicId, 0);
-    } else {
-      currentSlideshowImages = [];
-      setSlideshowNavigationVisible(false);
-      const container = document.getElementById('slideshowImageWrap');
-      if (container) {
-        container.className = 'slideshow-image-wrap';
-        container.innerHTML = '';
-      }
     }
     
     // Dynamically align script text on left column title
