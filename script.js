@@ -1905,6 +1905,19 @@ function updateSlideshow(topicId, index) {
   
   currentSlideshowIndex = index;
   renderSlideshowPlaceholder(topicId, index);
+
+  // Hide next/prev navigation buttons if there's only 1 image
+  const slideshowPrevBtn = document.getElementById('slideshowPrevBtn');
+  const slideshowNextBtn = document.getElementById('slideshowNextBtn');
+  const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
+  const lightboxNextBtn = document.getElementById('lightboxNextBtn');
+  const showNav = data.images.length > 1;
+  const navDisplay = showNav ? '' : 'none';
+
+  if (slideshowPrevBtn) slideshowPrevBtn.style.display = navDisplay;
+  if (slideshowNextBtn) slideshowNextBtn.style.display = navDisplay;
+  if (lightboxPrevBtn) lightboxPrevBtn.style.display = navDisplay;
+  if (lightboxNextBtn) lightboxNextBtn.style.display = navDisplay;
   
   const captionEl = document.getElementById('slideshowCaption');
   if (captionEl) {
