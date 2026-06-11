@@ -1391,6 +1391,7 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   if (leftLabel) {
     const leftLabelX = leftBirdX + 31.5 + 20;
     leftLabel.setAttribute('x', leftLabelX.toFixed(1));
+    leftLabel.setAttribute('y', '85');
   }
 
   if (rightLabel) {
@@ -1434,8 +1435,8 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   });
 
   const lineOverlap = 5;
-  const lineStart = leftBirdX + 31.5;
-  const lineEnd = rightBirdTranslateX - 31.5;
+  const lineStart = leftBirdX + 73;
+  const lineEnd = rightBirdTranslateX - 73;
 
   const lineSegments = ticketBounds.past && ticketBounds.present && ticketBounds.future
     ? [
