@@ -35,14 +35,17 @@ const topicData = {
   'post-sharing': {
     title: 'Post-sharing economy',
     era: 'Past',
+    image: 'postsharing economy/post1.png',
     bodyEn: '(EN)\nThe project reworks the Uber motorbike jacket shortly after the company’s withdrawal from Vietnam’s ride-hailing market. The jacket is reconstructed as a formal veston, playfully yet sharply reminding the “user” of the realities of the post-sharing economy: a promise of prosperity driven by technological progress and liberalized working conditions, which in practice reveals itself as capitalism operating 24/7.\n\n(VIE)\nDự án tái cấu trúc chiếc áo khoác xe ôm Uber ngay sau khi công ty này rút khỏi thị trường gọi xe Việt Nam. Chiếc áo khoác được biến đổi thành một bộ veston trang trọng, vừa hài hước vừa sắc bén, nhắc nhở “người dùng” về thực tại của nền kinh tế hậu chia sẻ: một lời hứa về sự thịnh vượng được thúc đẩy bởi tiến bộ công nghệ và các điều kiện lao động tự do hoá, nhưng trên thực tế lại phơi bày một chủ nghĩa tư bản vận hành 24/7.\n\n<i>Photographer/ Nhiếp ảnh Khanh Nguyen\nCharacter/ Nhân vật Do Van Hoang\nGarment/ Đồng phục Vinabiennale\nConcept & Post production/ Ý tưởng và hậu kì Le-Bac-Tan\nSpecial thanks to/ Cảm ơn Thu Madeline\nMusic/ Âm nhạc KIMTrang</i>',
     bodyVie: '(EN)\nThe project reworks the Uber motorbike jacket shortly after the company’s withdrawal from Vietnam’s ride-hailing market. The jacket is reconstructed as a formal veston, playfully yet sharply reminding the “user” of the realities of the post-sharing economy: a promise of prosperity driven by technological progress and liberalized working conditions, which in practice reveals itself as capitalism operating 24/7.\n\n(VIE)\nDự án tái cấu trúc chiếc áo khoác xe ôm Uber ngay sau khi công ty này rút khỏi thị trường gọi xe Việt Nam. Chiếc áo khoác được biến đổi thành một bộ veston trang trọng, vừa hài hước vừa sắc bén, nhắc nhở “người dùng” về thực tại của nền kinh tế hậu chia sẻ: một lời hứa về sự thịnh vượng được thúc đẩy bởi tiến bộ công nghệ và các điều kiện lao động tự do hoá, nhưng trên thực tế lại phơi bày một chủ nghĩa tư bản vận hành 24/7.\n\n<i>Photographer/ Nhiếp ảnh Khanh Nguyen\nCharacter/ Nhân vật Do Van Hoang\nGarment/ Đồng phục Vinabiennale\nConcept & Post production/ Ý tưởng và hậu kì Le-Bac-Tan\nSpecial thanks to/ Cảm ơn Thu Madeline\nMusic/ Âm nhạc KIMTrang</i>',
     images: [
       {
+        url: 'postsharing economy/post1.png',
         captionEn: 'Conceptual sketch mapping public-private shared spaces in Hanoi.',
         captionVie: 'Bản phác thảo khái niệm ánh xạ các không gian chia sẻ công-tư tại Hà Nội.'
       },
       {
+        url: 'postsharing economy/post2.png',
         captionEn: 'Data visualization tracking digital transaction flows and local community habits.',
         captionVie: 'Trực quan hóa dữ liệu theo dõi luồng giao dịch số và thói quen cộng đồng địa phương.'
       }
@@ -67,16 +70,34 @@ const topicData = {
   'first-collection': {
     title: 'Vinabiennale<br>SS2020/22',
     era: 'Past',
+    image: 'vinabiennale2020/vina4.png',
     bodyEn: 'Missing caption',
     bodyVie: 'Missing caption',
     images: [
       {
+        url: 'vinabiennale2020/vina1.png',
         captionEn: 'Prototype designs showcasing street objects transformed into wearable garments.',
         captionVie: 'Các thiết kế thử nghiệm trình diễn vật dụng đường phố được biến đổi thành trang phục.'
       },
       {
+        url: 'vinabiennale2020/vina2.png',
         captionEn: 'Exhibition moodboard featuring local sidewalk patterns and texture references.',
         captionVie: 'Moodboard triển lãm thể hiện các họa tiết vỉa hè địa phương và mẫu chất liệu tham chiếu.'
+      },
+      {
+        url: 'vinabiennale2020/vina3.png',
+        captionEn: 'Vinabiennale SS2020/22 exhibition highlight.',
+        captionVie: 'Hình ảnh nổi bật từ triển lãm Vinabiennale SS2020/22.'
+      },
+      {
+        url: 'vinabiennale2020/vina4.png',
+        captionEn: 'Vinabiennale SS2020/22 work progress.',
+        captionVie: 'Tiến trình thực hiện tác phẩm Vinabiennale SS2020/22.'
+      },
+      {
+        url: 'vinabiennale2020/vina5.png',
+        captionEn: 'Vinabiennale SS2020/22 final installation.',
+        captionVie: 'Sắp đặt hoàn thiện Vinabiennale SS2020/22.'
       }
     ]
   },
@@ -188,10 +209,6 @@ const topicData = {
         url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
         captionEn: 'Visual storyboard mapping real estate advertising patterns in construction zones.',
         captionVie: 'Storyboard hình ảnh ánh xạ các mô-típ quảng cáo bất động sản tại các khu vực công trường.'
-      },
-      {
-        captionEn: 'Audio waveform visualization showing speculative real estate hype sounds.',
-        captionVie: 'Trực quan hóa dạng sóng âm thanh thể hiện tiếng ồn đầu cơ bất động sản thổi phồng.'
       }
     ]
   },
