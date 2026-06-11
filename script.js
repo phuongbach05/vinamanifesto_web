@@ -1396,7 +1396,7 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   if (rightLabel) {
     const rightLabelX = rightBirdTranslateX - 31.5 - 20;
     rightLabel.setAttribute('x', rightLabelX.toFixed(1));
-    rightLabel.setAttribute('y', '80');
+    rightLabel.setAttribute('y', '85');
     rightLabel.querySelectorAll('tspan').forEach(tspan => {
       tspan.setAttribute('x', rightLabelX.toFixed(1));
     });
