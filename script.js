@@ -1767,7 +1767,7 @@ function renderSlideshowPlaceholder(topicId, index) {
       }
       if (videoId) {
         container.innerHTML = `
-          <iframe src="https://www.youtube.com/embed/${videoId}" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: 0; width: 100%; height: 100%; aspect-ratio: 4/3; display: block;"></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: 0; width: 100%; height: 100%; aspect-ratio: 4/3; display: block;"></iframe>
         `;
         return;
       }
@@ -1828,9 +1828,17 @@ function updateSlideshow(topicId, index) {
   const captionEl = document.getElementById('slideshowCaption');
   if (captionEl) {
     const slide = data.images[index];
-    captionEl.innerHTML = `
-      <div style="font-size: 13px; line-height: 1.45;">${slide.captionEn}</div>
-    `;
+    let captionHtml = `<div style="font-size: 13px; line-height: 1.45;">${slide.captionEn}</div>`;
+    if (slide.url && (slide.url.includes('youtube.com') || slide.url.includes('youtu.be'))) {
+      captionHtml += `
+        <div style="margin-top: 8px;">
+          <a href="${slide.url}" target="_blank" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: bold; color: var(--blue); text-decoration: underline;">
+            Xem trên YouTube / Watch on YouTube ↗
+          </a>
+        </div>
+      `;
+    }
+    captionEl.innerHTML = captionHtml;
   }
   updateLightboxContent();
 }
