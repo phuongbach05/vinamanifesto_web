@@ -1721,7 +1721,7 @@ let currentTopicId = null;
 let currentSlideshowImages = [];
 let currentSlideshowIndex = 0;
 
-let activeLang = 'vie'; // Default to VIE
+let activeLang = 'en'; // Default to EN
 let currentPanelData = { isTopic: false, bodyEn: '', bodyVie: '' };
 
 function updateLanguageDisplay() {
