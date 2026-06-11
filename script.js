@@ -35,8 +35,8 @@ const topicData = {
   'post-sharing': {
     title: 'Post-sharing economy',
     era: 'Past',
-    bodyEn: '(caption missing)\nPhotographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le-Bac-Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang',
-    bodyVie: '(caption missing)\nPhotographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le-Bac-Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang',
+    bodyEn: 'The project reworks the Uber motorbike jacket shortly after the company’s withdrawal from Vietnam’s ride-hailing market. The jacket is reconstructed as a formal veston, playfully yet sharply reminding the “user” of the realities of the post-sharing economy: a promise of prosperity driven by technological progress and liberalized working conditions, which in practice reveals itself as capitalism operating 24/7.\n\n<i>Photographer/ Nhiếp ảnh Khanh Nguyen\nCharacter/ Nhân vật Do Van Hoang\nGarment/ Đồng phục Vinabiennale\nConcept & Post production/ Ý tưởng và hậu kì Le-Bac-Tan\nSpecial thanks to/ Cảm ơn Thu Madeline\nMusic/ Âm nhạc KIMTrang</i>',
+    bodyVie: 'Dự án tái cấu trúc chiếc áo khoác xe ôm Uber ngay sau khi công ty này rút khỏi thị trường gọi xe Việt Nam. Chiếc áo khoác được biến đổi thành một bộ veston trang trọng, vừa hài hước vừa sắc bén, nhắc nhở “người dùng” về thực tại của nền kinh tế hậu chia sẻ: một lời hứa về sự thịnh vượng được thúc đẩy bởi tiến bộ công nghệ và các điều kiện lao động tự do hoá, nhưng trên thực tế lại phơi bày một chủ nghĩa tư bản vận hành 24/7.\n\n<i>Photographer/ Nhiếp ảnh Khanh Nguyen\nCharacter/ Nhân vật Do Van Hoang\nGarment/ Đồng phục Vinabiennale\nConcept & Post production/ Ý tưởng và hậu kì Le-Bac-Tan\nSpecial thanks to/ Cảm ơn Thu Madeline\nMusic/ Âm nhạc KIMTrang</i>',
     images: [
       {
         captionEn: 'Conceptual sketch mapping public-private shared spaces in Hanoi.',
@@ -1435,8 +1435,8 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   });
 
   const lineOverlap = 5;
-  const lineStart = leftBirdX + 65;
-  const lineEnd = rightBirdTranslateX - 65;
+  const lineStart = leftBirdX + 58;
+  const lineEnd = rightBirdTranslateX - 58;
 
   const lineSegments = ticketBounds.past && ticketBounds.present && ticketBounds.future
     ? [
