@@ -286,7 +286,7 @@ const centers = {
   'taiwan': { cx: 265, cy: 815 },
   'vina-seat': { cx: 990, cy: 805 },
   'cay-neo': { cx: 650, cy: 805 },
-  'bds': { cx: 1400, cy: 600 },
+  'bds': { cx: 1170, cy: 600 },
   'teaching': { cx: 1125, cy: 135 },
   '2028': { cx: 1545, cy: 155 },
   'open-source': { cx: 1545, cy: 485 },
@@ -1422,9 +1422,9 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   }
 
   const ticketConfigs = [
-    { era: 'past', fraction: 315 / MAP_WIDTH, top: 45, bottom: 95, radius: 8, baseWidth: 120, extraWidth: 70 },
-    { era: 'present', fraction: 850 / MAP_WIDTH, top: 36, bottom: 104, radius: 10, baseWidth: 220, extraWidth: 120 },
-    { era: 'future', fraction: 1385 / MAP_WIDTH, top: 45, bottom: 95, radius: 8, baseWidth: 150, extraWidth: 85 }
+    { era: 'past', fraction: 255 / MAP_WIDTH, top: 45, bottom: 95, radius: 8, baseWidth: 120, extraWidth: 70 },
+    { era: 'present', fraction: 850 / MAP_WIDTH, top: 36, bottom: 104, radius: 10, baseWidth: 240, extraWidth: 120 },
+    { era: 'future', fraction: 1440 / MAP_WIDTH, top: 45, bottom: 95, radius: 8, baseWidth: 150, extraWidth: 85 }
   ];
 
   const ticketBounds = {};
@@ -1464,10 +1464,10 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
       [ticketBounds.future.right - lineOverlap, lineEnd]
     ]
     : [
-      [lineStart, 260],
-      [370, 745],
-      [955, 1315],
-      [1455, lineEnd]
+      [lineStart, 195],
+      [315, 670],
+      [1030, 1365],
+      [1515, lineEnd]
     ];
 
   timelineLines.forEach((line, index) => {

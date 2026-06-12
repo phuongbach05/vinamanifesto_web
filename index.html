@@ -16,7 +16,7 @@
       opacity: 0;
     }
   </style>
-  <link rel="stylesheet" href="style.css?v=20260612-1632" />
+  <link rel="stylesheet" href="style.css?v=20260612-1636" />
 </head>
 <body>
   <main class="site">
@@ -125,10 +125,10 @@
         <!-- Timeline -->
         <g class="timeline">
           <!-- Horizontal Timeline Line -->
-          <line class="timeline-main-line" x1="33" y1="70" x2="260" y2="70" />
-          <line class="timeline-main-line" x1="370" y1="70" x2="745" y2="70" />
-          <line class="timeline-main-line" x1="955" y1="70" x2="1315" y2="70" />
-          <line class="timeline-main-line" x1="1455" y1="70" x2="1667" y2="70" />
+          <line class="timeline-main-line" x1="33" y1="70" x2="195" y2="70" />
+          <line class="timeline-main-line" x1="315" y1="70" x2="670" y2="70" />
+          <line class="timeline-main-line" x1="1030" y1="70" x2="1365" y2="70" />
+          <line class="timeline-main-line" x1="1515" y1="70" x2="1667" y2="70" />
 
           <!-- Left Bird Icon (facing left) -->
           <image href="bird.svg" x="-25" y="34" width="63" height="38" />
@@ -147,53 +147,57 @@
 
           <!-- Repeated Feather Motifs along the timeline line (placed in the gaps) -->
           <!-- Gap 1: between left bird and PAST -->
-          <use href="#feather-motif" x="140" y="70" />
-          <use href="#feather-motif" x="180" y="70" />
-          <use href="#feather-motif" x="220" y="70" />
+          <use href="#feather-motif" x="80" y="70" />
+          <use href="#feather-motif" x="120" y="70" />
+          <use href="#feather-motif" x="160" y="70" />
 
-          <!-- Gap 2: between PAST and PRESENT -->
-          <use href="#feather-motif" x="410" y="70" />
-          <use href="#feather-motif" x="450" y="70" />
-          <use href="#feather-motif" x="490" y="70" />
-          <use href="#feather-motif" x="530" y="70" />
+          <!-- Gap 2: between PAST and Divider 1 -->
+          <use href="#feather-motif" x="350" y="70" />
+          <use href="#feather-motif" x="390" y="70" />
+          <use href="#feather-motif" x="430" y="70" />
           <!-- Divider 1 and its scroll motifs -->
-          <line class="timeline-divider" x1="580" y1="70" x2="580" y2="120" />
-          <use href="#scroll-left" x="580" y="70" />
-          <use href="#scroll-right" x="580" y="70" />
-          <use href="#feather-motif" x="630" y="70" />
-          <use href="#feather-motif" x="670" y="70" />
-          <use href="#feather-motif" x="710" y="70" />
+          <line class="timeline-divider" x1="480" y1="70" x2="480" y2="120" />
+          <use href="#scroll-left" x="480" y="70" />
+          <use href="#scroll-right" x="480" y="70" />
 
-          <!-- Gap 3: between PRESENT and FUTURE -->
-          <use href="#feather-motif" x="1000" y="70" />
-          <use href="#feather-motif" x="1040" y="70" />
-          <use href="#feather-motif" x="1080" y="70" />
+          <!-- Gap 3: between Divider 1 and PRESENT -->
+          <use href="#feather-motif" x="510" y="70" />
+          <use href="#feather-motif" x="550" y="70" />
+          <use href="#feather-motif" x="590" y="70" />
+          <use href="#feather-motif" x="630" y="70" />
+
+          <!-- Gap 4: between PRESENT and Divider 2 -->
+          <use href="#feather-motif" x="1060" y="70" />
+          <use href="#feather-motif" x="1100" y="70" />
+          <use href="#feather-motif" x="1140" y="70" />
+          <use href="#feather-motif" x="1180" y="70" />
           <!-- Divider 2 and its scroll motifs -->
-          <line class="timeline-divider" x1="1120" y1="70" x2="1120" y2="120" />
-          <use href="#scroll-left" x="1120" y="70" />
-          <use href="#scroll-right" x="1120" y="70" />
-          <use href="#feather-motif" x="1170" y="70" />
-          <use href="#feather-motif" x="1210" y="70" />
+          <line class="timeline-divider" x1="1220" y1="70" x2="1220" y2="120" />
+          <use href="#scroll-left" x="1220" y="70" />
+          <use href="#scroll-right" x="1220" y="70" />
+
+          <!-- Gap 5: between Divider 2 and FUTURE -->
           <use href="#feather-motif" x="1250" y="70" />
           <use href="#feather-motif" x="1290" y="70" />
+          <use href="#feather-motif" x="1330" y="70" />
 
-          <!-- Gap 4: between FUTURE and right bird -->
-          <use href="#feather-motif" x="1490" y="70" />
-          <use href="#feather-motif" x="1530" y="70" />
-          <use href="#feather-motif" x="1570" y="70" />
+          <!-- Gap 6: between FUTURE and right bird -->
+          <use href="#feather-motif" x="1540" y="70" />
+          <use href="#feather-motif" x="1580" y="70" />
+          <use href="#feather-motif" x="1620" y="70" />
 
           <!-- Interactive Buttons: PAST, PRESENT, FUTURE -->
           <g class="time is-active" data-era="past" role="button" tabindex="0">
-            <path class="ticket-bg" d="M 263,45 L 367,45 A 8,8 0 0,0 375,53 L 375,87 A 8,8 0 0,0 367,95 L 263,95 A 8,8 0 0,0 255,87 L 255,53 A 8,8 0 0,0 263,45 Z" />
-            <text x="315" y="70" text-anchor="middle" dominant-baseline="central">PAST</text>
+            <path class="ticket-bg" d="M 195,45 L 315,45 A 8,8 0 0,0 323,53 L 323,87 A 8,8 0 0,0 315,95 L 195,95 A 8,8 0 0,0 187,87 L 187,53 A 8,8 0 0,0 195,45 Z" />
+            <text x="255" y="70" text-anchor="middle" dominant-baseline="central">PAST</text>
           </g>
           <g class="time" data-era="present" role="button" tabindex="0">
-            <path class="ticket-bg" d="M 750,36 L 950,36 A 10,10 0 0,0 960,46 L 960,94 A 10,10 0 0,0 950,104 L 750,104 A 10,10 0 0,0 740,94 L 740,46 A 10,10 0 0,0 750,36 Z" />
+            <path class="ticket-bg" d="M 670,36 L 1030,36 A 10,10 0 0,0 1040,46 L 1040,94 A 10,10 0 0,0 1030,104 L 670,104 A 10,10 0 0,0 660,94 L 660,46 A 10,10 0 0,0 670,36 Z" />
             <text x="850" y="70" text-anchor="middle" dominant-baseline="central">PRESENT</text>
           </g>
           <g class="time" data-era="future" role="button" tabindex="0">
-            <path class="ticket-bg" d="M 1318,45 L 1452,45 A 8,8 0 0,0 1460,53 L 1460,87 A 8,8 0 0,0 1452,95 L 1318,95 A 8,8 0 0,0 1310,87 L 1310,53 A 8,8 0 0,0 1318,45 Z" />
-            <text x="1385" y="70" text-anchor="middle" dominant-baseline="central">FUTURE</text>
+            <path class="ticket-bg" d="M 1365,45 L 1515,45 A 8,8 0 0,0 1523,53 L 1523,87 A 8,8 0 0,0 1515,95 L 1365,95 A 8,8 0 0,0 1357,87 L 1357,53 A 8,8 0 0,0 1365,45 Z" />
+            <text x="1440" y="70" text-anchor="middle" dominant-baseline="central">FUTURE</text>
           </g>
         </g>
 
@@ -207,8 +211,8 @@
           <path class="river connector" data-from="teaching" data-to="2028" d="M1125 135 C1200 90 1280 200 1360 200 C1430 200 1480 120 1545 155" />
           <path class="river connector" data-from="teaching" data-to="open-source" d="M1125 135 C1125 180 1280 200 1380 380 C1420 380 1440 540 1500 540 C1530 540 1560 520 1545 485" />
           <path class="river connector" data-from="2028" data-to="open-source" d="M1545 155 C1620 220 1480 320 1480 380 C1480 440 1620 440 1545 485" />
-          <path class="river connector" data-from="bds" data-to="cay-neo" d="M1400 600 C1100 700 750 720 650 805" />
-          <path class="river connector" data-from="bds" data-to="vina-seat" d="M1400 600 C1220 700 1030 730 990 805" />
+          <path class="river connector" data-from="bds" data-to="cay-neo" d="M1170 600 C970 680 770 720 650 805" />
+          <path class="river connector" data-from="bds" data-to="vina-seat" d="M1170 600 C1100 680 1050 730 990 805" />
           <path class="river connector" data-from="il-provino" data-to="viscose" d="M340 520 C250 400 500 250 455 125" />
           <path class="river connector" data-from="il-provino" data-to="first-collection" d="M340 520 C420 560 160 590 170 630" />
           <path class="river connector" data-from="il-provino" data-to="taiwan" d="M340 520 C440 620 200 720 265 815" />
@@ -239,7 +243,7 @@
           <path class="river main" data-branch="4" d="M930 526 C1000 480 1020 650 1080 610" />
           <path class="river sub" data-branch="4" data-topic="cay-neo" d="M1080 610 C980 710 920 680 800 750 C720 750 680 740 650 805" />
           <path class="river sub" data-branch="4" data-topic="vina-seat" d="M1080 610 C1020 650 960 700 940 740 C930 760 970 790 990 805" />
-          <path class="river sub" data-branch="4" data-topic="bds" d="M1080 610 C1160 610 1240 600 1300 595 C1340 590 1370 595 1400 600" />
+          <path class="river sub" data-branch="4" data-topic="bds" d="M1080 610 C1100 610 1130 605 1145 602 C1155 600 1165 600 1170 600" />
           <path class="river sub" data-branch="4" data-topic="vinav" d="M1080 610 C1000 680 1200 700 1130 760" />
 
           <!-- Branch 5 — upper-right -->
@@ -263,7 +267,7 @@
           <circle cx="265"  cy="815" r="9" data-topic="taiwan" />
           <circle cx="990"  cy="805" r="9" data-topic="vina-seat" />
           <circle cx="650"  cy="805" r="9" data-topic="cay-neo" />
-          <circle cx="1400" cy="600" r="9" data-topic="bds" />
+          <circle cx="1170" cy="600" r="9" data-topic="bds" />
           <circle cx="1125" cy="135" r="9" data-topic="teaching" />
           <circle cx="1545" cy="155" r="9" data-topic="2028" />
           <circle cx="1545" cy="485" r="9" data-topic="open-source" />
@@ -370,8 +374,8 @@
           <text x="670" y="810" text-anchor="start" class="topic-script">Cây Neo</text>
         </g>
         <g class="topic present" data-topic="bds" role="button" tabindex="0">
-          <text x="1425" y="608" text-anchor="start">Bất Động Sản A/V</text>
-          <text x="1425" y="608" text-anchor="start" class="topic-script">Bất Động Sản A/V</text>
+          <text x="1195" y="608" text-anchor="start">Bất Động Sản A/V</text>
+          <text x="1195" y="608" text-anchor="start" class="topic-script">Bất Động Sản A/V</text>
         </g>
         <g class="topic present future" data-topic="vinav" role="button" tabindex="0">
           <text x="1155" y="760" text-anchor="start">VinA/V</text>
@@ -527,6 +531,6 @@
     </button>
   </div>
 
-  <script src="script.js?v=20260612-1632"></script>
+  <script src="script.js?v=20260612-1636"></script>
 </body>
 </html>
