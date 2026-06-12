@@ -286,12 +286,12 @@ const centers = {
   'taiwan': { cx: 265, cy: 815 },
   'vina-seat': { cx: 990, cy: 805 },
   'cay-neo': { cx: 650, cy: 805 },
-  'bds': { cx: 1215, cy: 580 },
+  'bds': { cx: 1245, cy: 540 },
   'teaching': { cx: 1125, cy: 135 },
   '2028': { cx: 1545, cy: 155 },
   'open-source': { cx: 1545, cy: 485 },
   'il-provino': { cx: 340, cy: 520 },
-  'vinav': { cx: 1230, cy: 760 }
+  'vinav': { cx: 1250, cy: 760 }
 };
 
 const topicConnections = {
