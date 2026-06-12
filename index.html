@@ -16,7 +16,7 @@
       opacity: 0;
     }
   </style>
-  <link rel="stylesheet" href="style.css?v=20260612-1621" />
+  <link rel="stylesheet" href="style.css?v=20260612-1624" />
 </head>
 <body>
   <main class="site">
@@ -125,10 +125,10 @@
         <!-- Timeline -->
         <g class="timeline">
           <!-- Horizontal Timeline Line -->
-          <line class="timeline-main-line" x1="33" y1="70" x2="260" y2="70" />
-          <line class="timeline-main-line" x1="370" y1="70" x2="745" y2="70" />
-          <line class="timeline-main-line" x1="955" y1="70" x2="1315" y2="70" />
-          <line class="timeline-main-line" x1="1455" y1="70" x2="1667" y2="70" />
+          <line class="timeline-main-line" x1="33" y1="70" x2="195" y2="70" />
+          <line class="timeline-main-line" x1="305" y1="70" x2="685" y2="70" />
+          <line class="timeline-main-line" x1="1015" y1="70" x2="1365" y2="70" />
+          <line class="timeline-main-line" x1="1505" y1="70" x2="1667" y2="70" />
 
           <!-- Left Bird Icon (facing left) -->
           <image href="bird.svg" x="-25" y="34" width="63" height="38" />
@@ -147,53 +147,58 @@
 
           <!-- Repeated Feather Motifs along the timeline line (placed in the gaps) -->
           <!-- Gap 1: between left bird and PAST -->
-          <use href="#feather-motif" x="140" y="70" />
-          <use href="#feather-motif" x="180" y="70" />
-          <use href="#feather-motif" x="220" y="70" />
+          <use href="#feather-motif" x="80" y="70" />
+          <use href="#feather-motif" x="120" y="70" />
+          <use href="#feather-motif" x="160" y="70" />
 
-          <!-- Gap 2: between PAST and PRESENT -->
-          <use href="#feather-motif" x="410" y="70" />
-          <use href="#feather-motif" x="450" y="70" />
-          <use href="#feather-motif" x="490" y="70" />
-          <use href="#feather-motif" x="530" y="70" />
+          <!-- Gap 2: between PAST and Divider 1 -->
+          <use href="#feather-motif" x="350" y="70" />
+          <use href="#feather-motif" x="390" y="70" />
+          <use href="#feather-motif" x="430" y="70" />
+          <use href="#feather-motif" x="470" y="70" />
           <!-- Divider 1 and its scroll motifs -->
-          <line class="timeline-divider" x1="580" y1="70" x2="580" y2="120" />
-          <use href="#scroll-left" x="580" y="70" />
-          <use href="#scroll-right" x="580" y="70" />
-          <use href="#feather-motif" x="630" y="70" />
-          <use href="#feather-motif" x="670" y="70" />
-          <use href="#feather-motif" x="710" y="70" />
+          <line class="timeline-divider" x1="500" y1="70" x2="500" y2="120" />
+          <use href="#scroll-left" x="500" y="70" />
+          <use href="#scroll-right" x="500" y="70" />
 
-          <!-- Gap 3: between PRESENT and FUTURE -->
-          <use href="#feather-motif" x="1000" y="70" />
-          <use href="#feather-motif" x="1040" y="70" />
-          <use href="#feather-motif" x="1080" y="70" />
-          <!-- Divider 2 and its scroll motifs -->
-          <line class="timeline-divider" x1="1120" y1="70" x2="1120" y2="120" />
-          <use href="#scroll-left" x="1120" y="70" />
-          <use href="#scroll-right" x="1120" y="70" />
+          <!-- Gap 3: between Divider 1 and PRESENT -->
+          <use href="#feather-motif" x="530" y="70" />
+          <use href="#feather-motif" x="570" y="70" />
+          <use href="#feather-motif" x="610" y="70" />
+          <use href="#feather-motif" x="650" y="70" />
+
+          <!-- Gap 4: between PRESENT and Divider 2 -->
+          <use href="#feather-motif" x="1050" y="70" />
+          <use href="#feather-motif" x="1090" y="70" />
+          <use href="#feather-motif" x="1130" y="70" />
           <use href="#feather-motif" x="1170" y="70" />
-          <use href="#feather-motif" x="1210" y="70" />
-          <use href="#feather-motif" x="1250" y="70" />
-          <use href="#feather-motif" x="1290" y="70" />
+          <!-- Divider 2 and its scroll motifs -->
+          <line class="timeline-divider" x1="1200" y1="70" x2="1200" y2="120" />
+          <use href="#scroll-left" x="1200" y="70" />
+          <use href="#scroll-right" x="1200" y="70" />
 
-          <!-- Gap 4: between FUTURE and right bird -->
-          <use href="#feather-motif" x="1490" y="70" />
-          <use href="#feather-motif" x="1530" y="70" />
-          <use href="#feather-motif" x="1570" y="70" />
+          <!-- Gap 5: between Divider 2 and FUTURE -->
+          <use href="#feather-motif" x="1240" y="70" />
+          <use href="#feather-motif" x="1280" y="70" />
+          <use href="#feather-motif" x="1320" y="70" />
+
+          <!-- Gap 6: between FUTURE and right bird -->
+          <use href="#feather-motif" x="1540" y="70" />
+          <use href="#feather-motif" x="1580" y="70" />
+          <use href="#feather-motif" x="1620" y="70" />
 
           <!-- Interactive Buttons: PAST, PRESENT, FUTURE -->
           <g class="time is-active" data-era="past" role="button" tabindex="0">
-            <path class="ticket-bg" d="M 263,45 L 367,45 A 8,8 0 0,0 375,53 L 375,87 A 8,8 0 0,0 367,95 L 263,95 A 8,8 0 0,0 255,87 L 255,53 A 8,8 0 0,0 263,45 Z" />
-            <text x="315" y="70" text-anchor="middle" dominant-baseline="central">PAST</text>
+            <path class="ticket-bg" d="M 198,45 L 302,45 A 8,8 0 0,0 310,53 L 310,87 A 8,8 0 0,0 302,95 L 198,95 A 8,8 0 0,0 190,87 L 190,53 A 8,8 0 0,0 198,45 Z" />
+            <text x="250" y="70" text-anchor="middle" dominant-baseline="central">PAST</text>
           </g>
           <g class="time" data-era="present" role="button" tabindex="0">
-            <path class="ticket-bg" d="M 730,36 L 970,36 A 10,10 0 0,0 980,46 L 980,94 A 10,10 0 0,0 970,104 L 730,104 A 10,10 0 0,0 720,94 L 720,46 A 10,10 0 0,0 730,36 Z" />
+            <path class="ticket-bg" d="M 690,36 L 1010,36 A 10,10 0 0,0 1020,46 L 1020,94 A 10,10 0 0,0 1010,104 L 690,104 A 10,10 0 0,0 680,94 L 680,46 A 10,10 0 0,0 690,36 Z" />
             <text x="850" y="70" text-anchor="middle" dominant-baseline="central">PRESENT</text>
           </g>
           <g class="time" data-era="future" role="button" tabindex="0">
-            <path class="ticket-bg" d="M 1318,45 L 1452,45 A 8,8 0 0,0 1460,53 L 1460,87 A 8,8 0 0,0 1452,95 L 1318,95 A 8,8 0 0,0 1310,87 L 1310,53 A 8,8 0 0,0 1318,45 Z" />
-            <text x="1385" y="70" text-anchor="middle" dominant-baseline="central">FUTURE</text>
+            <path class="ticket-bg" d="M 1368,45 L 1502,45 A 8,8 0 0,0 1510,53 L 1510,87 A 8,8 0 0,0 1502,95 L 1368,95 A 8,8 0 0,0 1360,87 L 1360,53 A 8,8 0 0,0 1368,45 Z" />
+            <text x="1435" y="70" text-anchor="middle" dominant-baseline="central">FUTURE</text>
           </g>
         </g>
 
@@ -527,6 +532,6 @@
     </button>
   </div>
 
-  <script src="script.js?v=20260612-1621"></script>
+  <script src="script.js?v=20260612-1624"></script>
 </body>
 </html>
