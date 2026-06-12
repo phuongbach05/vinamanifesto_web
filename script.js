@@ -291,7 +291,7 @@ const centers = {
   '2028': { cx: 1545, cy: 155 },
   'open-source': { cx: 1545, cy: 485 },
   'il-provino': { cx: 340, cy: 520 },
-  'vinav': { cx: 1130, cy: 760 }
+  'vinav': { cx: 1200, cy: 760 }
 };
 
 const topicConnections = {
@@ -303,7 +303,7 @@ const topicConnections = {
   'teaching': ['2028', 'open-source'],
   'cay-neo': [],
   'vina-seat': [],
-  'bds': ['cay-neo', 'vina-seat'],
+  'bds': ['vina-seat'],
   '2028': ['open-source', 'teaching'],
   'open-source': ['2028', 'teaching'],
   'il-provino': ['viscose', 'first-collection', 'taiwan'],
