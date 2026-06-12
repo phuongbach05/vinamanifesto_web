@@ -291,7 +291,7 @@ const centers = {
   '2028': { cx: 1545, cy: 155 },
   'open-source': { cx: 1545, cy: 485 },
   'il-provino': { cx: 340, cy: 520 },
-  'vinav': { cx: 1250, cy: 730 }
+  'vinav': { cx: 1270, cy: 710 }
 };
 
 const topicConnections = {
