@@ -169,7 +169,7 @@ button { font: inherit; }
 
 /* ─── Endpoints ─── */
 .endpoints circle {
-  fill: #ff0000;
+  fill: var(--blue);
   stroke: #ffffff;
   stroke-width: 1.5;
   transform-origin: center;
@@ -180,7 +180,7 @@ button { font: inherit; }
 }
 .endpoints circle:hover,
 .endpoints circle.is-hovered {
-  fill: #39ff14 !important;
+  fill: #ff0000 !important;
   stroke: #ffffff !important;
   transform: scale(1.2);
 }
@@ -240,7 +240,7 @@ button { font: inherit; }
 .node[data-branch="4"] { animation-delay: 3.3s; }
 .node[data-branch="5"] { animation-delay: 3.0s; }
 .node circle {
-  fill: #ff0000;
+  fill: var(--blue);
   stroke: none;
   transition: fill 0.2s ease;
 }
@@ -258,11 +258,11 @@ button { font: inherit; }
 }
 .node:hover circle,
 .node.is-active circle {
-  fill: #39ff14;
+  fill: #ff0000;
 }
 .node:hover text,
 .node.is-active text {
-  fill: #050505;
+  fill: #ffffff;
 }
 
 /* ─── Branch titles at endpoints ─── */
@@ -358,11 +358,11 @@ button { font: inherit; }
   opacity: 0.68 !important;
 }
 #riverMap.has-focus .endpoints circle.is-active {
-  fill: #39ff14 !important;
+  fill: #ff0000 !important;
   stroke: #ffffff !important;
 }
 #riverMap.has-focus .endpoints circle.is-connected {
-  fill: #ff0000 !important;
+  fill: var(--blue) !important;
   stroke: #ffffff !important;
 }
 
@@ -553,11 +553,11 @@ button { font: inherit; }
   opacity: 0.68 !important;
 }
 #riverMap.has-focus .endpoints circle.is-active {
-  fill: #39ff14 !important;
+  fill: #ff0000 !important;
   stroke: #ffffff !important;
 }
 #riverMap.has-focus .endpoints circle.is-connected {
-  fill: #ff0000 !important;
+  fill: var(--blue) !important;
   stroke: #ffffff !important;
 }
 
