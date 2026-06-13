@@ -2141,17 +2141,5 @@ button { font: inherit; }
   box-shadow: 0 6px 16px rgba(33, 50, 246, 0.3);
 }
 
-/* ─── Background Icons Scrolling Animation ─── */
-@keyframes bgVIconScroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 100px, 0);
-  }
-}
 
-.site.playing-music #backgroundIcons {
-  animation: bgVIconScroll 3.2s linear infinite;
-  will-change: transform;
-}
+

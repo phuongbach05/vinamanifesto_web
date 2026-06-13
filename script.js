@@ -2804,8 +2804,8 @@ function generateBackgroundIcons() {
     ...futureCols.map(x => ({ x, eraClass: 'future' }))
   ];
 
-  for (let r = -1; r < rows; r++) {
-    const opacity = r === -1 ? rowOpacities[0] : (rowOpacities[r] || 0.02);
+  for (let r = 0; r < rows; r++) {
+    const opacity = rowOpacities[r] || 0.02;
     for (const col of allCols) {
       const x = col.x;
       const y = startY + r * rowSpacing;
@@ -3511,8 +3511,6 @@ function setupBrandAudioReact() {
     if (audio.paused) {
       audio.play().then(() => {
         brand.classList.add('playing-music');
-        const siteElement = document.querySelector('.site');
-        if (siteElement) siteElement.classList.add('playing-music');
         if (skipBtn) skipBtn.classList.add('show');
         
         // Start animation frame loop
@@ -3573,7 +3571,6 @@ function stopAudioReact() {
   // Restore site filter back to normal
   const siteElement = document.querySelector('.site');
   if (siteElement) {
-    siteElement.classList.remove('playing-music');
     siteElement.style.filter = '';
   }
   
