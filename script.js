@@ -3385,24 +3385,23 @@ function updateMountainsReaction() {
     intensity = Math.pow(rawIntensity, 4.5);
   }
   
-  // Apply transform scale to lake mountains
+  // Apply transform scale & translation to lake mountains
   const mountains = document.querySelectorAll('.lake-mountain');
   mountains.forEach((mtn, index) => {
-    // Alternate factor for organic movement
-    const factor = 0.22 + (index % 3) * 0.08;
-    const scaleY = 1 + intensity * factor;
-    const scaleX = 1 + intensity * 0.06;
+    // Alternate factor for organic movement (increased even more!)
+    const factorY = 0.4 + (index % 3) * 0.15; // scale height up to 1.7x
+    const factorX = 0.1 + (index % 2) * 0.08;  // scale width up to 1.18x
+    const translateY = -intensity * 35;       // bounce up to 35px in the air!
     
     mtn.style.transformBox = 'fill-box';
     mtn.style.transformOrigin = 'bottom center';
-    mtn.style.transform = `scale(${scaleX}, ${scaleY})`;
+    mtn.style.transform = `scale(${1 + intensity * factorX}, ${1 + intensity * factorY}) translateY(${translateY}px)`;
   });
 
-  // Background invert color flash according to beat intensity
+  // Background invert color flash according to beat intensity (full 100% invert!)
   const siteElement = document.querySelector('.site');
   if (siteElement) {
-    // Max invert of 80% on peak beats
-    const invertAmount = intensity * 0.8;
+    const invertAmount = intensity * 1.0;
     siteElement.style.filter = `invert(${invertAmount})`;
   }
 
@@ -3417,7 +3416,7 @@ function spawnFallingWord() {
   const word = words[Math.floor(Math.random() * words.length)];
   const colors = ['#ff0000', '#2132f6', '#39ff14', '#ff9f00', '#ffff00'];
   const color = colors[Math.floor(Math.random() * colors.length)];
-  const size = Math.floor(Math.random() * 36) + 24; // 24px to 60px (larger size)
+  const size = Math.floor(Math.random() * 50) + 40; // 40px to 90px (larger size)
   const left = Math.random() * 100;
   const duration = Math.random() * 2.5 + 2.5; // 2.5s to 5s
   const delay = Math.random() * 0.2;
@@ -3444,7 +3443,7 @@ function spawnFallingVIcon() {
 
   const colors = ['#39ff14', '#2132f6', '#ff9f00']; // green, blue, orange
   const color = colors[Math.floor(Math.random() * colors.length)];
-  const size = Math.floor(Math.random() * 40) + 35; // 35px to 75px (larger size)
+  const size = Math.floor(Math.random() * 60) + 60; // 60px to 120px (larger size)
   const left = Math.random() * 100;
   const duration = Math.random() * 2.5 + 2.5; // 2.5s to 5s
   const delay = Math.random() * 0.2;
@@ -3484,6 +3483,15 @@ function setupBrandAudioReact() {
     document.body.appendChild(rainContainer);
   }
 
+  // Bind click event to skip button
+  const skipBtn = document.getElementById('musicSkipBtn');
+  if (skipBtn) {
+    skipBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      stopAudioReact();
+    });
+  }
+
   brand.addEventListener('click', (e) => {
     e.preventDefault();
     initAudioReact();
@@ -3493,6 +3501,7 @@ function setupBrandAudioReact() {
     if (audio.paused) {
       audio.play().then(() => {
         brand.classList.add('playing-music');
+        if (skipBtn) skipBtn.classList.add('show');
         
         // Start animation frame loop
         if (animationFrameId) cancelAnimationFrame(animationFrameId);
@@ -3522,6 +3531,11 @@ function stopAudioReact() {
   const brand = document.querySelector('.brand');
   if (brand) {
     brand.classList.remove('playing-music');
+  }
+
+  const skipBtn = document.getElementById('musicSkipBtn');
+  if (skipBtn) {
+    skipBtn.classList.remove('show');
   }
 
   if (animationFrameId) {
