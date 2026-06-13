@@ -3398,11 +3398,20 @@ function updateMountainsReaction() {
     mtn.style.transform = `scale(${1 + intensity * factorX}, ${1 + intensity * factorY}) translateY(${translateY}px)`;
   });
 
-  // Background invert color flash according to beat intensity (sharp stroboscopic snap!)
+  // Set site background invert statically during the event
   const siteElement = document.querySelector('.site');
-  if (siteElement) {
-    const invertAmount = intensity > 0.25 ? 1.0 : 0.0;
-    siteElement.style.filter = invertAmount > 0.5 ? 'invert(1)' : '';
+  if (siteElement && siteElement.style.filter !== 'invert(1)') {
+    siteElement.style.filter = 'invert(1)';
+  }
+
+  // Flash the falling words and V-icons in the rain container to the beat
+  const rainContainer = document.getElementById('musicRainContainer');
+  if (rainContainer) {
+    const isBeat = intensity > 0.25;
+    const items = rainContainer.querySelectorAll('.falling-word, .falling-v-icon');
+    items.forEach(item => {
+      item.style.filter = isBeat ? 'invert(1)' : '';
+    });
   }
 
   animationFrameId = requestAnimationFrame(updateMountainsReaction);
