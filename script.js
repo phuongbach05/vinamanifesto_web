@@ -3364,32 +3364,47 @@ function updateMountainsReaction() {
     proceduralBeatTime += 1 / 60; // 60 FPS step
     const bps = 120 / 60; // 2 beats per second
     const phase = (proceduralBeatTime * bps) % 1;
-    intensity = Math.pow(Math.max(0, 1 - phase * 1.5), 3.0);
+    // Exponential decay with steep power to simulate a punchy kick hit
+    intensity = Math.pow(Math.max(0, 1 - phase * 1.6), 4.0);
   } else if (analyser && audioDataArray) {
     analyser.getByteFrequencyData(audioDataArray);
     
-    // Average the low frequency/bass bins (indices 0 to 4)
+    // Average the low frequency/bass bins (indices 0 to 3) representing the kick
     let sum = 0;
-    const bins = Math.min(6, audioDataArray.length);
+    const bins = Math.min(4, audioDataArray.length);
     for (let i = 0; i < bins; i++) {
       sum += audioDataArray[i];
     }
     const bassAverage = sum / bins;
-    intensity = bassAverage / 255; // 0 to 1
+    
+    // Normalize intensity
+    const rawIntensity = bassAverage / 255;
+    
+    // Apply power function to make it punchy (giựt theo kick nhạc)
+    // This suppresses lower ambient sounds and amplifies the peaks of the kick drum
+    intensity = Math.pow(rawIntensity, 4.5);
   }
   
-  // Apply transform scale & translation to lake mountains
+  // Apply transform scale to lake mountains
   const mountains = document.querySelectorAll('.lake-mountain');
   mountains.forEach((mtn, index) => {
-    // Give alternating mountains different reactivity levels to create organic movement
-    const factor = 0.15 + (index % 3) * 0.06;
+    // Alternate factor for organic movement
+    const factor = 0.22 + (index % 3) * 0.08;
     const scaleY = 1 + intensity * factor;
-    const scaleX = 1 + intensity * 0.04;
+    const scaleX = 1 + intensity * 0.06;
     
     mtn.style.transformBox = 'fill-box';
     mtn.style.transformOrigin = 'bottom center';
     mtn.style.transform = `scale(${scaleX}, ${scaleY})`;
   });
+
+  // Background invert color flash according to beat intensity
+  const siteElement = document.querySelector('.site');
+  if (siteElement) {
+    // Max invert of 80% on peak beats
+    const invertAmount = intensity * 0.8;
+    siteElement.style.filter = `invert(${invertAmount})`;
+  }
 
   animationFrameId = requestAnimationFrame(updateMountainsReaction);
 }
@@ -3528,6 +3543,12 @@ function stopAudioReact() {
   mountains.forEach(mtn => {
     mtn.style.transform = '';
   });
+  
+  // Restore site filter back to normal
+  const siteElement = document.querySelector('.site');
+  if (siteElement) {
+    siteElement.style.filter = '';
+  }
   
   proceduralBeatTime = 0;
 }
