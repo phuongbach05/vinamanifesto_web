@@ -2021,3 +2021,75 @@ button { font: inherit; }
   }
 }
 
+/* ─── Brand Logo Pointer & Pulse Animations ─── */
+.brand {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+  pointer-events: auto !important; /* ensure logo is clickable */
+}
+.brand:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 16px rgba(33, 50, 246, 0.35));
+}
+.brand.playing-music {
+  animation: pulseLogo 1s ease-in-out infinite alternate;
+}
+@keyframes pulseLogo {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* ─── Music Audio React Rain Effects ─── */
+#musicRainContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.falling-word {
+  position: absolute;
+  top: -50px;
+  font-family: 'UTM Cooper Black', 'Cooper Black', 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  white-space: nowrap;
+  animation: fallAnimation linear forwards;
+}
+
+.falling-v-icon {
+  position: absolute;
+  top: -50px;
+  width: 35px;
+  height: 35px;
+  fill: none;
+  stroke-width: 12px;
+  animation: fallAnimation linear forwards;
+}
+
+@keyframes fallAnimation {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
