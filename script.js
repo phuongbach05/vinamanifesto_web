@@ -3213,11 +3213,14 @@ window.addEventListener('orientationchange', () => {
 
   // ── Mouse wheel zoom ──
   let _zoomDebounce = null;
+  let _zoomAnimating = false;
+  const ZOOM_EASE = 0.22; // faster than pan (0.08) but still smooth
 
   function onWheel(e) {
     e.preventDefault();
 
     const zoomFactor = e.deltaY > 0 ? 1.08 : 0.93;
+    // Always base off currentViewBox to avoid lag accumulation
     const svgPt = screenToSVGWithVB(e.clientX, e.clientY, currentViewBox);
 
     const newW = currentViewBox[2] * zoomFactor;
@@ -3230,12 +3233,33 @@ window.addEventListener('orientationchange', () => {
     const newX = svgPt.x - ratioX * newW;
     const newY = svgPt.y - ratioY * newH;
 
-    const vb = clampViewBox([newX, newY, newW, newH]);
+    targetViewBox = clampViewBox([newX, newY, newW, newH]);
 
-    // Apply zoom directly — no easing accumulation lag
-    currentViewBox = [...vb];
-    targetViewBox = [...vb];
-    svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+    // Smooth zoom loop (separate from pan loop, faster ease factor)
+    if (!_zoomAnimating) {
+      _zoomAnimating = true;
+      function zoomStep() {
+        const dx = targetViewBox[0] - currentViewBox[0];
+        const dy = targetViewBox[1] - currentViewBox[1];
+        const dw = targetViewBox[2] - currentViewBox[2];
+        const dh = targetViewBox[3] - currentViewBox[3];
+
+        if (Math.abs(dw) < 0.05 && Math.abs(dh) < 0.05 && Math.abs(dx) < 0.05 && Math.abs(dy) < 0.05) {
+          currentViewBox = [...targetViewBox];
+          svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+          _zoomAnimating = false;
+          return;
+        }
+
+        currentViewBox[0] += dx * ZOOM_EASE;
+        currentViewBox[1] += dy * ZOOM_EASE;
+        currentViewBox[2] += dw * ZOOM_EASE;
+        currentViewBox[3] += dh * ZOOM_EASE;
+        svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+        requestAnimationFrame(zoomStep);
+      }
+      requestAnimationFrame(zoomStep);
+    }
 
     // Debounce expensive responsive layout recalculation
     if (_zoomDebounce) clearTimeout(_zoomDebounce);
@@ -3243,7 +3267,7 @@ window.addEventListener('orientationchange', () => {
       updateResponsiveTimeline(currentViewBox);
       updateResponsiveMapStretch(currentViewBox);
       _zoomDebounce = null;
-    }, 120);
+    }, 150);
   }
 
   // Attach events
