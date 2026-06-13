@@ -739,8 +739,8 @@ button { font: inherit; }
   transition: background 0.15s ease;
 }
 .btn-lang {
-  background: #ff0000;
-  color: #000;
+  background: transparent;
+  color: var(--blue);
   border: 3px solid var(--blue);
   height: 24px;
   padding: 0 8px;
@@ -757,10 +757,11 @@ button { font: inherit; }
 .btn-lang.active {
   background: var(--blue);
   color: #fff;
+  border: 3px solid var(--blue);
 }
 .btn-lang:hover {
-  background: #ff3333;
-  color: #000;
+  background: rgba(33, 50, 246, 0.15);
+  color: var(--blue);
 }
 .btn-lang.active:hover {
   background: var(--blue);
@@ -780,9 +781,6 @@ button { font: inherit; }
   justify-content: center;
   border-radius: 0;
   transition: background 0.15s ease;
-}
-.btn-back:hover {
-  background: rgba(255, 255, 255, 0.25);
 }
 .btn-close:hover {
   background: rgba(33, 50, 246, 0.18);
@@ -1818,4 +1816,62 @@ button { font: inherit; }
   }
 }
 
+/* ─── Branch View Red Modal Layout ─── */
+.info-panel.is-branch-view #modalHomeBtn,
+.info-panel.is-branch-view #modalHomeBtn + .modal-title-separator,
+.info-panel.is-branch-view #modalBranchLink,
+.info-panel.is-branch-view #modalSecondSeparator,
+.info-panel.is-branch-view .modal-title-wrap {
+  display: none !important;
+}
 
+.info-panel.is-branch-view .modal-main-box {
+  background: #ff0000;
+}
+
+.info-panel.is-branch-view .modal-header {
+  border-bottom: none;
+}
+
+.info-panel.is-branch-view .modal-content-box {
+  background: #ff0000;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 3vh, 32px) clamp(16px, 2.5vw, 24px);
+  min-height: 250px;
+}
+
+.info-panel.is-branch-view #modalBodyEn,
+.info-panel.is-branch-view #modalBodyVie {
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  font-size: clamp(15px, 2vh, 19px);
+  line-height: 1.6;
+  font-weight: normal;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Large centered title in branch view body */
+.branch-detail-title-wrap {
+  text-align: center;
+  margin-bottom: clamp(16px, 3vh, 28px);
+  width: 100%;
+}
+.branch-detail-title-wrap .title-line-base {
+  color: #000;
+  font-family: 'UTM Cooper Black', 'Cooper Black', serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.branch-detail-title-wrap .title-line-script {
+  font-size: 1.55em;
+}

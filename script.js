@@ -1818,10 +1818,19 @@ function alignDoubleLayeredTitles() {
       
       if (baseWidth > 0 && scriptWidth > 0) {
         if (scriptWidth > baseWidth) {
-          const ratio = baseWidth / scriptWidth;
+          let ratio = baseWidth / scriptWidth;
+          if (wrapper.closest('.branch-detail-title-wrap')) {
+            ratio = Math.min(1.2, ratio * 1.55);
+          } else {
+            ratio = Math.min(1.1, ratio * 1.25);
+          }
           script.style.transform = `translate(-50%, -50%) scale(${ratio})`;
         } else {
-          script.style.transform = 'translate(-50%, -50%)';
+          if (wrapper.closest('.branch-detail-title-wrap')) {
+            script.style.transform = 'translate(-50%, -50%) scale(1.2)';
+          } else {
+            script.style.transform = 'translate(-50%, -50%) scale(1.1)';
+          }
         }
       }
     });
@@ -2069,8 +2078,24 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
       // Update branch description texts
       modalBodyEn.innerHTML = bodyEn;
       modalBodyVie.innerHTML = bodyVie;
+      
+      // Update branch detail title inside content box
+      const branchDetailTitle = document.getElementById('branchDetailTitle');
+      const branchDetailTitleScript = document.getElementById('branchDetailTitleScript');
+      if (branchDetailTitle && branchDetailTitleScript) {
+        const cleanTitle = title.replace(/<br\s*\/?>/gi, ' ');
+        if (cleanTitle.toLowerCase().includes('đẻ-sign') || cleanTitle.toLowerCase().includes('de-sign')) {
+          branchDetailTitle.textContent = 'Vina đẻ-sign';
+          branchDetailTitleScript.textContent = 'Vina de-sign';
+        } else {
+          branchDetailTitle.textContent = cleanTitle;
+          branchDetailTitleScript.textContent = cleanTitle;
+        }
+      }
+      
       currentPanelData = { isTopic: false, bodyEn, bodyVie };
       updateLanguageDisplay();
+      alignDoubleLayeredTitles();
   }
 
   // Populate bottom slider cards (shared for both views!)
