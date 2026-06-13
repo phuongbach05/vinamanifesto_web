@@ -1632,6 +1632,9 @@ function getTargetViewBox(cx, cy) {
 }
 
 function refreshViewBoxForViewport() {
+  // Don't snap viewBox while panel close transition is playing
+  if (_panelClosing) return;
+
   const fullViewBox = getFullViewBox();
 
   updateResponsiveTimeline(fullViewBox);
@@ -1640,7 +1643,6 @@ function refreshViewBoxForViewport() {
   if (activeCameraCenter) {
     targetViewBox = getTargetViewBox(activeCameraCenter.cx, activeCameraCenter.cy);
   } else if (isMobileView()) {
-    // On mobile, maintain current pan position but adjust aspect ratio and respect clamp limits
     const aspect = getViewportAspect();
     const w = currentViewBox[2];
     const h = w / aspect;
@@ -2483,9 +2485,15 @@ timeButtons.forEach(button => {
 });
 
 // Modal interactions
+let _panelClosing = false;
+
 function closePanel() {
   // Cancel any pending zoom debounce
   if (window._cancelZoomDebounce) window._cancelZoomDebounce();
+
+  // Guard flag: prevents resize-triggered refreshViewBoxForViewport from
+  // snapping the viewBox during the panel close transition
+  _panelClosing = true;
 
   panel.classList.remove('open');
   overlay.classList.remove('open');
@@ -2493,10 +2501,12 @@ function closePanel() {
   panel.classList.remove('is-branch-view');
   clearActive();
 
-  // Delay pan until panel CSS transition finishes (0.3s) so map
-  // doesn't visibly move while the panel is still fading out
+  // Delay pan until panel CSS transition finishes (0.3s)
   const hv = getHomeViewBox();
-  setTimeout(() => panTo(hv[0], hv[1], hv[2], hv[3]), 300);
+  setTimeout(() => {
+    _panelClosing = false;
+    panTo(hv[0], hv[1], hv[2], hv[3]);
+  }, 300);
 }
 
 modalCloseBtn.addEventListener('click', closePanel);
