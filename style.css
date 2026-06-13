@@ -1875,3 +1875,28 @@ button { font: inherit; }
 .branch-detail-title-wrap .title-line-script {
   font-size: 1.55em;
 }
+
+/* ─── Background script V icons grid ─── */
+.background-icons {
+  pointer-events: none;
+}
+.bg-v-icon {
+  fill: none;
+  stroke-width: 8px; /* scaled by 0.18 natively to ~1.44px stroke width */
+}
+.bg-v-icon.past {
+  stroke: var(--blue);
+}
+.bg-v-icon.present {
+  stroke: #39ff14; /* Neon green */
+}
+.bg-v-icon.future {
+  stroke: #ff9f00; /* Orange */
+}
+
+/* Timeline vertical dividers visual update */
+.timeline-divider {
+  stroke: var(--blue);
+  stroke-width: 1.2;
+  opacity: 0.35; /* make background dividers subtle */
+}

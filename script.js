@@ -2689,8 +2689,48 @@ function updateSliderButtons() {
 
 modalCardsContainer.addEventListener('scroll', updateSliderButtons);
 
+// Generate background script V icons grid matching era zones and opacity gradients
+function generateBackgroundIcons() {
+  const container = document.getElementById('backgroundIcons');
+  if (!container) return;
+
+  const cols = 18;
+  const rows = 8;
+  const colSpacing = 95;
+  const rowSpacing = 100;
+  const startX = 47.5;
+  const startY = 120;
+
+  const rowOpacities = [0.8, 0.65, 0.5, 0.35, 0.22, 0.12, 0.06, 0.02];
+
+  for (let r = 0; r < rows; r++) {
+    const opacity = rowOpacities[r] || 0.02;
+    for (let c = 0; c < cols; c++) {
+      const x = startX + c * colSpacing;
+      const y = startY + r * rowSpacing;
+
+      let eraClass = 'past';
+      if (x >= 480 && x <= 1220) {
+        eraClass = 'present';
+      } else if (x > 1220) {
+        eraClass = 'future';
+      }
+
+      // Create <use> element inside SVG namespace
+      const useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      useEl.setAttribute('href', '#bg-v-icon');
+      useEl.setAttribute('x', x);
+      useEl.setAttribute('y', y);
+      useEl.setAttribute('class', `bg-v-icon ${eraClass}`);
+      useEl.setAttribute('style', `opacity: ${opacity};`);
+      container.appendChild(useEl);
+    }
+  }
+}
+
 // Trigger river flow animation on load
 document.addEventListener('DOMContentLoaded', () => {
+  generateBackgroundIcons();
   // organicizeRiverPaths(); // Disabled to keep river paths smooth, not hand-drawn
   // applyRiverStrokeVariation(); // Disabled so CSS controls uniform stroke-widths
   // buildRiverDisplayLayers(); // Disabled since we style .river directly
