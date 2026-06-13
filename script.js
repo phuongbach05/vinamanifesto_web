@@ -1904,7 +1904,7 @@ function renderSlideshowPlaceholder(topicId, index) {
       
       <!-- Styled label -->
       <rect x="100" y="155" width="200" height="30" fill="#fff" stroke="var(--blue)" stroke-width="2" />
-      <text x="200" y="174" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', serif" font-weight="bold" font-size="11" fill="var(--blue)">
+      <text x="200" y="174" text-anchor="middle" font-family="'UTM Cooper Black', 'Cooper Black', 'Fraunces', serif" font-weight="bold" font-size="11" fill="var(--blue)">
         WORK PREVIEW #${placeholderNum}
       </text>
       

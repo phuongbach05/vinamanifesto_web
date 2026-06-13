@@ -295,7 +295,7 @@ button { font: inherit; }
   stroke-linejoin: round;
 }
 .topic text.topic-script {
-  font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive;
+  font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Great Vibes', 'Herr Von Muellerhoff', 'Pinyon Script', cursive;
   font-size: 31px;
   font-weight: normal;
   fill: #ffffff;
@@ -950,7 +950,7 @@ button { font: inherit; }
   transform: translateY(-50%) translateY(1px);
   color: #ffffff !important;
   -webkit-text-stroke: 0.2px #000000 !important;
-  font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive;
+  font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Great Vibes', 'Herr Von Muellerhoff', 'Pinyon Script', cursive;
   font-size: clamp(25px, 3.1vh, 31px);
   font-weight: normal;
   font-style: normal;
@@ -1446,7 +1446,7 @@ button { font: inherit; }
   white-space: nowrap;
   color: #ffffff !important;
   -webkit-text-stroke: 0.25px #000000 !important;
-  font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
+  font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Great Vibes', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
   font-size: 1.5em;
   font-weight: normal !important;
   font-style: normal !important;
