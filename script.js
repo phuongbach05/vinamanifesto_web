@@ -2689,6 +2689,70 @@ function updateSliderButtons() {
 
 modalCardsContainer.addEventListener('scroll', updateSliderButtons);
 
+// Dynamically build precise mask shapes around rivers, lake, numbers, and text
+function setupDynamicMask() {
+  const maskElements = document.getElementById('mask-elements');
+  if (!maskElements) return;
+
+  maskElements.innerHTML = '';
+
+  // 1. Clone the central lake
+  const lake = document.querySelector('.lake');
+  if (lake) {
+    const clone = lake.cloneNode(true);
+    clone.setAttribute('fill', '#000000');
+    clone.removeAttribute('class');
+    clone.removeAttribute('id');
+    maskElements.appendChild(clone);
+  }
+
+  // 2. Clone all rivers as thick black strokes
+  const rivers = document.querySelectorAll('.river');
+  rivers.forEach(river => {
+    const clone = river.cloneNode(true);
+    clone.setAttribute('fill', 'none');
+    clone.setAttribute('stroke', '#000000');
+    clone.setAttribute('stroke-width', '85'); // generous buffer around rivers
+    clone.setAttribute('stroke-linecap', 'round');
+    clone.removeAttribute('class');
+    clone.removeAttribute('id');
+    maskElements.appendChild(clone);
+  });
+
+  // 3. Draw black circles around branch nodes (numbers)
+  const nodes = document.querySelectorAll('.node');
+  nodes.forEach(node => {
+    const circle = node.querySelector('circle');
+    if (circle) {
+      const cx = circle.getAttribute('cx');
+      const cy = circle.getAttribute('cy');
+      const circleEl = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circleEl.setAttribute('cx', cx);
+      circleEl.setAttribute('cy', cy);
+      circleEl.setAttribute('r', '75'); // generous margin around nodes
+      circleEl.setAttribute('fill', '#000000');
+      maskElements.appendChild(circleEl);
+    }
+  });
+
+  // 4. Draw black circles covering topic texts
+  const topics = document.querySelectorAll('.topic');
+  topics.forEach(topic => {
+    const text = topic.querySelector('text');
+    if (text) {
+      const x = parseFloat(text.getAttribute('x')) || 0;
+      const y = parseFloat(text.getAttribute('y')) || 0;
+      
+      const circleEl = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circleEl.setAttribute('cx', (x + 50).toFixed(1));
+      circleEl.setAttribute('cy', (y + 10).toFixed(1));
+      circleEl.setAttribute('r', '85'); // generous coverage around topic titles
+      circleEl.setAttribute('fill', '#000000');
+      maskElements.appendChild(circleEl);
+    }
+  });
+}
+
 // Generate background script V icons grid matching era zones and opacity gradients
 function generateBackgroundIcons() {
   const container = document.getElementById('backgroundIcons');
@@ -2730,6 +2794,7 @@ function generateBackgroundIcons() {
 
 // Trigger river flow animation on load
 document.addEventListener('DOMContentLoaded', () => {
+  setupDynamicMask();
   generateBackgroundIcons();
   // organicizeRiverPaths(); // Disabled to keep river paths smooth, not hand-drawn
   // applyRiverStrokeVariation(); // Disabled so CSS controls uniform stroke-widths
