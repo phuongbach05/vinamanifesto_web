@@ -2034,6 +2034,7 @@ button { font: inherit; }
   filter: drop-shadow(0 6px 16px rgba(33, 50, 246, 0.35));
 }
 .brand.playing-music {
+  opacity: 1 !important;
   animation: pulseLogo 1s ease-in-out infinite alternate;
 }
 @keyframes pulseLogo {
@@ -2095,14 +2096,14 @@ button { font: inherit; }
 /* ─── Music Skip Button ─── */
 .music-skip-btn {
   position: fixed;
-  top: 24px;
-  left: 24px;
-  padding: 10px 18px;
+  top: 20px;
+  left: 20px;
+  padding: 7px 14px;
   background: rgba(255, 255, 255, 0.9);
-  border: 2.5px solid var(--blue);
+  border: 2px solid var(--blue);
   color: var(--blue);
   font-family: 'UTM Cooper Black', 'Cooper Black', 'Fraunces', serif;
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   font-weight: bold;
   cursor: pointer;
