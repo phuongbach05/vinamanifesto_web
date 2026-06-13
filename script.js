@@ -1671,12 +1671,28 @@ function formatDoubleLayeredText(textBase, textScript) {
   for (let i = 0; i < linesBase.length; i++) {
     const lineB = linesBase[i];
     const lineS = linesScript[i] || lineB;
+    
+    const wordsB = lineB.split(' ');
+    const wordsS = lineS.split(' ');
+    
+    let lineHtml = '';
+    for (let j = 0; j < wordsB.length; j++) {
+      const wordB = wordsB[j];
+      const wordS = wordsS[j] || wordB;
+      lineHtml += `
+        <span class="title-line-wrapper">
+          <span class="title-line-base">${wordB}</span>
+          <span class="title-line-script">${wordS}</span>
+        </span>
+      `;
+      if (j < wordsB.length - 1) {
+        lineHtml += ' ';
+      }
+    }
+    
     html += `
       <div class="title-row" style="display: block; position: relative; text-align: inherit;">
-        <span class="title-line-wrapper">
-          <span class="title-line-base">${lineB}</span>
-          <span class="title-line-script">${lineS}</span>
-        </span>
+        ${lineHtml}
       </div>
     `;
   }
@@ -1706,7 +1722,7 @@ function formatCardTitle(title) {
     subText = '';
   }
   
-  const subHtml = subText ? `<div class="card-title-sub">${subText}</div>` : '';
+  const subHtml = subText ? `<div class="card-title-sub">${formatDoubleLayeredText(subText, subText)}</div>` : '';
   
   return `
     <div class="card-title-main-wrap">
@@ -2062,9 +2078,10 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     modalSliderWrap.style.display = 'flex';
     panel.classList.remove('no-slider');
 
-    const hasPagedWorks = connectedTopics.length > 2;
-    setSliderButtonState(prevBtn, false, hasPagedWorks);
-    setSliderButtonState(nextBtn, hasPagedWorks, hasPagedWorks);
+    const visibleRelatedWorkCount = isTopic ? 3 : 2;
+    const hasPagedWorks = connectedTopics.length > visibleRelatedWorkCount;
+    setSliderButtonState(prevBtn, false, true);
+    setSliderButtonState(nextBtn, hasPagedWorks, true);
 
     if (hasPagedWorks) {
       modalCardsContainer.style.justifyContent = 'flex-start';
@@ -2556,14 +2573,23 @@ function setSliderButtonState(button, isVisible, reserveSpace = false) {
 
 function getRelatedWorkPagePositions() {
   const cards = [...modalCardsContainer.querySelectorAll('.topic-card')];
-  const maxScroll = Math.max(0, modalCardsContainer.scrollWidth - modalCardsContainer.clientWidth);
+  const isVertical = isRelatedWorkSliderVertical();
+  const maxScroll = Math.max(0, isVertical
+    ? modalCardsContainer.scrollHeight - modalCardsContainer.clientHeight
+    : modalCardsContainer.scrollWidth - modalCardsContainer.clientWidth);
 
-  if (cards.length <= 2 || maxScroll <= 1) return [0];
+  if (maxScroll <= 1 || cards.length === 0) return [0];
 
-  const cardWidth = cards[0].getBoundingClientRect().width;
+  const firstCardBox = cards[0].getBoundingClientRect();
   const styles = window.getComputedStyle(modalCardsContainer);
-  const gap = parseFloat(styles.columnGap || styles.gap) || 0;
-  const pairStep = (cardWidth + gap) * 2;
+  const gap = parseFloat((isVertical ? styles.rowGap : styles.columnGap) || styles.gap) || 0;
+  const cardSize = isVertical ? firstCardBox.height : firstCardBox.width;
+  const viewportSize = isVertical ? modalCardsContainer.clientHeight : modalCardsContainer.clientWidth;
+  const isTopic = currentPanelData && currentPanelData.isTopic;
+  const visibleCards = isTopic
+    ? (isVertical ? Math.min(3, Math.max(1, Math.floor((viewportSize + gap + 5) / (cardSize + gap)))) : Math.max(1, Math.floor((viewportSize + gap + 5) / (cardSize + gap))))
+    : 2;
+  const pairStep = (cardSize + gap) * visibleCards;
   const positions = [0];
 
   for (let position = pairStep; position < maxScroll - 1; position += pairStep) {
@@ -2577,10 +2603,18 @@ function getRelatedWorkPagePositions() {
   return positions;
 }
 
+function isRelatedWorkSliderVertical() {
+  return window.getComputedStyle(modalCardsContainer).flexDirection.startsWith('column');
+}
+
 function getNearestRelatedWorkPageIndex(positions) {
+  const currentPosition = isRelatedWorkSliderVertical()
+    ? modalCardsContainer.scrollTop
+    : modalCardsContainer.scrollLeft;
+
   return positions.reduce((nearestIndex, position, index) => {
-    const nearestDistance = Math.abs(modalCardsContainer.scrollLeft - positions[nearestIndex]);
-    const distance = Math.abs(modalCardsContainer.scrollLeft - position);
+    const nearestDistance = Math.abs(currentPosition - positions[nearestIndex]);
+    const distance = Math.abs(currentPosition - position);
     return distance < nearestDistance ? index : nearestIndex;
   }, 0);
 }
@@ -2590,7 +2624,11 @@ function scrollRelatedWorksByPage(direction) {
   const currentIndex = getNearestRelatedWorkPageIndex(positions);
   const nextIndex = clamp(currentIndex + direction, 0, positions.length - 1);
 
-  modalCardsContainer.scrollTo({ left: positions[nextIndex], behavior: 'smooth' });
+  if (isRelatedWorkSliderVertical()) {
+    modalCardsContainer.scrollTo({ top: positions[nextIndex], behavior: 'smooth' });
+  } else {
+    modalCardsContainer.scrollTo({ left: positions[nextIndex], behavior: 'smooth' });
+  }
 }
 
 prevBtn.addEventListener('click', () => {
@@ -2604,13 +2642,20 @@ nextBtn.addEventListener('click', () => {
 function updateSliderButtons() {
   const cardsCount = modalCardsContainer.childElementCount;
 
-  if (cardsCount <= 2) {
-    setSliderButtonState(prevBtn, false, false);
-    setSliderButtonState(nextBtn, false, false);
+  if (cardsCount <= 1) {
+    setSliderButtonState(prevBtn, false, true);
+    setSliderButtonState(nextBtn, false, true);
     return;
   }
 
   const positions = getRelatedWorkPagePositions();
+  
+  if (positions.length <= 1) {
+    setSliderButtonState(prevBtn, false, true);
+    setSliderButtonState(nextBtn, false, true);
+    return;
+  }
+
   const currentIndex = getNearestRelatedWorkPageIndex(positions);
 
   setSliderButtonState(prevBtn, currentIndex > 0, true);
@@ -2778,14 +2823,22 @@ window.addEventListener('orientationchange', () => {
     };
   }
 
+  function screenToSVGWithVB(screenX, screenY, vb) {
+    const rect = svgElement.getBoundingClientRect();
+    return {
+      x: vb[0] + (screenX - rect.left) / rect.width * vb[2],
+      y: vb[1] + (screenY - rect.top) / rect.height * vb[3]
+    };
+  }
+
   function clampViewBox(vb) {
     let [x, y, w, h] = vb;
     const aspect = getViewportAspect();
 
-    // Max zoom out is exactly the initial mobile viewBox width (prevents empty space)
-    const initialVB = getMobileInitialViewBox();
+    // Max zoom out is exactly the home viewBox width (prevents empty space)
+    const initialVB = getHomeViewBox();
     const maxW = initialVB[2];
-    const minW = Math.min(350, maxW);
+    const minW = isMobileView() ? Math.min(250, maxW) : Math.min(100, maxW);
 
     w = Math.max(minW, Math.min(w, maxW));
     h = w / aspect;
@@ -2843,7 +2896,6 @@ window.addEventListener('orientationchange', () => {
 
   // ── Pointer Down ──
   function onPointerDown(e) {
-    if (!isMobileView()) return;
     // Don't intercept if the info panel is open
     if (panel && panel.classList.contains('open')) return;
 
@@ -2877,13 +2929,11 @@ window.addEventListener('orientationchange', () => {
       velocityY = 0;
       lastMoveTime = performance.now();
       svgElement.classList.add('is-dragging');
-      svgElement.setPointerCapture(e.pointerId);
     }
   }
 
   // ── Pointer Move ──
   function onPointerMove(e) {
-    if (!isMobileView()) return;
 
     if (e.pointerType === 'touch') {
       activeTouches.set(e.pointerId, e);
@@ -2922,6 +2972,7 @@ window.addEventListener('orientationchange', () => {
       const dy = e.clientY - dragStartScreen.y;
       if (Math.sqrt(dx * dx + dy * dy) < DRAG_THRESHOLD) return;
       hasDraggedPastThreshold = true;
+      svgElement.setPointerCapture(e.pointerId);
     }
 
     const current = screenToSVG(e.clientX, e.clientY);
@@ -2950,7 +3001,6 @@ window.addEventListener('orientationchange', () => {
 
   // ── Pointer Up ──
   function onPointerUp(e) {
-    if (!isMobileView()) return;
 
     if (e.pointerType === 'touch') {
       activeTouches.delete(e.pointerId);
@@ -3000,26 +3050,31 @@ window.addEventListener('orientationchange', () => {
     svgElement.classList.remove('is-dragging');
   }
 
-  // ── Mouse wheel zoom (for desktop testing of zoom) ──
+  // ── Mouse wheel zoom ──
   function onWheel(e) {
-    if (!isMobileView()) return;
     e.preventDefault();
 
     const zoomFactor = e.deltaY > 0 ? 1.08 : 0.93;
-    const svgPt = screenToSVG(e.clientX, e.clientY);
+    const baseVB = targetViewBox;
+    const svgPt = screenToSVGWithVB(e.clientX, e.clientY, baseVB);
 
-    const newW = currentViewBox[2] * zoomFactor;
+    const newW = baseVB[2] * zoomFactor;
     const aspect = getViewportAspect();
     const newH = newW / aspect;
 
-    const ratioX = (svgPt.x - currentViewBox[0]) / currentViewBox[2];
-    const ratioY = (svgPt.y - currentViewBox[1]) / currentViewBox[3];
+    const ratioX = (svgPt.x - baseVB[0]) / baseVB[2];
+    const ratioY = (svgPt.y - baseVB[1]) / baseVB[3];
 
     const newX = svgPt.x - ratioX * newW;
     const newY = svgPt.y - ratioY * newH;
 
     const vb = clampViewBox([newX, newY, newW, newH]);
-    applyViewBox(vb);
+    targetViewBox = vb;
+
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(updateViewBox);
+    }
   }
 
   // Attach events
