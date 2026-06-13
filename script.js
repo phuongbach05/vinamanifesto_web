@@ -2758,34 +2758,64 @@ function generateBackgroundIcons() {
   const container = document.getElementById('backgroundIcons');
   if (!container) return;
 
-  const cols = 18;
   const rows = 8;
-  const colSpacing = 95;
   const rowSpacing = 100;
-  const startX = 47.5;
   const startY = 120;
+  const colSpacing = 80; // slightly closer than the original 95
 
   const rowOpacities = [0.95, 0.8, 0.65, 0.5, 0.35, 0.2, 0.1, 0.04];
 
+  // 5 columns in PAST (centered in [0, 480])
+  const pastCols = [];
+  const pastStart = 0;
+  const pastEnd = 480;
+  const pastCount = 5;
+  const pastWidth = (pastCount - 1) * colSpacing;
+  const pastStartX = pastStart + (pastEnd - pastStart - pastWidth) / 2;
+  for (let i = 0; i < pastCount; i++) {
+    pastCols.push(pastStartX + i * colSpacing);
+  }
+
+  // 8 columns in PRESENT (centered in [480, 1220])
+  const presentCols = [];
+  const presentStart = 480;
+  const presentEnd = 1220;
+  const presentCount = 8;
+  const presentWidth = (presentCount - 1) * colSpacing;
+  const presentStartX = presentStart + (presentEnd - presentStart - presentWidth) / 2;
+  for (let i = 0; i < presentCount; i++) {
+    presentCols.push(presentStartX + i * colSpacing);
+  }
+
+  // 5 columns in FUTURE (centered in [1220, 1700])
+  const futureCols = [];
+  const futureStart = 1220;
+  const futureEnd = 1700;
+  const futureCount = 5;
+  const futureWidth = (futureCount - 1) * colSpacing;
+  const futureStartX = futureStart + (futureEnd - futureStart - futureWidth) / 2;
+  for (let i = 0; i < futureCount; i++) {
+    futureCols.push(futureStartX + i * colSpacing);
+  }
+
+  const allCols = [
+    ...pastCols.map(x => ({ x, eraClass: 'past' })),
+    ...presentCols.map(x => ({ x, eraClass: 'present' })),
+    ...futureCols.map(x => ({ x, eraClass: 'future' }))
+  ];
+
   for (let r = 0; r < rows; r++) {
     const opacity = rowOpacities[r] || 0.02;
-    for (let c = 0; c < cols; c++) {
-      const x = startX + c * colSpacing;
+    for (const col of allCols) {
+      const x = col.x;
       const y = startY + r * rowSpacing;
-
-      let eraClass = 'past';
-      if (x >= 480 && x <= 1220) {
-        eraClass = 'present';
-      } else if (x > 1220) {
-        eraClass = 'future';
-      }
 
       // Create <use> element inside SVG namespace
       const useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
       useEl.setAttribute('href', '#bg-v-icon');
       useEl.setAttribute('x', x);
       useEl.setAttribute('y', y);
-      useEl.setAttribute('class', `bg-v-icon ${eraClass}`);
+      useEl.setAttribute('class', `bg-v-icon ${col.eraClass}`);
       useEl.setAttribute('style', `opacity: ${opacity};`);
       container.appendChild(useEl);
     }
