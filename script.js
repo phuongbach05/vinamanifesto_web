@@ -3311,6 +3311,7 @@ let audio = null;
 let animationFrameId = null;
 let spawnIntervalId = null;
 let audioDataArray = null;
+let proceduralBeatTime = 0;
 
 function initAudioReact() {
   if (!audio) {
@@ -3318,6 +3319,14 @@ function initAudioReact() {
     audio.onended = () => {
       stopAudioReact();
     };
+  }
+  
+  // Detect if running locally via file:// protocol
+  const isLocalFile = window.location.protocol === 'file:';
+  
+  if (isLocalFile) {
+    console.warn("Running via file:// protocol. Bypassing Web Audio API context connection to prevent browser CORS silence. Procedural beat reactivity enabled.");
+    return;
   }
   
   if (!audioCtx) {
@@ -3347,7 +3356,16 @@ function initAudioReact() {
 function updateMountainsReaction() {
   if (!audio || audio.paused) return;
 
-  if (analyser && audioDataArray) {
+  let intensity = 0;
+  const isLocalFile = window.location.protocol === 'file:';
+
+  if (isLocalFile) {
+    // Procedural beat reaction loop for local file:// mode (120 BPM tempo)
+    proceduralBeatTime += 1 / 60; // 60 FPS step
+    const bps = 120 / 60; // 2 beats per second
+    const phase = (proceduralBeatTime * bps) % 1;
+    intensity = Math.pow(Math.max(0, 1 - phase * 1.5), 3.0);
+  } else if (analyser && audioDataArray) {
     analyser.getByteFrequencyData(audioDataArray);
     
     // Average the low frequency/bass bins (indices 0 to 4)
@@ -3357,21 +3375,21 @@ function updateMountainsReaction() {
       sum += audioDataArray[i];
     }
     const bassAverage = sum / bins;
-    const intensity = bassAverage / 255; // 0 to 1
-    
-    // Apply transform scale & translation to lake mountains
-    const mountains = document.querySelectorAll('.lake-mountain');
-    mountains.forEach((mtn, index) => {
-      // Give alternating mountains different reactivity levels to create organic movement
-      const factor = 0.15 + (index % 3) * 0.06;
-      const scaleY = 1 + intensity * factor;
-      const scaleX = 1 + intensity * 0.04;
-      
-      mtn.style.transformBox = 'fill-box';
-      mtn.style.transformOrigin = 'bottom center';
-      mtn.style.transform = `scale(${scaleX}, ${scaleY})`;
-    });
+    intensity = bassAverage / 255; // 0 to 1
   }
+  
+  // Apply transform scale & translation to lake mountains
+  const mountains = document.querySelectorAll('.lake-mountain');
+  mountains.forEach((mtn, index) => {
+    // Give alternating mountains different reactivity levels to create organic movement
+    const factor = 0.15 + (index % 3) * 0.06;
+    const scaleY = 1 + intensity * factor;
+    const scaleX = 1 + intensity * 0.04;
+    
+    mtn.style.transformBox = 'fill-box';
+    mtn.style.transformOrigin = 'bottom center';
+    mtn.style.transform = `scale(${scaleX}, ${scaleY})`;
+  });
 
   animationFrameId = requestAnimationFrame(updateMountainsReaction);
 }
@@ -3384,7 +3402,7 @@ function spawnFallingWord() {
   const word = words[Math.floor(Math.random() * words.length)];
   const colors = ['#ff0000', '#2132f6', '#39ff14', '#ff9f00', '#ffff00'];
   const color = colors[Math.floor(Math.random() * colors.length)];
-  const size = Math.floor(Math.random() * 20) + 16; // 16px to 36px
+  const size = Math.floor(Math.random() * 36) + 24; // 24px to 60px (larger size)
   const left = Math.random() * 100;
   const duration = Math.random() * 2.5 + 2.5; // 2.5s to 5s
   const delay = Math.random() * 0.2;
@@ -3411,7 +3429,7 @@ function spawnFallingVIcon() {
 
   const colors = ['#39ff14', '#2132f6', '#ff9f00']; // green, blue, orange
   const color = colors[Math.floor(Math.random() * colors.length)];
-  const size = Math.floor(Math.random() * 25) + 20; // 20px to 45px
+  const size = Math.floor(Math.random() * 40) + 35; // 35px to 75px (larger size)
   const left = Math.random() * 100;
   const duration = Math.random() * 2.5 + 2.5; // 2.5s to 5s
   const delay = Math.random() * 0.2;
@@ -3510,5 +3528,7 @@ function stopAudioReact() {
   mountains.forEach(mtn => {
     mtn.style.transform = '';
   });
+  
+  proceduralBeatTime = 0;
 }
 
