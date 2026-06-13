@@ -3212,30 +3212,38 @@ window.addEventListener('orientationchange', () => {
   }
 
   // ── Mouse wheel zoom ──
+  let _zoomDebounce = null;
+
   function onWheel(e) {
     e.preventDefault();
 
     const zoomFactor = e.deltaY > 0 ? 1.08 : 0.93;
-    const baseVB = targetViewBox;
-    const svgPt = screenToSVGWithVB(e.clientX, e.clientY, baseVB);
+    const svgPt = screenToSVGWithVB(e.clientX, e.clientY, currentViewBox);
 
-    const newW = baseVB[2] * zoomFactor;
+    const newW = currentViewBox[2] * zoomFactor;
     const aspect = getViewportAspect();
     const newH = newW / aspect;
 
-    const ratioX = (svgPt.x - baseVB[0]) / baseVB[2];
-    const ratioY = (svgPt.y - baseVB[1]) / baseVB[3];
+    const ratioX = (svgPt.x - currentViewBox[0]) / currentViewBox[2];
+    const ratioY = (svgPt.y - currentViewBox[1]) / currentViewBox[3];
 
     const newX = svgPt.x - ratioX * newW;
     const newY = svgPt.y - ratioY * newH;
 
     const vb = clampViewBox([newX, newY, newW, newH]);
-    targetViewBox = vb;
 
-    if (!isAnimating) {
-      isAnimating = true;
-      requestAnimationFrame(updateViewBox);
-    }
+    // Apply zoom directly — no easing accumulation lag
+    currentViewBox = [...vb];
+    targetViewBox = [...vb];
+    svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+
+    // Debounce expensive responsive layout recalculation
+    if (_zoomDebounce) clearTimeout(_zoomDebounce);
+    _zoomDebounce = setTimeout(() => {
+      updateResponsiveTimeline(currentViewBox);
+      updateResponsiveMapStretch(currentViewBox);
+      _zoomDebounce = null;
+    }, 120);
   }
 
   // Attach events
