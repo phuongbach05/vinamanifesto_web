@@ -2484,11 +2484,20 @@ timeButtons.forEach(button => {
 
 // Modal interactions
 function closePanel() {
+  // Cancel any pending zoom debounce so it doesn't corrupt layout after close
+  if (window._cancelZoomDebounce) window._cancelZoomDebounce();
+
   panel.classList.remove('open');
   overlay.classList.remove('open');
   panel.classList.remove('is-topic-view');
   panel.classList.remove('is-branch-view');
   clearActive();
+
+  // Reset layout to full-map state before panning home
+  const fvb = getFullViewBox();
+  updateResponsiveTimeline(fvb);
+  updateResponsiveMapStretch(fvb);
+
   const hv = getHomeViewBox();
   panTo(hv[0], hv[1], hv[2], hv[3]);
 }
@@ -3262,13 +3271,22 @@ window.addEventListener('orientationchange', () => {
     }
 
     // Debounce expensive responsive layout recalculation
+    // Always use getFullViewBox() — these functions are designed for full-map layout,
+    // not for zoomed-in viewports. Passing currentViewBox causes layout collapse.
     if (_zoomDebounce) clearTimeout(_zoomDebounce);
     _zoomDebounce = setTimeout(() => {
-      updateResponsiveTimeline(currentViewBox);
-      updateResponsiveMapStretch(currentViewBox);
+      const fvb = getFullViewBox();
+      updateResponsiveTimeline(fvb);
+      updateResponsiveMapStretch(fvb);
       _zoomDebounce = null;
     }, 150);
   }
+
+  // Allow external code to cancel pending zoom debounce (e.g. on panel close)
+  window._cancelZoomDebounce = () => {
+    if (_zoomDebounce) { clearTimeout(_zoomDebounce); _zoomDebounce = null; }
+    _zoomAnimating = false;
+  };
 
   // Attach events
   svgElement.addEventListener('pointerdown', onPointerDown, { passive: false });
