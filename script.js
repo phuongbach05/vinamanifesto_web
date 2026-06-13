@@ -3398,11 +3398,11 @@ function updateMountainsReaction() {
     mtn.style.transform = `scale(${1 + intensity * factorX}, ${1 + intensity * factorY}) translateY(${translateY}px)`;
   });
 
-  // Background invert color flash according to beat intensity (full 100% invert!)
+  // Background invert color flash according to beat intensity (sharp stroboscopic snap!)
   const siteElement = document.querySelector('.site');
   if (siteElement) {
-    const invertAmount = intensity * 1.0;
-    siteElement.style.filter = `invert(${invertAmount})`;
+    const invertAmount = intensity > 0.25 ? 1.0 : 0.0;
+    siteElement.style.filter = invertAmount > 0.5 ? 'invert(1)' : '';
   }
 
   animationFrameId = requestAnimationFrame(updateMountainsReaction);
