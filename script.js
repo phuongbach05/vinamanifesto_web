@@ -2701,7 +2701,7 @@ function generateBackgroundIcons() {
   const startX = 47.5;
   const startY = 120;
 
-  const rowOpacities = [0.8, 0.65, 0.5, 0.35, 0.22, 0.12, 0.06, 0.02];
+  const rowOpacities = [0.95, 0.8, 0.65, 0.5, 0.35, 0.2, 0.1, 0.04];
 
   for (let r = 0; r < rows; r++) {
     const opacity = rowOpacities[r] || 0.02;
