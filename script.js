@@ -2495,15 +2495,17 @@ function closePanel() {
   // snapping the viewBox during the panel close transition
   _panelClosing = true;
 
+  // Start fade-out FIRST — keep layout classes so the panel doesn't
+  // visually snap to a different layout while still visible
   panel.classList.remove('open');
   overlay.classList.remove('open');
-  panel.classList.remove('is-topic-view');
-  panel.classList.remove('is-branch-view');
   clearActive();
 
-  // Delay pan until panel CSS transition finishes (0.3s)
+  // After fade-out finishes (0.3s), remove layout classes and pan home
   const hv = getHomeViewBox();
   setTimeout(() => {
+    panel.classList.remove('is-topic-view');
+    panel.classList.remove('is-branch-view');
     _panelClosing = false;
     panTo(hv[0], hv[1], hv[2], hv[3]);
   }, 300);
