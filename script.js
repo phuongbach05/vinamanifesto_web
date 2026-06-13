@@ -2493,8 +2493,10 @@ function closePanel() {
   panel.classList.remove('is-branch-view');
   clearActive();
 
+  // Delay pan until panel CSS transition finishes (0.3s) so map
+  // doesn't visibly move while the panel is still fading out
   const hv = getHomeViewBox();
-  panTo(hv[0], hv[1], hv[2], hv[3]);
+  setTimeout(() => panTo(hv[0], hv[1], hv[2], hv[3]), 300);
 }
 
 modalCloseBtn.addEventListener('click', closePanel);
