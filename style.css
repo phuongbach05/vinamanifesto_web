@@ -2040,15 +2040,10 @@ button { font: inherit; }
 
 /* ─── Brand Logo Pointer & Pulse Animations ─── */
 .brand {
-  cursor: pointer;
   transform-box: fill-box;
   transform-origin: center;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
   pointer-events: auto !important; /* ensure logo is clickable */
-}
-.brand:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 6px 16px rgba(33, 50, 246, 0.35));
 }
 .brand.playing-music {
   opacity: 1 !important;
