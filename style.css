@@ -1903,24 +1903,7 @@ button { font: inherit; }
   fill: #ff9f00; /* Orange */
 }
 
-/* ─── Map Mask Outer Outline Border ─── */
-.map-mask-borders {
-  pointer-events: none;
-  opacity: 0;
-  animation: bgIconsFadeIn 1.5s ease forwards;
-  animation-delay: 5.5s;
-}
-.map-mask-borders path:not(.border-river),
-.map-mask-borders circle {
-  fill: #000000 !important;
-  stroke: none !important;
-}
-.map-mask-borders .border-river {
-  fill: none !important;
-  stroke: #000000 !important;
-  stroke-width: 85px !important;
-  stroke-linecap: round;
-}
+
 
 @keyframes bgIconsFadeIn {
   to {
