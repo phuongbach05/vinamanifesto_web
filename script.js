@@ -323,6 +323,7 @@ const modalCloseBtn      = document.getElementById('modalCloseBtn');
 const modalBackBtn       = document.getElementById('modalBackBtn');
 const prevBtn            = document.getElementById('sliderPrevBtn');
 const nextBtn            = document.getElementById('sliderNextBtn');
+const btnModalWorks      = document.getElementById('btnModalWorks');
 
 const nodes       = [...document.querySelectorAll('.node')];
 const topics      = [...document.querySelectorAll('.topic')];
@@ -1756,6 +1757,15 @@ function updateLanguageDisplay() {
     }
   }
 
+  if (btnModalWorks) {
+    const isWorksMode = panel.classList.contains('show-works-mode');
+    if (activeLang === 'en') {
+      btnModalWorks.textContent = isWorksMode ? 'INFO' : 'WORKS';
+    } else {
+      btnModalWorks.textContent = isWorksMode ? 'THÔNG TIN' : 'TÁC PHẨM';
+    }
+  }
+
   const { isTopic, bodyEn, bodyVie } = currentPanelData;
   const isIdentical = (bodyEn === bodyVie);
 
@@ -1965,6 +1975,13 @@ function updateSlideshow(topicId, index) {
 }
 
 function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false, topicId = null, shouldOpen = true) {
+  panel.classList.remove('show-works-mode');
+  if (connectedTopics && connectedTopics.length > 0) {
+    panel.classList.add('has-works');
+  } else {
+    panel.classList.remove('has-works');
+  }
+
   if (isTopic) {
     panel.classList.add('is-topic-view');
     panel.classList.remove('is-branch-view');
@@ -2506,6 +2523,8 @@ function closePanel() {
   setTimeout(() => {
     panel.classList.remove('is-topic-view');
     panel.classList.remove('is-branch-view');
+    panel.classList.remove('show-works-mode');
+    panel.classList.remove('has-works');
     _panelClosing = false;
     panTo(hv[0], hv[1], hv[2], hv[3]);
   }, 300);
@@ -2513,6 +2532,13 @@ function closePanel() {
 
 modalCloseBtn.addEventListener('click', closePanel);
 overlay.addEventListener('click', closePanel);
+
+if (btnModalWorks) {
+  btnModalWorks.addEventListener('click', () => {
+    panel.classList.toggle('show-works-mode');
+    updateLanguageDisplay();
+  });
+}
 
 const modalHomeBtn = document.getElementById('modalHomeBtn');
 if (modalHomeBtn) {
