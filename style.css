@@ -1755,10 +1755,12 @@ button { font: inherit; }
     min-width: 0 !important;
     aspect-ratio: auto !important;
     min-height: auto !important;
-    height: 94vh !important;
-    height: 94dvh !important;
-    max-height: 94vh !important;
-    max-height: 94dvh !important;
+    height: 86vh !important;
+    height: 86dvh !important;
+    height: 86svh !important;
+    max-height: 86vh !important;
+    max-height: 86dvh !important;
+    max-height: 86svh !important;
     overflow-y: auto !important; /* Always enable outer scroll for mobile layout */
     -webkit-overflow-scrolling: touch !important; /* Force smooth momentum scrolling on iOS Safari */
     display: flex !important;
@@ -1842,6 +1844,7 @@ button { font: inherit; }
   .info-panel.is-topic-view .slideshow-container {
     height: min(240px, 35vh) !important;
     height: min(240px, 35dvh) !important;
+    height: min(240px, 35svh) !important;
   }
 
   .info-panel.is-topic-view .cards-slider-wrap {
