@@ -2869,14 +2869,29 @@ function generateBackgroundIcons() {
       const x = col.x;
       const y = startY + r * rowSpacing;
 
-      // Create <use> element inside SVG namespace
-      const useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      useEl.setAttribute('href', '#bg-v-icon');
-      useEl.setAttribute('x', x);
-      useEl.setAttribute('y', y);
-      useEl.setAttribute('class', `bg-v-icon ${col.eraClass}`);
-      useEl.setAttribute('style', `opacity: ${opacity};`);
-      container.appendChild(useEl);
+      // Create <image> element inside SVG namespace
+      const imgEl = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+      
+      let src = 'vinalogo_blue.svg';
+      if (col.eraClass === 'present') {
+        src = 'vinalogo_green.svg';
+      } else if (col.eraClass === 'future') {
+        src = 'vinalogo_orange.svg';
+      }
+      
+      const width = (31.43 * 2.8).toFixed(2);
+      const height = (30 * 2.8).toFixed(2);
+      const imgX = (x - width / 2).toFixed(2);
+      const imgY = (y - height / 2).toFixed(2);
+      
+      imgEl.setAttribute('href', src);
+      imgEl.setAttribute('x', imgX);
+      imgEl.setAttribute('y', imgY);
+      imgEl.setAttribute('width', width);
+      imgEl.setAttribute('height', height);
+      imgEl.setAttribute('class', `bg-v-icon ${col.eraClass}`);
+      imgEl.setAttribute('style', `opacity: ${opacity};`);
+      container.appendChild(imgEl);
     }
   }
 }

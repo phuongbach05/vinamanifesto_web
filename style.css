@@ -1903,22 +1903,23 @@ button { font: inherit; }
   fill: #ff9f00; /* Orange */
 }
 
-/* ─── Map Mask Dashed Borders ─── */
+/* ─── Map Mask Outer Outline Border ─── */
 .map-mask-borders {
   pointer-events: none;
   opacity: 0;
   animation: bgIconsFadeIn 1.5s ease forwards;
   animation-delay: 5.5s;
 }
-.map-mask-borders path,
+.map-mask-borders path:not(.border-river),
 .map-mask-borders circle {
-  fill: none;
-  stroke: rgba(33, 50, 246, 0.25); /* Premium matching semi-transparent blue */
-  stroke-width: 1.5px;
-  stroke-dasharray: 4 4;
+  fill: #000000 !important;
+  stroke: none !important;
 }
 .map-mask-borders .border-river {
-  stroke-width: 1.2px; /* slightly thinner for clean flowing river guides */
+  fill: none !important;
+  stroke: #000000 !important;
+  stroke-width: 85px !important;
+  stroke-linecap: round;
 }
 
 @keyframes bgIconsFadeIn {
