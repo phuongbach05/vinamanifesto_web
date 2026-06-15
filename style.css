@@ -1748,8 +1748,8 @@ button { font: inherit; }
   transform: rotate(90deg) !important;
 }
 
-@media (max-width: 1024px) or (max-height: 600px) {
-  /* General rules for all mobile/landscape viewports */
+@media (max-width: 1024px) and (orientation: portrait) {
+  /* General rules for all mobile portrait viewports */
   .info-panel {
     width: min(680px, calc(100vw - 24px)) !important;
     min-width: 0 !important;
@@ -1874,6 +1874,143 @@ button { font: inherit; }
   .info-panel.is-topic-view #sliderPrevBtn svg,
   .info-panel.is-topic-view #sliderNextBtn svg {
     transform: none !important;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  /* Keep side-by-side desktop layout on mobile landscape viewports */
+  .info-panel {
+    width: min(1140px, calc(100vw - 32px)) !important;
+    min-width: 0 !important;
+    aspect-ratio: auto !important;
+    min-height: auto !important;
+    height: 90vh !important;
+    height: 90dvh !important;
+    height: 90svh !important;
+    max-height: 90vh !important;
+    max-height: 90dvh !important;
+    max-height: 90svh !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Branch View Specifics in mobile landscape */
+  .info-panel.is-branch-view {
+    width: min(780px, 75vw) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .info-panel.is-branch-view .modal-main-box {
+    height: 100% !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+  }
+  .info-panel.is-branch-view .modal-content-box {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 16px !important;
+    overflow-y: auto !important;
+  }
+
+  /* Topic View Specifics in mobile landscape */
+  .info-panel.is-topic-view {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) clamp(180px, 22vw, 240px) !important;
+    gap: 16px !important;
+    width: min(1140px, calc(100vw - 32px)) !important;
+  }
+
+  .info-panel.is-topic-view .modal-main-box {
+    margin: 0 !important;
+    min-height: auto !important;
+    max-height: none !important;
+    height: 100% !important;
+    align-self: stretch !important;
+  }
+
+  .info-panel.is-topic-view .topic-content-box {
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    padding: 12px !important;
+    gap: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .info-panel.is-topic-view .topic-left-col {
+    order: 2 !important;
+    flex: 1.25 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .info-panel.is-topic-view .topic-right-col {
+    order: 1 !important;
+    flex: 0.75 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .info-panel.is-topic-view .slideshow-container {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+  }
+
+  .info-panel.is-topic-view .topic-desc-wrap {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+  }
+
+  .info-panel.is-topic-view .cards-slider-wrap {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: stretch !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    gap: 10px !important;
+  }
+
+  .info-panel.is-topic-view .cards-container {
+    flex-direction: column !important;
+    max-width: none !important;
+    height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-snap-type: y mandatory !important;
+  }
+
+  .info-panel.is-topic-view .topic-card {
+    flex: 0 0 calc((100% - 2 * var(--related-card-gap, 18px)) / 3) !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .info-panel.is-topic-view #sliderPrevBtn svg,
+  .info-panel.is-topic-view #sliderNextBtn svg {
+    transform: rotate(90deg) !important;
   }
 }
 
