@@ -2000,8 +2000,34 @@ button { font: inherit; }
     scroll-snap-type: y mandatory !important;
   }
 
+  .info-panel.is-topic-view {
+    --related-card-gap: clamp(8px, 1.8vh, 12px) !important;
+  }
+
+  .info-panel.is-topic-view .topic-detail-title-wrap .title-line-base {
+    font-size: clamp(18px, 2.2vw, 24px) !important;
+  }
+
+  .info-panel.is-topic-view .card-header {
+    min-height: clamp(32px, 5.5vh, 45px) !important;
+    padding: 2px 4px !important;
+  }
+
+  .info-panel.is-topic-view .card-title-main-wrap .title-line-base {
+    font-size: clamp(11px, 1.4vw, 14px) !important;
+  }
+
+  .info-panel.is-topic-view .card-title-main-wrap .title-line-script {
+    font-size: clamp(16px, 2.0vw, 20px) !important;
+  }
+
+  .info-panel.is-topic-view .card-title-sub {
+    font-size: clamp(9px, 1.0vw, 11px) !important;
+    margin-top: 0 !important;
+  }
+
   .info-panel.is-topic-view .topic-card {
-    flex: 0 0 calc((100% - 2 * var(--related-card-gap, 18px)) / 3) !important;
+    flex: 0 0 calc((100% - 2 * var(--related-card-gap)) / 3) !important;
     width: 100% !important;
     height: auto !important;
     aspect-ratio: auto !important;
