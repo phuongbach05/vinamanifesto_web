@@ -1851,7 +1851,7 @@ button { font: inherit; }
 
 .info-panel.is-branch-view #modalBodyEn,
 .info-panel.is-branch-view #modalBodyVie {
-  color: #ffffff;
+  color: #ffe500;
   font-family: 'Arial', sans-serif;
   font-size: clamp(15px, 2vh, 19px);
   line-height: 1.6;
@@ -1883,19 +1883,48 @@ button { font: inherit; }
 /* ─── Background script V icons grid ─── */
 .background-icons {
   pointer-events: none;
+  opacity: 0;
+  animation: bgIconsFadeIn 1.5s ease forwards;
+  animation-delay: 5.5s;
 }
 .bg-v-icon {
+  stroke: none;
+}
+.bg-v-icon .vinalogo-fg {
+  fill: #ffffff;
+}
+.bg-v-icon.past .vinalogo-bg {
+  fill: var(--blue);
+}
+.bg-v-icon.present .vinalogo-bg {
+  fill: #39ff14; /* Neon green */
+}
+.bg-v-icon.future .vinalogo-bg {
+  fill: #ff9f00; /* Orange */
+}
+
+/* ─── Map Mask Dashed Borders ─── */
+.map-mask-borders {
+  pointer-events: none;
+  opacity: 0;
+  animation: bgIconsFadeIn 1.5s ease forwards;
+  animation-delay: 5.5s;
+}
+.map-mask-borders path,
+.map-mask-borders circle {
   fill: none;
-  stroke-width: 8px; /* scaled by 0.18 natively to ~1.44px stroke width */
+  stroke: rgba(33, 50, 246, 0.25); /* Premium matching semi-transparent blue */
+  stroke-width: 1.5px;
+  stroke-dasharray: 4 4;
 }
-.bg-v-icon.past {
-  stroke: var(--blue);
+.map-mask-borders .border-river {
+  stroke-width: 1.2px; /* slightly thinner for clean flowing river guides */
 }
-.bg-v-icon.present {
-  stroke: #39ff14; /* Neon green */
-}
-.bg-v-icon.future {
-  stroke: #ff9f00; /* Orange */
+
+@keyframes bgIconsFadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 /* Timeline vertical dividers visual update */

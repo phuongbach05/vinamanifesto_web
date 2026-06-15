@@ -2713,6 +2713,11 @@ function setupDynamicMask() {
   if (!maskElements) return;
 
   maskElements.innerHTML = '';
+  
+  const mapMaskBorders = document.getElementById('mapMaskBorders');
+  if (mapMaskBorders) {
+    mapMaskBorders.innerHTML = '';
+  }
 
   // 1. Clone the central lake
   const lake = document.querySelector('.lake');
@@ -2722,6 +2727,14 @@ function setupDynamicMask() {
     clone.removeAttribute('class');
     clone.removeAttribute('id');
     maskElements.appendChild(clone);
+    
+    if (mapMaskBorders) {
+      const borderClone = lake.cloneNode(true);
+      borderClone.removeAttribute('class');
+      borderClone.removeAttribute('id');
+      borderClone.removeAttribute('style');
+      mapMaskBorders.appendChild(borderClone);
+    }
   }
 
   // 2. Clone all rivers as thick black strokes
@@ -2735,6 +2748,15 @@ function setupDynamicMask() {
     clone.removeAttribute('class');
     clone.removeAttribute('id');
     maskElements.appendChild(clone);
+    
+    if (mapMaskBorders) {
+      const borderClone = river.cloneNode(true);
+      borderClone.removeAttribute('class');
+      borderClone.removeAttribute('id');
+      borderClone.removeAttribute('style');
+      borderClone.setAttribute('class', 'border-river');
+      mapMaskBorders.appendChild(borderClone);
+    }
   });
 
   // 3. Draw black circles around branch nodes (numbers)
@@ -2744,12 +2766,21 @@ function setupDynamicMask() {
     if (circle) {
       const cx = circle.getAttribute('cx');
       const cy = circle.getAttribute('cy');
+      
       const circleEl = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circleEl.setAttribute('cx', cx);
       circleEl.setAttribute('cy', cy);
       circleEl.setAttribute('r', '75'); // generous margin around nodes
       circleEl.setAttribute('fill', '#000000');
       maskElements.appendChild(circleEl);
+      
+      if (mapMaskBorders) {
+        const borderCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        borderCircle.setAttribute('cx', cx);
+        borderCircle.setAttribute('cy', cy);
+        borderCircle.setAttribute('r', '75');
+        mapMaskBorders.appendChild(borderCircle);
+      }
     }
   });
 
@@ -2760,13 +2791,23 @@ function setupDynamicMask() {
     if (text) {
       const x = parseFloat(text.getAttribute('x')) || 0;
       const y = parseFloat(text.getAttribute('y')) || 0;
+      const cx = (x + 50).toFixed(1);
+      const cy = (y + 10).toFixed(1);
       
       const circleEl = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circleEl.setAttribute('cx', (x + 50).toFixed(1));
-      circleEl.setAttribute('cy', (y + 10).toFixed(1));
+      circleEl.setAttribute('cx', cx);
+      circleEl.setAttribute('cy', cy);
       circleEl.setAttribute('r', '85'); // generous coverage around topic titles
       circleEl.setAttribute('fill', '#000000');
       maskElements.appendChild(circleEl);
+      
+      if (mapMaskBorders) {
+        const borderCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        borderCircle.setAttribute('cx', cx);
+        borderCircle.setAttribute('cy', cy);
+        borderCircle.setAttribute('r', '85');
+        mapMaskBorders.appendChild(borderCircle);
+      }
     }
   });
 }
