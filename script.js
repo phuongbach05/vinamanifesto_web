@@ -2107,8 +2107,8 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
 
     const visibleRelatedWorkCount = isTopic ? 3 : 2;
     const hasPagedWorks = connectedTopics.length > visibleRelatedWorkCount;
-    setSliderButtonState(prevBtn, false, true);
-    setSliderButtonState(nextBtn, hasPagedWorks, true);
+    setSliderButtonState(prevBtn, false, hasPagedWorks);
+    setSliderButtonState(nextBtn, hasPagedWorks, hasPagedWorks);
 
     if (hasPagedWorks) {
       modalCardsContainer.style.justifyContent = 'flex-start';
@@ -2686,16 +2686,16 @@ function updateSliderButtons() {
   const cardsCount = modalCardsContainer.childElementCount;
 
   if (cardsCount <= 1) {
-    setSliderButtonState(prevBtn, false, true);
-    setSliderButtonState(nextBtn, false, true);
+    setSliderButtonState(prevBtn, false, false);
+    setSliderButtonState(nextBtn, false, false);
     return;
   }
 
   const positions = getRelatedWorkPagePositions();
   
   if (positions.length <= 1) {
-    setSliderButtonState(prevBtn, false, true);
-    setSliderButtonState(nextBtn, false, true);
+    setSliderButtonState(prevBtn, false, false);
+    setSliderButtonState(nextBtn, false, false);
     return;
   }
 
