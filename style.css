@@ -1746,13 +1746,33 @@ button { font: inherit; }
     min-width: 0 !important;
     aspect-ratio: auto !important;
     min-height: auto !important;
-    height: 94vh !important;
-    height: 94dvh !important;
+    height: auto !important;
     max-height: 94vh !important;
     max-height: 94dvh !important;
+    overflow-y: auto !important; /* Always enable outer scroll for mobile layout */
     display: flex !important;
     flex-direction: column !important;
     transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  .info-panel .modal-main-box {
+    flex: none !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin-bottom: 12px !important;
+  }
+
+  .info-panel.is-branch-view .modal-content-box {
+    flex: none !important;
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 24px 16px !important;
+    overflow-y: visible !important;
+  }
+
+  .info-panel.is-branch-view #modalBodyEn,
+  .info-panel.is-branch-view #modalBodyVie {
+    font-size: 16px !important;
   }
 
   .info-panel.is-topic-view {
@@ -1776,15 +1796,21 @@ button { font: inherit; }
     font-size: 1.35em !important;
   }
 
-  .info-panel.is-branch-view #modalBodyEn,
-  .info-panel.is-branch-view #modalBodyVie {
-    font-size: 16px !important;
-  }
-
   .info-panel.is-topic-view .topic-content-box {
+    flex: none !important;
+    min-height: auto !important;
+    max-height: none !important;
     flex-direction: column !important;
     padding: 12px !important;
     gap: 16px !important;
+    overflow: visible !important;
+  }
+
+  .info-panel.is-topic-view .topic-desc-wrap {
+    flex: none !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
   }
 
   .info-panel.is-topic-view .topic-right-col,
@@ -1834,63 +1860,6 @@ button { font: inherit; }
   .info-panel.is-topic-view #sliderPrevBtn svg,
   .info-panel.is-topic-view #sliderNextBtn svg {
     transform: none !important;
-  }
-
-  /* Specific rules for short height viewports (landscape mobile) -> scroll the outer panel */
-  @media (max-height: 600px) {
-    .info-panel {
-      overflow-y: auto !important;
-    }
-    .info-panel .modal-main-box {
-      flex: none !important;
-      min-height: auto !important;
-      max-height: none !important;
-      margin-bottom: 12px !important;
-    }
-    .info-panel.is-branch-view .modal-content-box {
-      min-height: auto !important;
-      padding: 24px 16px !important;
-    }
-    .info-panel.is-topic-view .topic-content-box {
-      max-height: none !important;
-      overflow: visible !important;
-    }
-  }
-
-  /* Specific rules for tall height viewports (portrait mobile/tablet) -> fit popup exactly in screen, scroll the text inside */
-  @media (min-height: 601px) {
-    .info-panel {
-      overflow-y: hidden !important; /* do not scroll outer panel! */
-    }
-    .info-panel .modal-main-box {
-      flex: 1 1 auto !important; /* allow main box to grow/shrink */
-      min-height: 0 !important;
-      max-height: none !important;
-      margin-bottom: 12px !important;
-    }
-    .info-panel.is-branch-view .modal-content-box {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      overflow-y: auto !important; /* scroll text inside branch content box */
-      padding: 24px 16px !important;
-    }
-    .info-panel.is-topic-view .topic-content-box {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      overflow: hidden !important;
-    }
-    .info-panel.is-topic-view .topic-left-col {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-    }
-    .info-panel.is-topic-view .topic-desc-wrap {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-      max-height: none !important;
-      overflow-y: auto !important; /* scroll description text vertically! */
-    }
   }
 }
 
