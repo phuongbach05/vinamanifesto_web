@@ -134,7 +134,7 @@ const topicData = {
     ]
   },
   'teaching': {
-    title: 'Vina teaching',
+    title: 'Vina teach',
     era: 'Present',
     bodyEn: 'Caption missing',
     bodyVie: 'Caption missing',
