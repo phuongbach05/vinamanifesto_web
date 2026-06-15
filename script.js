@@ -1812,7 +1812,7 @@ function alignDoubleLayeredTitles() {
       if (!base || !script) return;
       
       // Reset transform first to measure natural sizes
-      script.style.transform = 'translate(-50%, -50%) scale(1)';
+      script.style.setProperty('transform', 'translate(-50%, -50%) scale(1)', 'important');
       script.style.transformOrigin = 'center center';
       
       const baseWidth = base.getBoundingClientRect().width;
@@ -1826,12 +1826,12 @@ function alignDoubleLayeredTitles() {
           } else {
             ratio = Math.min(1.1, ratio * 1.25);
           }
-          script.style.transform = `translate(-50%, -50%) scale(${ratio})`;
+          script.style.setProperty('transform', `translate(-50%, -50%) scale(${ratio})`, 'important');
         } else {
           if (wrapper.closest('.branch-detail-title-wrap')) {
-            script.style.transform = 'translate(-50%, -50%) scale(1.2)';
+            script.style.setProperty('transform', 'translate(-50%, -50%) scale(1.2)', 'important');
           } else {
-            script.style.transform = 'translate(-50%, -50%) scale(1.1)';
+            script.style.setProperty('transform', 'translate(-50%, -50%) scale(1.1)', 'important');
           }
         }
       }
