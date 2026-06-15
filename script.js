@@ -2718,7 +2718,7 @@ function setupDynamicMask() {
   const lake = document.querySelector('.lake');
   if (lake) {
     const clone = lake.cloneNode(true);
-    clone.setAttribute('fill', '#888888');
+    clone.setAttribute('fill', '#000000');
     clone.removeAttribute('class');
     clone.removeAttribute('id');
     maskElements.appendChild(clone);
@@ -2729,7 +2729,7 @@ function setupDynamicMask() {
   rivers.forEach(river => {
     const clone = river.cloneNode(true);
     clone.setAttribute('fill', 'none');
-    clone.setAttribute('stroke', '#888888');
+    clone.setAttribute('stroke', '#000000');
     clone.setAttribute('stroke-width', '85'); // generous buffer around rivers
     clone.setAttribute('stroke-linecap', 'round');
     clone.removeAttribute('class');
@@ -2749,7 +2749,7 @@ function setupDynamicMask() {
       circleEl.setAttribute('cx', cx);
       circleEl.setAttribute('cy', cy);
       circleEl.setAttribute('r', '75'); // generous margin around nodes
-      circleEl.setAttribute('fill', '#888888');
+      circleEl.setAttribute('fill', '#000000');
       maskElements.appendChild(circleEl);
     }
   });
@@ -2768,7 +2768,7 @@ function setupDynamicMask() {
       circleEl.setAttribute('cx', cx);
       circleEl.setAttribute('cy', cy);
       circleEl.setAttribute('r', '85'); // generous coverage around topic titles
-      circleEl.setAttribute('fill', '#888888');
+      circleEl.setAttribute('fill', '#000000');
       maskElements.appendChild(circleEl);
     }
   });
@@ -2784,7 +2784,7 @@ function generateBackgroundIcons() {
   const startY = 120;
   const colSpacing = 80; // slightly closer than the original 95
 
-  const rowOpacities = [0.95, 0.8, 0.65, 0.5, 0.35, 0.2, 0.1, 0.04];
+  const rowOpacities = [0.95, 0.85, 0.72, 0.60, 0.48, 0.38, 0.28, 0.20];
 
   // 5 columns in PAST (centered in [0, 480])
   const pastCols = [];
