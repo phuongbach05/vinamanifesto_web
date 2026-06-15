@@ -1418,7 +1418,7 @@ button { font: inherit; }
 /* Narrower, shrink-to-fit info panel on desktop specifically for branch view */
 @media (min-width: 1025px) {
   .info-panel.is-branch-view {
-    width: min(780px, 50vw);
+    width: min(1014px, 65vw);
     aspect-ratio: auto;
     min-height: 0;
   }
@@ -1492,9 +1492,9 @@ button { font: inherit; }
 
 .info-panel.is-topic-view {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(210px, 20vw, 250px);
-  gap: clamp(16px, 1.8vw, 22px);
-  width: min(1140px, calc(100vw - 56px));
+  grid-template-columns: minmax(0, 1fr) clamp(273px, 26vw, 325px);
+  gap: clamp(21px, 2.3vw, 29px);
+  width: min(1480px, calc(100vw - 56px));
   min-width: 0;
   min-height: 0;
   aspect-ratio: auto;
@@ -1506,8 +1506,8 @@ button { font: inherit; }
 }
 .info-panel.is-topic-view .modal-main-box {
   margin: 0;
-  min-height: clamp(450px, 65vh, 520px);
-  max-height: clamp(450px, 65vh, 520px);
+  min-height: clamp(715px, 82vh, 1060px);
+  max-height: clamp(715px, 82vh, 1060px);
   border: 3px solid var(--blue);
   background: #fff;
   overflow: hidden;
@@ -1665,8 +1665,8 @@ button { font: inherit; }
   flex-direction: column;
   justify-content: center;
   min-height: 0;
-  height: clamp(550px, 82vh, 815px);
-  max-height: clamp(550px, 82vh, 815px);
+  height: clamp(715px, 82vh, 1060px);
+  max-height: clamp(715px, 82vh, 1060px);
   margin: 0;
   gap: 10px;
 }
@@ -1891,7 +1891,7 @@ button { font: inherit; }
   align-items: center;
   justify-content: center;
   padding: clamp(20px, 3vh, 32px) clamp(16px, 2.5vw, 24px);
-  min-height: 250px;
+  min-height: 325px;
 }
 
 .info-panel.is-branch-view #modalBodyEn,
@@ -1902,7 +1902,7 @@ button { font: inherit; }
   line-height: 1.6;
   font-weight: normal;
   text-align: center;
-  max-width: 680px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
