@@ -1760,9 +1760,9 @@ function updateLanguageDisplay() {
   if (btnModalWorks) {
     const isWorksMode = panel.classList.contains('show-works-mode');
     if (activeLang === 'en') {
-      btnModalWorks.textContent = isWorksMode ? 'INFO' : 'WORKS';
+      btnModalWorks.textContent = isWorksMode ? 'INFO' : 'MORE WORK';
     } else {
-      btnModalWorks.textContent = isWorksMode ? 'THÔNG TIN' : 'TÁC PHẨM';
+      btnModalWorks.textContent = isWorksMode ? 'THÔNG TIN' : 'XEM THÊM';
     }
   }
 
