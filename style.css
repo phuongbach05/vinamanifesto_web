@@ -1646,7 +1646,7 @@ button { font: inherit; }
 }
 .info-panel.is-topic-view .topic-detail-title-wrap .title-line-base {
   color: #000;
-  font-size: clamp(24px, 2.6vw, 32px);
+  font-size: clamp(28px, 3vw, 38px);
   line-height: 1.05;
   letter-spacing: 0;
   font-style: normal;
@@ -1654,7 +1654,7 @@ button { font: inherit; }
 }
 .info-panel.is-topic-view .topic-detail-title-wrap .title-line-script {
   display: inline-block;
-  font-size: clamp(30px, 3.2vw, 42px);
+  font-size: clamp(36px, 3.8vw, 50px);
   transform: translate(-50%, -50%) scale(1) !important;
 }
 .info-panel.is-topic-view .topic-desc-wrap {
@@ -1665,8 +1665,8 @@ button { font: inherit; }
   padding-right: 8px;
   color: var(--blue);
   font-family: Arial, sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
-  line-height: 1.2;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.35;
 }
 .info-panel.is-topic-view .cards-slider-wrap {
   --related-card-gap: 18px;
@@ -2185,7 +2185,7 @@ button { font: inherit; }
 .info-panel.is-branch-view #modalBodyVie {
   color: #ffe500;
   font-family: 'Arial', sans-serif;
-  font-size: clamp(15px, 2vh, 19px);
+  font-size: clamp(17px, 2.3vh, 22px);
   line-height: 1.6;
   font-weight: normal;
   text-align: center;
@@ -2202,7 +2202,7 @@ button { font: inherit; }
 .branch-detail-title-wrap .title-line-base {
   color: #000;
   font-family: 'UTM Cooper Black', 'Cooper Black', serif;
-  font-size: clamp(32px, 4.5vw, 52px);
+  font-size: clamp(36px, 5vw, 58px);
   font-weight: bold;
   font-style: italic;
   letter-spacing: -0.5px;
