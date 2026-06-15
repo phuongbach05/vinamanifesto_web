@@ -1801,6 +1801,11 @@ function updateLanguageDisplay() {
       }
     }
   }
+  
+  // Refresh slideshow caption to reflect the new language
+  if (isTopic && currentTopicId) {
+    updateSlideshow(currentTopicId, currentSlideshowIndex);
+  }
 }
 
 function alignDoubleLayeredTitles() {
@@ -1949,7 +1954,8 @@ function updateSlideshow(topicId, index) {
   const captionEl = document.getElementById('slideshowCaption');
   if (captionEl) {
     const slide = data.images[index];
-    let captionHtml = `<div style="font-size: 13px; line-height: 1.45;">${slide.captionEn}</div>`;
+    const captionText = activeLang === 'en' ? (slide.captionEn || '') : (slide.captionVie || slide.captionEn || '');
+    let captionHtml = `<div style="font-size: 13px; line-height: 1.45;">${captionText}</div>`;
     if (slide.url && (slide.url.includes('youtube.com') || slide.url.includes('youtu.be'))) {
       captionHtml += `
         <div style="margin-top: 8px;">

@@ -1109,6 +1109,8 @@ button { font: inherit; }
   overflow-y: auto;
   max-height: clamp(150px, 35vh, 290px);
   padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(33, 50, 246, 0.2) transparent;
 }
 .modal-content-box::-webkit-scrollbar,
 .topic-desc-wrap::-webkit-scrollbar {
@@ -1412,6 +1414,36 @@ button { font: inherit; }
   .is-topic-view #modalBranchLink,
   .is-topic-view #modalSecondSeparator {
     display: none !important;
+  }
+
+  /* Expand touch target areas for buttons on mobile/tablet viewports */
+  .btn-close,
+  .btn-lang,
+  .slideshow-nav-btn,
+  .slideshow-enlarge-btn,
+  .lightbox-close-btn,
+  .lightbox-nav-btn {
+    position: relative !important;
+  }
+  .btn-close::after,
+  .btn-lang::after,
+  .lightbox-close-btn::after,
+  .lightbox-nav-btn::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -12px !important;
+    bottom: -12px !important;
+    left: -12px !important;
+    right: -12px !important;
+  }
+  .slideshow-nav-btn::after,
+  .slideshow-enlarge-btn::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -10px !important;
+    bottom: -10px !important;
+    left: -10px !important;
+    right: -10px !important;
   }
 }
 
@@ -2037,6 +2069,11 @@ button { font: inherit; }
   .info-panel.is-topic-view #sliderPrevBtn svg,
   .info-panel.is-topic-view #sliderNextBtn svg {
     transform: rotate(90deg) !important;
+  }
+
+  /* Prevent topic title from colliding with absolute-positioned header action buttons on landscape */
+  .info-panel.is-topic-view .modal-header-left {
+    margin-right: 128px !important;
   }
 }
 
