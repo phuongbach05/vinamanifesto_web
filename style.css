@@ -973,7 +973,8 @@ button { font: inherit; }
   opacity: 0.85;
 }
 .topic-card:hover .card-header {
-  background: #ffff00;
+  background: #ffff00 !important;
+  color: #000000 !important;
 }
 .topic-card:hover .card-title-main-script {
   color: #ffffff !important;
@@ -1459,7 +1460,7 @@ button { font: inherit; }
   color: #ffffff !important;
   -webkit-text-stroke: 0.25px #000000 !important;
   font-family: 'Edwardian Script ITC', 'Edwardian Script', 'Great Vibes', 'Herr Von Muellerhoff', 'Pinyon Script', cursive !important;
-  font-size: 1.5em;
+  font-size: 0.85em !important;
   font-weight: normal !important;
   font-style: normal !important;
   pointer-events: none;
@@ -1540,12 +1541,13 @@ button { font: inherit; }
 .info-panel.is-topic-view .modal-title-separator {
   display: none !important;
 }
-.info-panel.is-topic-view .modal-num-circle {
-  width: clamp(34px, 3.2vw, 42px);
-  height: clamp(34px, 3.2vw, 42px);
-  font-size: clamp(18px, 1.8vw, 22px);
-  padding-bottom: 2px;
-  flex: 0 0 auto;
+.info-panel.is-topic-view .modal-num-circle,
+.info-panel.is-branch-view .modal-num-circle {
+  width: clamp(34px, 3.2vw, 42px) !important;
+  height: clamp(34px, 3.2vw, 42px) !important;
+  font-size: clamp(18px, 1.8vw, 22px) !important;
+  padding-bottom: 2px !important;
+  flex: 0 0 auto !important;
 }
 .info-panel.is-topic-view .modal-title-wrap,
 .info-panel.is-topic-view .modal-branch-wrap {
@@ -1560,13 +1562,12 @@ button { font: inherit; }
 .info-panel.is-topic-view .modal-title-wrap .title-line-base,
 .info-panel.is-topic-view .modal-branch-wrap .title-line-base {
   color: #000;
-  font-size: clamp(14px, 1.6vw, 19px);
-  line-height: 1;
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  line-height: 1.15 !important;
   letter-spacing: 0;
 }
 .info-panel.is-topic-view .modal-title-wrap .title-line-script,
 .info-panel.is-topic-view .modal-branch-wrap .title-line-script {
-  font-size: clamp(18px, 2.0vw, 24px);
   transform: translate(-50%, -50%) scale(1) !important;
 }
 .info-panel.is-topic-view #modalSecondSeparator {
@@ -1654,7 +1655,6 @@ button { font: inherit; }
 }
 .info-panel.is-topic-view .topic-detail-title-wrap .title-line-script {
   display: inline-block;
-  font-size: clamp(36px, 3.8vw, 50px);
   transform: translate(-50%, -50%) scale(1) !important;
 }
 .info-panel.is-topic-view .topic-desc-wrap {
@@ -1665,7 +1665,7 @@ button { font: inherit; }
   padding-right: 8px;
   color: var(--blue);
   font-family: Arial, sans-serif;
-  font-size: clamp(15px, 1.4vw, 18px);
+  font-size: clamp(17px, 2.3vh, 22px) !important;
   line-height: 1.35;
 }
 .info-panel.is-topic-view .cards-slider-wrap {
@@ -1718,17 +1718,15 @@ button { font: inherit; }
 .info-panel.is-topic-view .card-header {
   flex-shrink: 0;
   height: auto;
-  min-height: clamp(45px, 6vh, 57px);
-  padding: 3px 6px;
+  min-height: clamp(52px, 7vh, 66px) !important;
+  padding: 4px 8px !important;
   justify-content: center;
 }
 .info-panel.is-topic-view .card-title-main-wrap .title-line-base {
-  font-size: clamp(14px, 1.6vw, 18px);
-  line-height: 1.1;
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  line-height: 1.15 !important;
 }
-.info-panel.is-topic-view .card-title-main-wrap .title-line-script {
-  font-size: clamp(21px, 2.4vw, 27px);
-}
+
 .info-panel.is-topic-view .card-title-sub {
   font-size: clamp(11px, 1.2vw, 14px);
   line-height: 1.1;
@@ -1787,7 +1785,8 @@ button { font: inherit; }
   }
 
   .info-panel.is-branch-view #modalBodyEn,
-  .info-panel.is-branch-view #modalBodyVie {
+  .info-panel.is-branch-view #modalBodyVie,
+  .info-panel.is-topic-view .topic-desc-wrap {
     font-size: 16px !important;
   }
 
@@ -1800,17 +1799,13 @@ button { font: inherit; }
     margin-right: 156px;
   }
 
-  .info-panel.is-topic-view .modal-title-wrap .title-line-base {
-    font-size: clamp(13px, 3.5vw, 17px) !important;
+  .info-panel.is-topic-view .modal-title-wrap .title-line-base,
+  .info-panel.is-topic-view .modal-branch-wrap .title-line-base,
+  .info-panel.is-topic-view .card-title-main-wrap .title-line-base {
+    font-size: clamp(14px, 3.5vw, 18px) !important;
   }
 
-  .info-panel.is-topic-view .modal-title-wrap .title-line-script {
-    font-size: 1.35em !important;
-  }
 
-  .title-line-script {
-    font-size: 1.35em !important;
-  }
 
   .info-panel.is-topic-view .topic-content-box {
     flex: none !important;
@@ -2021,11 +2016,11 @@ button { font: inherit; }
     font-size: clamp(16px, 2.2vw, 22px) !important;
   }
 
-  .info-panel.is-topic-view .topic-detail-title-wrap .title-line-script {
-    font-size: clamp(22px, 2.8vw, 30px) !important;
-  }
 
-  .info-panel.is-topic-view .topic-desc-wrap {
+
+  .info-panel.is-topic-view .topic-desc-wrap,
+  .info-panel.is-branch-view #modalBodyEn,
+  .info-panel.is-branch-view #modalBodyVie {
     font-size: clamp(12px, 1.3vw, 15px) !important;
     line-height: 1.3 !important;
   }
@@ -2035,13 +2030,13 @@ button { font: inherit; }
     padding: 2px 4px !important;
   }
 
+  .info-panel.is-topic-view .modal-title-wrap .title-line-base,
+  .info-panel.is-topic-view .modal-branch-wrap .title-line-base,
   .info-panel.is-topic-view .card-title-main-wrap .title-line-base {
-    font-size: clamp(11px, 1.4vw, 14px) !important;
+    font-size: clamp(12px, 1.5vw, 15px) !important;
   }
 
-  .info-panel.is-topic-view .card-title-main-wrap .title-line-script {
-    font-size: clamp(16px, 2.0vw, 20px) !important;
-  }
+
 
   .info-panel.is-topic-view .card-title-sub {
     font-size: clamp(9px, 1.0vw, 11px) !important;
@@ -2233,9 +2228,37 @@ button { font: inherit; }
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
-.branch-detail-title-wrap .title-line-script {
-  font-size: 1.55em;
+
+/* Card title overrides specifically for branch view related work cards */
+.info-panel.is-branch-view .card-header {
+  height: auto !important;
+  min-height: clamp(80px, 10vh, 95px) !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
+
+.info-panel.is-branch-view .card-title-main-wrap .title-line-base {
+  font-size: clamp(20px, 2.4vh, 24px) !important;
+  line-height: 1.15 !important;
+}
+
+/* Era background styles for the card headers */
+.card-header.red-bg {
+  background: #ff0000 !important;
+  color: #000000 !important;
+}
+.card-header.yellow-bg {
+  background: #ffff00 !important;
+  color: #000000 !important;
+}
+.card-header.blue-bg {
+  background: #2132f6 !important;
+  color: #ffffff !important;
+}
+
 
 /* ─── Background script V icons grid ─── */
 .background-icons {

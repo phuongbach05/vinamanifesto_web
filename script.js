@@ -1829,21 +1829,12 @@ function alignDoubleLayeredTitles() {
       const scriptWidth = script.getBoundingClientRect().width;
       
       if (baseWidth > 0 && scriptWidth > 0) {
-        if (scriptWidth > baseWidth) {
-          let ratio = baseWidth / scriptWidth;
-          if (wrapper.closest('.branch-detail-title-wrap')) {
-            ratio = Math.min(1.2, ratio * 1.55);
-          } else {
-            ratio = Math.min(1.1, ratio * 1.25);
-          }
-          script.style.setProperty('transform', `translate(-50%, -50%) scale(${ratio})`, 'important');
-        } else {
-          if (wrapper.closest('.branch-detail-title-wrap')) {
-            script.style.setProperty('transform', 'translate(-50%, -50%) scale(1.2)', 'important');
-          } else {
-            script.style.setProperty('transform', 'translate(-50%, -50%) scale(1.1)', 'important');
-          }
-        }
+        // Target script width is 82% of base width so it fits comfortably inside Cooper
+        const targetWidth = baseWidth * 0.82;
+        let scale = targetWidth / scriptWidth;
+        // Do not scale up past 0.85 to keep it small and nested
+        scale = Math.min(0.85, scale);
+        script.style.setProperty('transform', `translate(-50%, -50%) scale(${scale})`, 'important');
       }
     });
   };
@@ -2511,6 +2502,16 @@ function closePanel() {
   // Guard flag: prevents resize-triggered refreshViewBoxForViewport from
   // snapping the viewBox during the panel close transition
   _panelClosing = true;
+
+  // Stop any playing YouTube video by clearing image wrapping containers
+  const slideshowImageWrap = document.getElementById('slideshowImageWrap');
+  if (slideshowImageWrap) {
+    slideshowImageWrap.innerHTML = '';
+  }
+  const lightboxImageWrap = document.getElementById('lightboxImageWrap');
+  if (lightboxImageWrap) {
+    lightboxImageWrap.innerHTML = '';
+  }
 
   // Start fade-out FIRST — keep layout classes so the panel doesn't
   // visually snap to a different layout while still visible
