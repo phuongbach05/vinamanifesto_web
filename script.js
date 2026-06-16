@@ -2564,22 +2564,33 @@ if (btnModalWorks) {
   });
 }
 
-if (modalScrollArrow) {
-  modalScrollArrow.addEventListener('click', () => {
-    panel.scrollTo({
-      top: panel.clientHeight,
-      behavior: 'smooth'
-    });
+function smoothScrollSnapTo(element, targetTop) {
+  element.style.setProperty('scroll-snap-type', 'none', 'important');
+  element.scrollTo({
+    top: targetTop,
+    behavior: 'smooth'
   });
+  setTimeout(() => {
+    element.style.setProperty('scroll-snap-type', 'y mandatory', 'important');
+  }, 500);
+}
+
+if (modalScrollArrow) {
+  const handleScrollDown = (e) => {
+    e.preventDefault();
+    smoothScrollSnapTo(panel, panel.clientHeight);
+  };
+  modalScrollArrow.addEventListener('click', handleScrollDown);
+  modalScrollArrow.addEventListener('touchstart', handleScrollDown, { passive: false });
 }
 
 if (modalScrollUpArrow) {
-  modalScrollUpArrow.addEventListener('click', () => {
-    panel.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+  const handleScrollUp = (e) => {
+    e.preventDefault();
+    smoothScrollSnapTo(panel, 0);
+  };
+  modalScrollUpArrow.addEventListener('click', handleScrollUp);
+  modalScrollUpArrow.addEventListener('touchstart', handleScrollUp, { passive: false });
 }
 
 const modalHomeBtn = document.getElementById('modalHomeBtn');
