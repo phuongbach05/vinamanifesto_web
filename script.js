@@ -1829,13 +1829,15 @@ function alignDoubleLayeredTitles() {
       const scriptWidth = script.getBoundingClientRect().width;
       
       if (baseWidth > 0 && scriptWidth > 0) {
-        // Target script width allows it to stretch wider to match 1.5x larger sizing
-        const targetWidth = baseWidth * 1.23;
+        const isDetailTitle = wrapper.closest('.topic-detail-title-wrap') || wrapper.closest('.branch-detail-title-wrap');
+        // Target script width allows it to stretch wider to match selected sizing ratios
+        const targetWidth = isDetailTitle ? baseWidth * 1.45 : baseWidth * 1.23;
         let scale = targetWidth / scriptWidth;
-        // Do not scale up past 1.275 (1.5 * 0.85) to keep it 1.5x larger
-        scale = Math.min(1.275, scale);
-        // Enforce min scale of 1.0 to guarantee visibility and legibility
-        scale = Math.max(1.0, scale);
+        // Set scale limits based on target sizing
+        const maxScale = isDetailTitle ? 1.55 : 1.275;
+        const minScale = isDetailTitle ? 1.25 : 1.0;
+        scale = Math.min(maxScale, scale);
+        scale = Math.max(minScale, scale);
         script.style.setProperty('transform', `translate(-50%, -50%) scale(${scale})`, 'important');
       }
     });

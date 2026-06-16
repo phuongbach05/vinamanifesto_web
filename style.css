@@ -2228,6 +2228,10 @@ button { font: inherit; }
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
+.topic-detail-title-wrap .title-line-script,
+.branch-detail-title-wrap .title-line-script {
+  font-size: 1.55em !important;
+}
 
 /* Card title overrides specifically for branch view related work cards */
 .info-panel.is-branch-view .card-header {
