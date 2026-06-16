@@ -2159,11 +2159,6 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
         card.className = 'topic-card';
         
         let bgClass = 'red-bg';
-        if (data.era.includes('Present')) {
-          bgClass = 'yellow-bg';
-        } else if (data.era.includes('Future')) {
-          bgClass = 'blue-bg';
-        }
         
         const imageHtml = data.image 
           ? `<img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;" />`
