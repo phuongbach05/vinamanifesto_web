@@ -1903,7 +1903,8 @@ button { font: inherit; }
   }
 
   /* Force info-panel to be a vertical scroll-snapping container */
-  .info-panel {
+  .info-panel,
+  .info-panel.is-topic-view {
     width: min(820px, calc(100vw - 32px)) !important;
     min-width: 0 !important;
     aspect-ratio: auto !important;
