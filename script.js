@@ -1829,11 +1829,13 @@ function alignDoubleLayeredTitles() {
       const scriptWidth = script.getBoundingClientRect().width;
       
       if (baseWidth > 0 && scriptWidth > 0) {
-        // Target script width is 82% of base width so it fits comfortably inside Cooper
-        const targetWidth = baseWidth * 0.82;
+        // Target script width allows it to stretch wider to match 2.5x larger sizing
+        const targetWidth = baseWidth * 2.05;
         let scale = targetWidth / scriptWidth;
-        // Do not scale up past 0.85 to keep it small and nested
-        scale = Math.min(0.85, scale);
+        // Do not scale up past 2.125 (2.5 * 0.85) to keep it 2.5x larger
+        scale = Math.min(2.125, scale);
+        // Enforce min scale of 1.5 to guarantee visibility and legibility
+        scale = Math.max(1.5, scale);
         script.style.setProperty('transform', `translate(-50%, -50%) scale(${scale})`, 'important');
       }
     });
