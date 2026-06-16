@@ -2191,7 +2191,8 @@ button { font: inherit; }
   }
 
   /* Navigation Buttons resets */
-  .info-panel .slider-btn {
+  .info-panel .slider-btn,
+  .info-panel.is-topic-view .slider-btn {
     flex: 0 0 36px !important;
     width: 36px !important;
     height: 36px !important;
@@ -2204,7 +2205,9 @@ button { font: inherit; }
   }
 
   .info-panel #sliderPrevBtn svg,
-  .info-panel #sliderNextBtn svg {
+  .info-panel #sliderNextBtn svg,
+  .info-panel.is-topic-view #sliderPrevBtn svg,
+  .info-panel.is-topic-view #sliderNextBtn svg {
     transform: none !important;
   }
 
