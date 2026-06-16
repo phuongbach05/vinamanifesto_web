@@ -2152,7 +2152,7 @@ button { font: inherit; }
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    justify-content: flex-start !important;
+    justify-content: flex-start;
     gap: 16px !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
@@ -2249,6 +2249,23 @@ button { font: inherit; }
   .info-panel.is-topic-view .card-title-sub {
     font-size: clamp(9px, 1.0vw, 11px) !important;
     margin-top: 0 !important;
+  }
+
+  /* Centering branch view body text in mobile landscape */
+  .info-panel.is-branch-view .modal-content-box {
+    min-height: 0 !important;
+    height: 100% !important;
+    flex: 1 1 0% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-bottom: 24px !important;
+  }
+
+  .info-panel.is-branch-view .branch-body-wrap {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    flex: 0 0 auto !important;
   }
 }
 

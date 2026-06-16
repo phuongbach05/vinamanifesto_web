@@ -2770,7 +2770,7 @@ nextBtn.addEventListener('click', () => {
 function updateSliderButtons() {
   const cardsCount = modalCardsContainer.childElementCount;
 
-  if (cardsCount <= 1) {
+  if (cardsCount <= 1 || (isLandscapeMobile() && cardsCount <= 2)) {
     setSliderButtonState(prevBtn, false, false);
     setSliderButtonState(nextBtn, false, false);
     return;
