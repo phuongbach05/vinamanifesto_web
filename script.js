@@ -389,6 +389,9 @@ function getMobileInitialViewBox() {
 }
 
 function getHomeViewBox() {
+  if (isLandscapeMobile()) {
+    return getFullViewBox();
+  }
   return isMobileView() ? getMobileInitialViewBox() : getFullViewBox();
 }
 
@@ -1574,17 +1577,11 @@ function updateResponsiveMapStretch(viewBox = getFullViewBox()) {
 }
 
 function isDefaultMapView(x, y, w, h) {
-  if (isMobileView()) {
-    const home = getMobileInitialViewBox();
-    return Math.abs(x - home[0]) < 1 &&
-      Math.abs(y - home[1]) < 1 &&
-      Math.abs(w - home[2]) < 1 &&
-      Math.abs(h - home[3]) < 1;
-  }
-  return Math.abs(x) < 0.01 &&
-    Math.abs(y) < 0.01 &&
-    Math.abs(w - MAP_WIDTH) < 0.01 &&
-    Math.abs(h - MAP_HEIGHT) < 0.01;
+  const home = getHomeViewBox();
+  return Math.abs(x - home[0]) < 1 &&
+    Math.abs(y - home[1]) < 1 &&
+    Math.abs(w - home[2]) < 1 &&
+    Math.abs(h - home[3]) < 1;
 }
 
 function updateViewBox() {
