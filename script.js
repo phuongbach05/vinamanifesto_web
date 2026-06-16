@@ -1833,14 +1833,24 @@ function alignDoubleLayeredTitles() {
       
       if (baseWidth > 0 && scriptWidth > 0) {
         const isDetailTitle = wrapper.closest('.topic-detail-title-wrap') || wrapper.closest('.branch-detail-title-wrap');
-        // Target script width allows it to stretch wider to match selected sizing ratios
-        const targetWidth = isDetailTitle ? baseWidth * 1.45 : baseWidth * 1.23;
-        let scale = targetWidth / scriptWidth;
-        // Set scale limits based on target sizing
-        const maxScale = isDetailTitle ? 1.55 : 1.275;
-        const minScale = isDetailTitle ? 1.25 : 1.0;
-        scale = Math.min(maxScale, scale);
-        scale = Math.max(minScale, scale);
+        const isLandscape = isLandscapeMobile();
+        let scale;
+        if (isLandscape) {
+          // In mobile landscape, make the Edwardian script font smaller than Cooper and fit inside it
+          const targetWidth = baseWidth * 0.78;
+          scale = targetWidth / scriptWidth;
+          scale = Math.min(0.85, scale);
+          scale = Math.max(0.65, scale);
+        } else {
+          // Target script width allows it to stretch wider to match selected sizing ratios
+          const targetWidth = isDetailTitle ? baseWidth * 1.45 : baseWidth * 1.23;
+          scale = targetWidth / scriptWidth;
+          // Set scale limits based on target sizing
+          const maxScale = isDetailTitle ? 1.55 : 1.275;
+          const minScale = isDetailTitle ? 1.25 : 1.0;
+          scale = Math.min(maxScale, scale);
+          scale = Math.max(minScale, scale);
+        }
         script.style.setProperty('transform', `translate(-50%, -50%) scale(${scale})`, 'important');
       }
     });
