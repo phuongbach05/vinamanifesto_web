@@ -2170,11 +2170,9 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
           `;
         
         card.innerHTML = `
-          <div class="card-inner-wrap">
-            <div class="card-header ${bgClass}">${formatCardTitle(data.title)}</div>
-            <div class="card-image-placeholder">
-              ${imageHtml}
-            </div>
+          <div class="card-header ${bgClass}">${formatCardTitle(data.title)}</div>
+          <div class="card-image-placeholder">
+            ${imageHtml}
           </div>
         `;
         
