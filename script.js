@@ -761,7 +761,7 @@ function getProtectedBoxes() {
     ...[...document.querySelectorAll('.endpoints circle')].map(el => getSafeBox(el, 18)),
     ...[...document.querySelectorAll('.lake-mountain')].map(el => getSafeBox(el, 24)),
     getSafeBox(document.querySelector('.lake'), 32),
-    getSafeBox(document.querySelector('.brand'), 26)
+    getSafeBox(document.querySelector('.brand-protect'), 26)
   ].filter(Boolean);
 }
 
@@ -2678,7 +2678,7 @@ function setSliderButtonState(button, isVisible, reserveSpace = false) {
 }
 
 function isLandscapeMobile() {
-  return window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches;
+  return window.matchMedia("(max-width: 1024px) and (max-height: 500px) and (orientation: landscape)").matches;
 }
 
 function getRelatedWorkPagePositions() {

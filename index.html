@@ -303,7 +303,7 @@
           <image class="lake-mountain" href="mountaino.svg" x="1310" y="220" width="220" height="131" />
           <image class="lake-mountain" href="mountainp.svg" x="1210" y="240" width="117" height="94" />
         </g>
-        <image class="brand" href="logo.svg?v=20260611-1749" x="640" y="315" width="320" height="280" />
+        <rect class="brand-protect" x="480" y="175" width="640" height="560" />
 
         <!-- Branch nodes (numbered circles) -->
         <g class="node" data-branch="1" role="button" tabindex="0" aria-label="Open Vina remixes">
@@ -401,6 +401,9 @@
           <text x="1455" y="486" text-anchor="start" class="topic-script">Vina de-sign</text>
         </g>
       </svg>
+      <div id="brandLogo3d" class="brand brand-logo-3d" role="button" tabindex="0" aria-label="Vinamanifesto 3D logo">
+        <canvas id="brandLogoCanvas"></canvas>
+      </div>
     </section>
 
     <div class="map-overlay" id="mapOverlay"></div>
@@ -560,6 +563,15 @@
     </button>
   </div>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="logo3d.js?v=20260616-3d-logo-yspin-unclipped-small"></script>
   <script src="script.js?v=20260616-scroll"></script>
 </body>
 </html>
