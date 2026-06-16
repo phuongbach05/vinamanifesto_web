@@ -3730,7 +3730,7 @@ function stopAudioReact() {
 const brandLogo = document.getElementById('brandLogo');
 const svgMap = document.getElementById('riverMap');
 const mapWrap = document.querySelector('.map-wrap');
-const LOGO_BOX = { x: 560, y: 230, width: 480, height: 420 };
+const LOGO_BOX = { x: 608, y: 272, width: 384, height: 336 };
 
 function positionLogo() {
   if (!brandLogo || !svgMap || !mapWrap) return;
