@@ -1636,7 +1636,8 @@ button { font: inherit; }
   background: #7f7f7b;
 }
 .info-panel.is-topic-view .slideshow-caption {
-  display: none;
+  display: block !important;
+  margin-top: 8px !important;
 }
 .info-panel.is-topic-view .topic-detail-title-wrap {
   margin: 0;

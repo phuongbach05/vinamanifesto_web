@@ -1811,6 +1811,7 @@ function updateLanguageDisplay() {
       }
     }
   }
+  updateSlideshowCaption();
 }
 
 function alignDoubleLayeredTitles() {
@@ -1951,22 +1952,32 @@ function updateSlideshow(topicId, index) {
   if (lightboxPrevBtn) lightboxPrevBtn.style.display = navDisplay;
   if (lightboxNextBtn) lightboxNextBtn.style.display = navDisplay;
   
-  const captionEl = document.getElementById('slideshowCaption');
-  if (captionEl) {
-    const slide = data.images[index];
-    let captionHtml = `<div style="font-size: 13px; line-height: 1.45;">${slide.captionEn}</div>`;
-    if (slide.url && (slide.url.includes('youtube.com') || slide.url.includes('youtu.be'))) {
-      captionHtml += `
-        <div style="margin-top: 8px;">
-          <a href="${slide.url}" target="_blank" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: bold; color: var(--blue); text-decoration: underline;">
-            Xem trên YouTube / Watch on YouTube ↗
-          </a>
-        </div>
-      `;
-    }
-    captionEl.innerHTML = captionHtml;
-  }
+  updateSlideshowCaption();
   updateLightboxContent();
+}
+
+function updateSlideshowCaption() {
+  const captionEl = document.getElementById('slideshowCaption');
+  if (!captionEl || !currentSlideshowImages || currentSlideshowImages.length === 0) return;
+  
+  const slide = currentSlideshowImages[currentSlideshowIndex];
+  if (!slide) return;
+  
+  const text = (activeLang === 'en') ? (slide.captionEn || '') : (slide.captionVie || slide.captionEn || '');
+  
+  let captionHtml = `<div style="font-size: 13px; line-height: 1.45;">${text}</div>`;
+  
+  if (slide.url && (slide.url.includes('youtube.com') || slide.url.includes('youtu.be'))) {
+    const linkText = (activeLang === 'en') ? 'Watch on YouTube ↗' : 'Xem trên YouTube ↗';
+    captionHtml += `
+      <div style="margin-top: 8px;">
+        <a href="${slide.url}" target="_blank" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: bold; color: var(--blue); text-decoration: underline;">
+          ${linkText}
+        </a>
+      </div>
+    `;
+  }
+  captionEl.innerHTML = captionHtml;
 }
 
 function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false, topicId = null, shouldOpen = true) {
