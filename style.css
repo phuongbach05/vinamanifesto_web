@@ -2225,9 +2225,11 @@ button { font: inherit; }
 
   .info-panel .card-header,
   .info-panel.is-topic-view .card-header {
-    height: auto !important;
-    min-height: clamp(32px, 5.5vh, 45px) !important;
+    height: 44px !important;
+    min-height: 44px !important;
     padding: 2px 4px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .info-panel.is-topic-view .modal-title-wrap .title-line-base,
