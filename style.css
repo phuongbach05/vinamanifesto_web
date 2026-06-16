@@ -2148,7 +2148,7 @@ button { font: inherit; }
   /* Horizontal Slider Cards Container */
   .info-panel .cards-container,
   .info-panel.is-topic-view .cards-container {
-    flex: 1 1 auto !important;
+    flex: 0 1 496px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -2159,7 +2159,8 @@ button { font: inherit; }
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     height: 100% !important;
-    width: 100% !important;
+    width: 496px !important;
+    max-width: calc(100% - 96px) !important;
     padding: 0 !important;
     scrollbar-width: none !important;
   }
