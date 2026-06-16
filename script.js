@@ -3729,34 +3729,4 @@ function stopAudioReact() {
 }
 
 
-// Centralized positioning loop for the GIF logo
-const brandLogo = document.getElementById('brandLogo');
-const svgMap = document.getElementById('riverMap');
-const mapWrap = document.querySelector('.map-wrap');
-const LOGO_BOX = { x: 608, y: 272, width: 384, height: 336 };
-
-function positionLogo() {
-  if (!brandLogo || !svgMap || !mapWrap) return;
-  const svgRect = svgMap.getBoundingClientRect();
-  const wrapRect = mapWrap.getBoundingClientRect();
-  const viewBox = svgMap.viewBox.baseVal;
-  const scale = Math.min(svgRect.width / viewBox.width, svgRect.height / viewBox.height);
-  const renderedWidth = viewBox.width * scale;
-  const renderedHeight = viewBox.height * scale;
-  const offsetX = (svgRect.width - renderedWidth) / 2;
-  const offsetY = (svgRect.height - renderedHeight) / 2;
-
-  brandLogo.style.left = `${svgRect.left - wrapRect.left + offsetX + (LOGO_BOX.x - viewBox.x) * scale}px`;
-  brandLogo.style.top = `${svgRect.top - wrapRect.top + offsetY + (LOGO_BOX.y - viewBox.y) * scale}px`;
-  brandLogo.style.width = `${LOGO_BOX.width * scale}px`;
-  brandLogo.style.height = `${LOGO_BOX.height * scale}px`;
-}
-
-function syncLogoPosition() {
-  positionLogo();
-  requestAnimationFrame(syncLogoPosition);
-}
-
-if (brandLogo && svgMap && mapWrap) {
-  syncLogoPosition();
-}
+// Brand logo positioning loop is removed because the logo is now rendered natively inside the SVG viewBox.

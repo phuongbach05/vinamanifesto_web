@@ -210,12 +210,10 @@ button { font: inherit; }
   pointer-events: none;
 }
 .brand-logo-gif {
-  position: absolute;
-  z-index: 2;
-  overflow: hidden;
   cursor: pointer;
   pointer-events: auto;
-  transform-origin: center;
+  transform-origin: 800px 440px;
+  transform-box: view-box;
 }
 
 /* ─── Mountains ─── */
