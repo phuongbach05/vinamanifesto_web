@@ -3725,3 +3725,35 @@ function stopAudioReact() {
   proceduralBeatTime = 0;
 }
 
+
+// Centralized positioning loop for the GIF logo
+const brandLogo = document.getElementById('brandLogo');
+const svgMap = document.getElementById('riverMap');
+const mapWrap = document.querySelector('.map-wrap');
+const LOGO_BOX = { x: 560, y: 230, width: 480, height: 420 };
+
+function positionLogo() {
+  if (!brandLogo || !svgMap || !mapWrap) return;
+  const svgRect = svgMap.getBoundingClientRect();
+  const wrapRect = mapWrap.getBoundingClientRect();
+  const viewBox = svgMap.viewBox.baseVal;
+  const scale = Math.min(svgRect.width / viewBox.width, svgRect.height / viewBox.height);
+  const renderedWidth = viewBox.width * scale;
+  const renderedHeight = viewBox.height * scale;
+  const offsetX = (svgRect.width - renderedWidth) / 2;
+  const offsetY = (svgRect.height - renderedHeight) / 2;
+
+  brandLogo.style.left = `${svgRect.left - wrapRect.left + offsetX + (LOGO_BOX.x - viewBox.x) * scale}px`;
+  brandLogo.style.top = `${svgRect.top - wrapRect.top + offsetY + (LOGO_BOX.y - viewBox.y) * scale}px`;
+  brandLogo.style.width = `${LOGO_BOX.width * scale}px`;
+  brandLogo.style.height = `${LOGO_BOX.height * scale}px`;
+}
+
+function syncLogoPosition() {
+  positionLogo();
+  requestAnimationFrame(syncLogoPosition);
+}
+
+if (brandLogo && svgMap && mapWrap) {
+  syncLogoPosition();
+}
