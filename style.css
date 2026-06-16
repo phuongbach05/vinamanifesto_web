@@ -2174,7 +2174,7 @@ button { font: inherit; }
     flex: 0 0 calc((100% - 16px) / 2) !important;
     width: calc((100% - 16px) / 2) !important;
     max-width: none !important;
-    height: auto !important;
+    height: 100% !important;
     aspect-ratio: 4 / 3 !important;
     margin: 0 !important;
     display: flex !important;
