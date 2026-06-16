@@ -324,6 +324,7 @@ const modalBackBtn       = document.getElementById('modalBackBtn');
 const prevBtn            = document.getElementById('sliderPrevBtn');
 const nextBtn            = document.getElementById('sliderNextBtn');
 const btnModalWorks      = document.getElementById('btnModalWorks');
+const modalScrollArrow   = document.getElementById('modalScrollArrow');
 
 const nodes       = [...document.querySelectorAll('.node')];
 const topics      = [...document.querySelectorAll('.topic')];
@@ -1981,6 +1982,7 @@ function updateSlideshowCaption() {
 }
 
 function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false, topicId = null, shouldOpen = true) {
+  panel.scrollTop = 0;
   panel.classList.remove('show-works-mode');
   if (connectedTopics && connectedTopics.length > 0) {
     panel.classList.add('has-works');
@@ -2556,6 +2558,15 @@ if (btnModalWorks) {
   });
 }
 
+if (modalScrollArrow) {
+  modalScrollArrow.addEventListener('click', () => {
+    panel.scrollTo({
+      top: panel.clientHeight,
+      behavior: 'smooth'
+    });
+  });
+}
+
 const modalHomeBtn = document.getElementById('modalHomeBtn');
 if (modalHomeBtn) {
   modalHomeBtn.addEventListener('click', closePanel);
@@ -2656,6 +2667,10 @@ function setSliderButtonState(button, isVisible, reserveSpace = false) {
   button.style.pointerEvents = isVisible ? 'auto' : 'none';
 }
 
+function isLandscapeMobile() {
+  return window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches;
+}
+
 function getRelatedWorkPagePositions() {
   const cards = [...modalCardsContainer.querySelectorAll('.topic-card')];
   const isVertical = isRelatedWorkSliderVertical();
@@ -2671,9 +2686,11 @@ function getRelatedWorkPagePositions() {
   const cardSize = isVertical ? firstCardBox.height : firstCardBox.width;
   const viewportSize = isVertical ? modalCardsContainer.clientHeight : modalCardsContainer.clientWidth;
   const isTopic = currentPanelData && currentPanelData.isTopic;
-  const visibleCards = isTopic
-    ? (isVertical ? Math.min(3, Math.max(1, Math.floor((viewportSize + gap + 5) / (cardSize + gap)))) : Math.max(1, Math.floor((viewportSize + gap + 5) / (cardSize + gap))))
-    : 2;
+  const visibleCards = isLandscapeMobile()
+    ? 2
+    : (isTopic
+        ? (isVertical ? Math.min(3, Math.max(1, Math.floor((viewportSize + gap + 5) / (cardSize + gap)))) : Math.max(1, Math.floor((viewportSize + gap + 5) / (cardSize + gap))))
+        : 2);
   const pairStep = (cardSize + gap) * visibleCards;
   const positions = [0];
 

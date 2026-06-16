@@ -1877,89 +1877,116 @@ button { font: inherit; }
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
-  /* Keep side-by-side desktop layout on mobile landscape viewports */
+  /* Hide the works toggle button since we scroll down instead */
+  #btnModalWorks,
+  .info-panel.has-works #btnModalWorks {
+    display: none !important;
+  }
+
+  /* Force info-panel to be a vertical scroll-snapping container */
   .info-panel {
-    width: min(1140px, calc(100vw - 32px)) !important;
+    width: min(820px, calc(100vw - 32px)) !important;
     min-width: 0 !important;
     aspect-ratio: auto !important;
     min-height: auto !important;
-    height: 94vh !important;
-    height: 94dvh !important;
     height: 94svh !important;
-    max-height: 94vh !important;
-    max-height: 94dvh !important;
     max-height: 94svh !important;
-    overflow: visible !important;
-    overflow-y: visible !important;
     display: flex !important;
     flex-direction: column !important;
     transform: translate(-50%, -50%) scale(1) !important;
+    overflow-y: scroll !important;
+    scroll-snap-type: y mandatory !important;
     -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    scrollbar-width: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .info-panel::-webkit-scrollbar {
+    display: none !important;
   }
 
-  /* Branch View Specifics in mobile landscape */
-  .info-panel.is-branch-view {
-    width: min(780px, 75vw) !important;
+  /* If there are NO related works, disable vertical scroll snapping */
+  .info-panel:not(.has-works) {
+    overflow-y: hidden !important;
+    scroll-snap-type: none !important;
+  }
+
+  /* Branch and Topic views inherit the vertical flex container styles */
+  .info-panel.is-branch-view,
+  .info-panel.is-topic-view {
     display: flex !important;
     flex-direction: column !important;
-  }
-  .info-panel.is-branch-view .modal-main-box {
-    height: 100% !important;
-    min-height: auto !important;
-    max-height: none !important;
-    margin: 0 !important;
-  }
-  .info-panel.is-branch-view .modal-content-box {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    padding: 16px !important;
-    overflow-y: auto !important;
+    width: min(820px, calc(100vw - 32px)) !important;
+    grid-template-columns: none !important;
+    gap: 0 !important;
   }
 
-  /* Topic View Specifics in mobile landscape */
-  .info-panel.is-topic-view {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) clamp(180px, 22vw, 240px) !important;
-    gap: 16px !important;
-    width: min(1140px, calc(100vw - 32px)) !important;
+  /* Section 1: Main info box takes exactly 100% of the popup height */
+  .modal-main-box,
+  .info-panel.is-branch-view .modal-main-box,
+  .info-panel.is-topic-view .modal-main-box {
+    flex: 0 0 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border: 3px solid var(--blue) !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .info-panel.is-branch-view .modal-main-box {
+    background: #ff0000 !important;
   }
 
   .info-panel.is-topic-view .modal-main-box {
-    margin: 0 !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    height: 100% !important;
-    align-self: stretch !important;
-    overflow: hidden !important;
+    background: #fff !important;
   }
 
+  /* Setup header as fixed flex item */
+  .modal-header {
+    flex: 0 0 auto !important;
+  }
+
+  /* Content boxes take up remaining space with custom scroll */
+  .modal-content-box,
+  .topic-content-box {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Topic View Specifics in mobile landscape */
   .info-panel.is-topic-view .topic-content-box {
     display: flex !important;
     flex-direction: row !important;
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    height: 0 !important; /* force flex-basis to 0 so flex-grow fills parent */
-    padding: 10px !important;
-    gap: 12px !important;
-    overflow: hidden !important;
     align-items: stretch !important;
+    padding: 12px !important;
+    gap: 16px !important;
   }
 
   .info-panel.is-topic-view .topic-left-col {
     order: 2 !important;
-    flex: 1 1 55% !important;
+    flex: 1 1 50% !important;
     min-width: 0 !important;
     min-height: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 6px !important;
-    overflow: hidden !important;
   }
 
   .info-panel.is-topic-view .topic-right-col {
     order: 1 !important;
-    flex: 1 1 40% !important;
+    flex: 1 1 50% !important;
     min-width: 0 !important;
     min-height: 0 !important;
     display: flex !important;
@@ -1967,10 +1994,10 @@ button { font: inherit; }
   }
 
   .info-panel.is-topic-view .slideshow-container {
-    flex: 1 1 auto !important;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
     width: 100% !important;
     height: auto !important;
-    max-height: none !important;
     aspect-ratio: auto !important;
   }
 
@@ -1980,44 +2007,147 @@ button { font: inherit; }
 
   .info-panel.is-topic-view .topic-desc-wrap {
     flex: 1 1 0 !important;
-    min-height: 40px !important;
-    max-height: none !important;
+    min-height: 0 !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
   }
 
+  .info-panel.is-topic-view .slideshow-caption {
+    flex: 0 0 auto !important;
+    margin-top: 6px !important;
+  }
+
+  /* Bouncing Scroll Down Arrow Button */
+  .modal-scroll-arrow {
+    display: none !important;
+  }
+
+  .info-panel.has-works .modal-scroll-arrow {
+    display: flex !important;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: var(--blue) !important;
+    color: #fff !important;
+    border: 3px solid var(--blue) !important;
+    border-radius: 50% !important;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(33, 50, 246, 0.4) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    animation: bounceArrow 2s infinite;
+  }
+
+  @keyframes bounceArrow {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-6px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-3px);
+    }
+  }
+
+  /* Section 2: Related Works Slider Section (floating, 100% height) */
+  .info-panel .cards-slider-wrap,
   .info-panel.is-topic-view .cards-slider-wrap {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    align-self: stretch !important;
+    flex: 0 0 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    scroll-snap-align: start !important;
+    display: none !important; /* hidden by default if not has-works */
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 24px 12px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .info-panel.has-works .cards-slider-wrap {
+    display: flex !important;
+  }
+
+  /* Horizontal Slider Cards Container */
+  .info-panel .cards-container,
+  .info-panel.is-topic-view .cards-container {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    scrollbar-width: none !important;
+  }
+
+  .info-panel .cards-container::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Floating Related Cards (Exactly 2 fit width) */
+  .info-panel .topic-card,
+  .info-panel.is-topic-view .topic-card {
+    flex: 0 0 calc((100% - 16px) / 2) !important;
+    width: calc((100% - 16px) / 2) !important;
+    max-width: none !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .info-panel .card-image-placeholder,
+  .info-panel.is-topic-view .card-image-placeholder {
+    flex: 1 1 auto !important;
     min-height: 0 !important;
     height: 100% !important;
-    max-height: none !important;
-    margin: 0 !important;
-    gap: 10px !important;
   }
 
-  .info-panel.is-topic-view .cards-container {
-    flex-direction: column !important;
-    max-width: none !important;
-    height: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    scroll-snap-type: y mandatory !important;
+  /* Navigation Buttons resets */
+  .info-panel .slider-btn {
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    z-index: 10 !important;
+    border-radius: 50% !important;
+    background: var(--blue) !important;
+    color: #fff !important;
+    border: 3px solid var(--blue) !important;
+    box-shadow: 0 2px 8px rgba(33, 50, 246, 0.4) !important;
   }
 
-  .info-panel.is-topic-view {
-    --related-card-gap: clamp(8px, 1.8vh, 12px) !important;
+  .info-panel #sliderPrevBtn svg,
+  .info-panel #sliderNextBtn svg {
+    transform: none !important;
   }
 
+  /* Typography size clamping tweaks for landscape */
   .info-panel.is-topic-view .topic-detail-title-wrap .title-line-base {
     font-size: clamp(16px, 2.2vw, 22px) !important;
   }
-
-
 
   .info-panel.is-topic-view .topic-desc-wrap,
   .info-panel.is-branch-view #modalBodyEn,
@@ -2037,139 +2167,9 @@ button { font: inherit; }
     font-size: clamp(12px, 1.5vw, 15px) !important;
   }
 
-
-
   .info-panel.is-topic-view .card-title-sub {
     font-size: clamp(9px, 1.0vw, 11px) !important;
     margin-top: 0 !important;
-  }
-
-  .info-panel.is-topic-view .topic-card {
-    flex: 0 0 calc((100% - 2 * var(--related-card-gap)) / 3) !important;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: auto !important;
-    margin: 0 auto !important;
-  }
-
-  .info-panel.is-topic-view #sliderPrevBtn svg,
-  .info-panel.is-topic-view #sliderNextBtn svg {
-    transform: rotate(90deg) !important;
-  }
-
-  /* Prevent topic title from colliding with absolute-positioned header action buttons on landscape */
-  .info-panel.is-topic-view .modal-header-left {
-    margin-right: 128px !important;
-  }
-
-  /* Increase margin-right on topic title when the works toggle is active to prevent overlap */
-  .info-panel.is-topic-view.has-works .modal-header-left,
-  .info-panel.is-branch-view.has-works .modal-header-left {
-    margin-right: 200px !important;
-  }
-
-  /* Show the works button only on mobile/tablet landscape viewports when works are present */
-  .info-panel.has-works #btnModalWorks {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Style the works toggle button */
-  #btnModalWorks {
-    background: var(--blue) !important;
-    color: #fff !important;
-    border: 3px solid var(--blue) !important;
-    font-family: 'UTM Cooper Black', 'Cooper Black', sans-serif !important;
-    font-weight: bold !important;
-    padding: 0 10px !important;
-    height: 24px !important;
-    font-size: 11px !important;
-    cursor: pointer !important;
-    border-radius: 0 !important;
-    transition: background 0.15s ease !important;
-  }
-  #btnModalWorks:hover {
-    background: rgba(33, 50, 246, 0.85) !important;
-  }
-
-  /* Hide related works slider by default on mobile landscape when NOT in works mode */
-  .info-panel:not(.show-works-mode) #modalSliderWrap {
-    display: none !important;
-  }
-
-  /* If works mode is NOT active, make topic view a clean single column (taking 100% space) */
-  .info-panel.is-topic-view:not(.show-works-mode) {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* Hide info contents completely when works mode is active */
-  .info-panel.show-works-mode #modalBranchContent,
-  .info-panel.show-works-mode #modalTopicContent {
-    display: none !important;
-  }
-
-  /* In works mode, make modal-main-box just hold the header, slider fills the rest */
-  .info-panel.show-works-mode .modal-main-box {
-    flex: 0 0 auto !important;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-  }
-
-  .info-panel.show-works-mode #modalSliderWrap {
-    display: flex !important;
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 12px !important;
-    margin: 0 !important;
-    background: #fff !important;
-    border: 3px solid var(--blue) !important;
-    border-top: none !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Card and slider overrides inside works mode */
-  .info-panel.show-works-mode .cards-container {
-    flex: 1 1 auto !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 16px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    height: 100% !important;
-    width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .info-panel.show-works-mode .topic-card {
-    flex: 0 0 calc((100% - 16px) / 2) !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    margin: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    scroll-snap-align: start !important;
-  }
-
-  .info-panel.show-works-mode .card-image-placeholder {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    height: 100% !important;
-  }
-
-  .info-panel.show-works-mode #sliderPrevBtn svg,
-  .info-panel.show-works-mode #sliderNextBtn svg {
-    transform: none !important;
   }
 }
 
