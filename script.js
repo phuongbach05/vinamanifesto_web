@@ -2141,7 +2141,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     modalSliderWrap.style.display = 'flex';
     panel.classList.remove('no-slider');
 
-    const visibleRelatedWorkCount = isTopic ? 3 : 2;
+    const visibleRelatedWorkCount = isLandscapeMobile() ? 2 : (isTopic ? 3 : 2);
     const hasPagedWorks = connectedTopics.length > visibleRelatedWorkCount;
     setSliderButtonState(prevBtn, false, hasPagedWorks);
     setSliderButtonState(nextBtn, hasPagedWorks, hasPagedWorks);
