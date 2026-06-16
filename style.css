@@ -2172,10 +2172,10 @@ button { font: inherit; }
   .info-panel .topic-card,
   .info-panel.is-branch-view .topic-card,
   .info-panel.is-topic-view .topic-card {
-    flex: 0 0 calc(52svh * 1.333) !important;
-    width: calc(52svh * 1.333) !important;
+    flex: 0 0 240px !important;
+    width: 240px !important;
     max-width: none !important;
-    height: 52svh !important;
+    height: 180px !important;
     margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
