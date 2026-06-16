@@ -2170,6 +2170,7 @@ button { font: inherit; }
 
   /* Floating Related Cards (Exactly 2 fit width) */
   .info-panel .topic-card,
+  .info-panel.is-branch-view .topic-card,
   .info-panel.is-topic-view .topic-card {
     flex: 0 0 calc((100% - 16px) / 2) !important;
     width: calc((100% - 16px) / 2) !important;
@@ -2184,6 +2185,7 @@ button { font: inherit; }
   }
 
   .info-panel .card-image-placeholder,
+  .info-panel.is-branch-view .card-image-placeholder,
   .info-panel.is-topic-view .card-image-placeholder {
     height: calc(100% - 44px) !important;
     min-height: calc(100% - 44px) !important;
@@ -2224,6 +2226,7 @@ button { font: inherit; }
   }
 
   .info-panel .card-header,
+  .info-panel.is-branch-view .card-header,
   .info-panel.is-topic-view .card-header {
     height: 44px !important;
     min-height: 44px !important;
@@ -2235,10 +2238,14 @@ button { font: inherit; }
 
   .info-panel.is-topic-view .modal-title-wrap .title-line-base,
   .info-panel.is-topic-view .modal-branch-wrap .title-line-base,
+  .info-panel .card-title-main-wrap .title-line-base,
+  .info-panel.is-branch-view .card-title-main-wrap .title-line-base,
   .info-panel.is-topic-view .card-title-main-wrap .title-line-base {
     font-size: clamp(12px, 1.5vw, 15px) !important;
   }
 
+  .info-panel .card-title-sub,
+  .info-panel.is-branch-view .card-title-sub,
   .info-panel.is-topic-view .card-title-sub {
     font-size: clamp(9px, 1.0vw, 11px) !important;
     margin-top: 0 !important;
