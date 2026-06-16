@@ -325,6 +325,7 @@ const prevBtn            = document.getElementById('sliderPrevBtn');
 const nextBtn            = document.getElementById('sliderNextBtn');
 const btnModalWorks      = document.getElementById('btnModalWorks');
 const modalScrollArrow   = document.getElementById('modalScrollArrow');
+const modalScrollUpArrow = document.getElementById('modalScrollUpArrow');
 
 const nodes       = [...document.querySelectorAll('.node')];
 const topics      = [...document.querySelectorAll('.topic')];
@@ -2562,6 +2563,15 @@ if (modalScrollArrow) {
   modalScrollArrow.addEventListener('click', () => {
     panel.scrollTo({
       top: panel.clientHeight,
+      behavior: 'smooth'
+    });
+  });
+}
+
+if (modalScrollUpArrow) {
+  modalScrollUpArrow.addEventListener('click', () => {
+    panel.scrollTo({
+      top: 0,
       behavior: 'smooth'
     });
   });

@@ -2056,6 +2056,45 @@ button { font: inherit; }
     }
   }
 
+  /* Bouncing Scroll Up Arrow Button */
+  .modal-scroll-up-arrow {
+    display: none !important;
+  }
+
+  .info-panel.has-works .modal-scroll-up-arrow {
+    display: flex !important;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: var(--blue) !important;
+    color: #fff !important;
+    border: 3px solid var(--blue) !important;
+    border-radius: 50% !important;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(33, 50, 246, 0.4) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    animation: bounceUpArrow 2s infinite;
+  }
+
+  @keyframes bounceUpArrow {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(6px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(3px);
+    }
+  }
+
   /* Section 2: Related Works Slider Section (floating, 100% height) */
   .info-panel .cards-slider-wrap,
   .info-panel.is-topic-view .cards-slider-wrap {
