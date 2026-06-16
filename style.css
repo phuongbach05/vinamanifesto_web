@@ -2218,11 +2218,15 @@ button { font: inherit; }
     font-size: clamp(16px, 2.2vw, 22px) !important;
   }
 
-  .info-panel.is-topic-view .topic-desc-wrap,
-  .info-panel.is-branch-view #modalBodyEn,
-  .info-panel.is-branch-view #modalBodyVie {
+  .info-panel.is-topic-view .topic-desc-wrap {
     font-size: clamp(12px, 1.3vw, 15px) !important;
     line-height: 1.3 !important;
+  }
+
+  .info-panel.is-branch-view #modalBodyEn,
+  .info-panel.is-branch-view #modalBodyVie {
+    font-size: clamp(15px, 1.8vw, 19px) !important;
+    line-height: 1.4 !important;
   }
 
   .info-panel .card-header,
