@@ -262,6 +262,19 @@ button { font: inherit; }
   pointer-events: auto;
   transform-origin: 800px 440px;
   transform-box: view-box;
+  outline: none !important;
+  stroke: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+}
+.brand-logo-gif:focus,
+.brand-logo-gif:focus-visible,
+.brand-logo-gif.playing-music,
+.brand-logo-gif.playing-music:focus,
+.brand-logo-gif.playing-music:focus-visible {
+  outline: none !important;
+  stroke: none !important;
+  filter: none !important;
 }
 
 /* ─── Mountains ─── */

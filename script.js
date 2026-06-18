@@ -3806,6 +3806,7 @@ function setupBrandAudioReact() {
 
   brand.addEventListener('click', (e) => {
     e.preventDefault();
+    if (typeof brand.blur === 'function') brand.blur();
     initAudioReact();
 
     if (!audio) return;
