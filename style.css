@@ -20,10 +20,26 @@
 }
 
 @font-face {
+  font-family: 'UTM Cooper Black';
+  src: url('./fonts/COOPBL.TTF') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Cooper Black';
   src: url('./fonts/COOPBL.TTF') format('truetype');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cooper Black';
+  src: url('./fonts/COOPBL.TTF') format('truetype');
+  font-weight: 900;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -2450,6 +2466,25 @@ button { font: inherit; }
 .topic-detail-title-wrap .title-line-script,
 .branch-detail-title-wrap .title-line-script {
   font-size: 1.55em !important;
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .topic-detail-title-wrap .title-line-script,
+  .branch-detail-title-wrap .title-line-script,
+  .modal-title-wrap .title-line-script,
+  .modal-branch-wrap .title-line-script,
+  .card-title-main-wrap .title-line-script {
+    font-size: 0.78em !important;
+    line-height: 1 !important;
+  }
+
+  .topic-detail-title-wrap .title-line-wrapper,
+  .branch-detail-title-wrap .title-line-wrapper,
+  .modal-title-wrap .title-line-wrapper,
+  .modal-branch-wrap .title-line-wrapper,
+  .card-title-main-wrap .title-line-wrapper {
+    white-space: nowrap !important;
+  }
 }
 
 /* Card title overrides specifically for branch view related work cards */

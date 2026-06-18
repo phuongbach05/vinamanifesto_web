@@ -1872,14 +1872,16 @@ function alignDoubleLayeredTitles() {
       
       if (baseWidth > 0 && scriptWidth > 0) {
         const isDetailTitle = wrapper.closest('.topic-detail-title-wrap') || wrapper.closest('.branch-detail-title-wrap');
-        const isLandscape = isLandscapeMobile();
+        const isLandscape = window.matchMedia('(max-width: 1024px) and (orientation: landscape)').matches;
         let scale;
         if (isLandscape) {
-          // In mobile landscape, make the Edwardian script font smaller than Cooper and fit inside it
-          const targetWidth = baseWidth * 0.78;
+          // On phone landscape, keep the Edwardian layer inside the Cooper word.
+          // Some iOS browsers report a taller landscape viewport, so this cannot
+          // rely on the stricter isLandscapeMobile() helper.
+          const targetWidth = baseWidth * 0.68;
           scale = targetWidth / scriptWidth;
-          scale = Math.min(0.85, scale);
-          scale = Math.max(0.65, scale);
+          scale = Math.min(0.78, scale);
+          scale = Math.max(0.42, scale);
         } else {
           // Target script width allows it to stretch wider to match selected sizing ratios
           const targetWidth = isDetailTitle ? baseWidth * 1.45 : baseWidth * 1.23;
