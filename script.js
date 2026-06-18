@@ -3134,6 +3134,12 @@ window.addEventListener('orientationchange', () => {
   let velocityY = 0;
   let lastMoveTime = 0;
   let inertiaRAF = null;
+  let gestureRect = null;
+  let gestureAspect = null;
+  let pendingGestureViewBox = null;
+  let gestureWriteTimer = null;
+  let gestureWriteRAF = null;
+  let lastLiteGestureWrite = 0;
 
   // Touch tracking for pinch-to-zoom
   let activeTouches = new Map();
@@ -3145,9 +3151,67 @@ window.addEventListener('orientationchange', () => {
   let dragStartScreen = null;
   let hasDraggedPastThreshold = false;
   const DRAG_THRESHOLD = 8; // pixels
+  const LITE_GESTURE_FRAME_MS = 42;
+
+  function captureGestureMetrics() {
+    gestureRect = svgElement.getBoundingClientRect();
+    gestureAspect = (gestureRect.width || window.innerWidth || MAP_WIDTH) /
+      Math.max(gestureRect.height || window.innerHeight || MAP_HEIGHT, 1);
+  }
+
+  function getGestureRect() {
+    if (!gestureRect) captureGestureMetrics();
+    return gestureRect;
+  }
+
+  function flushGestureViewBox(immediate = false) {
+    if (gestureWriteTimer) {
+      clearTimeout(gestureWriteTimer);
+      gestureWriteTimer = null;
+    }
+    if (gestureWriteRAF) {
+      cancelAnimationFrame(gestureWriteRAF);
+      gestureWriteRAF = null;
+    }
+    if (!pendingGestureViewBox) return;
+
+    const nextViewBox = pendingGestureViewBox;
+    pendingGestureViewBox = null;
+
+    if (immediate) {
+      applyViewBox(nextViewBox);
+      lastLiteGestureWrite = performance.now();
+      return;
+    }
+
+    gestureWriteRAF = requestAnimationFrame(() => {
+      gestureWriteRAF = null;
+      applyViewBox(nextViewBox);
+      lastLiteGestureWrite = performance.now();
+    });
+  }
+
+  function applyGestureViewBox(vb) {
+    if (!isMobileLandscapeLite()) {
+      applyViewBox(vb);
+      return;
+    }
+
+    currentViewBox = vb;
+    targetViewBox = [...vb];
+    pendingGestureViewBox = vb;
+    if (gestureWriteTimer || gestureWriteRAF) return;
+
+    const elapsed = performance.now() - lastLiteGestureWrite;
+    const delay = Math.max(0, LITE_GESTURE_FRAME_MS - elapsed);
+    gestureWriteTimer = setTimeout(() => {
+      gestureWriteTimer = null;
+      flushGestureViewBox();
+    }, delay);
+  }
 
   function screenToSVG(screenX, screenY) {
-    const rect = svgElement.getBoundingClientRect();
+    const rect = getGestureRect();
     const vb = currentViewBox;
     return {
       x: vb[0] + (screenX - rect.left) / rect.width * vb[2],
@@ -3156,7 +3220,7 @@ window.addEventListener('orientationchange', () => {
   }
 
   function screenToSVGWithVB(screenX, screenY, vb) {
-    const rect = svgElement.getBoundingClientRect();
+    const rect = getGestureRect();
     return {
       x: vb[0] + (screenX - rect.left) / rect.width * vb[2],
       y: vb[1] + (screenY - rect.top) / rect.height * vb[3]
@@ -3165,7 +3229,7 @@ window.addEventListener('orientationchange', () => {
 
   function clampViewBox(vb) {
     let [x, y, w, h] = vb;
-    const aspect = getViewportAspect();
+    const aspect = gestureAspect || getViewportAspect();
 
     // Max zoom out is exactly the home viewBox width (prevents empty space)
     const initialVB = getHomeViewBox();
@@ -3198,9 +3262,15 @@ window.addEventListener('orientationchange', () => {
       cancelAnimationFrame(inertiaRAF);
       inertiaRAF = null;
     }
+    flushGestureViewBox(true);
   }
 
   function runInertia() {
+    if (isMobileLandscapeLite()) {
+      inertiaRAF = null;
+      return;
+    }
+
     if (Math.abs(velocityX) < INERTIA_MIN && Math.abs(velocityY) < INERTIA_MIN) {
       inertiaRAF = null;
       return;
@@ -3230,6 +3300,9 @@ window.addEventListener('orientationchange', () => {
   function onPointerDown(e) {
     // Don't intercept if the info panel is open
     if (panel && panel.classList.contains('open')) return;
+    if (e.pointerType === 'touch') e.preventDefault();
+
+    captureGestureMetrics();
 
     if (e.pointerType === 'touch') {
       activeTouches.set(e.pointerId, e);
@@ -3266,6 +3339,7 @@ window.addEventListener('orientationchange', () => {
 
   // ── Pointer Move ──
   function onPointerMove(e) {
+    if (e.pointerType === 'touch') e.preventDefault();
 
     if (e.pointerType === 'touch') {
       activeTouches.set(e.pointerId, e);
@@ -3291,7 +3365,7 @@ window.addEventListener('orientationchange', () => {
       const newY = cy - ratioY * newH;
 
       const vb = clampViewBox([newX, newY, newW, newH]);
-      applyViewBox(vb);
+      applyGestureViewBox(vb);
       return;
     }
 
@@ -3325,7 +3399,7 @@ window.addEventListener('orientationchange', () => {
       currentViewBox[2],
       currentViewBox[3]
     ]);
-    applyViewBox(vb);
+    applyGestureViewBox(vb);
 
     // Update drag start to new position
     dragStart = screenToSVG(e.clientX, e.clientY);
@@ -3333,6 +3407,7 @@ window.addEventListener('orientationchange', () => {
 
   // ── Pointer Up ──
   function onPointerUp(e) {
+    if (e.pointerType === 'touch') e.preventDefault();
 
     if (e.pointerType === 'touch') {
       activeTouches.delete(e.pointerId);
@@ -3340,6 +3415,7 @@ window.addEventListener('orientationchange', () => {
 
     // Reset pinch if we go below 2 fingers
     if (activeTouches.size < 2) {
+      flushGestureViewBox(true);
       pinchStartDist = 0;
       pinchStartViewBox = null;
       pinchCenter = null;
@@ -3357,7 +3433,7 @@ window.addEventListener('orientationchange', () => {
       return;
     }
 
-    if (isDragging && hasDraggedPastThreshold) {
+    if (isDragging && hasDraggedPastThreshold && !isMobileLandscapeLite()) {
       // Launch inertia
       inertiaRAF = requestAnimationFrame(runInertia);
     }
@@ -3366,6 +3442,8 @@ window.addEventListener('orientationchange', () => {
     dragStart = null;
     dragStartScreen = null;
     hasDraggedPastThreshold = false;
+    gestureRect = null;
+    gestureAspect = null;
     svgElement.classList.remove('is-dragging');
   }
 
@@ -3376,9 +3454,12 @@ window.addEventListener('orientationchange', () => {
     }
     isDragging = false;
     dragStart = null;
+    flushGestureViewBox(true);
     pinchStartDist = 0;
     pinchStartViewBox = null;
     pinchCenter = null;
+    gestureRect = null;
+    gestureAspect = null;
     svgElement.classList.remove('is-dragging');
   }
 

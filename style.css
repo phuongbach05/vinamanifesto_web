@@ -1934,6 +1934,12 @@ button { font: inherit; }
     will-change: auto !important;
   }
 
+  html.is-mobile-landscape #riverMap {
+    touch-action: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+
   html.is-mobile-landscape .river,
   html.is-mobile-landscape .river.flow-in,
   html.is-mobile-landscape .river.main.flow-in,
