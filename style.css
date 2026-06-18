@@ -1926,6 +1926,60 @@ button { font: inherit; }
 }
 
 @media (max-width: 1024px) and (max-height: 500px) and (orientation: landscape) {
+  html.is-mobile-landscape .site,
+  html.is-mobile-landscape .map-wrap,
+  html.is-mobile-landscape .lake-mountain,
+  html.is-mobile-landscape .falling-word,
+  html.is-mobile-landscape .falling-v-icon {
+    will-change: auto !important;
+  }
+
+  html.is-mobile-landscape .river,
+  html.is-mobile-landscape .river.flow-in,
+  html.is-mobile-landscape .river.main.flow-in,
+  html.is-mobile-landscape .river.sub.flow-in,
+  html.is-mobile-landscape .river.connector.flow-in {
+    transition: none !important;
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  html.is-mobile-landscape .lake,
+  html.is-mobile-landscape .brand,
+  html.is-mobile-landscape .lake-mountain,
+  html.is-mobile-landscape .mountain,
+  html.is-mobile-landscape .node,
+  html.is-mobile-landscape .branch-title,
+  html.is-mobile-landscape .topic,
+  html.is-mobile-landscape .timeline,
+  html.is-mobile-landscape .endpoints circle,
+  html.is-mobile-landscape .bg-v-icon {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+
+  html.is-mobile-landscape #backgroundIcons,
+  html.is-mobile-landscape .bg-v-icon {
+    display: none !important;
+  }
+
+  html.is-mobile-landscape .time:hover .ticket-bg,
+  html.is-mobile-landscape .music-skip-btn,
+  html.is-mobile-landscape .related-card:hover,
+  html.is-mobile-landscape .slideshow-image-wrap img {
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  html.is-mobile-landscape .node:hover,
+  html.is-mobile-landscape .node.is-active,
+  html.is-mobile-landscape .endpoints circle:hover,
+  html.is-mobile-landscape .endpoints circle.is-hovered,
+  html.is-mobile-landscape .related-card:hover {
+    transform: none !important;
+  }
+
   /* Hide the works toggle button since we scroll down instead */
   #btnModalWorks,
   .info-panel.has-works #btnModalWorks {

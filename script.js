@@ -343,9 +343,44 @@ const svgElement = document.getElementById('riverMap');
 const SVG_NS = 'http://www.w3.org/2000/svg';
 let activeCameraCenter = null;
 let currentWideMapScale = 1;
+let viewBoxWriteRAF = null;
+let pendingViewBox = null;
 
 function isMobileView() {
   return window.innerWidth <= MOBILE_BREAKPOINT;
+}
+
+function isMobileLandscapeLite() {
+  return isLandscapeMobile();
+}
+
+function updatePerformanceModeClass() {
+  document.documentElement.classList.toggle('is-mobile-landscape', isMobileLandscapeLite());
+}
+
+function setSVGViewBox(viewBox, immediate = false) {
+  const formatted = formatViewBox(viewBox);
+
+  if (immediate || !isMobileLandscapeLite()) {
+    if (viewBoxWriteRAF) {
+      cancelAnimationFrame(viewBoxWriteRAF);
+      viewBoxWriteRAF = null;
+    }
+    pendingViewBox = null;
+    svgElement.setAttribute('viewBox', formatted);
+    return;
+  }
+
+  pendingViewBox = formatted;
+  if (viewBoxWriteRAF) return;
+
+  viewBoxWriteRAF = requestAnimationFrame(() => {
+    if (pendingViewBox) {
+      svgElement.setAttribute('viewBox', pendingViewBox);
+    }
+    pendingViewBox = null;
+    viewBoxWriteRAF = null;
+  });
 }
 
 function getMobileInitialViewBox() {
@@ -395,12 +430,14 @@ function getHomeViewBox() {
   return isMobileView() ? getMobileInitialViewBox() : getFullViewBox();
 }
 
+updatePerformanceModeClass();
+
 let currentViewBox = getHomeViewBox();
 let targetViewBox = [...currentViewBox];
 let isAnimating = false;
 const easeFactor = 0.08;
 
-svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+setSVGViewBox(currentViewBox, true);
 updateResponsiveTimeline(getFullViewBox());
 updateResponsiveMapStretch(getFullViewBox());
 
@@ -1592,7 +1629,7 @@ function updateViewBox() {
 
   if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1 && Math.abs(dw) < 0.1 && Math.abs(dh) < 0.1) {
     currentViewBox = [...targetViewBox];
-    svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+    setSVGViewBox(currentViewBox, true);
     isAnimating = false;
     return;
   }
@@ -1602,7 +1639,7 @@ function updateViewBox() {
   currentViewBox[2] += dw * easeFactor;
   currentViewBox[3] += dh * easeFactor;
 
-  svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+  setSVGViewBox(currentViewBox);
   requestAnimationFrame(updateViewBox);
 }
 
@@ -1615,6 +1652,11 @@ function panTo(x, y, w, h) {
   }
 
   if (!isAnimating) {
+    if (isMobileLandscapeLite()) {
+      currentViewBox = [...targetViewBox];
+      setSVGViewBox(currentViewBox, true);
+      return;
+    }
     isAnimating = true;
     requestAnimationFrame(updateViewBox);
   }
@@ -1661,7 +1703,7 @@ function refreshViewBoxForViewport() {
   }
 
   currentViewBox = [...targetViewBox];
-  svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+  setSVGViewBox(currentViewBox, true);
   isAnimating = false;
 }
 
@@ -2942,8 +2984,13 @@ function generateBackgroundIcons() {
 
 // Trigger river flow animation on load
 document.addEventListener('DOMContentLoaded', () => {
+  updatePerformanceModeClass();
+  const liteMode = isMobileLandscapeLite();
+
   setupDynamicMask();
-  generateBackgroundIcons();
+  if (!liteMode) {
+    generateBackgroundIcons();
+  }
   // organicizeRiverPaths(); // Disabled to keep river paths smooth, not hand-drawn
   // applyRiverStrokeVariation(); // Disabled so CSS controls uniform stroke-widths
   // buildRiverDisplayLayers(); // Disabled since we style .river directly
@@ -2974,26 +3021,30 @@ document.addEventListener('DOMContentLoaded', () => {
     mtn.style.animationDelay = `${delay.toFixed(2)}s`;
   });
 
-  const animatedRiverParts = document.querySelectorAll('.river, .ribbon-clip-stroke');
-  animatedRiverParts.forEach(river => {
-    const length = river.getTotalLength();
-    river.style.setProperty('--length', length + 'px');
-  });
+  if (liteMode) {
+    setRiverFlow('.river');
+  } else {
+    const animatedRiverParts = document.querySelectorAll('.river, .ribbon-clip-stroke');
+    animatedRiverParts.forEach(river => {
+      const length = river.getTotalLength();
+      river.style.setProperty('--length', length + 'px');
+    });
 
-  // 1. Trigger main river flow after lake starts appearing (2.4s)
-  setTimeout(() => {
-    setRiverFlow('.river.main');
-  }, 2400);
+    // 1. Trigger main river flow after lake starts appearing (2.4s)
+    setTimeout(() => {
+      setRiverFlow('.river.main');
+    }, 2400);
 
-  // 2. Trigger child branches after the five trunks are established (4.0s)
-  setTimeout(() => {
-    setRiverFlow('.river.sub');
-  }, 4000);
+    // 2. Trigger child branches after the five trunks are established (4.0s)
+    setTimeout(() => {
+      setRiverFlow('.river.sub');
+    }, 4000);
 
-  // 3. Topic-to-topic links appear last (5.2s)
-  setTimeout(() => {
-    setRiverFlow('.river.connector');
-  }, 5200);
+    // 3. Topic-to-topic links appear last (5.2s)
+    setTimeout(() => {
+      setRiverFlow('.river.connector');
+    }, 5200);
+  }
 
   // 4. Stagger mountain sprouting after the connection structure is readable. (Disabled for custom mountains)
   // document.querySelectorAll('.mountain').forEach((mtn, index) => {
@@ -3050,6 +3101,7 @@ window.addEventListener('resize', () => {
   if (resizeFrame) cancelAnimationFrame(resizeFrame);
 
   resizeFrame = requestAnimationFrame(() => {
+    updatePerformanceModeClass();
     refreshViewBoxForViewport();
 
     if (panel && panel.classList.contains('open')) {
@@ -3062,6 +3114,7 @@ window.addEventListener('resize', () => {
 });
 
 window.addEventListener('orientationchange', () => {
+  updatePerformanceModeClass();
   refreshViewBoxForViewport();
 
   if (panel && panel.classList.contains('open')) {
@@ -3134,7 +3187,7 @@ window.addEventListener('orientationchange', () => {
   function applyViewBox(vb) {
     currentViewBox = vb;
     targetViewBox = [...vb];
-    svgElement.setAttribute('viewBox', formatViewBox(vb));
+    setSVGViewBox(vb);
   }
 
   // Prevents scrolling past map bounds while zooming on resize
@@ -3364,7 +3417,7 @@ window.addEventListener('orientationchange', () => {
 
         if (Math.abs(dw) < 0.05 && Math.abs(dh) < 0.05 && Math.abs(dx) < 0.05 && Math.abs(dy) < 0.05) {
           currentViewBox = [...targetViewBox];
-          svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+          setSVGViewBox(currentViewBox, true);
           _zoomAnimating = false;
           return;
         }
@@ -3373,7 +3426,7 @@ window.addEventListener('orientationchange', () => {
         currentViewBox[1] += dy * ZOOM_EASE;
         currentViewBox[2] += dw * ZOOM_EASE;
         currentViewBox[3] += dh * ZOOM_EASE;
-        svgElement.setAttribute('viewBox', formatViewBox(currentViewBox));
+        setSVGViewBox(currentViewBox);
         requestAnimationFrame(zoomStep);
       }
       requestAnimationFrame(zoomStep);
