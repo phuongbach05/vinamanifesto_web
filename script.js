@@ -36,16 +36,17 @@ const topicData = {
     title: 'Post-sharing economy',
     era: 'Past',
     image: 'postsharing economy/post1.png',
+    cardObjectPosition: 'top',
     bodyEn: '<i class="topic-credit topic-credit-50">(2019) Reworked Garments.\n3D Scanning\nPhotographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le-Bac-Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang</i>\nThe project reworks the Uber motorbike jacket shortly after the company’s withdrawal from Vietnam’s ride-hailing market. The jacket is reconstructed as a formal veston, playfully yet sharply reminding the “user” of the realities of the post-sharing economy: a promise of prosperity driven by technological progress and liberalized working conditions, which in practice reveals itself as capitalism operating 24/7.',
     bodyVie: '<i class="topic-credit topic-credit-50">(2019) Đồ vải may lại\nScan 3D\nNhiếp ảnh Khanh Nguyen\nNhân vật Do Van Hoang\nĐồng phục Vinabiennale\nÝ tưởng và hậu kì Le-Bac-Tan\nCảm ơn Thu Madeline\nÂm nhạc KIMTrang</i>\nDự án tái cấu trúc chiếc áo khoác xe ôm Uber ngay sau khi công ty này rút khỏi thị trường gọi xe Việt Nam. Chiếc áo khoác được biến đổi thành một bộ veston trang trọng, vừa hài hước vừa sắc bén, nhắc nhở “người dùng” về thực tại của nền kinh tế hậu chia sẻ: một lời hứa về sự thịnh vượng được thúc đẩy bởi tiến bộ công nghệ và các điều kiện lao động tự do hoá, nhưng trên thực tế lại phơi bày một chủ nghĩa tư bản vận hành 24/7.',
     images: [
       {
-        url: 'postsharing economy/post1.png',
+        url: 'postsharing economy/post1.mp4',
         captionEn: 'Conceptual sketch mapping public-private shared spaces in Hanoi.',
         captionVie: 'Bản phác thảo khái niệm ánh xạ các không gian chia sẻ công-tư tại Hà Nội.'
       },
       {
-        url: 'postsharing economy/post2.png',
+        url: 'postsharing economy/post2.jpg',
         captionEn: 'Data visualization tracking digital transaction flows and local community habits.',
         captionVie: 'Trực quan hóa dữ liệu theo dõi luồng giao dịch số và thói quen cộng đồng địa phương.'
       }
@@ -70,32 +71,32 @@ const topicData = {
   'first-collection': {
     title: 'Vinabiennale<br>SS2020/22',
     era: 'Past',
-    image: 'vinabiennale2020/vina4.png',
+    image: 'vinabiennale2020/vina4.jpg',
     bodyEn: '<i class="topic-credit topic-credit-50">(2020) 3D Garments Design\nSupported by the RMIT Digital Design and Art Grants</i>\nThe collection remixes common uniforms and daily accessories from Vietnam. Serving as both speculative design and digital artifacts, the project questions:',
     bodyVie: 'Missing caption',
     images: [
       {
-        url: 'vinabiennale2020/vina1.png',
+        url: 'vinabiennale2020/vina1.jpg',
         captionEn: 'Prototype designs showcasing street objects transformed into wearable garments.',
         captionVie: 'Các thiết kế thử nghiệm trình diễn vật dụng đường phố được biến đổi thành trang phục.'
       },
       {
-        url: 'vinabiennale2020/vina2.png',
+        url: 'vinabiennale2020/vina2.jpg',
         captionEn: 'Exhibition moodboard featuring local sidewalk patterns and texture references.',
         captionVie: 'Moodboard triển lãm thể hiện các họa tiết vỉa hè địa phương và mẫu chất liệu tham chiếu.'
       },
       {
-        url: 'vinabiennale2020/vina3.png',
+        url: 'vinabiennale2020/vina3.jpg',
         captionEn: 'Vinabiennale SS2020/22 exhibition highlight.',
         captionVie: 'Hình ảnh nổi bật từ triển lãm Vinabiennale SS2020/22.'
       },
       {
-        url: 'vinabiennale2020/vina4.png',
+        url: 'vinabiennale2020/vina4.jpg',
         captionEn: 'Vinabiennale SS2020/22 work progress.',
         captionVie: 'Tiến trình thực hiện tác phẩm Vinabiennale SS2020/22.'
       },
       {
-        url: 'vinabiennale2020/vina5.png',
+        url: 'vinabiennale2020/vina5.jpg',
         captionEn: 'Vinabiennale SS2020/22 final installation.',
         captionVie: 'Sắp đặt hoàn thiện Vinabiennale SS2020/22.'
       }
@@ -120,16 +121,24 @@ const topicData = {
   'karma': {
     title: 'Karma Kapitalists',
     era: 'Past',
+    image: 'karma/karma2.jpg',
     bodyEn: 'The project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity',
     bodyVie: 'Dự án phối trộn hình thức giấy tiền vàng mã quen thuộc—vốn thường được đốt như lễ vật dâng cúng tổ tiên và các vị thần bản địa trong nhiều nền văn hoá Đông Á—với hệ biểu tượng đương đại của Bitcoin và tiền mã hóa. Tồn tại giữa trình diễn và một hiện vật thiết kế đồ hoạ mang tính suy tưởng, tác phẩm thể hiện tinh thần của Vinamanifesto: tiếp nhận và tái tổ hợp những ảnh hưởng văn hoá đa dạng mà không đánh mất bản sắc Việt Nam riêng biệt.',
     images: [
       {
+        url: 'karma/karma1.mp4',
         captionEn: 'Field notes documenting informal street vendor logistics and capital cycles.',
         captionVie: 'Ghi chép thực địa tài liệu hóa hậu cần bán hàng rong và chu kỳ vốn phi chính thức.'
       },
       {
+        url: 'karma/karma2.jpg',
         captionEn: 'Diagram illustrating spiritual commerce and merit-making transaction networks.',
         captionVie: 'Sơ đồ minh họa mạng lưới giao dịch thương mại tâm linh và tích lũy công đức.'
+      },
+      {
+        url: 'karma/karma3.jpg',
+        captionEn: 'Karma Kapitalists visual study.',
+        captionVie: 'Nghiên cứu hình ảnh Karma Kapitalists.'
       }
     ]
   },
@@ -152,16 +161,30 @@ const topicData = {
   'cay-neo': {
     title: 'Cây Neo',
     era: 'Present',
+    image: 'cayneo/cayneo2.jpg',
+    cardObjectPosition: 'top',
     bodyEn: '<i class="topic-credit">Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le-Bac-Tan</i>\nCây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.',
     bodyVie: '<i class="topic-credit">Giám tuyển: Võ Thủy Tiên\nNghệ sĩ 3D: Trần Phương Bách\nÝ tưởng và tương tác: Le-Bac-Tan</i>\nCây Neo là một biến tấu từ cây nêu truyền thống ngày Tết. Tên gọi này đồng thời gợi đến từ “neo” trong tiếng Hy Lạp, nghĩa là “mới”, đánh dấu sự chuyển dịch từ cái cũ sang cái mới.\n\nTác phẩm này không chỉ lặp lại; nó sống. Được vận hành bởi các thuật toán L-system, tác phẩm hoạt động như một hệ thống tạo sinh, tự động đâm nhánh mới sau mỗi giờ. Những nhánh này phát triển thành các nhà ống — một di sản kiến trúc Việt Nam hiện đại còn đang sống — tượng trưng cho sự mở rộng không ngừng, hữu cơ của Việt Nam suốt ngày đêm.',
     images: [
       {
+        url: 'cayneo/cayneo1.jpg',
         captionEn: 'Typology study of traditional river boat anchoring devices along the Mekong.',
         captionVie: 'Nghiên cứu phân loại các thiết bị neo giữ thuyền sông nước truyền thống dọc sông Mê Kông.'
       },
       {
+        url: 'cayneo/cayneo2.jpg',
         captionEn: 'Modern product concept scaling local wooden anchors for public installation.',
         captionVie: 'Ý tưởng sản phẩm hiện đại phóng to mỏ neo gỗ địa phương cho sắp đặt công cộng.'
+      },
+      {
+        url: 'cayneo/cayneo3.jpg',
+        captionEn: 'Cây Neo generative growth detail.',
+        captionVie: 'Chi tiết phát triển tạo sinh của Cây Neo.'
+      },
+      {
+        url: 'cayneo/cayneo4.mp4',
+        captionEn: 'Cây Neo video preview.',
+        captionVie: 'Video preview Cây Neo.'
       }
     ]
   },
@@ -269,6 +292,23 @@ const topicData = {
     ]
   }
 };
+
+function setWorkPreviewCaptions(topicId, caption) {
+  const topic = topicData[topicId];
+  if (!topic || !Array.isArray(topic.images)) return;
+
+  topic.images.forEach((image) => {
+    image.captionEn = caption;
+    image.captionVie = caption;
+  });
+}
+
+setWorkPreviewCaptions('post-sharing', 'Post-sharing economy (2019)');
+setWorkPreviewCaptions('il-provino', 'Il Provino (2022)');
+setWorkPreviewCaptions('vina-seat', 'Vinaseat (2026)');
+setWorkPreviewCaptions('cay-neo', 'Cây Neo(2025)');
+
+topicData.viscose.bodyVie = '“Tiên phong đang ở phía trước chúng ta”\n\nMột sơ đồ hợp tác được đồng kiến tạo cùng Arlette Quỳnh Anh Trần. Tác phẩm này khám phá sự dịch chuyển của vị thế tiên phong trong nghệ thuật đương đại châu Á, chất vấn những hệ thời gian lấy châu Âu làm trung tâm, đồng thời đề xuất một tầm nhìn hướng về phía trước: nơi thực hành thử nghiệm nghệ thuật được đặt trên nền tảng khu vực và xuất phát từ chính bối cảnh châu Á.';
 
 const centers = {
   // Nodes
@@ -1937,6 +1977,39 @@ function alignTopicDetailTitle() {
   alignDoubleLayeredTitles();
 }
 
+function isLocalVideoUrl(url = '') {
+  return /\.(mp4|webm|ogg)(\?|#|$)/i.test(url);
+}
+
+function muteAndStopPreviewMedia() {
+  document.querySelectorAll('#slideshowImageWrap video, #lightboxImageWrap video').forEach(video => {
+    video.muted = true;
+    video.pause();
+  });
+}
+
+function bindPreviewSoundToggle(container) {
+  const button = container.querySelector('.slideshow-sound-toggle');
+  const video = container.querySelector('video');
+  if (!button || !video) return;
+
+  const syncButton = () => {
+    button.innerHTML = video.muted
+      ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"></path><path d="M18 9l4 4m0-4-4 4"></path></svg>'
+      : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"></path><path d="M16 8a5 5 0 0 1 0 8"></path><path d="M19 5a9 9 0 0 1 0 14"></path></svg>';
+    button.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Turn sound off');
+  };
+
+  syncButton();
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    video.muted = !video.muted;
+    if (!video.muted) video.play().catch(() => {});
+    syncButton();
+  });
+}
+
 function renderSlideshowPlaceholder(topicId, index) {
   const data = topicData[topicId];
   if (!data || !data.images || data.images.length === 0) return;
@@ -1966,8 +2039,26 @@ function renderSlideshowPlaceholder(topicId, index) {
         return;
       }
     }
+    if (isLocalVideoUrl(currentImage.url)) {
+      container.innerHTML = `
+        <video class="slideshow-video" src="${currentImage.url}" autoplay loop playsinline preload="metadata"></video>
+        <button class="slideshow-sound-toggle" type="button" aria-label="Turn sound off"></button>
+      `;
+      bindPreviewSoundToggle(container);
+      const video = container.querySelector('video');
+      if (video) {
+        video.muted = false;
+        video.play().catch(() => {
+          video.muted = true;
+          bindPreviewSoundToggle(container);
+        });
+      }
+      return;
+    }
     const isBottomAligned = currentImage.url.includes('chair4.jpg') || currentImage.url.includes('chair5.jpg');
-    const objectPos = isBottomAligned ? 'object-position: bottom;' : '';
+    const objectPos = currentImage.objectPosition
+      ? `object-position: ${currentImage.objectPosition};`
+      : (isBottomAligned ? 'object-position: bottom;' : '');
     container.innerHTML = `
       <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block; ${objectPos}" />
     `;
@@ -2008,7 +2099,9 @@ function updateLightboxContent() {
   const lightboxOverlay = document.getElementById('lightboxOverlay');
   const lightboxImageWrap = document.getElementById('lightboxImageWrap');
   if (wrap && lightboxOverlay && lightboxOverlay.classList.contains('open')) {
+    muteAndStopPreviewMedia();
     lightboxImageWrap.innerHTML = wrap.innerHTML;
+    bindPreviewSoundToggle(lightboxImageWrap);
   }
 }
 
@@ -2016,6 +2109,7 @@ function updateSlideshow(topicId, index) {
   const data = topicData[topicId];
   if (!data || !data.images || data.images.length === 0) return;
   
+  muteAndStopPreviewMedia();
   currentSlideshowIndex = index;
   renderSlideshowPlaceholder(topicId, index);
 
@@ -2216,8 +2310,9 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
         
         let bgClass = 'red-bg';
         
+        const cardObjectPosition = data.cardObjectPosition ? `object-position: ${data.cardObjectPosition} !important;` : '';
         const imageHtml = data.image 
-          ? `<img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;" />`
+          ? `<img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover; ${cardObjectPosition}" />`
           : `
             <svg viewBox="0 0 100 50" width="60" height="30" style="opacity: 0.25;">
               <polygon points="20,50 50,10 80,50" fill="#2132f6" />
@@ -2582,7 +2677,8 @@ function closePanel() {
   // snapping the viewBox during the panel close transition
   _panelClosing = true;
 
-  // Stop any playing YouTube video by clearing image wrapping containers
+  // Stop any playing media by clearing image wrapping containers
+  muteAndStopPreviewMedia();
   const slideshowImageWrap = document.getElementById('slideshowImageWrap');
   if (slideshowImageWrap) {
     slideshowImageWrap.innerHTML = '';
@@ -2693,7 +2789,9 @@ if (slideshowEnlargeBtn && lightboxOverlay && lightboxImageWrap) {
   slideshowEnlargeBtn.addEventListener('click', () => {
     const wrap = document.getElementById('slideshowImageWrap');
     if (wrap) {
+      muteAndStopPreviewMedia();
       lightboxImageWrap.innerHTML = wrap.innerHTML;
+      bindPreviewSoundToggle(lightboxImageWrap);
       lightboxOverlay.classList.add('open');
     }
   });
@@ -2725,6 +2823,7 @@ if (lightboxNextBtn) {
 
 if (lightboxCloseBtn && lightboxOverlay) {
   lightboxCloseBtn.addEventListener('click', () => {
+    muteAndStopPreviewMedia();
     lightboxOverlay.classList.remove('open');
     if (lightboxImageWrap) {
       lightboxImageWrap.innerHTML = '';
@@ -2735,6 +2834,7 @@ if (lightboxCloseBtn && lightboxOverlay) {
 if (lightboxOverlay) {
   lightboxOverlay.addEventListener('click', (e) => {
     if (e.target === lightboxOverlay) {
+      muteAndStopPreviewMedia();
       lightboxOverlay.classList.remove('open');
       if (lightboxImageWrap) {
         lightboxImageWrap.innerHTML = '';

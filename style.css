@@ -1076,13 +1076,23 @@ button { font: inherit; }
 .card-image-placeholder::after {
   content: '';
   position: absolute;
+  inset: 0;
   width: 130%;
   height: 130%;
   background: repeating-linear-gradient(45deg, rgba(33, 50, 246, 0.025), rgba(33, 50, 246, 0.025) 8px, transparent 8px, transparent 16px);
+  pointer-events: none;
+  z-index: 2;
 }
 .card-image-placeholder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   filter: grayscale(100%);
   transition: filter 0.3s ease;
+  z-index: 1;
 }
 .card-image-placeholder img[src*="chair6.jpg"] {
   object-position: center;
@@ -1229,6 +1239,42 @@ button { font: inherit; }
   width: 100%;
   height: 100%;
 }
+.slideshow-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  display: block;
+  background: #000;
+}
+.slideshow-sound-toggle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 12;
+  border: 2px solid var(--blue);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--blue);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slideshow-sound-toggle:hover {
+  background: #ffff00;
+}
+.slideshow-sound-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
 .slideshow-nav-btn {
   position: absolute;
   top: 50%;
@@ -1357,6 +1403,16 @@ button { font: inherit; }
   aspect-ratio: 4 / 3 !important;
   display: block !important;
   border: none !important;
+}
+.lightbox-image-wrap video {
+  width: auto !important;
+  height: auto !important;
+  max-width: 90vw !important;
+  max-height: 85vh !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: #000 !important;
 }
 .lightbox-nav-btn {
   position: absolute;
@@ -2177,8 +2233,9 @@ button { font: inherit; }
   }
 
   .info-panel.is-topic-view .slideshow-image-wrap img,
-  .info-panel.is-topic-view .slideshow-image-wrap iframe {
-    object-fit: contain !important;
+  .info-panel.is-topic-view .slideshow-image-wrap iframe,
+  .info-panel.is-topic-view .slideshow-image-wrap video {
+    object-fit: cover !important;
     width: 100% !important;
     height: 100% !important;
     max-height: 100% !important;
@@ -2189,6 +2246,8 @@ button { font: inherit; }
   .info-panel .card-image-placeholder img,
   .info-panel.is-branch-view .card-image-placeholder img,
   .info-panel.is-topic-view .card-image-placeholder img {
+    position: absolute !important;
+    inset: 0 !important;
     object-fit: cover !important;
     object-position: center center !important;
     width: 100% !important;
@@ -2372,10 +2431,10 @@ button { font: inherit; }
   .info-panel .card-image-placeholder,
   .info-panel.is-branch-view .card-image-placeholder,
   .info-panel.is-topic-view .card-image-placeholder {
-    flex: 0 0 108px !important;
+    flex: 1 1 auto !important;
     min-height: 0 !important;
-    height: 108px !important;
-    max-height: 108px !important;
+    height: auto !important;
+    max-height: none !important;
     width: 100% !important;
     overflow: hidden !important;
     position: relative !important;
