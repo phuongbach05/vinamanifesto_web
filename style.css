@@ -2039,11 +2039,12 @@ button { font: inherit; }
   .modal-main-box,
   .info-panel.is-branch-view .modal-main-box,
   .info-panel.is-topic-view .modal-main-box {
-    flex: 0 0 100% !important;
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
-    margin: 0 !important;
+    --floating-scroll-gap: 58px;
+    flex: 0 0 calc(100% - var(--floating-scroll-gap)) !important;
+    height: calc(100% - var(--floating-scroll-gap)) !important;
+    min-height: calc(100% - var(--floating-scroll-gap)) !important;
+    max-height: calc(100% - var(--floating-scroll-gap)) !important;
+    margin: 0 0 var(--floating-scroll-gap) !important;
     scroll-snap-align: start !important;
     box-sizing: border-box !important;
     position: relative !important;
@@ -2051,7 +2052,7 @@ button { font: inherit; }
     flex-direction: column !important;
     border: 3px solid var(--blue) !important;
     border-radius: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .info-panel.is-branch-view .modal-main-box {
@@ -2147,7 +2148,7 @@ button { font: inherit; }
   .info-panel.has-works .modal-scroll-arrow {
     display: flex !important;
     position: absolute;
-    bottom: 12px;
+    bottom: -51px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999 !important;
