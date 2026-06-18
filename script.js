@@ -36,8 +36,8 @@ const topicData = {
     title: 'Post-sharing economy',
     era: 'Past',
     image: 'postsharing economy/post1.png',
-    bodyEn: 'The project reworks the Uber motorbike jacket shortly after the company’s withdrawal from Vietnam’s ride-hailing market. The jacket is reconstructed as a formal veston, playfully yet sharply reminding the “user” of the realities of the post-sharing economy: a promise of prosperity driven by technological progress and liberalized working conditions, which in practice reveals itself as capitalism operating 24/7.\n\n<i>Photographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le Bac Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang</i>',
-    bodyVie: 'Dự án tái cấu trúc chiếc áo khoác xe ôm Uber ngay sau khi công ty này rút khỏi thị trường gọi xe Việt Nam. Chiếc áo khoác được biến đổi thành một bộ veston trang trọng, vừa hài hước vừa sắc bén, nhắc nhở “người dùng” về thực tại của nền kinh tế hậu chia sẻ: một lời hứa về sự thịnh vượng được thúc đẩy bởi tiến bộ công nghệ và các điều kiện lao động tự do hoá, nhưng trên thực tế lại phơi bày một chủ nghĩa tư bản vận hành 24/7.\n\n<i>Nhiếp ảnh Khanh Nguyen\nNhân vật Do Van Hoang\nĐồng phục Vinabiennale\nÝ tưởng và hậu kì Le Bac Tan\nCảm ơn Thu Madeline\nÂm nhạc KIMTrang</i>',
+    bodyEn: '<i class="topic-credit topic-credit-50">(2019) Reworked Garments.\n3D Scanning\nPhotographer Khanh Nguyen\nCharacter Do Van Hoang\nGarment Vinabiennale\nConcept & Post production Le-Bac-Tan\nSpecial thanks to Thu Madeline\nMusic KIMTrang</i>\nThe project reworks the Uber motorbike jacket shortly after the company’s withdrawal from Vietnam’s ride-hailing market. The jacket is reconstructed as a formal veston, playfully yet sharply reminding the “user” of the realities of the post-sharing economy: a promise of prosperity driven by technological progress and liberalized working conditions, which in practice reveals itself as capitalism operating 24/7.',
+    bodyVie: '<i class="topic-credit topic-credit-50">(2019) Đồ vải may lại\nScan 3D\nNhiếp ảnh Khanh Nguyen\nNhân vật Do Van Hoang\nĐồng phục Vinabiennale\nÝ tưởng và hậu kì Le-Bac-Tan\nCảm ơn Thu Madeline\nÂm nhạc KIMTrang</i>\nDự án tái cấu trúc chiếc áo khoác xe ôm Uber ngay sau khi công ty này rút khỏi thị trường gọi xe Việt Nam. Chiếc áo khoác được biến đổi thành một bộ veston trang trọng, vừa hài hước vừa sắc bén, nhắc nhở “người dùng” về thực tại của nền kinh tế hậu chia sẻ: một lời hứa về sự thịnh vượng được thúc đẩy bởi tiến bộ công nghệ và các điều kiện lao động tự do hoá, nhưng trên thực tế lại phơi bày một chủ nghĩa tư bản vận hành 24/7.',
     images: [
       {
         url: 'postsharing economy/post1.png',
@@ -71,7 +71,7 @@ const topicData = {
     title: 'Vinabiennale<br>SS2020/22',
     era: 'Past',
     image: 'vinabiennale2020/vina4.png',
-    bodyEn: 'Missing caption',
+    bodyEn: '<i class="topic-credit topic-credit-50">(2020) 3D Garments Design\nSupported by the RMIT Digital Design and Art Grants</i>\nThe collection remixes common uniforms and daily accessories from Vietnam. Serving as both speculative design and digital artifacts, the project questions:',
     bodyVie: 'Missing caption',
     images: [
       {
@@ -152,8 +152,8 @@ const topicData = {
   'cay-neo': {
     title: 'Cây Neo',
     era: 'Present',
-    bodyEn: 'Cây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.\n\n<i>Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le Bac Tan</i>',
-    bodyVie: 'Cây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.\n\n<i>Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le Bac Tan</i>',
+    bodyEn: '<i class="topic-credit">Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le-Bac-Tan</i>\nCây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.',
+    bodyVie: '<i class="topic-credit">Giám tuyển: Võ Thủy Tiên\nNghệ sĩ 3D: Trần Phương Bách\nÝ tưởng và tương tác: Le-Bac-Tan</i>\nCây Neo là một biến tấu từ cây nêu truyền thống ngày Tết. Tên gọi này đồng thời gợi đến từ “neo” trong tiếng Hy Lạp, nghĩa là “mới”, đánh dấu sự chuyển dịch từ cái cũ sang cái mới.\n\nTác phẩm này không chỉ lặp lại; nó sống. Được vận hành bởi các thuật toán L-system, tác phẩm hoạt động như một hệ thống tạo sinh, tự động đâm nhánh mới sau mỗi giờ. Những nhánh này phát triển thành các nhà ống — một di sản kiến trúc Việt Nam hiện đại còn đang sống — tượng trưng cho sự mở rộng không ngừng, hữu cơ của Việt Nam suốt ngày đêm.',
     images: [
       {
         captionEn: 'Typology study of traditional river boat anchoring devices along the Mekong.',
@@ -203,7 +203,7 @@ const topicData = {
     title: 'Bất Động Sản A/V',
     era: 'Present',
     bodyEn: 'Renick Bell (US) × Le Bac Tan (VN) – Bất Động Sản (Real Estate)\n\nA live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
-    bodyVie: 'Renick Bell (US) × Le Bac Tan (VN) – Bất Động Sản (Real Estate)\n\nA live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
+    bodyVie: 'Renick Bell (US) × Le Bac Tan (VN) – Bất Động Sản (Real Estate)\n\nMột trình diễn nghe-nhìn trực tiếp khám phá những biến động của thị trường bất động sản và cảnh quan kiến trúc Việt Nam. Kết hợp đồ họa tạo sinh, live coding, âm nhạc thuật toán và các hình ảnh mượn từ mỹ học kitsch Việt Nam, tác phẩm tạo nên một trải nghiệm nghe-nhìn động, phản ánh sự tương phản giữa kiến trúc bản địa Việt Nam và quá trình phát triển đô thị hiện đại.',
     images: [
       {
         url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
@@ -247,8 +247,8 @@ const topicData = {
   'il-provino': {
     title: 'Il provino',
     era: 'Past',
-    bodyEn: 'Caption missing',
-    bodyVie: 'Caption missing',
+    bodyEn: '<i class="topic-credit">Produced by Nguyễn Hải Yến (Red)\nStarring Celina Tran, Lê-Bac-Tân, Beo\nSupported by the RMIT Digital Design and Art Grants\nSpecial thanks to Martin Constable</i>\nThe video follows four characters, each embodying a stereotype of contemporary Vietnamese life, as they appear in fragmented scenes from an audition.\n\nThere is a salaryman who dreams of “flying like a kite” — lên như diều gặp gió; a narrator who brings rice to his mother before running off to play football; a schoolgirl who attends class by day and spiritual rituals by night; and a keyboard hero who patrols the Internet with memes and comments.\n\nThey meet only as fragments within the audition, each trying hard to fit into the roles that society has assigned to them.',
+    bodyVie: '<i class="topic-credit">(2022) Video thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Celina Tran, Lê-Bắc-Tân, Beo\nĐược hỗ trợ bởi RMIT Digital Design and Art Grants\nĐặc biệt cảm ơn Martin Constable</i>\nBốn nhân vật, đại diện cho bốn khuôn mẫu trong đời sống đương đại Việt Nam, gặp nhau qua những mảnh rời của một buổi casting: một anh nhân viên văn phòng mơ được “lên như diều gặp gió”; người kể chuyện mang cơm cho mẹ rồi đi đá bóng; một nữ sinh ban ngày đến lớp, ban đêm tham gia các buổi hầu đồng; và cuối cùng là một anh hùng bàn phím, tuần tra Internet bằng bàn phím và meme.\n\nHọ gặp nhau như những mảnh vỡ của buổi thử vai, mỗi người đều cố gắng hết sức để khớp vào những vai diễn mà xã hội đã trao cho họ.',
     images: [
       {
         captionEn: 'Archival video stills capturing audition recordings and screen tests.',

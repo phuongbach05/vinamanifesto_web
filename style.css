@@ -903,6 +903,18 @@ button { font: inherit; }
   white-space: pre-wrap;
 }
 
+.topic-credit {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 0.82em;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.topic-credit-50 {
+  opacity: 0.7;
+}
+
 #topicBodyEn a,
 #topicBodyVie a,
 #modalBodyEn a,
@@ -2826,7 +2838,7 @@ button { font: inherit; }
   background: rgba(255, 255, 255, 0.9);
   border: 2px solid var(--blue);
   color: var(--blue);
-  font-family: 'UTM Cooper Black', 'Cooper Black', 'Fraunces', serif;
+  font-family: Arial, sans-serif;
   font-size: 12px;
   font-style: italic;
   font-weight: bold;
@@ -2853,6 +2865,37 @@ button { font: inherit; }
   background: var(--blue);
   color: #fff;
   box-shadow: 0 6px 16px rgba(33, 50, 246, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  .site {
+    cursor: url('./cursor-small.cur'), auto;
+  }
+
+  a,
+  button,
+  [role="button"],
+  .topic,
+  .node,
+  .time,
+  .brand,
+  .slider-btn,
+  .slideshow-nav-btn,
+  .slideshow-enlarge-btn,
+  .lightbox-nav-btn,
+  .lightbox-close-btn,
+  .modal-home-wrap,
+  .modal-branch-wrap,
+  .connection-card,
+  .music-skip-btn {
+    cursor: url('./poniter-small.cur'), pointer !important;
+  }
+
+  #brandLogo {
+    cursor: url('./cursor-small.cur'), auto !important;
+  }
 }
 
 @media (max-width: 1024px) and (max-height: 500px) and (orientation: landscape) {
