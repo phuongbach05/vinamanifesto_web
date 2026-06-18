@@ -1743,6 +1743,33 @@ function formatDoubleLayeredText(textBase, textScript) {
   return html;
 }
 
+function toDecorativeTitleText(text = '') {
+  return String(text)
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
+function getDecorativeTitlePair(title = '', topicId = null) {
+  const plainTitle = String(title).replace(/<br\s*\/?>/gi, ' ');
+  const normalized = toDecorativeTitleText(plainTitle).toLowerCase();
+
+  if (topicId === 'open-source' || normalized.includes('de-sign')) {
+    return { base: 'Vina de-sign', script: 'Vina de-sign' };
+  }
+
+  return {
+    base: toDecorativeTitleText(title),
+    script: toDecorativeTitleText(title)
+  };
+}
+
+function formatDecorativeDoubleLayeredText(title, topicId = null) {
+  const pair = getDecorativeTitlePair(title, topicId);
+  return formatDoubleLayeredText(pair.base, pair.script);
+}
+
 function formatCardTitle(title) {
   let mainText = '';
   let subText = '';
@@ -1758,19 +1785,19 @@ function formatCardTitle(title) {
   } else if (titleLower.includes('open source') || titleLower.includes('đẻ-sign') || titleLower.includes('de-sign')) {
     return `
       <div class="card-title-main-wrap">
-        ${formatDoubleLayeredText('Vina đẻ-sign', 'Vina de-sign')}
+        ${formatDecorativeDoubleLayeredText('Vina de-sign', 'open-source')}
       </div>
     `;
   } else {
-    mainText = title;
+    mainText = toDecorativeTitleText(title);
     subText = '';
   }
   
-  const subHtml = subText ? `<div class="card-title-sub">${formatDoubleLayeredText(subText, subText)}</div>` : '';
+  const subHtml = subText ? `<div class="card-title-sub">${formatDecorativeDoubleLayeredText(subText)}</div>` : '';
   
   return `
     <div class="card-title-main-wrap">
-      ${formatDoubleLayeredText(mainText, mainText)}
+      ${formatDecorativeDoubleLayeredText(mainText)}
     </div>
     ${subHtml}
   `;
@@ -2057,11 +2084,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
   const cleanTitle = title.replace(/<br\s*\/?>/gi, ' ');
   const titleWrap = document.querySelector('.modal-header-left .modal-title-wrap');
   if (titleWrap) {
-    if (cleanTitle.toLowerCase().includes('đẻ-sign') || cleanTitle.toLowerCase().includes('de-sign')) {
-      titleWrap.innerHTML = formatDoubleLayeredText('Vina đẻ-sign', 'Vina de-sign');
-    } else {
-      titleWrap.innerHTML = formatDoubleLayeredText(cleanTitle, cleanTitle);
-    }
+    titleWrap.innerHTML = formatDecorativeDoubleLayeredText(cleanTitle, topicId);
   }
 
   // Clear container
@@ -2095,11 +2118,11 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     if (currentParentBranchId) {
       const parentData = branchData[currentParentBranchId];
       if (parentData && branchLink) {
-        branchLink.innerHTML = formatDoubleLayeredText(parentData.title, parentData.title);
+        branchLink.innerHTML = formatDecorativeDoubleLayeredText(parentData.title);
       }
     } else {
       if (branchLink) {
-        branchLink.innerHTML = formatDoubleLayeredText('Trunk', 'Trunk');
+        branchLink.innerHTML = formatDecorativeDoubleLayeredText('Trunk');
       }
     }
     
@@ -2119,11 +2142,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     const topicBodyVie = document.getElementById('topicBodyVie');
     
     if (detailTitleWrap) {
-      if (title.toLowerCase().includes('đẻ-sign') || title.toLowerCase().includes('de-sign')) {
-        detailTitleWrap.innerHTML = formatDoubleLayeredText('Vina đẻ-sign', 'Vina de-sign');
-      } else {
-        detailTitleWrap.innerHTML = formatDoubleLayeredText(title, title);
-      }
+      detailTitleWrap.innerHTML = formatDecorativeDoubleLayeredText(title, topicId);
     }
     if (topicBodyEn) topicBodyEn.innerHTML = bodyEn;
     if (topicBodyVie) topicBodyVie.innerHTML = bodyVie;
@@ -2163,13 +2182,9 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
       const branchDetailTitleScript = document.getElementById('branchDetailTitleScript');
       if (branchDetailTitle && branchDetailTitleScript) {
         const cleanTitle = title.replace(/<br\s*\/?>/gi, ' ');
-        if (cleanTitle.toLowerCase().includes('đẻ-sign') || cleanTitle.toLowerCase().includes('de-sign')) {
-          branchDetailTitle.textContent = 'Vina đẻ-sign';
-          branchDetailTitleScript.textContent = 'Vina de-sign';
-        } else {
-          branchDetailTitle.textContent = cleanTitle;
-          branchDetailTitleScript.textContent = cleanTitle;
-        }
+        const decorativePair = getDecorativeTitlePair(cleanTitle, topicId);
+        branchDetailTitle.textContent = decorativePair.base;
+        branchDetailTitleScript.textContent = decorativePair.script;
       }
       
       currentPanelData = { isTopic: false, bodyEn, bodyVie };
