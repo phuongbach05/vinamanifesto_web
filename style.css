@@ -1942,6 +1942,11 @@ button { font: inherit; }
 }
 
 @media (max-width: 1024px) and (max-height: 500px) and (orientation: landscape) {
+  .info-panel {
+    --landscape-nav-btn-size: 34px;
+    --landscape-nav-icon-size: 17px;
+  }
+
   html.is-mobile-landscape .site,
   html.is-mobile-landscape .map-wrap,
   html.is-mobile-landscape .lake-mountain,
@@ -2173,8 +2178,13 @@ button { font: inherit; }
     color: #fff !important;
     border: 3px solid var(--blue) !important;
     border-radius: 50% !important;
-    width: 44px;
-    height: 44px;
+    width: var(--landscape-nav-btn-size) !important;
+    height: var(--landscape-nav-btn-size) !important;
+    min-width: var(--landscape-nav-btn-size) !important;
+    min-height: var(--landscape-nav-btn-size) !important;
+    max-width: var(--landscape-nav-btn-size) !important;
+    max-height: var(--landscape-nav-btn-size) !important;
+    flex: 0 0 var(--landscape-nav-btn-size) !important;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -2213,8 +2223,13 @@ button { font: inherit; }
     color: #fff !important;
     border: 3px solid var(--blue) !important;
     border-radius: 50% !important;
-    width: 44px;
-    height: 44px;
+    width: var(--landscape-nav-btn-size) !important;
+    height: var(--landscape-nav-btn-size) !important;
+    min-width: var(--landscape-nav-btn-size) !important;
+    min-height: var(--landscape-nav-btn-size) !important;
+    max-width: var(--landscape-nav-btn-size) !important;
+    max-height: var(--landscape-nav-btn-size) !important;
+    flex: 0 0 var(--landscape-nav-btn-size) !important;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -2318,15 +2333,21 @@ button { font: inherit; }
   /* Navigation Buttons resets */
   .info-panel .slider-btn,
   .info-panel.is-topic-view .slider-btn {
-    flex: 0 0 36px !important;
-    width: 36px !important;
-    height: 36px !important;
+    flex: 0 0 var(--landscape-nav-btn-size) !important;
+    width: var(--landscape-nav-btn-size) !important;
+    height: var(--landscape-nav-btn-size) !important;
+    min-width: var(--landscape-nav-btn-size) !important;
+    min-height: var(--landscape-nav-btn-size) !important;
+    max-width: var(--landscape-nav-btn-size) !important;
+    max-height: var(--landscape-nav-btn-size) !important;
     z-index: 10 !important;
     border-radius: 50% !important;
     background: var(--blue) !important;
     color: #fff !important;
     border: 3px solid var(--blue) !important;
     box-shadow: 0 2px 8px rgba(33, 50, 246, 0.4) !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .info-panel #sliderPrevBtn svg,
@@ -2334,6 +2355,14 @@ button { font: inherit; }
   .info-panel.is-topic-view #sliderPrevBtn svg,
   .info-panel.is-topic-view #sliderNextBtn svg {
     transform: none !important;
+    width: var(--landscape-nav-icon-size) !important;
+    height: var(--landscape-nav-icon-size) !important;
+  }
+
+  .info-panel .modal-scroll-arrow svg,
+  .info-panel .modal-scroll-up-arrow svg {
+    width: var(--landscape-nav-icon-size) !important;
+    height: var(--landscape-nav-icon-size) !important;
   }
 
   /* Typography size clamping tweaks for landscape */
