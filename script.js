@@ -4116,9 +4116,9 @@ function spawnFallingVinaHouse() {
 
 function createMusicMarqueeContent(position) {
   const fragment = document.createDocumentFragment();
-  const copy = position === 'bottom'
-    ? 'Ghi lòng tạc dạ điều này: VINA là HEY! HAY! HEY! Nhớ rồi làm lấy hôm nay Làm xong mới biết: thế này Vina.'
-    : 'Write it down and shout today: VINA is HEY! HAY! HEY! Learn the rule, then make your play Only then you know the Vina way.';
+  const copy = position === 'top'
+    ? 'Làm xong mới biết: thế này Vina👐👐👐Nhớ rồi làm lấy hôm nay👐👐👐VINA là HEY! HAY! HEY!👐👐👐Ghi lòng tạc dạ điều này: '
+    : 'Only then you know the Vina way.👐👐👐 Learn the rule, then make your play👐👐👐VINA is HEY! HAY! HEY!👐👐👐Write it down and shout today::';
   const words = [copy, copy, copy];
 
   words.forEach(word => {
