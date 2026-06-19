@@ -274,6 +274,7 @@ const topicData = {
     bodyVie: '<i class="topic-credit">(2022) Video thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Celina Tran, Lê-Bắc-Tân, Beo\nĐược hỗ trợ bởi RMIT Digital Design and Art Grants\nĐặc biệt cảm ơn Martin Constable</i>\nBốn nhân vật, đại diện cho bốn khuôn mẫu trong đời sống đương đại Việt Nam, gặp nhau qua những mảnh rời của một buổi casting: một anh nhân viên văn phòng mơ được “lên như diều gặp gió”; người kể chuyện mang cơm cho mẹ rồi đi đá bóng; một nữ sinh ban ngày đến lớp, ban đêm tham gia các buổi hầu đồng; và cuối cùng là một anh hùng bàn phím, tuần tra Internet bằng bàn phím và meme.\nHọ gặp nhau như những mảnh vỡ của buổi thử vai, mỗi người đều cố gắng hết sức để khớp vào những vai diễn mà xã hội đã trao cho họ.',
     images: [
       {
+        url: 'https://youtu.be/1MUQamFFUWo?si=T74ZK5DYM1P04Vsv',
         captionEn: 'Archival video stills capturing audition recordings and screen tests.',
         captionVie: 'Ảnh cắt từ video lưu trữ ghi lại các buổi thu âm thử giọng và kiểm tra màn hình.'
       }
