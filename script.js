@@ -3350,6 +3350,10 @@ window.addEventListener('resize', () => {
       alignTopicDetailTitle();
     }
 
+    if (audio && !audio.paused) {
+      positionHtmlLogo();
+    }
+
     resizeFrame = null;
   });
 });
@@ -3361,6 +3365,10 @@ window.addEventListener('orientationchange', () => {
   if (panel && panel.classList.contains('open')) {
     alignCardTitles();
     alignTopicDetailTitle();
+  }
+
+  if (audio && !audio.paused) {
+    positionHtmlLogo();
   }
 });
 
@@ -4166,6 +4174,18 @@ function hideMusicMarquees() {
   }
 }
 
+function positionHtmlLogo() {
+  const svgLogo = document.getElementById('brandLogo');
+  const htmlLogo = document.getElementById('htmlBrandLogo');
+  if (svgLogo && htmlLogo) {
+    const rect = svgLogo.getBoundingClientRect();
+    htmlLogo.style.left = `${rect.left}px`;
+    htmlLogo.style.top = `${rect.top}px`;
+    htmlLogo.style.width = `${rect.width}px`;
+    htmlLogo.style.height = `${rect.height}px`;
+  }
+}
+
 function startAudioReactEvent() {
   const brand = document.querySelector('.brand');
   const skipBtn = document.getElementById('musicSkipBtn');
@@ -4174,6 +4194,17 @@ function startAudioReactEvent() {
     brand.classList.remove('event-returned');
     brand.classList.add('playing-music');
   }
+
+  // Position and show HTML brand logo overlay on top of everything during event
+  const htmlLogo = document.getElementById('htmlBrandLogo');
+  const svgLogo = document.getElementById('brandLogo');
+  if (svgLogo && htmlLogo) {
+    positionHtmlLogo();
+    htmlLogo.style.display = 'block';
+    htmlLogo.classList.add('playing-music');
+    svgLogo.style.visibility = 'hidden';
+  }
+
   setLakeMountainsAsHouses(true);
   showMusicMarquees();
   if (skipBtn) skipBtn.classList.add('show');
@@ -4293,6 +4324,18 @@ function stopAudioReact() {
     brand.classList.remove('playing-music');
     brand.classList.add('event-returned');
   }
+
+  // Hide HTML brand logo overlay and restore SVG brand logo
+  const htmlLogo = document.getElementById('htmlBrandLogo');
+  const svgLogo = document.getElementById('brandLogo');
+  if (htmlLogo) {
+    htmlLogo.style.display = 'none';
+    htmlLogo.classList.remove('playing-music');
+  }
+  if (svgLogo) {
+    svgLogo.style.visibility = '';
+  }
+
   setLakeMountainsAsHouses(false);
   hideMusicMarquees();
 

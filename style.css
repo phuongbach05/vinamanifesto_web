@@ -2919,6 +2919,17 @@ body.intro-pending .brand-logo-gif {
   animation: none !important;
   transform: scale(1);
 }
+#htmlBrandLogo {
+  position: fixed;
+  z-index: 20000;
+  pointer-events: none;
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+}
+#htmlBrandLogo.playing-music {
+  filter: invert(1);
+  animation: pulseLogo 1s ease-in-out infinite alternate;
+}
 @keyframes pulseLogo {
   0% { transform: scale(1); }
   100% { transform: scale(1.08); }
