@@ -270,8 +270,8 @@ const topicData = {
   'il-provino': {
     title: 'Il provino',
     era: 'Past',
-    bodyEn: '<i class="topic-credit">Produced by Nguyễn Hải Yến (Red)\nStarring Celina Tran, Lê-Bac-Tân, Beo\nSupported by the RMIT Digital Design and Art Grants\nSpecial thanks to Martin Constable</i>\nThe video follows four characters, each embodying a stereotype of contemporary Vietnamese life, as they appear in fragmented scenes from an audition.\n\nThere is a salaryman who dreams of “flying like a kite” — lên như diều gặp gió; a narrator who brings rice to his mother before running off to play football; a schoolgirl who attends class by day and spiritual rituals by night; and a keyboard hero who patrols the Internet with memes and comments.\n\nThey meet only as fragments within the audition, each trying hard to fit into the roles that society has assigned to them.',
-    bodyVie: '<i class="topic-credit">(2022) Video thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Celina Tran, Lê-Bắc-Tân, Beo\nĐược hỗ trợ bởi RMIT Digital Design and Art Grants\nĐặc biệt cảm ơn Martin Constable</i>\nBốn nhân vật, đại diện cho bốn khuôn mẫu trong đời sống đương đại Việt Nam, gặp nhau qua những mảnh rời của một buổi casting: một anh nhân viên văn phòng mơ được “lên như diều gặp gió”; người kể chuyện mang cơm cho mẹ rồi đi đá bóng; một nữ sinh ban ngày đến lớp, ban đêm tham gia các buổi hầu đồng; và cuối cùng là một anh hùng bàn phím, tuần tra Internet bằng bàn phím và meme.\n\nHọ gặp nhau như những mảnh vỡ của buổi thử vai, mỗi người đều cố gắng hết sức để khớp vào những vai diễn mà xã hội đã trao cho họ.',
+    bodyEn: '<i class="topic-credit">Produced by Nguyễn Hải Yến (Red)\nStarring Celina Tran, Lê-Bac-Tân, Beo\nSupported by the RMIT Digital Design and Art Grants\nSpecial thanks to Martin Constable</i>\nThe video follows four characters, each embodying a stereotype of contemporary Vietnamese life, as they appear in fragmented scenes from an audition.\nThere is a salaryman who dreams of “flying like a kite” — lên như diều gặp gió; a narrator who brings rice to his mother before running off to play football; a schoolgirl who attends class by day and spiritual rituals by night; and a keyboard hero who patrols the Internet with memes and comments.\nThey meet only as fragments within the audition, each trying hard to fit into the roles that society has assigned to them.',
+    bodyVie: '<i class="topic-credit">(2022) Video thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Celina Tran, Lê-Bắc-Tân, Beo\nĐược hỗ trợ bởi RMIT Digital Design and Art Grants\nĐặc biệt cảm ơn Martin Constable</i>\nBốn nhân vật, đại diện cho bốn khuôn mẫu trong đời sống đương đại Việt Nam, gặp nhau qua những mảnh rời của một buổi casting: một anh nhân viên văn phòng mơ được “lên như diều gặp gió”; người kể chuyện mang cơm cho mẹ rồi đi đá bóng; một nữ sinh ban ngày đến lớp, ban đêm tham gia các buổi hầu đồng; và cuối cùng là một anh hùng bàn phím, tuần tra Internet bằng bàn phím và meme.\nHọ gặp nhau như những mảnh vỡ của buổi thử vai, mỗi người đều cố gắng hết sức để khớp vào những vai diễn mà xã hội đã trao cho họ.',
     images: [
       {
         captionEn: 'Archival video stills capturing audition recordings and screen tests.',
@@ -340,14 +340,14 @@ const topicConnections = {
   'first-collection': ['post-sharing', 'taiwan', 'il-provino'],
   'taiwan': ['first-collection', 'il-provino'],
   'karma': ['viscose'],
-  'teaching': ['2028', 'open-source'],
-  'cay-neo': [],
-  'vina-seat': [],
-  'bds': ['vina-seat'],
+  'teaching': ['2028', 'open-source', 'vina-seat'],
+  'cay-neo': ['bds'],
+  'vina-seat': ['bds', 'open-source', 'teaching'],
+  'bds': ['vina-seat', 'cay-neo', 'vinav'],
   '2028': ['open-source', 'teaching'],
-  'open-source': ['2028', 'teaching'],
+  'open-source': ['2028', 'teaching', 'vina-seat'],
   'il-provino': ['viscose', 'first-collection', 'taiwan'],
-  'vinav': []
+  'vinav': ['bds']
 };
 
 const panel              = document.getElementById('infoPanel');
@@ -773,6 +773,46 @@ function setRiverFlow(selector) {
     river.classList.add('flow-in');
   });
   syncRiverDisplayStates();
+}
+
+let introHasRevealed = false;
+let introLiteMode = false;
+let riverFlowTimers = [];
+
+function clearRiverFlowTimers() {
+  riverFlowTimers.forEach(timerId => clearTimeout(timerId));
+  riverFlowTimers = [];
+}
+
+function scheduleRiverFlow(liteMode = introLiteMode) {
+  clearRiverFlowTimers();
+
+  if (liteMode) {
+    setRiverFlow('.river');
+    return;
+  }
+
+  riverFlowTimers.push(setTimeout(() => {
+    setRiverFlow('.river.main');
+  }, 2400));
+
+  riverFlowTimers.push(setTimeout(() => {
+    setRiverFlow('.river.sub');
+  }, 4000));
+
+  riverFlowTimers.push(setTimeout(() => {
+    setRiverFlow('.river.connector');
+  }, 5200));
+}
+
+function revealIntroMap() {
+  const wasPending = document.body.classList.contains('intro-pending');
+  document.body.classList.remove('intro-pending');
+  document.body.classList.add('map-revealed');
+
+  if (introHasRevealed && !wasPending) return;
+  introHasRevealed = true;
+  scheduleRiverFlow();
 }
 
 function expandBox(box, padding) {
@@ -2041,17 +2081,14 @@ function renderSlideshowPlaceholder(topicId, index) {
     }
     if (isLocalVideoUrl(currentImage.url)) {
       container.innerHTML = `
-        <video class="slideshow-video" src="${currentImage.url}" autoplay loop playsinline preload="metadata"></video>
-        <button class="slideshow-sound-toggle" type="button" aria-label="Turn sound off"></button>
+        <video class="slideshow-video" src="${currentImage.url}" autoplay loop muted playsinline preload="metadata"></video>
+        <button class="slideshow-sound-toggle" type="button" aria-label="Turn sound on"></button>
       `;
       bindPreviewSoundToggle(container);
       const video = container.querySelector('video');
       if (video) {
-        video.muted = false;
-        video.play().catch(() => {
-          video.muted = true;
-          bindPreviewSoundToggle(container);
-        });
+        video.muted = true;
+        video.play().catch(() => {});
       }
       return;
     }
@@ -3103,6 +3140,7 @@ function generateBackgroundIcons() {
 document.addEventListener('DOMContentLoaded', () => {
   updatePerformanceModeClass();
   const liteMode = isMobileLandscapeLite();
+  introLiteMode = liteMode;
 
   setupDynamicMask();
   if (!liteMode) {
@@ -3138,29 +3176,14 @@ document.addEventListener('DOMContentLoaded', () => {
     mtn.style.animationDelay = `${delay.toFixed(2)}s`;
   });
 
-  if (liteMode) {
-    setRiverFlow('.river');
-  } else {
-    const animatedRiverParts = document.querySelectorAll('.river, .ribbon-clip-stroke');
-    animatedRiverParts.forEach(river => {
-      const length = river.getTotalLength();
-      river.style.setProperty('--length', length + 'px');
-    });
+  const animatedRiverParts = document.querySelectorAll('.river, .ribbon-clip-stroke');
+  animatedRiverParts.forEach(river => {
+    const length = river.getTotalLength();
+    river.style.setProperty('--length', length + 'px');
+  });
 
-    // 1. Trigger main river flow after lake starts appearing (2.4s)
-    setTimeout(() => {
-      setRiverFlow('.river.main');
-    }, 2400);
-
-    // 2. Trigger child branches after the five trunks are established (4.0s)
-    setTimeout(() => {
-      setRiverFlow('.river.sub');
-    }, 4000);
-
-    // 3. Topic-to-topic links appear last (5.2s)
-    setTimeout(() => {
-      setRiverFlow('.river.connector');
-    }, 5200);
+  if (!document.body.classList.contains('intro-pending')) {
+    revealIntroMap();
   }
 
   // 4. Stagger mountain sprouting after the connection structure is readable. (Disabled for custom mountains)
@@ -3715,6 +3738,100 @@ let spawnIntervalId = null;
 let audioDataArray = null;
 let proceduralBeatTime = 0;
 
+const lakeMountainHouseMap = {
+  'mountaina.svg': 'housea-embedded.svg',
+  'mountainb.svg': 'houseb-embedded.svg',
+  'mountainc.svg': 'housec-embedded.svg',
+  'mountaincd.svg': 'housecd-embedded.svg',
+  'mountaine.svg': 'housee-embedded.svg',
+  'mountainf.svg': 'housef-embedded.svg',
+  'mountaing.svg': 'houseg-embedded.svg',
+  'mountainh.svg': 'househ-embedded.svg',
+  'mountaini.svg': 'housei-embedded.svg',
+  'mountaink.svg': 'housek-embedded.svg',
+  'mountainl.svg': 'housel-embedded.svg',
+  'mountainm.svg': 'housem-embedded.svg',
+  'mountainn.svg': 'housen-embedded.svg',
+  'mountaino.svg': 'houseo-embedded.svg',
+  'mountainp.svg': 'housep-embedded.svg',
+  'mountainup.svg': 'houseup-embedded.svg',
+  'mountainbottom.svg': 'housebottom-embedded.svg'
+};
+const lakeMountainHouseVersion = 'v=20260619-housem-triple-rest-13';
+
+function getAssetNameFromHref(href) {
+  return (href || '').split('/').pop().split('?')[0];
+}
+
+function setSvgImageHref(image, href) {
+  image.setAttribute('href', href);
+  image.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', href);
+}
+
+function cacheLakeMountainBox(image) {
+  if (image.dataset.originalWidth) return;
+  image.dataset.originalX = image.getAttribute('x') || '0';
+  image.dataset.originalY = image.getAttribute('y') || '0';
+  image.dataset.originalWidth = image.getAttribute('width') || '0';
+  image.dataset.originalHeight = image.getAttribute('height') || '0';
+}
+
+function setLakeMountainScale(image, scale) {
+  const originalX = parseFloat(image.dataset.originalX) || 0;
+  const originalY = parseFloat(image.dataset.originalY) || 0;
+  const originalWidth = parseFloat(image.dataset.originalWidth) || 0;
+  const originalHeight = parseFloat(image.dataset.originalHeight) || 0;
+  const nextWidth = originalWidth * scale;
+  const nextHeight = originalHeight * scale;
+
+  image.setAttribute('x', (originalX - (nextWidth - originalWidth) / 2).toFixed(1));
+  image.setAttribute('y', (originalY - (nextHeight - originalHeight) / 2).toFixed(1));
+  image.setAttribute('width', nextWidth.toFixed(1));
+  image.setAttribute('height', nextHeight.toFixed(1));
+}
+
+function setMountainpHoverState(mountain, shouldUseHouse) {
+  if (!mountain.dataset.originalHref) {
+    mountain.dataset.originalHref = mountain.getAttribute('href') || mountain.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || '';
+  }
+
+  if (shouldUseHouse) {
+    setSvgImageHref(mountain, `housep-embedded.svg?${lakeMountainHouseVersion}`);
+  } else if (!audio || audio.paused) {
+    setSvgImageHref(mountain, mountain.dataset.originalHref);
+  }
+}
+
+function setLakeMountainsAsHouses(shouldUseHouses) {
+  document.querySelectorAll('.lake-mountain').forEach(mountain => {
+    cacheLakeMountainBox(mountain);
+
+    if (!mountain.dataset.originalHref) {
+      mountain.dataset.originalHref = mountain.getAttribute('href') || mountain.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || '';
+    }
+
+    if (!shouldUseHouses) {
+      setSvgImageHref(mountain, mountain.dataset.originalHref);
+      setLakeMountainScale(mountain, 1);
+      return;
+    }
+
+    const assetName = getAssetNameFromHref(mountain.dataset.originalHref);
+    const houseHref = lakeMountainHouseMap[assetName];
+    if (houseHref) {
+      setSvgImageHref(mountain, `${houseHref}?${lakeMountainHouseVersion}`);
+      setLakeMountainScale(mountain, assetName === 'mountainm.svg' ? 3 : 1.3);
+    }
+  });
+}
+
+function getMountainpTriggers() {
+  return [...document.querySelectorAll('.lake-mountain')].filter(mountain => {
+    const href = mountain.dataset.originalHref || mountain.getAttribute('href') || mountain.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || '';
+    return getAssetNameFromHref(href) === 'mountainp.svg';
+  });
+}
+
 function initAudioReact() {
   if (!audio) {
     audio = new Audio('song.mp3');
@@ -3810,7 +3927,7 @@ function updateMountainsReaction() {
   const rainContainer = document.getElementById('musicRainContainer');
   if (rainContainer) {
     const isBeat = intensity > 0.25;
-    const items = rainContainer.querySelectorAll('.falling-word, .falling-v-icon');
+    const items = rainContainer.querySelectorAll('.falling-word, .falling-v-icon, .falling-vinahouse');
     items.forEach(item => {
       item.style.filter = isBeat ? 'invert(1)' : '';
     });
@@ -3883,6 +4000,119 @@ function spawnFallingVIcon() {
   }, (duration + delay) * 1000);
 }
 
+function spawnFallingVinaHouse() {
+  const container = document.getElementById('musicRainContainer');
+  if (!container) return;
+
+  const size = Math.floor(Math.random() * 70) + 70; // 70px to 140px
+  const left = Math.random() * 100;
+  const duration = Math.random() * 2.5 + 2.5; // 2.5s to 5s
+  const delay = Math.random() * 0.2;
+
+  const img = document.createElement('img');
+  img.className = 'falling-vinahouse';
+  img.src = 'vinahouse.png';
+  img.alt = '';
+  img.style.left = `${left}%`;
+  img.style.width = `${size}px`;
+  img.style.height = `${size}px`;
+  img.style.animationDuration = `${duration}s`;
+  img.style.animationDelay = `${delay}s`;
+
+  container.appendChild(img);
+
+  setTimeout(() => {
+    img.remove();
+  }, (duration + delay) * 1000);
+}
+
+function createMusicMarqueeContent() {
+  const fragment = document.createDocumentFragment();
+  const words = ['Sẽ là hay heya', 'Sẽ là hay heya', 'Sẽ là hay heya', 'Sẽ là hay heya'];
+
+  words.forEach(word => {
+    const span = document.createElement('span');
+    span.textContent = word;
+    fragment.appendChild(span);
+  });
+
+  return fragment;
+}
+
+function showMusicMarquees() {
+  if (document.getElementById('musicMarqueeLayer')) return;
+
+  const layer = document.createElement('div');
+  layer.id = 'musicMarqueeLayer';
+  layer.className = 'music-marquee-layer';
+
+  ['top', 'bottom'].forEach(position => {
+    const marquee = document.createElement('div');
+    marquee.className = `music-marquee music-marquee-${position}`;
+
+    const track = document.createElement('div');
+    track.className = 'music-marquee-track';
+    track.appendChild(createMusicMarqueeContent());
+    track.appendChild(createMusicMarqueeContent());
+
+    marquee.appendChild(track);
+    layer.appendChild(marquee);
+  });
+
+  document.body.appendChild(layer);
+}
+
+function hideMusicMarquees() {
+  const layer = document.getElementById('musicMarqueeLayer');
+  if (layer) {
+    layer.remove();
+  }
+}
+
+function startAudioReactEvent() {
+  const brand = document.querySelector('.brand');
+  const skipBtn = document.getElementById('musicSkipBtn');
+
+  if (brand) {
+    brand.classList.remove('event-returned');
+    brand.classList.add('playing-music');
+  }
+  setLakeMountainsAsHouses(true);
+  showMusicMarquees();
+  if (skipBtn) skipBtn.classList.add('show');
+
+  // Start animation frame loop
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  updateMountainsReaction();
+
+  // Start rain spawning
+  if (spawnIntervalId) clearInterval(spawnIntervalId);
+  spawnFallingVinaHouse();
+  setTimeout(spawnFallingVinaHouse, 140);
+  setTimeout(spawnFallingVinaHouse, 280);
+  spawnIntervalId = setInterval(() => {
+    if (Math.random() > 0.45) spawnFallingWord();
+    if (Math.random() > 0.45) spawnFallingVIcon();
+    if (Math.random() > 0.42) spawnFallingVinaHouse();
+  }, 180);
+}
+
+function toggleAudioReactFromMountainp(trigger) {
+  if (typeof trigger.blur === 'function') trigger.blur();
+  initAudioReact();
+
+  if (!audio) return;
+
+  if (audio.paused) {
+    audio.play().then(startAudioReactEvent).catch(err => {
+      console.error('KhÃ´ng chÆ¡i Ä‘Æ°á»£c nháº¡c:', err);
+      alert('ChÆ°a tÃ¬m tháº¥y file "song.mp3" trong thÆ° má»¥c web. Vui lÃ²ng thÃªm file "song.mp3" Ä‘á»ƒ cháº¡y hiá»‡u á»©ng nháº¡c!');
+    });
+  } else {
+    stopAudioReact();
+  }
+}
+
 function setupBrandAudioReact() {
   const brand = document.querySelector('.brand');
   if (!brand) return;
@@ -3904,6 +4134,41 @@ function setupBrandAudioReact() {
     });
   }
 
+  const revealFromBrand = (event) => {
+    event.preventDefault();
+    if (typeof brand.blur === 'function') brand.blur();
+    revealIntroMap();
+  };
+
+  brand.addEventListener('click', revealFromBrand);
+  brand.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    revealFromBrand(event);
+  });
+
+  getMountainpTriggers().forEach(mountain => {
+    mountain.classList.add('music-trigger-mountain');
+    mountain.setAttribute('role', 'button');
+    mountain.setAttribute('tabindex', '0');
+    mountain.setAttribute('aria-label', 'Start Vinahouse event');
+
+    mountain.addEventListener('mouseenter', () => setMountainpHoverState(mountain, true));
+    mountain.addEventListener('mouseleave', () => setMountainpHoverState(mountain, false));
+    mountain.addEventListener('focus', () => setMountainpHoverState(mountain, true));
+    mountain.addEventListener('blur', () => setMountainpHoverState(mountain, false));
+    mountain.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleAudioReactFromMountainp(mountain);
+    });
+    mountain.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      toggleAudioReactFromMountainp(mountain);
+    });
+  });
+
+  return;
+
   brand.addEventListener('click', (e) => {
     e.preventDefault();
     if (typeof brand.blur === 'function') brand.blur();
@@ -3914,6 +4179,8 @@ function setupBrandAudioReact() {
     if (audio.paused) {
       audio.play().then(() => {
         brand.classList.add('playing-music');
+        setLakeMountainsAsHouses(true);
+        showMusicMarquees();
         if (skipBtn) skipBtn.classList.add('show');
         
         // Start animation frame loop
@@ -3922,9 +4189,13 @@ function setupBrandAudioReact() {
 
         // Start rain spawning
         if (spawnIntervalId) clearInterval(spawnIntervalId);
+        spawnFallingVinaHouse();
+        setTimeout(spawnFallingVinaHouse, 140);
+        setTimeout(spawnFallingVinaHouse, 280);
         spawnIntervalId = setInterval(() => {
           if (Math.random() > 0.45) spawnFallingWord();
           if (Math.random() > 0.45) spawnFallingVIcon();
+          if (Math.random() > 0.42) spawnFallingVinaHouse();
         }, 180);
       }).catch(err => {
         console.error('Không chơi được nhạc:', err);
@@ -3937,6 +4208,8 @@ function setupBrandAudioReact() {
 }
 
 function stopAudioReact() {
+  revealIntroMap();
+
   if (audio) {
     audio.pause();
     audio.currentTime = 0;
@@ -3944,7 +4217,10 @@ function stopAudioReact() {
   const brand = document.querySelector('.brand');
   if (brand) {
     brand.classList.remove('playing-music');
+    brand.classList.add('event-returned');
   }
+  setLakeMountainsAsHouses(false);
+  hideMusicMarquees();
 
   const skipBtn = document.getElementById('musicSkipBtn');
   if (skipBtn) {
