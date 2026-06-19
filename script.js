@@ -4195,12 +4195,12 @@ function toggleAudioReactFromMountainp(trigger) {
   if (!audio) return;
 
   if (audio.paused) {
-    startAudioReactEvent();
     audio.play().catch(err => {
       console.error('Không chơi được nhạc:', err);
       alert('Chưa tìm thấy file "song.mp3" trong thư mục web. Vui lòng thêm file "song.mp3" để chạy hiệu ứng nhạc!');
       stopAudioReact();
     });
+    startAudioReactEvent();
   } else {
     stopAudioReact();
   }
