@@ -79,6 +79,11 @@ const topicData = {
         url: 'Viscose/vis3.png',
         captionEn: '(2021) AR filter.',
         captionVie: '(2021) AR filter.'
+      },
+      {
+        url: 'Viscose/vis4.mp4',
+        captionEn: '(2021) AR filter.',
+        captionVie: '(2021) AR filter.'
       }
     ]
   },
