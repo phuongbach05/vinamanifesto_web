@@ -904,6 +904,7 @@ function revealIntroMap() {
       introHasRevealed = true;
       introRevealStarted = false;
       scheduleRiverFlow();
+      prefetchHouseSvgs();
     }, 1400);
     return;
   }
@@ -913,6 +914,7 @@ function revealIntroMap() {
 
   introHasRevealed = true;
   scheduleRiverFlow();
+  prefetchHouseSvgs();
 }
 
 function expandBox(box, padding) {
@@ -2197,7 +2199,7 @@ function renderSlideshowPlaceholder(topicId, index) {
       ? `object-position: ${currentImage.objectPosition};`
       : (isBottomAligned ? 'object-position: bottom;' : '');
     container.innerHTML = `
-      <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block; ${objectPos}" />
+      <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block; ${objectPos}" decoding="async" />
     `;
     return;
   }
@@ -2448,7 +2450,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
         
         const cardObjectPosition = data.cardObjectPosition ? `object-position: ${data.cardObjectPosition} !important;` : '';
         const imageHtml = data.image 
-          ? `<img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover; ${cardObjectPosition}" />`
+          ? `<img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover; ${cardObjectPosition}" loading="lazy" decoding="async" />`
           : `
             <svg viewBox="0 0 100 50" width="60" height="30" style="opacity: 0.25;">
               <polygon points="20,50 50,10 80,50" fill="#2132f6" />
@@ -3867,6 +3869,25 @@ const lakeMountainHouseMap = {
   'mountainbottom.svg': 'housebottom-embedded.svg'
 };
 const lakeMountainHouseVersion = 'v=20260619-housem-triple-rest-13';
+
+let housesPrefetched = false;
+function prefetchHouseSvgs() {
+  if (housesPrefetched) return;
+  housesPrefetched = true;
+  const houseFiles = Object.values(lakeMountainHouseMap).map(file => `${file}?${lakeMountainHouseVersion}`);
+  let index = 0;
+  function prefetchNext() {
+    if (index >= houseFiles.length) return;
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.as = 'image';
+    link.href = houseFiles[index];
+    document.head.appendChild(link);
+    index++;
+    setTimeout(prefetchNext, 200);
+  }
+  prefetchNext();
+}
 
 function getAssetNameFromHref(href) {
   return (href || '').split('/').pop().split('?')[0];
