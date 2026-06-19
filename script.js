@@ -55,75 +55,74 @@ const topicData = {
   'viscose': {
     title: 'Viscose #3',
     era: 'Past',
-    bodyEn: '<i class="topic-credit">(2021) AR filter.\nMagazine.\nInstalled at X-Museum, China.</i>\n"The Avant-garde is in Front of Us"\nA collaborative diagram co-ideated with Arlette Quỳnh Anh Trần. This work explores the shifting locus of the avant-garde in contemporary Asia, challenging Eurocentric temporalities and proposing a regionally grounded, forward-facing vision of artistic experimentation.',
+    image: 'Viscose/vis2.png',
+    bodyEn: '<i class="topic-credit">(2021) AR filter.\nMagazine.\nInstalled at X-Museum, China.</i>\n"The Avant-garde is in Front of Us". A collaborative diagram co-ideated with Arlette Quỳnh Anh Trần. This work explores the shifting locus of the avant-garde in contemporary Asia, challenging Eurocentric temporalities and proposing a regionally grounded, forward-facing vision of artistic experimentation.',
     bodyVie: '<i class="topic-credit">(2021) Bộ lọc AR.\nTạp chí..\nTrưng bày tại X-Museum, Trung Quốc.</i>\n“The Avant-garde is in Front of Us”\nMột sơ đồ cộng tác, được đồng ý tưởng cùng Arlette Quỳnh Anh Trần.\nTác phẩm khám phá sự dịch chuyển của khái niệm avant-garde trong châu Á đương đại, chất vấn các quan niệm thời gian lấy châu Âu làm trung tâm, đồng thời đề xuất một tầm nhìn về thực hành thử nghiệm nghệ thuật: hướng về phía trước nhưng được đặt nền trên chính bối cảnh khu vực.',
     images: [
       {
-        captionEn: 'Archival photography of early synthetic textile factories in Nam Dinh.',
-        captionVie: 'Ảnh tư liệu về những nhà máy dệt tổng hợp thời kỳ đầu tại Nam Định.'
+        url: 'Viscose/vis1.jpg',
+        captionEn: '(2021) AR filter.',
+        captionVie: '(2021) AR filter.'
       },
       {
-        captionEn: 'Material study analyzing local fiber weaves and industrial compounds.',
-        captionVie: 'Nghiên cứu chất liệu phân tích các kiểu dệt sợi địa phương và hợp chất công nghiệp.'
+        url: 'Viscose/vis2.png',
+        captionEn: '(2021) AR filter.',
+        captionVie: '(2021) AR filter.'
+      },
+      {
+        url: 'Viscose/vis3.png',
+        captionEn: '(2021) AR filter.',
+        captionVie: '(2021) AR filter.'
       }
     ]
   },
   'first-collection': {
     title: 'Vinabiennale<br>SS2020/22',
     era: 'Past',
-    image: 'vinabiennale2020/vina4.jpg',
-    bodyEn: '<i class="topic-credit">(2023) Experimental Theatre\nProduced by Nguyễn Hải Yến (Red)\nStarring Ngô Trung Hiếu, Beo, Xoay\nAdditional garments by AKA My Dinh\nPresented at Taiwan National Theatre</i>\nIn 2023, Vinabiennale received funding from Taiwan’s National Theatre to be presented as a work-in-progress at the theatre, transforming the original fashion film into a multimedia performance.\nContinuing the storyline from Il Provino, the characters evolved into a more complex and ambitious plot, exploring the struggles of contemporary youth across love, work, and cyberspace.',
-    bodyVie: '<i class="topic-credit">(2023) Sân khấu thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Ngô Trung Hiếu, Beo, Xoay\nTrang phục bổ sung bởi AKA My Dinh\nTrình bày tại Taiwan National Theatre</i>\nNăm 2023, Vinabiennale nhận được tài trợ từ Taiwan National Theatre để trình bày tác phẩm dưới dạng work-in-progress tại nhà hát, chuyển hóa bộ phim thời trang thành một trình diễn đa phương tiện.\nTiếp nối mạch truyện từ Il Provino, các nhân vật phát triển thành một cốt truyện phức tạp và tham vọng hơn, khám phá những giằng co của giới trẻ đương đại trong tình yêu, công việc và không gian mạng.',
+    image: 'vinabiennale2020/v1.jpg',
+    bodyEn: '<i class="topic-credit">(2020) 3D Garments Design\nSupported by the RMIT Digital Design and Art Grants.</i>\nThe collection remixes common uniforms and everyday accessories from Vietnam. Functioning as both speculative design and digital artifacts, the project questions Vietnamese stereotypes through the attires that carry them.\nDoes function really shape form? Or can the characteristics of a person shape what they wear instead?\nBy exaggerating, mutating, and recombining familiar garments, the collection imagines clothing not as something that simply serves the body, but as something that absorbs social roles, habits, desires, and contradictions. Each piece becomes a portrait: a uniform of personality rather than merely occupation.',
+    bodyVie: '<i class="topic-credit">(2020) Thiết kế trang phục 3D\nTài trợ bởi RMIT Digital Design and Art Grants.</i>\nBộ sưu tập này tái phối những bộ đồng phục phổ biến và các phụ kiện thường nhật ở Việt Nam. Vận hành đồng thời như một dự án thiết kế giả tưởng và các hiện vật số, dự án đặt câu hỏi về những khuôn mẫu gắn với người Việt thông qua chính những trang phục họ mặc.\nLiệu chức năng có thật sự quyết định hình thức? Hay chính tính cách của một con người mới là thứ định hình những gì họ mặc?\nBằng cách cường điệu hóa, biến dị và tái tổ hợp các trang phục quen thuộc, bộ sưu tập hình dung quần áo không chỉ là thứ phục vụ cơ thể, mà còn là thứ hấp thụ các vai trò xã hội, thói quen, ham muốn và mâu thuẫn. Mỗi thiết kế vì thế trở thành một chân dung: một bộ đồng phục của cá tính, thay vì chỉ là của nghề nghiệp.',
     images: [
-      {
-        url: 'vinabiennale2020/vina1.jpg',
-        captionEn: 'Prototype designs showcasing street objects transformed into wearable garments.',
-        captionVie: 'Các thiết kế thử nghiệm trình diễn vật dụng đường phố được biến đổi thành trang phục.'
-      },
-      {
-        url: 'vinabiennale2020/vina2.jpg',
-        captionEn: 'Exhibition moodboard featuring local sidewalk patterns and texture references.',
-        captionVie: 'Moodboard triển lãm thể hiện các họa tiết vỉa hè địa phương và mẫu chất liệu tham chiếu.'
-      },
-      {
-        url: 'vinabiennale2020/vina3.jpg',
-        captionEn: 'Vinabiennale SS2020/22 exhibition highlight.',
-        captionVie: 'Hình ảnh nổi bật từ triển lãm Vinabiennale SS2020/22.'
-      },
-      {
-        url: 'vinabiennale2020/vina4.jpg',
-        captionEn: 'Vinabiennale SS2020/22 work progress.',
-        captionVie: 'Tiến trình thực hiện tác phẩm Vinabiennale SS2020/22.'
-      },
-      {
-        url: 'vinabiennale2020/vina5.jpg',
-        captionEn: 'Vinabiennale SS2020/22 final installation.',
-        captionVie: 'Sắp đặt hoàn thiện Vinabiennale SS2020/22.'
-      }
+      { url: 'vinabiennale2020/v1.jpg' },
+      { url: 'vinabiennale2020/v2.jpg' },
+      { url: 'vinabiennale2020/v3.jpg' },
+      { url: 'vinabiennale2020/v4.jpg' },
+      { url: 'vinabiennale2020/v5.mp4' },
+      { url: 'vinabiennale2020/v6.jpg' },
+      { url: 'vinabiennale2020/v7.jpg' },
+      { url: 'vinabiennale2020/v8.mp4' },
+      { url: 'vinabiennale2020/v9.jpg' },
+      { url: 'vinabiennale2020/v10.jpg' },
+      { url: 'vinabiennale2020/v11.jpg' },
+      { url: 'vinabiennale2020/v12.jpg' },
+      { url: 'vinabiennale2020/v13.jpg' },
+      { url: 'vinabiennale2020/v14.jpg' },
+      { url: 'vinabiennale2020/v15.jpg' },
+      { url: 'vinabiennale2020/v16.jpg' },
+      { url: 'vinabiennale2020/v17.jpg' },
+      { url: 'vinabiennale2020/v18.jpg' },
+      { url: 'vinabiennale2020/v19.jpg' },
+      { url: 'vinabiennale2020/v20.png' },
+      { url: 'vinabiennale2020/v21.png' }
     ]
   },
   'taiwan': {
     title: 'Vinabiennale<br>@ TW National Theatre',
     era: 'Past',
+    image: 'vinataiwan/taiwan1.png',
     bodyEn: '<i class="topic-credit">(2023) Experimental Theatre\nProduced by Nguyễn Hải Yến (Red)\nStarring Ngô Trung Hiếu, Beo, Xoay\nAdditional garments by AKA My Dinh\nPresented at Taiwan National Theatre</i>\nIn 2023, Vinabiennale received funding from Taiwan’s National Theatre to be presented as a work-in-progress at the theatre, transforming the original fashion film into a multimedia performance.\nContinuing the storyline from Il Provino, the characters evolved into a more complex and ambitious plot, exploring the struggles of contemporary youth across love, work, and cyberspace.',
     bodyVie: '<i class="topic-credit">(2023) Sân khấu thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Ngô Trung Hiếu, Beo, Xoay\nTrang phục bổ sung bởi AKA My Dinh\nTrình bày tại Taiwan National Theatre</i>\nNăm 2023, Vinabiennale nhận được tài trợ từ Taiwan National Theatre để trình bày tác phẩm dưới dạng work-in-progress tại nhà hát, chuyển hóa bộ phim thời trang thành một trình diễn đa phương tiện.\nTiếp nối mạch truyện từ Il Provino, các nhân vật phát triển thành một cốt truyện phức tạp và tham vọng hơn, khám phá những giằng co của giới trẻ đương đại trong tình yêu, công việc và không gian mạng.',
     images: [
-      {
-        captionEn: 'Stage layout draft integrating traditional Vietnamese water puppetry structures in Taiwan.',
-        captionVie: 'Bản thảo thiết kế sân khấu tích hợp cấu trúc múa rối nước truyền thống Việt Nam tại Đài Loan.'
-      },
-      {
-        captionEn: 'Behind-the-scenes costume details combining traditional silk with industrial vinyl.',
-        captionVie: 'Chi tiết trang phục hậu trường kết hợp lụa truyền thống với chất liệu nhựa vinyl công nghiệp.'
-      }
+      { url: 'vinataiwan/taiwan1.png' },
+      { url: 'vinataiwan/taiwan2.jpg' }
     ]
   },
   'karma': {
     title: 'Karma Kapitalists',
     era: 'Past',
     image: 'karma/karma2.jpg',
-    bodyEn: 'The project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity',
-    bodyVie: 'Dự án phối trộn hình thức giấy tiền vàng mã quen thuộc—vốn thường được đốt như lễ vật dâng cúng tổ tiên và các vị thần bản địa trong nhiều nền văn hoá Đông Á—với hệ biểu tượng đương đại của Bitcoin và tiền mã hóa. Tồn tại giữa trình diễn và một hiện vật thiết kế đồ hoạ mang tính suy tưởng, tác phẩm thể hiện tinh thần của Vinamanifesto: tiếp nhận và tái tổ hợp những ảnh hưởng văn hoá đa dạng mà không đánh mất bản sắc Việt Nam riêng biệt.',
+    bodyEn: '<i class="topic-credit">(2019) Speculative design</i>\nThe project remixes the common joss paper, normally burnt for ancestors in East Asian cultures with the new iconography of Bitcoin and cryptography. Both a performance and a speculative graphic design artifact, the project exemplifies Vinamanifesto\'s approach, that is remixing of differnent cultural influences, without compromising Vietnamese distinctive indentity.',
+    bodyVie: '<i class="topic-credit">(2019) Thiết kế suy tưởng</i>\nDự án phối trộn hình thức giấy tiền vàng mã quen thuộc—vốn thường được đốt như lễ vật dâng cúng tổ tiên và các vị thần bản địa trong nhiều nền văn hoá Đông Á—với hệ biểu tượng đương đại của Bitcoin và tiền mã hóa. Tồn tại giữa trình diễn và một hiện vật thiết kế đồ hoạ mang tính suy tưởng, tác phẩm thể hiện tinh thần của Vinamanifesto: tiếp nhận và tái tổ hợp những ảnh hưởng văn hoá đa dạng mà không đánh mất bản sắc Việt Nam riêng biệt.',
     images: [
       {
         url: 'karma/karma1.mp4',
@@ -145,16 +144,25 @@ const topicData = {
   'teaching': {
     title: 'Vina teach',
     era: 'Present',
+    image: 'vinateach/vinateach2.png',
+    cardPlainBackground: true,
     bodyEn: '<i class="topic-credit">(2020) Academic teaching</i>\nSince 2020, Le-Bac-Tan has been sharing his expertise in Visual Jockeying (VJ) and Interaction Design in Vietnam, actively introducing the Vina Manifesto to his students through teaching and practice.\nThis is the Vina Manifesto in praxis: offering younger generations a way to conceptualize their own cultures, roots, and contemporary identities through creative technologies.',
     bodyVie: '<i class="topic-credit">(2020) Giảng dạy học thuật</i>\nTừ năm 2020, Le-Bac-Tan đã chia sẻ chuyên môn của mình trong lĩnh vực Visual Jockeying (VJ) và Thiết kế Tương tác tại Việt Nam, đồng thời tích cực giới thiệu Vina Manifesto đến sinh viên thông qua giảng dạy và thực hành.\nĐây chính là Vina Manifesto trong thực tiễn: trao cho các thế hệ trẻ một cách để hình dung, khái niệm hóa và diễn giải lại văn hóa, cội nguồn và căn tính đương đại của chính mình thông qua các công nghệ sáng tạo.',
     images: [
       {
-        captionEn: '(2020) Academic teaching',
-        captionVie: '(2020) Giảng dạy học thuật'
+        url: 'vinateach/vinateach1.mp4',
+        captionEn: 'Vina Teach (2020-). Courtesy of the students',
+        captionVie: 'Vina Teach (2020-) Bản quyền thuộc về sinh viên'
       },
       {
-        captionEn: '(2020) Academic teaching',
-        captionVie: '(2020) Giảng dạy học thuật'
+        url: 'vinateach/vinateach2.png',
+        captionEn: 'Vina Teach (2020-). Courtesy of the students',
+        captionVie: 'Vina Teach (2020-) Bản quyền thuộc về sinh viên'
+      },
+      {
+        url: 'vinateach/vinateach3.png',
+        captionEn: 'Vina Teach (2020-). Courtesy of the students',
+        captionVie: 'Vina Teach (2020-) Bản quyền thuộc về sinh viên'
       }
     ]
   },
@@ -163,9 +171,14 @@ const topicData = {
     era: 'Present',
     image: 'cayneo/cayneo2.jpg',
     cardObjectPosition: 'top',
-    bodyEn: '<i class="topic-credit">Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le-Bac-Tan</i>\nCây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\n\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.',
-    bodyVie: '<i class="topic-credit">Giám tuyển: Võ Thủy Tiên\nNghệ sĩ 3D: Trần Phương Bách\nÝ tưởng và tương tác: Le-Bac-Tan</i>\nCây Neo là một biến tấu từ cây nêu truyền thống ngày Tết. Tên gọi này đồng thời gợi đến từ “neo” trong tiếng Hy Lạp, nghĩa là “mới”, đánh dấu sự chuyển dịch từ cái cũ sang cái mới.\n\nTác phẩm này không chỉ lặp lại; nó sống. Được vận hành bởi các thuật toán L-system, tác phẩm hoạt động như một hệ thống tạo sinh, tự động đâm nhánh mới sau mỗi giờ. Những nhánh này phát triển thành các nhà ống — một di sản kiến trúc Việt Nam hiện đại còn đang sống — tượng trưng cho sự mở rộng không ngừng, hữu cơ của Việt Nam suốt ngày đêm.',
+    bodyEn: '<i class="topic-credit">Curator: Vo Thuy Tien\n3D artist: Tran Phuong Bach\nConcept and interaction Le-Bac-Tan</i>\nCây Neo is a twist on the traditional Tet pole (“Cây Nêu”). The name also evokes the Greek “neo” (new), marking the shift from the old to the new.\nThis piece doesn’t just loop; it lives. Powered by L-system algorithms, the artwork operates as a generative system, autonomously sprouting new branches every hour. These branches grow into nhà ống (tube houses)—a living modern Vietnamese architectural heritage—symbolizing the ceaseless, organic expansion of Vietnam around the clock.',
+    bodyVie: '<i class="topic-credit">Giám tuyển: Võ Thủy Tiên\nNghệ sĩ 3D: Trần Phương Bách\nÝ tưởng và tương tác: Le-Bac-Tan</i>\nCây Neo là một biến tấu từ cây nêu truyền thống ngày Tết. Tên gọi này đồng thời gợi đến từ “neo” trong tiếng Hy Lạp, nghĩa là “mới”, đánh dấu sự chuyển dịch từ cái cũ sang cái mới.\nTác phẩm này không chỉ lặp lại; nó sống. Được vận hành bởi các thuật toán L-system, tác phẩm hoạt động như một hệ thống tạo sinh, tự động đâm nhánh mới sau mỗi giờ. Những nhánh này phát triển thành các nhà ống — một di sản kiến trúc Việt Nam hiện đại còn đang sống — tượng trưng cho sự mở rộng không ngừng, hữu cơ của Việt Nam suốt ngày đêm.',
     images: [
+      {
+        url: 'cayneo/cayneo4.mp4',
+        captionEn: 'Cây Neo video preview.',
+        captionVie: 'Video preview Cây Neo.'
+      },
       {
         url: 'cayneo/cayneo1.jpg',
         captionEn: 'Typology study of traditional river boat anchoring devices along the Mekong.',
@@ -180,18 +193,13 @@ const topicData = {
         url: 'cayneo/cayneo3.jpg',
         captionEn: 'Cây Neo generative growth detail.',
         captionVie: 'Chi tiết phát triển tạo sinh của Cây Neo.'
-      },
-      {
-        url: 'cayneo/cayneo4.mp4',
-        captionEn: 'Cây Neo video preview.',
-        captionVie: 'Video preview Cây Neo.'
       }
     ]
   },
   'vina-seat': {
     title: 'Vina Seat',
     era: 'Present',
-    image: 'Vinaseat/chair6.jpg',
+    image: 'Vinaseat/chair1.png',
     bodyEn: "<i class=\"topic-credit\">(2025) Stainless steel\nFinalists of 3WOD contest, HCMC, Vietnam\nSpecial thanks to Gallery Medium.</i>\nVinaseat is a structure born and raised in Vina Land. Its design is inspired by the folding accordion-style gates found throughout the country, from North to South. The structure can be expanded to function as a seat or as a table base, and collapsed for easy carrying and quick relocation while eating or drinking on the sidewalk. It reflects the adaptability of Vietnamese street life, where temporary dining and social gatherings often take place in spaces originally intended for pedestrians.",
     bodyVie: "<i class=\"topic-credit\">(2025) Thép không gỉ\nVào vòng chung kết cuộc thi 3WOD, TP.HCM, Việt Nam\nĐặc biệt cảm ơn Gallery Medium.</i>\nVinaseat là một cấu trúc sinh ra và lớn lên ở Vina. Cấu trúc được lấy cảm hứng từ các loại cửa xếp kéo ra, kéo vào từ miền Bắc tới miền Nam Việt Nam. Cấu trúc này có thể kéo ra để làm ghế ngồi hoặc để làm chân bàn, hoặc kéo vào để tiện vác đi và chạy khi đang ăn cơm,uống nước trên vỉa hè, vốn dành riêng cho người đi bộ.",
     images: [
@@ -209,29 +217,30 @@ const topicData = {
         url: 'Vinaseat/chair3.png',
         captionEn: 'Vina Seat structural details.',
         captionVie: 'Chi tiết cấu trúc Vina Seat.'
-      },
-      {
-        url: 'Vinaseat/chair4.jpg',
-        captionEn: 'Vina Seat prototype variations.',
-        captionVie: 'Các biến thể nguyên mẫu Vina Seat.'
-      },
-      {
-        url: 'Vinaseat/chair5.jpg',
-        captionEn: 'Vina Seat public installation.',
-        captionVie: 'Sắp đặt Vina Seat nơi công cộng.'
       }
     ]
   },
   'bds': {
     title: 'Bất Động Sản A/V',
     era: 'Present',
-    bodyEn: 'A live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
-    bodyVie: 'Một trình diễn nghe-nhìn trực tiếp khám phá những biến động của thị trường bất động sản và cảnh quan kiến trúc Việt Nam. Kết hợp đồ họa tạo sinh, live coding, âm nhạc thuật toán và các hình ảnh mượn từ mỹ học kitsch Việt Nam, tác phẩm tạo nên một trải nghiệm nghe-nhìn động, phản ánh sự tương phản giữa kiến trúc bản địa Việt Nam và quá trình phát triển đô thị hiện đại.',
+    image: 'batdongsan/bd3.png',
+    bodyEn: '<i class="topic-credit">(2022-) Audio-visual performances\n<a href="https://www.youtube.com/watch?v=bk_dJ5wYeUQ" target="_blank">Youtube</a></i>\nA live audio-visual performance that explores Vietnam\'s fluctuating real estate markets and architectural landscape. Blending generative graphics, live coding, algorithmic music, and appropriated images from Vietnamese Kitsch, the work creates a dynamic audiovisual experience reflecting the contrast between vernacular Vietnamese architecture and modern urban development.',
+    bodyVie: '<i class="topic-credit">(2022-) Trình diễn nghe-nhìn\n<a href="https://www.youtube.com/watch?v=bk_dJ5wYeUQ" target="_blank">Youtube</a></i>\nMột trình diễn nghe-nhìn trực tiếp khám phá những biến động của thị trường bất động sản và cảnh quan kiến trúc Việt Nam. Kết hợp đồ họa tạo sinh, live coding, âm nhạc thuật toán và các hình ảnh mượn từ mỹ học kitsch Việt Nam, tác phẩm tạo nên một trải nghiệm nghe-nhìn động, phản ánh sự tương phản giữa kiến trúc bản địa Việt Nam và quá trình phát triển đô thị hiện đại.',
     images: [
       {
         url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
-        captionEn: 'Visual storyboard mapping real estate advertising patterns in construction zones.',
-        captionVie: 'Storyboard hình ảnh ánh xạ các mô-típ quảng cáo bất động sản tại các khu vực công trường.'
+        captionEn: '(2022-) Audio-visual performances',
+        captionVie: '(2022-) Trình diễn nghe-nhìn'
+      },
+      {
+        url: 'batdongsan/bd1.mp4',
+        captionEn: '(2022-) Audio-visual performances',
+        captionVie: '(2022-) Trình diễn nghe-nhìn'
+      },
+      {
+        url: 'batdongsan/bd2.mp4',
+        captionEn: '(2022-) Audio-visual performances',
+        captionVie: '(2022-) Trình diễn nghe-nhìn'
       }
     ]
   },
@@ -270,13 +279,34 @@ const topicData = {
   'il-provino': {
     title: 'Il provino',
     era: 'Past',
-    bodyEn: '<i class="topic-credit">Produced by Nguyễn Hải Yến (Red)\nStarring Celina Tran, Lê-Bac-Tân, Beo\nSupported by the RMIT Digital Design and Art Grants\nSpecial thanks to Martin Constable</i>\nThe video follows four characters, each embodying a stereotype of contemporary Vietnamese life, as they appear in fragmented scenes from an audition.\nThere is a salaryman who dreams of “flying like a kite” — lên như diều gặp gió; a narrator who brings rice to his mother before running off to play football; a schoolgirl who attends class by day and spiritual rituals by night; and a keyboard hero who patrols the Internet with memes and comments.\nThey meet only as fragments within the audition, each trying hard to fit into the roles that society has assigned to them.',
-    bodyVie: '<i class="topic-credit">(2022) Video thử nghiệm\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Celina Tran, Lê-Bắc-Tân, Beo\nĐược hỗ trợ bởi RMIT Digital Design and Art Grants\nĐặc biệt cảm ơn Martin Constable</i>\nBốn nhân vật, đại diện cho bốn khuôn mẫu trong đời sống đương đại Việt Nam, gặp nhau qua những mảnh rời của một buổi casting: một anh nhân viên văn phòng mơ được “lên như diều gặp gió”; người kể chuyện mang cơm cho mẹ rồi đi đá bóng; một nữ sinh ban ngày đến lớp, ban đêm tham gia các buổi hầu đồng; và cuối cùng là một anh hùng bàn phím, tuần tra Internet bằng bàn phím và meme.\nHọ gặp nhau như những mảnh vỡ của buổi thử vai, mỗi người đều cố gắng hết sức để khớp vào những vai diễn mà xã hội đã trao cho họ.',
+    image: 'II Provino/i (1).jpg',
+    bodyEn: '<i class="topic-credit">(2022) Experimental video\n<a href="https://youtu.be/1MUQamFFUWo?si=T74ZK5DYM1P04Vsv" target="_blank">Youtube</a>\n\nProduced by Nguyễn Hải Yến (Red)\nStarring Celina Tran, Lê-Bac-Tân, Beo\nSupported by the RMIT Digital Design and Art Grants\nSpecial thanks to Martin Constable</i>\nThe video follows four characters, each embodying a stereotype of contemporary Vietnamese life, as they appear in fragmented scenes from an audition.\nThere is a salaryman who dreams of “flying like a kite” — lên như diều gặp gió; a narrator who brings rice to his mother before running off to play football; a schoolgirl who attends class by day and spiritual rituals by night; and a keyboard hero who patrols the Internet with memes and comments.\nThey meet only as fragments within the audition, each trying hard to fit into the roles that society has assigned to them.',
+    bodyVie: '<i class="topic-credit">(2022) Video thử nghiệm\n<a href="https://youtu.be/1MUQamFFUWo?si=T74ZK5DYM1P04Vsv" target="_blank">Youtube</a>\n\nSản xuất bởi Nguyễn Hải Yến (Red)\nDiễn xuất: Celina Tran, Lê-Bắc-Tân, Beo\nĐược hỗ trợ bởi RMIT Digital Design and Art Grants\nĐặc biệt cảm ơn Martin Constable</i>\nBốn nhân vật, đại diện cho bốn khuôn mẫu trong đời sống đương đại Việt Nam, gặp nhau qua những mảnh rời của một buổi casting: một anh nhân viên văn phòng mơ được “lên như diều gặp gió”; người kể chuyện mang cơm cho mẹ rồi đi đá bóng; một nữ sinh ban ngày đến lớp, ban đêm tham gia các buổi hầu đồng; và cuối cùng là một anh hùng bàn phím, tuần tra Internet bằng bàn phím và meme.\nHọ gặp nhau như những mảnh vỡ của buổi thử vai, mỗi người đều cố gắng hết sức để khớp vào những vai diễn mà xã hội đã trao cho họ.',
     images: [
       {
         url: 'https://youtu.be/1MUQamFFUWo?si=T74ZK5DYM1P04Vsv',
         captionEn: 'Archival video stills capturing audition recordings and screen tests.',
         captionVie: 'Ảnh cắt từ video lưu trữ ghi lại các buổi thu âm thử giọng và kiểm tra màn hình.'
+      },
+      {
+        url: 'II Provino/i (1).jpg',
+        captionEn: '(2022) Experimental video',
+        captionVie: '(2022) Video thử nghiệm'
+      },
+      {
+        url: 'II Provino/i (2).jpg',
+        captionEn: '(2022) Experimental video',
+        captionVie: '(2022) Video thử nghiệm'
+      },
+      {
+        url: 'II Provino/i (3).jpg',
+        captionEn: '(2022) Experimental video',
+        captionVie: '(2022) Video thử nghiệm'
+      },
+      {
+        url: 'II Provino/i (4).jpg',
+        captionEn: '(2022) Experimental video',
+        captionVie: '(2022) Video thử nghiệm'
       }
     ]
   },
@@ -286,30 +316,62 @@ const topicData = {
     bodyEn: '<i class="topic-credit">(2023-) Audio-Visual Performances</i>\nA series of curated audio-visual performances by Vietnamese and international artists. VinA/V serves as a platform for experimentation in audio-visual performance, while creating space for exchange between local and global practices.\nThe term VinA/V is a wordplay: audio-visual with a Vina orientation.\nCurated by Vietnam Media Lab.',
     bodyVie: '<i class="topic-credit">(2023-) Trình diễn nghe-nhìn</i>\nMột chuỗi trình diễn nghe-nhìn được giám tuyển, với sự tham gia của các nghệ sĩ Việt Nam và quốc tế. VinA/V đóng vai trò như một nền tảng thử nghiệm trong trình diễn nghe-nhìn, đồng thời tạo ra không gian trao đổi giữa các thực hành địa phương và toàn cầu.\nTên gọi VinA/V là một cách chơi chữ: audio-visual với định hướng Vina.\nGiám tuyển bởi Vietnam Media Lab.',
     images: [
-      {
-        captionEn: 'Audio-visual synthesis combining historical acoustic archives with modern electronic rhythms.',
-        captionVie: 'Tổng hợp âm thanh-hình ảnh kết hợp tài liệu lưu trữ âm thanh lịch sử với nhịp điệu điện tử hiện đại.'
-      }
+      { url: 'VinAV/av1.mp4' },
+      { url: 'VinAV/av2.mp4' },
+      { url: 'VinAV/av3.jpg' },
+      { url: 'VinAV/av4.jpg' },
+      { url: 'VinAV/av5.jpg' },
+      { url: 'VinAV/av6.jpg' },
+      { url: 'VinAV/av7.jpg' },
+      { url: 'VinAV/av8.jpg' },
+      { url: 'VinAV/av9.jpg' },
+      { url: 'VinAV/av10.jpg' }
     ]
   }
 };
 
-function setWorkPreviewCaptions(topicId, caption) {
+function setWorkPreviewCaptions(topicId, captionEn, captionVie = captionEn) {
   const topic = topicData[topicId];
   if (!topic || !Array.isArray(topic.images)) return;
 
   topic.images.forEach((image) => {
-    image.captionEn = caption;
-    image.captionVie = caption;
+    image.captionEn = captionEn;
+    image.captionVie = captionVie;
   });
 }
 
 setWorkPreviewCaptions('post-sharing', 'Post-sharing economy (2019)');
-setWorkPreviewCaptions('il-provino', 'Il Provino (2022)');
+setWorkPreviewCaptions('first-collection', '(2020) 3D Garments Design', '(2020) Thiết kế trang phục 3D');
+setWorkPreviewCaptions('taiwan', '(2023) Experimental Theatre');
+setWorkPreviewCaptions('il-provino', '(2022) Experimental video', '(2022) Video thử nghiệm');
+setWorkPreviewCaptions('karma', '(2019) Speculative design', '(2019) Thiết kế suy tưởng');
 setWorkPreviewCaptions('vina-seat', 'Vinaseat (2026)');
 setWorkPreviewCaptions('cay-neo', 'Cây Neo(2025)');
+setWorkPreviewCaptions('vinav', '(2023-) Audio-Visual Performance');
 
-topicData.viscose.bodyVie = '<i class="topic-credit">(2021) Bộ lọc AR.\nTạp chí..\nTrưng bày tại X-Museum, Trung Quốc.</i>\n“The Avant-garde is in Front of Us”\nMột sơ đồ cộng tác, được đồng ý tưởng cùng Arlette Quỳnh Anh Trần.\nTác phẩm khám phá sự dịch chuyển của khái niệm avant-garde trong châu Á đương đại, chất vấn các quan niệm thời gian lấy châu Âu làm trung tâm, đồng thời đề xuất một tầm nhìn về thực hành thử nghiệm nghệ thuật: hướng về phía trước nhưng được đặt nền trên chính bối cảnh khu vực.';
+topicData.vinav.image = 'VinAV/av7.jpg';
+
+topicData['open-source'].image = 'vinadesign.png';
+topicData['open-source'].images = [
+  {
+    url: 'logovina.gif',
+    captionEn: '(2026-) Archive',
+    captionVie: '(2026-) Archive'
+  }
+];
+
+topicData['2028'].image = 'vinadesign.png';
+topicData['2028'].bodyEn = '<i class="topic-credit">(2026-) Art and Design Biennale</i>\nA speculative - for now - biennale of arts and design with Vina orientation. Looking and going forward! Tiến lên!';
+topicData['2028'].bodyVie = '<i class="topic-credit">(2026-) Art and Design Biennale</i>\nMột biennale giả tưởng — ở thời điểm này — dành cho mọi hình thức nghệ thuật và thiết kế, với định hướng Vina.\nNhìn về phía trước, và đi về phía trước!\nTiến lên!';
+topicData['2028'].images = [
+  {
+    url: 'logovina.gif',
+    captionEn: '(2026-) Art and Design Biennale',
+    captionVie: '(2026-) Art and Design Biennale'
+  }
+];
+
+topicData.viscose.bodyVie = '<i class="topic-credit">(2021) Bộ lọc AR.\nTạp chí..\nTrưng bày tại X-Museum, Trung Quốc.</i>\n“The Avant-garde is in Front of Us”. Một sơ đồ cộng tác, được đồng ý tưởng cùng Arlette Quỳnh Anh Trần.Tác phẩm khám phá sự dịch chuyển của khái niệm avant-garde trong châu Á đương đại, chất vấn các quan niệm thời gian lấy châu Âu làm trung tâm, đồng thời đề xuất một tầm nhìn về thực hành thử nghiệm nghệ thuật: hướng về phía trước nhưng được đặt nền trên chính bối cảnh khu vực.';
 
 const centers = {
   // Nodes
@@ -350,6 +412,20 @@ const topicConnections = {
   'il-provino': ['viscose', 'first-collection', 'taiwan'],
   'vinav': ['bds']
 };
+
+const topicParentBranchOverrides = {
+  'teaching': '3',
+  'il-provino': '2',
+  'vina-seat': '4',
+  'vinav': '5',
+  'cay-neo': '4'
+};
+
+function getTopicParentBranchId(topicId) {
+  if (topicParentBranchOverrides[topicId]) return topicParentBranchOverrides[topicId];
+  const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
+  return subRiver ? subRiver.dataset.branch : null;
+}
 
 const panel              = document.getElementById('infoPanel');
 const overlay            = document.getElementById('mapOverlay');
@@ -777,6 +853,7 @@ function setRiverFlow(selector) {
 }
 
 let introHasRevealed = false;
+let introRevealStarted = false;
 let introLiteMode = false;
 let riverFlowTimers = [];
 
@@ -807,11 +884,27 @@ function scheduleRiverFlow(liteMode = introLiteMode) {
 }
 
 function revealIntroMap() {
+  if (introHasRevealed || introRevealStarted) return;
+
   const wasPending = document.body.classList.contains('intro-pending');
+  const introScreen = document.getElementById('introScreen');
+  if (wasPending && introScreen) {
+    introRevealStarted = true;
+    introScreen.classList.add('is-exiting');
+    window.setTimeout(() => {
+      document.body.classList.remove('intro-pending');
+      document.body.classList.add('map-revealed');
+      introScreen.classList.add('is-hidden');
+      introHasRevealed = true;
+      introRevealStarted = false;
+      scheduleRiverFlow();
+    }, 1400);
+    return;
+  }
+
   document.body.classList.remove('intro-pending');
   document.body.classList.add('map-revealed');
 
-  if (introHasRevealed && !wasPending) return;
   introHasRevealed = true;
   scheduleRiverFlow();
 }
@@ -2179,7 +2272,7 @@ function updateSlideshowCaption() {
   
   let captionHtml = `<div style="font-size: 13px; line-height: 1.45;">${text}</div>`;
   
-  if (slide.url && (slide.url.includes('youtube.com') || slide.url.includes('youtu.be'))) {
+  if (!['il-provino', 'bds'].includes(currentTopicId) && slide.url && (slide.url.includes('youtube.com') || slide.url.includes('youtu.be'))) {
     const linkText = (activeLang === 'en') ? 'Watch on YouTube ↗' : 'Xem trên YouTube ↗';
     captionHtml += `
       <div style="margin-top: 8px;">
@@ -2244,8 +2337,7 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
     secondSeparator.style.display = 'inline-flex';
     
     // Determine parent branch and title
-    const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
-    currentParentBranchId = subRiver ? subRiver.dataset.branch : null;
+    currentParentBranchId = getTopicParentBranchId(topicId);
     
     if (currentParentBranchId) {
       const parentData = branchData[currentParentBranchId];
@@ -2358,9 +2450,13 @@ function openPanel(num, title, bodyEn, bodyVie, connectedTopics, isTopic = false
             </svg>
           `;
         
+        const imagePlaceholderClass = data.cardPlainBackground
+          ? 'card-image-placeholder plain-bg'
+          : 'card-image-placeholder';
+
         card.innerHTML = `
           <div class="card-header ${bgClass}">${formatCardTitle(data.title)}</div>
-          <div class="card-image-placeholder">
+          <div class="${imagePlaceholderClass}">
             ${imageHtml}
           </div>
         `;
@@ -2526,8 +2622,7 @@ function selectTopic(topicId) {
       // 5. Open/update panel silently (shouldOpen = false)
       const data = topicData[topicId];
       if (data) {
-        const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
-        const parentBranchId = subRiver ? subRiver.dataset.branch : null;
+        const parentBranchId = getTopicParentBranchId(topicId);
         const connIds = topicConnections[topicId] || [];
         openPanel(parentBranchId || 'T', data.title, data.bodyEn, data.bodyVie, connIds, true, topicId, false);
       }
@@ -2554,8 +2649,7 @@ function selectTopic(topicId) {
 
     const data = topicData[topicId];
     if (data) {
-      const subRiver = document.querySelector(`path.sub[data-topic="${topicId}"]`);
-      const parentBranchId = subRiver ? subRiver.dataset.branch : null;
+      const parentBranchId = getTopicParentBranchId(topicId);
       const connIds = topicConnections[topicId] || [];
       openPanel(parentBranchId || 'T', data.title, data.bodyEn, data.bodyVie, connIds, true, topicId, true);
     }
@@ -4112,7 +4206,8 @@ function toggleAudioReactFromMountainp(trigger) {
 
 function setupBrandAudioReact() {
   const brand = document.querySelector('.brand');
-  if (!brand) return;
+  const introScreen = document.getElementById('introScreen');
+  if (!brand && !introScreen) return;
 
   // Create rain container overlay
   let rainContainer = document.getElementById('musicRainContainer');
@@ -4133,15 +4228,26 @@ function setupBrandAudioReact() {
 
   const revealFromBrand = (event) => {
     event.preventDefault();
-    if (typeof brand.blur === 'function') brand.blur();
+    if (brand && typeof brand.blur === 'function') brand.blur();
+    if (introScreen && typeof introScreen.blur === 'function') introScreen.blur();
     revealIntroMap();
   };
 
-  brand.addEventListener('click', revealFromBrand);
-  brand.addEventListener('keydown', event => {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
-    revealFromBrand(event);
-  });
+  if (brand) {
+    brand.addEventListener('click', revealFromBrand);
+    brand.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      revealFromBrand(event);
+    });
+  }
+
+  if (introScreen) {
+    introScreen.addEventListener('click', revealFromBrand);
+    introScreen.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      revealFromBrand(event);
+    });
+  }
 
   getMountainpTriggers().forEach(mountain => {
     mountain.classList.add('music-trigger-mountain');

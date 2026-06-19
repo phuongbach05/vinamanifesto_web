@@ -1,4 +1,4 @@
-# Vinamanifesto River Portfolio
+# VINABIENNALE
 
 Prototype website map theo layout Past / Present / Future.
 
