@@ -2236,7 +2236,7 @@ function renderSlideshowPlaceholder(topicId, index) {
       container.style.alignItems = 'center';
       container.style.justifyContent = 'center';
       container.innerHTML = `
-        <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 45%; height: 45%; object-fit: contain; display: block;" decoding="async" />
+        <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 60%; height: 60%; object-fit: contain; display: block;" decoding="async" />
       `;
       return;
     }

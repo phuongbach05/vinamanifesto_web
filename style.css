@@ -745,7 +745,7 @@ body.intro-pending .brand-logo-gif {
   padding: 24px;
   color: var(--blue);
   font-family: 'Arial', sans-serif;
-  font-size: 18.5px;
+  font-size: 20px;
   line-height: 1.55;
   font-weight: normal;
   text-align: left;
@@ -2459,6 +2459,7 @@ body.intro-pending .brand-logo-gif {
   justify-content: flex-start;
   padding: clamp(20px, 3vh, 32px) clamp(16px, 2.5vw, 24px);
   min-height: 325px;
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -2478,7 +2479,7 @@ body.intro-pending .brand-logo-gif {
 .info-panel.is-branch-view #modalBodyVie {
   color: #ffe500;
   font-family: 'Arial', sans-serif;
-  font-size: clamp(13.5px, 1.85vh, 17.5px);
+  font-size: clamp(17px, 2.3vh, 22px);
   line-height: 1.6;
   font-weight: normal;
   text-align: center;
