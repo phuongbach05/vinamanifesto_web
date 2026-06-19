@@ -49,6 +49,11 @@ const topicData = {
         url: 'postsharing economy/post2.jpg',
         captionEn: 'Data visualization tracking digital transaction flows and local community habits.',
         captionVie: 'Trực quan hóa dữ liệu theo dõi luồng giao dịch số và thói quen cộng đồng địa phương.'
+      },
+      {
+        url: 'postsharing economy/post3.jpg',
+        captionEn: 'Post-sharing economy artwork presentation.',
+        captionVie: 'Trưng bày tác phẩm nền kinh tế hậu chia sẻ.'
       }
     ]
   },
