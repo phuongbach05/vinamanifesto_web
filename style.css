@@ -745,7 +745,7 @@ body.intro-pending .brand-logo-gif {
   padding: 24px;
   color: var(--blue);
   font-family: 'Arial', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.55;
   font-weight: normal;
   text-align: left;
@@ -2429,6 +2429,7 @@ body.intro-pending .brand-logo-gif {
     margin-top: auto !important;
     margin-bottom: auto !important;
     flex: 0 0 auto !important;
+    transform: none !important;
   }
 }
 
@@ -2473,13 +2474,14 @@ body.intro-pending .brand-logo-gif {
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
+  transform: translateY(30px);
 }
 
 .info-panel.is-branch-view #modalBodyEn,
 .info-panel.is-branch-view #modalBodyVie {
   color: #ffe500;
   font-family: 'Arial', sans-serif;
-  font-size: clamp(17px, 2.3vh, 22px);
+  font-size: clamp(19px, 2.6vh, 24px);
   line-height: 1.6;
   font-weight: normal;
   text-align: center;
