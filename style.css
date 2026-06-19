@@ -1706,8 +1706,8 @@ body.intro-pending .brand-logo-gif {
   padding-right: 8px;
   color: var(--blue);
   font-family: Arial, sans-serif;
-  font-size: clamp(13.5px, 1.85vh, 17.5px) !important;
-  line-height: 1.35;
+  font-size: clamp(18px, 2.4vh, 22px) !important;
+  line-height: 1.55;
 }
 .info-panel.is-topic-view .cards-slider-wrap {
   --related-card-gap: 18px;
@@ -1828,7 +1828,8 @@ body.intro-pending .brand-logo-gif {
   .info-panel.is-branch-view #modalBodyEn,
   .info-panel.is-branch-view #modalBodyVie,
   .info-panel.is-topic-view .topic-desc-wrap {
-    font-size: 13px !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
   }
 
   .info-panel.is-topic-view {
@@ -2164,8 +2165,8 @@ body.intro-pending .brand-logo-gif {
     min-height: 0 !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    font-size: clamp(10px, 1.04vw, 12px) !important;
-    line-height: 1.3 !important;
+    font-size: clamp(12px, 1.3vw, 15px) !important;
+    line-height: 1.45 !important;
   }
 
   .info-panel.is-topic-view .slideshow-caption {
