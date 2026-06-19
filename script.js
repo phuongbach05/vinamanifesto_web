@@ -1998,6 +1998,31 @@ let currentSlideshowIndex = 0;
 let activeLang = 'en'; // Default to EN
 let currentPanelData = { isTopic: false, bodyEn: '', bodyVie: '' };
 
+let slideshowAutoplayTimer = null;
+function resetSlideshowAutoplay() {
+  if (slideshowAutoplayTimer) {
+    clearTimeout(slideshowAutoplayTimer);
+    slideshowAutoplayTimer = null;
+  }
+  
+  if (!currentTopicId) return;
+  const data = topicData[currentTopicId];
+  if (!data || !data.images || data.images.length <= 1) return;
+  
+  const currentImage = data.images[currentSlideshowIndex];
+  if (currentImage && currentImage.url) {
+    const isVideo = isLocalVideoUrl(currentImage.url) || 
+                    currentImage.url.includes('youtube.com') || 
+                    currentImage.url.includes('youtu.be');
+    if (isVideo) return;
+  }
+  
+  slideshowAutoplayTimer = setTimeout(() => {
+    let nextIndex = (currentSlideshowIndex + 1) % data.images.length;
+    updateSlideshow(currentTopicId, nextIndex);
+  }, 10000);
+}
+
 function updateLanguageDisplay() {
   const btnEn = document.getElementById('btnLangEn');
   const btnVie = document.getElementById('btnLangVie');
@@ -2164,6 +2189,12 @@ function renderSlideshowPlaceholder(topicId, index) {
   const container = document.getElementById('slideshowImageWrap');
   if (!container) return;
   
+  // Clear any placeholder-specific styling by default
+  container.style.backgroundColor = '';
+  container.style.display = '';
+  container.style.alignItems = '';
+  container.style.justifyContent = '';
+  
   const currentImage = data.images[index];
   
   if (currentImage.url) {
@@ -2197,6 +2228,16 @@ function renderSlideshowPlaceholder(topicId, index) {
         video.muted = true;
         video.play().catch(() => {});
       }
+      return;
+    }
+    if (currentImage.url === 'logovina.gif') {
+      container.style.backgroundColor = '#f4eedb';
+      container.style.display = 'flex';
+      container.style.alignItems = 'center';
+      container.style.justifyContent = 'center';
+      container.innerHTML = `
+        <img src="${currentImage.url}" alt="${data.title} - ${placeholderNum}" style="width: 45%; height: 45%; object-fit: contain; display: block;" decoding="async" />
+      `;
       return;
     }
     const isBottomAligned = currentImage.url.includes('chair4.jpg') || currentImage.url.includes('chair5.jpg');
@@ -2272,6 +2313,7 @@ function updateSlideshow(topicId, index) {
   
   updateSlideshowCaption();
   updateLightboxContent();
+  resetSlideshowAutoplay();
 }
 
 function updateSlideshowCaption() {
@@ -2821,6 +2863,11 @@ function closePanel() {
   // Guard flag: prevents resize-triggered refreshViewBoxForViewport from
   // snapping the viewBox during the panel close transition
   _panelClosing = true;
+
+  if (slideshowAutoplayTimer) {
+    clearTimeout(slideshowAutoplayTimer);
+    slideshowAutoplayTimer = null;
+  }
 
   // Stop any playing media by clearing image wrapping containers
   muteAndStopPreviewMedia();
