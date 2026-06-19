@@ -52,6 +52,7 @@ const topicData = {
       },
       {
         url: 'postsharing economy/post3.jpg',
+        objectPosition: 'left',
         captionEn: 'Post-sharing economy artwork presentation.',
         captionVie: 'Trưng bày tác phẩm nền kinh tế hậu chia sẻ.'
       }
