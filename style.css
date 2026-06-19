@@ -3111,7 +3111,7 @@ body.intro-pending .brand-logo-gif {
   html,
   body,
   .site {
-    cursor: url('./cursor-small.cur'), auto;
+    cursor: url('./cursor-small.png') 14 2, url('./cursor-small.cur'), auto;
   }
 
   a,
@@ -3130,15 +3130,15 @@ body.intro-pending .brand-logo-gif {
   .modal-branch-wrap,
   .connection-card,
   .music-skip-btn {
-    cursor: url('./poniter-small.cur'), pointer !important;
+    cursor: url('./poniter-small.png') 1 2, url('./poniter-small.cur'), pointer !important;
   }
 
   #brandLogo {
-    cursor: url('./cursor-small.cur'), auto !important;
+    cursor: url('./cursor-small.png') 14 2, url('./cursor-small.cur'), auto !important;
   }
 
   body.intro-pending #brandLogo {
-    cursor: url('./poniter-small.cur'), pointer !important;
+    cursor: url('./poniter-small.png') 1 2, url('./poniter-small.cur'), pointer !important;
   }
 }
 
