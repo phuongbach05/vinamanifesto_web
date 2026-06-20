@@ -244,19 +244,24 @@ const topicData = {
     bodyVie: '<i class="topic-credit">(2022-) Trình diễn nghe-nhìn\n<a href="https://www.youtube.com/watch?v=bk_dJ5wYeUQ" target="_blank">Youtube</a></i>\nMột trình diễn nghe-nhìn trực tiếp khám phá những biến động của thị trường bất động sản và cảnh quan kiến trúc Việt Nam. Kết hợp đồ họa tạo sinh, live coding, âm nhạc thuật toán và các hình ảnh mượn từ mỹ học kitsch Việt Nam, tác phẩm tạo nên một trải nghiệm nghe-nhìn động, phản ánh sự tương phản giữa kiến trúc bản địa Việt Nam và quá trình phát triển đô thị hiện đại.',
     images: [
       {
-        url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
-        captionEn: '(2022-) Audio-visual performances',
-        captionVie: '(2022-) Trình diễn nghe-nhìn'
-      },
-      {
         url: 'batdongsan/bd1.mp4',
-        captionEn: '(2022-) Audio-visual performances',
-        captionVie: '(2022-) Trình diễn nghe-nhìn'
+        captionEn: 'Bat Dong San A/V (2022-)',
+        captionVie: 'Bat Dong San A/V (2022-)'
       },
       {
         url: 'batdongsan/bd2.mp4',
-        captionEn: '(2022-) Audio-visual performances',
-        captionVie: '(2022-) Trình diễn nghe-nhìn'
+        captionEn: 'Bat Dong San A/V (2022-)',
+        captionVie: 'Bat Dong San A/V (2022-)'
+      },
+      {
+        url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
+        captionEn: 'Bat Dong San A/V (2022-)',
+        captionVie: 'Bat Dong San A/V (2022-)'
+      },
+      {
+        url: 'batdongsan/bd3.png',
+        captionEn: 'Bat Dong San A/V (2022-)',
+        captionVie: 'Bat Dong San A/V (2022-)'
       }
     ]
   },
@@ -382,8 +387,8 @@ topicData['2028'].bodyVie = '<i class="topic-credit">(2026-) Art and Design Bien
 topicData['2028'].images = [
   {
     url: 'logovina.gif',
-    captionEn: '(2026-) Art and Design Biennale',
-    captionVie: '(2026-) Art and Design Biennale'
+    captionEn: 'Vinabiennale 2028 (2026-)',
+    captionVie: 'Vinabiennale 2028 (2026-)'
   }
 ];
 
