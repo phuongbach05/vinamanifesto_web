@@ -206,13 +206,14 @@ body.intro-pending .brand-logo-gif {
 }
 
 .instagram-timeline-link {
+  opacity: 0.6;
   transition: transform 0.2s ease, opacity 0.2s ease;
   transform-origin: center;
   transform-box: fill-box;
 }
 .instagram-timeline-link:hover {
   transform: scale(1.18);
-  opacity: 0.82;
+  opacity: 1;
 }
 
 .time {
