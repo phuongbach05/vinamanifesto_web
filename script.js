@@ -67,23 +67,23 @@ const topicData = {
     images: [
       {
         url: 'Viscose/vis1.jpg',
-        captionEn: '(2021) AR filter.',
-        captionVie: '(2021) AR filter.'
+        captionEn: 'Viscose #3 (2021)',
+        captionVie: 'Viscose #3 (2021)'
       },
       {
         url: 'Viscose/vis2.png',
-        captionEn: '(2021) AR filter.',
-        captionVie: '(2021) AR filter.'
+        captionEn: 'Viscose #3 (2021)',
+        captionVie: 'Viscose #3 (2021)'
       },
       {
         url: 'Viscose/vis3.png',
-        captionEn: '(2021) AR filter.',
-        captionVie: '(2021) AR filter.'
+        captionEn: 'Viscose #3 (2021)',
+        captionVie: 'Viscose #3 (2021)'
       },
       {
         url: 'Viscose/vis4.mp4',
-        captionEn: '(2021) AR filter.',
-        captionVie: '(2021) AR filter.'
+        captionEn: 'Viscose #3 (2021)',
+        captionVie: 'Viscose #3 (2021)'
       }
     ]
   },
