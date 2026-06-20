@@ -357,13 +357,13 @@ function setWorkPreviewCaptions(topicId, captionEn, captionVie = captionEn) {
 }
 
 setWorkPreviewCaptions('post-sharing', 'Post-sharing economy (2019)');
-setWorkPreviewCaptions('first-collection', '(2020) 3D Garments Design', '(2020) Thiết kế trang phục 3D');
-setWorkPreviewCaptions('taiwan', '(2023) Experimental Theatre');
-setWorkPreviewCaptions('il-provino', '(2022) Experimental video', '(2022) Video thử nghiệm');
-setWorkPreviewCaptions('karma', 'Speculative design (2019)', 'Thiết kế suy tưởng (2019)');
+setWorkPreviewCaptions('first-collection', 'Vinabiennale SS2020/22 (2020)', 'Vinabiennale SS2020/22 (2020)');
+setWorkPreviewCaptions('taiwan', 'Vinabiennale @ TW National Theatre (2023)');
+setWorkPreviewCaptions('il-provino', 'il-provino (2022)', 'il-provino (2022)');
+setWorkPreviewCaptions('karma', 'Karma Kapitalists (2019)', 'Karma Kapitalists (2019)');
 setWorkPreviewCaptions('vina-seat', 'Vinaseat (2026)');
 setWorkPreviewCaptions('cay-neo', 'Cây Neo (2025)');
-setWorkPreviewCaptions('vinav', '(2023-) Audio-Visual Performance');
+setWorkPreviewCaptions('vinav', 'VinA/V (2023-)');
 
 topicData.vinav.image = 'VinAV/av7.jpg';
 
