@@ -204,6 +204,11 @@ const topicData = {
         url: 'cayneo/cayneo3.jpg',
         captionEn: 'Cây Neo generative growth detail.',
         captionVie: 'Chi tiết phát triển tạo sinh của Cây Neo.'
+      },
+      {
+        url: 'cayneo/cayneo5.jpg',
+        captionEn: 'Cây Neo generative growth simulation visualization.',
+        captionVie: 'Mô phỏng trực quan mô hình phát triển tạo sinh của Cây Neo.'
       }
     ]
   },
@@ -355,9 +360,9 @@ setWorkPreviewCaptions('post-sharing', 'Post-sharing economy (2019)');
 setWorkPreviewCaptions('first-collection', '(2020) 3D Garments Design', '(2020) Thiết kế trang phục 3D');
 setWorkPreviewCaptions('taiwan', '(2023) Experimental Theatre');
 setWorkPreviewCaptions('il-provino', '(2022) Experimental video', '(2022) Video thử nghiệm');
-setWorkPreviewCaptions('karma', '(2019) Speculative design', '(2019) Thiết kế suy tưởng');
+setWorkPreviewCaptions('karma', 'Speculative design (2019)', 'Thiết kế suy tưởng (2019)');
 setWorkPreviewCaptions('vina-seat', 'Vinaseat (2026)');
-setWorkPreviewCaptions('cay-neo', 'Cây Neo(2025)');
+setWorkPreviewCaptions('cay-neo', 'Cây Neo (2025)');
 setWorkPreviewCaptions('vinav', '(2023-) Audio-Visual Performance');
 
 topicData.vinav.image = 'VinAV/av7.jpg';
@@ -4205,7 +4210,7 @@ function createMusicMarqueeContent(position) {
   const fragment = document.createDocumentFragment();
   const copy = position === 'top'
     ? 'Làm xong mới biết: thế này Vina👐👐👐Nhớ rồi làm lấy hôm nay👐👐👐VINA là HEY! HAY! HEY!👐👐👐Ghi lòng tạc dạ điều này: '
-    : 'Only then you know the Vina way.👐👐👐 Learn the rule, then make your play👐👐👐VINA is HEY! HAY! HEY!👐👐👐Write it down and shout today::';
+    : 'Only then you know the Vina way.👐👐👐 Learn the rule, then make your play👐👐👐VINA is HEY! HAY! HEY!👐👐👐Write it down and shout today:';
   const words = [copy, copy, copy];
 
   words.forEach(word => {
@@ -4305,12 +4310,25 @@ function toggleAudioReactFromMountainp(trigger) {
   if (!audio) return;
 
   if (audio.paused) {
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume().catch(e => console.warn("Failed to resume AudioContext:", e));
+    }
+    
+    startAudioReactEvent();
+    
     audio.play().catch(err => {
       console.error('Không chơi được nhạc:', err);
-      alert('Chưa tìm thấy file "song.mp3" trong thư mục web. Vui lòng thêm file "song.mp3" để chạy hiệu ứng nhạc!');
+      if (err.name === 'AbortError') {
+        // Ignored, harmless click interruption (e.g. rapid double clicks)
+        return;
+      }
+      if (err.name === 'NotAllowedError') {
+        alert('Trình duyệt chặn phát âm thanh tự động. Vui lòng nhấp chuột lên màn hình rồi thử lại!');
+      } else {
+        alert('Không thể phát file "song.mp3". Vui lòng kiểm tra xem file đã được thêm vào thư mục web chưa!');
+      }
       stopAudioReact();
     });
-    startAudioReactEvent();
   } else {
     stopAudioReact();
   }

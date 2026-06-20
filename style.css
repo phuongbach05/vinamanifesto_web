@@ -1262,8 +1262,8 @@ body.intro-pending .brand-logo-gif {
 }
 .lightbox-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 85vh;
+  max-width: 95vw;
+  max-height: 95vh;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1280,7 +1280,7 @@ body.intro-pending .brand-logo-gif {
 .lightbox-image-wrap img {
   width: auto !important;
   height: auto !important;
-  max-width: 90vw !important;
+  max-width: 95vw !important;
   max-height: 85vh !important;
   aspect-ratio: auto !important;
   object-fit: contain !important;
@@ -1288,31 +1288,31 @@ body.intro-pending .brand-logo-gif {
   display: block !important;
 }
 .lightbox-image-wrap svg {
-  max-width: 90vw !important;
+  max-width: 95vw !important;
   max-height: 85vh !important;
   width: auto !important;
   height: auto !important;
-  aspect-ratio: 4 / 3 !important;
+  aspect-ratio: auto !important;
   display: block !important;
 }
 .lightbox-image-wrap iframe {
-  max-width: 90vw !important;
+  width: min(90vw, calc(85vh * 16 / 9)) !important;
+  height: min(85vh, calc(90vw * 9 / 16)) !important;
+  aspect-ratio: 16 / 9 !important;
+  max-width: 95vw !important;
   max-height: 85vh !important;
-  width: min(800px, 90vw) !important;
-  height: min(600px, 67.5vw) !important;
-  aspect-ratio: 4 / 3 !important;
   display: block !important;
   border: none !important;
 }
 .lightbox-image-wrap video {
   width: auto !important;
   height: auto !important;
-  max-width: 90vw !important;
+  max-width: 95vw !important;
   max-height: 85vh !important;
-  aspect-ratio: 4 / 3 !important;
+  aspect-ratio: auto !important;
   object-fit: contain !important;
   display: block !important;
-  background: #000 !important;
+  background: transparent !important;
 }
 .lightbox-nav-btn {
   position: absolute;
@@ -1343,24 +1343,27 @@ body.intro-pending .brand-logo-gif {
   right: 24px;
 }
 .lightbox-close-btn {
-  position: absolute;
-  top: -45px;
-  right: -4px;
-  background: transparent;
+  position: fixed;
+  top: clamp(12px, 3vh, 24px);
+  right: clamp(12px, 3vw, 24px);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
-  border: 3px solid #fff;
-  width: 36px;
-  height: 36px;
-  font-size: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
+  z-index: 2100;
 }
 .lightbox-close-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -2782,7 +2785,7 @@ body.intro-pending .brand-logo-gif {
   background: #fff200;
   color: #ff0000;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(24px, 3.8vw, 58px);
+  font-size: clamp(30px, 5.5vw, 76px);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
@@ -2790,7 +2793,7 @@ body.intro-pending .brand-logo-gif {
   display: flex;
   align-items: center;
   height: auto;
-  min-height: calc(clamp(24px, 3.8vw, 58px) * 1.35);
+  min-height: calc(clamp(30px, 5.5vw, 76px) * 1.35);
 }
 
 .music-marquee-top {
@@ -2933,39 +2936,37 @@ body.intro-pending .brand-logo-gif {
   box-shadow: 0 6px 16px rgba(33, 50, 246, 0.3);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  html,
-  body,
-  .site {
-    cursor: url('./cursor-small.png') 14 2, url('./cursor-small.cur'), auto;
-  }
+html,
+body,
+.site {
+  cursor: url('./cursor-small.png') 11 2, url('./cursor-small.cur'), auto;
+}
 
-  a,
-  button,
-  [role="button"],
-  .topic,
-  .node,
-  .time,
-  .brand,
-  .slider-btn,
-  .slideshow-nav-btn,
-  .slideshow-enlarge-btn,
-  .lightbox-nav-btn,
-  .lightbox-close-btn,
-  .modal-home-wrap,
-  .modal-branch-wrap,
-  .connection-card,
-  .music-skip-btn {
-    cursor: url('./poniter-small.png') 1 2, url('./poniter-small.cur'), pointer !important;
-  }
+a,
+button,
+[role="button"],
+.topic,
+.node,
+.time,
+.brand,
+.slider-btn,
+.slideshow-nav-btn,
+.slideshow-enlarge-btn,
+.lightbox-nav-btn,
+.lightbox-close-btn,
+.modal-home-wrap,
+.modal-branch-wrap,
+.connection-card,
+.music-skip-btn {
+  cursor: url('./poniter-small.png') 1 2, url('./poniter-small.cur'), pointer !important;
+}
 
-  #brandLogo {
-    cursor: url('./cursor-small.png') 14 2, url('./cursor-small.cur'), auto !important;
-  }
+#brandLogo {
+  cursor: url('./cursor-small.png') 11 2, url('./cursor-small.cur'), auto !important;
+}
 
-  body.intro-pending #brandLogo {
-    cursor: url('./poniter-small.png') 1 2, url('./poniter-small.cur'), pointer !important;
-  }
+body.intro-pending #brandLogo {
+  cursor: url('./poniter-small.png') 1 2, url('./poniter-small.cur'), pointer !important;
 }
 
 @media (max-width: 1024px) and (max-height: 500px) and (orientation: landscape) {
