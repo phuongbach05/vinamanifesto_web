@@ -1717,6 +1717,22 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
     line.setAttribute('x1', segment[0].toFixed(1));
     line.setAttribute('x2', segment[1].toFixed(1));
   });
+
+  // Update Instagram icon position dynamically to stay centered between the left bird and PAST box
+  const instaLink = document.querySelector('.instagram-timeline-link');
+  if (instaLink) {
+    const rect = instaLink.querySelector('rect');
+    const g = instaLink.querySelector('g');
+    if (rect && g) {
+      const birdTailX = leftBirdX + 63;
+      const pastLeftX = (ticketBounds.past && ticketBounds.past.left !== undefined)
+        ? ticketBounds.past.left
+        : 187;
+      const instaCenterX = (birdTailX + pastLeftX) / 2;
+      rect.setAttribute('x', (instaCenterX - 15).toFixed(1));
+      g.setAttribute('transform', `translate(${(instaCenterX - 13).toFixed(1)}, 32) scale(0.81)`);
+    }
+  }
 }
 
 function getWideMapScale(viewBox = getFullViewBox()) {
