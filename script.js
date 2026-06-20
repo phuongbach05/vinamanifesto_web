@@ -4314,9 +4314,9 @@ function toggleAudioReactFromMountainp(trigger) {
       audioCtx.resume().catch(e => console.warn("Failed to resume AudioContext:", e));
     }
     
-    startAudioReactEvent();
-    
-    audio.play().catch(err => {
+    audio.play().then(() => {
+      startAudioReactEvent();
+    }).catch(err => {
       console.error('Không chơi được nhạc:', err);
       if (err.name === 'AbortError') {
         // Ignored, harmless click interruption (e.g. rapid double clicks)
