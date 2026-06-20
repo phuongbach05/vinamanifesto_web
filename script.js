@@ -257,11 +257,6 @@ const topicData = {
         url: 'https://www.youtube.com/watch?v=bk_dJ5wYeUQ',
         captionEn: 'Bat Dong San A/V (2022-)',
         captionVie: 'Bat Dong San A/V (2022-)'
-      },
-      {
-        url: 'batdongsan/bd3.png',
-        captionEn: 'Bat Dong San A/V (2022-)',
-        captionVie: 'Bat Dong San A/V (2022-)'
       }
     ]
   },
