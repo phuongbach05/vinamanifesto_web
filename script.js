@@ -1636,9 +1636,8 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
   const wideAmount = clamp((viewWidth - MAP_WIDTH) / 520, 0, 1);
   const timelineLines = [...document.querySelectorAll('.timeline-main-line')];
   const timelineLabels = document.querySelectorAll('.timeline .timeline-label');
-  const birdImages = [...document.querySelectorAll('.timeline image')];
-  const leftBird = birdImages[0];
-  const rightBird = birdImages[1];
+  const leftBird = document.querySelector('.timeline-left-bird');
+  const rightBird = document.querySelector('.timeline-right-bird');
   const leftLabel = timelineLabels[0];
   const rightLabel = document.querySelector('.timeline .label-right');
 
