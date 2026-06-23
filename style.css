@@ -1960,30 +1960,7 @@ body.intro-pending .brand-logo-gif {
     user-select: none !important;
   }
 
-  html.is-mobile-landscape .river,
-  html.is-mobile-landscape .river.flow-in,
-  html.is-mobile-landscape .river.main.flow-in,
-  html.is-mobile-landscape .river.sub.flow-in,
-  html.is-mobile-landscape .river.connector.flow-in {
-    transition: none !important;
-    stroke-dasharray: none !important;
-    stroke-dashoffset: 0 !important;
-  }
 
-  html.is-mobile-landscape .lake,
-  html.is-mobile-landscape .brand,
-  html.is-mobile-landscape .lake-mountain,
-  html.is-mobile-landscape .mountain,
-  html.is-mobile-landscape .node,
-  html.is-mobile-landscape .branch-title,
-  html.is-mobile-landscape .topic,
-  html.is-mobile-landscape .timeline,
-  html.is-mobile-landscape .endpoints circle,
-  html.is-mobile-landscape .bg-v-icon {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important;
-  }
 
   html.is-mobile-landscape body.intro-pending {
     background: #fbf8ef !important;
