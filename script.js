@@ -1732,19 +1732,16 @@ function updateResponsiveTimeline(viewBox = getFullViewBox()) {
     line.setAttribute('x2', segment[1].toFixed(1));
   });
 
-  // Update Instagram icon position dynamically to stay centered between the left bird and PAST box
+  // Update Instagram icon position dynamically to stay centered above the PRESENT ticket box (horizontal center of the timeline)
   const instaLink = document.querySelector('.instagram-timeline-link');
   if (instaLink) {
     const rect = instaLink.querySelector('rect');
     const g = instaLink.querySelector('g');
     if (rect && g) {
-      const birdTailX = leftBirdX + 63;
-      const pastLeftX = (ticketBounds.past && ticketBounds.past.left !== undefined)
-        ? ticketBounds.past.left
-        : 187;
-      const instaCenterX = (birdTailX + pastLeftX) / 2;
-      rect.setAttribute('x', (instaCenterX - 15).toFixed(1));
-      g.setAttribute('transform', `translate(${(instaCenterX - 13).toFixed(1)}, 32) scale(0.81)`);
+      const timelineCenterX = viewX + viewWidth / 2;
+      rect.setAttribute('x', (timelineCenterX - 15).toFixed(1));
+      rect.setAttribute('y', '2');
+      g.setAttribute('transform', `translate(${(timelineCenterX - 13).toFixed(1)}, 4) scale(0.81)`);
     }
   }
 }
