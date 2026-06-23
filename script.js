@@ -3358,7 +3358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     river.style.setProperty('--length', length + 'px');
   });
 
-  if (!document.body.classList.contains('intro-pending')) {
+  if (!document.body.classList.contains('intro-pending') || isLandscapeMobile()) {
     revealIntroMap();
   }
 
@@ -3420,6 +3420,10 @@ window.addEventListener('resize', () => {
     updatePerformanceModeClass();
     refreshViewBoxForViewport();
 
+    if (isLandscapeMobile()) {
+      revealIntroMap();
+    }
+
     if (panel && panel.classList.contains('open')) {
       alignCardTitles();
       alignTopicDetailTitle();
@@ -3436,6 +3440,10 @@ window.addEventListener('resize', () => {
 window.addEventListener('orientationchange', () => {
   updatePerformanceModeClass();
   refreshViewBoxForViewport();
+
+  if (isLandscapeMobile()) {
+    revealIntroMap();
+  }
 
   if (panel && panel.classList.contains('open')) {
     alignCardTitles();

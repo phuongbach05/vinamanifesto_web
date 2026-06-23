@@ -2624,15 +2624,21 @@ body.intro-pending .brand-logo-gif {
   width: 100dvw;
   height: 100vh;
   height: 100dvh;
-  background: #f7f3e9;
+  background: #000000;
   z-index: 99999;
   display: none;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--blue);
+  color: #ffffff;
   font-family: 'Outfit', sans-serif;
   padding: 24px;
+}
+
+.rotation-logo {
+  width: min(240px, 50vw);
+  height: auto;
+  margin-bottom: 20px;
 }
 
 /* Show only on mobile/tablet (<= 1024px) in portrait orientation */
