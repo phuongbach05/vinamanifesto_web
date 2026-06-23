@@ -1962,19 +1962,22 @@ body.intro-pending .brand-logo-gif {
 
 
 
-  html.is-mobile-landscape body.intro-pending {
+  /* Prevent any black background or fadeout transition on mobile landscape */
+  body.intro-pending,
+  body {
     background: #fbf8ef !important;
   }
-  html.is-mobile-landscape body.intro-pending .site {
+  .site {
     background:
       radial-gradient(circle at 52% 50%, rgba(255, 211, 57, 0.12), transparent 24%),
       linear-gradient(180deg, #fbf8ef 0%, #f4efe5 100%) !important;
+    transition: none !important;
   }
-  html.is-mobile-landscape body.intro-pending .map-wrap {
+  .map-wrap {
     background-color: transparent !important;
     transition: none !important;
   }
-  html.is-mobile-landscape .intro-screen {
+  .intro-screen {
     display: none !important;
     transition: none !important;
     opacity: 0 !important;

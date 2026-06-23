@@ -3333,7 +3333,7 @@ function generateBackgroundIcons() {
 document.addEventListener('DOMContentLoaded', () => {
   updatePerformanceModeClass();
   const liteMode = isMobileLandscapeLite();
-  introLiteMode = liteMode;
+  introLiteMode = false; // Keep staggered river flow animations active on all devices
 
   setupDynamicMask();
   if (!liteMode) {
