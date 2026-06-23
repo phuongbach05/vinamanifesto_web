@@ -899,12 +899,27 @@ function scheduleRiverFlow(liteMode = introLiteMode) {
   }, 5200));
 }
 
-function revealIntroMap() {
+function revealIntroMap(immediate = false) {
   if (introHasRevealed || introRevealStarted) return;
 
   const wasPending = document.body.classList.contains('intro-pending');
   const introScreen = document.getElementById('introScreen');
   if (wasPending && introScreen) {
+    if (immediate) {
+      document.body.classList.remove('intro-pending');
+      document.body.classList.add('map-revealed');
+      introScreen.classList.add('is-hidden');
+      introHasRevealed = true;
+      introRevealStarted = false;
+      const fullVB = getFullViewBox();
+      currentViewBox = [...fullVB];
+      targetViewBox = [...fullVB];
+      setSVGViewBox(fullVB, true);
+      scheduleRiverFlow();
+      prefetchHouseSvgs();
+      return;
+    }
+
     introRevealStarted = true;
     introScreen.classList.add('is-exiting');
     window.setTimeout(() => {
@@ -1892,6 +1907,8 @@ function refreshViewBoxForViewport() {
 
   if (activeCameraCenter) {
     targetViewBox = getTargetViewBox(activeCameraCenter.cx, activeCameraCenter.cy);
+  } else if (isLandscapeMobile()) {
+    targetViewBox = fullViewBox;
   } else if (isMobileView()) {
     const aspect = getViewportAspect();
     const w = currentViewBox[2];
@@ -3359,7 +3376,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (!document.body.classList.contains('intro-pending') || isLandscapeMobile()) {
-    revealIntroMap();
+    revealIntroMap(isLandscapeMobile());
   }
 
   // 4. Stagger mountain sprouting after the connection structure is readable. (Disabled for custom mountains)
@@ -3421,7 +3438,7 @@ window.addEventListener('resize', () => {
     refreshViewBoxForViewport();
 
     if (isLandscapeMobile()) {
-      revealIntroMap();
+      revealIntroMap(true);
     }
 
     if (panel && panel.classList.contains('open')) {
@@ -3442,7 +3459,7 @@ window.addEventListener('orientationchange', () => {
   refreshViewBoxForViewport();
 
   if (isLandscapeMobile()) {
-    revealIntroMap();
+    revealIntroMap(true);
   }
 
   if (panel && panel.classList.contains('open')) {
