@@ -1985,6 +1985,24 @@ body.intro-pending .brand-logo-gif {
     opacity: 1 !important;
   }
 
+  html.is-mobile-landscape body.intro-pending {
+    background: #fbf8ef !important;
+  }
+  html.is-mobile-landscape body.intro-pending .site {
+    background:
+      radial-gradient(circle at 52% 50%, rgba(255, 211, 57, 0.12), transparent 24%),
+      linear-gradient(180deg, #fbf8ef 0%, #f4efe5 100%) !important;
+  }
+  html.is-mobile-landscape body.intro-pending .map-wrap {
+    background-color: transparent !important;
+    transition: none !important;
+  }
+  html.is-mobile-landscape .intro-screen {
+    display: none !important;
+    transition: none !important;
+    opacity: 0 !important;
+  }
+
   html.is-mobile-landscape #backgroundIcons,
   html.is-mobile-landscape .bg-v-icon {
     display: none !important;
